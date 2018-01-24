@@ -1,0 +1,982 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="mongodb nodejs组件中文文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="zh">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.2.5">
+    
+    
+      
+        <title>常问问题 - Mongoose文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.bcabdff3.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.792431c1.css">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    
+      <body data-md-color-primary="indigo" data-md-color-accent="indigo">
+    
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Mongoose文档" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Mongoose文档
+              </span>
+              <span class="md-header-nav__topic">
+                常问问题
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wohugb/mongoose-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wohugb/mongoose-docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." title="前言" class="md-tabs__link md-tabs__link--active">
+        前言
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../guide/Schemas/" title="指南" class="md-tabs__link">
+          指南
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../api/" title="API" class="md-tabs__link">
+          API
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    Mongoose文档
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wohugb/mongoose-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wohugb/mongoose-docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="前言" class="md-nav__link">
+      前言
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../QuickStart/" title="快速开始" class="md-nav__link">
+      快速开始
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      指南
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        指南
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guide/Schemas/" title="模式" class="md-nav__link">
+      模式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guide/Connections/" title="连接" class="md-nav__link">
+      连接
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guide/Models/" title="楷模" class="md-nav__link">
+      楷模
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guide/Documents/" title="文件" class="md-nav__link">
+      文件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guide/Queries/" title="查询" class="md-nav__link">
+      查询
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guide/Validation/" title="验证" class="md-nav__link">
+      验证
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guide/Middleware/" title="中间件" class="md-nav__link">
+      中间件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guide/Populate/" title="填充" class="md-nav__link">
+      填充
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guide/Discriminators/" title="鉴" class="md-nav__link">
+      鉴
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guide/Plugins/" title="插件" class="md-nav__link">
+      插件
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/" title="接口" class="md-nav__link">
+      接口
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/Schema/" title="架构" class="md-nav__link">
+      架构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/Connection/" title="架构" class="md-nav__link">
+      架构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/Document/" title="文件" class="md-nav__link">
+      文件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/Model/" title="模型" class="md-nav__link">
+      模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/Query/" title="询问" class="md-nav__link">
+      询问
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/Aggregate/" title="骨料" class="md-nav__link">
+      骨料
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/SchemaType/" title="架构类型" class="md-nav__link">
+      架构类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/VirtualType/" title="虚拟类型" class="md-nav__link">
+      虚拟类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/Error/" title="错误" class="md-nav__link">
+      错误
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../VersionCompatibility/" title="版本兼容性" class="md-nav__link">
+      版本兼容性
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        常问问题
+      </label>
+    
+    <a href="./" title="常问问题" class="md-nav__link md-nav__link--active">
+      常问问题
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#faq" title="FAQ" class="md-nav__link">
+    FAQ
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#faq" title="FAQ" class="md-nav__link">
+    FAQ
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="mongoose-v501-faq">Mongoose v5.0.1: FAQ<a class="headerlink" href="#mongoose-v501-faq" title="Permanent link">&para;</a></h1>
+<p><a href="http://mongoosejs.com/docs/faq.html" title="Permalink to Mongoose v5.0.1: FAQ">Source</a></p>
+<h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h2>
+<p><strong>Q</strong>. Why don't my changes to arrays get saved when I update an element directly?</p>
+<div class="codehilite"><pre><span></span>doc.array[3] = &#39;changed&#39;;
+doc.save();
+</pre></div>
+
+
+<p><strong>A</strong>. Mongoose doesn't create getters/setters for array indexes; without them mongoose never gets notified of the change and so doesn't know to persist the new value. The work-around is to use <a href="http://mongoosejs.com/api.html#types_array_MongooseArray.set">MongooseArray#set</a> available in <strong>Mongoose &gt;= 3.2.0</strong>.</p>
+<div class="codehilite"><pre><span></span>doc.array.set(3, &#39;changed&#39;);
+doc.save();
+
+
+doc.array[3] = &#39;changed&#39;;
+doc.markModified(&#39;array&#39;);
+doc.save();
+</pre></div>
+
+
+<hr />
+<p><strong>Q</strong>. I declared a schema property as <code>unique</code> but I can still save duplicates. What gives?</p>
+<p><strong>A</strong>. Mongoose doesn't handle <code>unique</code> on its own: <code>{ name: { type: String, unique: true } }</code> is just a shorthand for creating a <a href="https://docs.mongodb.com/manual/core/index-unique/">MongoDB unique index on <code>name</code></a>. For example, if MongoDB doesn't already have a unique index on <code>name</code>, the below code will not error despite the fact that <code>unique</code> is true.</p>
+<div class="codehilite"><pre><span></span>var schema = new mongoose.Schema({
+  name: { type: String, unique: true }
+});
+var Model = db.model(&#39;Test&#39;, schema);
+
+Model.create([{ name: &#39;Val&#39; }, { name: &#39;Val&#39; }], function(err) {
+  console.log(err);
+});
+</pre></div>
+
+
+<p>However, if you wait for the index to build using the <code>Model.on('index')</code> event, attempts to save duplicates will correctly error.</p>
+<div class="codehilite"><pre><span></span>var schema = new mongoose.Schema({
+  name: { type: String, unique: true }
+});
+var Model = db.model(&#39;Test&#39;, schema);
+
+Model.on(&#39;index&#39;, function(err) {
+  assert.ifError(err);
+  Model.create([{ name: &#39;Val&#39; }, { name: &#39;Val&#39; }], function(err) {
+    console.log(err);
+  });
+});
+
+
+
+
+Model.init().then(function() {
+  assert.ifError(err);
+  Model.create([{ name: &#39;Val&#39; }, { name: &#39;Val&#39; }], function(err) {
+    console.log(err);
+  });
+});
+</pre></div>
+
+
+<p>MongoDB persists indexes, so you only need to rebuild indexes if you're starting with a fresh database or you ran <code>db.dropDatabase()</code>. In a production environment, you should [create your indexes using the MongoDB shell])() rather than relying on mongoose to do it for you. The <code>unique</code> option for schemas is convenient for development and documentation, but mongoose is <em>not</em> an index management solution.</p>
+<hr />
+<p><strong>Q</strong>. When I have a nested property in a schema, mongoose adds empty objects by default. Why?</p>
+<div class="codehilite"><pre><span></span>var schema = new mongoose.Schema({
+  nested: {
+    prop: String
+  }
+});
+var Model = db.model(&#39;Test&#39;, schema);
+
+
+
+console.log(new Model());
+</pre></div>
+
+
+<p><strong>A</strong>. This is a performance optimization. These empty objects are not saved to the database, nor are they in the result <code>toObject()</code>, nor do they show up in <code>JSON.stringify()</code> output unless you turn off the <a href="http://mongoosejs.com/docs/guide.html#minimize"><code>minimize</code> option</a>.</p>
+<p>The reason for this behavior is that Mongoose's change detection and getters/setters are based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty"><code>Object.defineProperty()</code></a>. In order to support change detection on nested properties without incurring the overhead of running <code>Object.defineProperty()</code> every time a document is created, mongoose defines properties on the <code>Model</code> prototype when the model is compiled. Because mongoose needs to define getters and setters for <code>nested.prop</code>, <code>nested</code> must always be defined as an object on a mongoose document, even if <code>nested</code> is undefined on the underlying <a href="http://mongoosejs.com/docs/guide.html#minimize">POJO</a>.</p>
+<hr />
+<p><strong>Q</strong>. I'm using an arrow function for a <a href="http://mongoosejs.com/docs/guide.html#virtuals">virtual</a>, getter/setter, or <a href="http://mongoosejs.com/docs/guide.html#methods">method</a> and the value of <code>this</code> is wrong.</p>
+<p><strong>A</strong>. Arrow functions <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_binding_of_this">handle the <code>this</code> keyword much differently than conventional functions</a>. Mongoose getters/setters depend on <code>this</code> to give you access to the document that you're writing to, but this functionality does not work with arrow functions. Do <strong>not</strong> use arrow functions for mongoose getters/setters unless do not intend to access the document in the getter/setter.</p>
+<div class="codehilite"><pre><span></span>var schema = new mongoose.Schema({
+  propWithGetter: {
+    type: String,
+    get: v =&gt; {
+
+      console.log(this);
+      return v;
+    }
+  }
+});
+
+
+schema.method.arrowMethod = () =&gt; this;
+schema.virtual(&#39;virtualWithArrow&#39;).get(() =&gt; {
+
+  console.log(this);
+});
+</pre></div>
+
+
+<hr />
+<p><strong>Q</strong>. I have an embedded property named <code>type</code> like this:</p>
+<div class="codehilite"><pre><span></span>const holdingSchema = new Schema({
+
+
+
+  asset: {
+    type: String,
+    ticker: String
+  }
+});
+</pre></div>
+
+
+<p>But mongoose gives me a CastError telling me that it can't cast an object to a string when I try to save a <code>Holding</code> with an <code>asset</code> object. Why is this?</p>
+<div class="codehilite"><pre><span></span>Holding.create({ asset: { type: &#39;stock&#39;, ticker: &#39;MDB&#39; } }).catch(error =&gt; {
+
+  console.error(error);
+});
+</pre></div>
+
+
+<p><strong>A</strong>. The <code>type</code> property is special in mongoose, so when you say <code>type: String</code>, mongoose interprets it as a type declaration. In the above schema, mongoose thinks <code>asset</code> is a string, not an object. Do this instead:</p>
+<div class="codehilite"><pre><span></span>const holdingSchema = new Schema({
+
+
+
+  asset: {
+    type: { type: String },
+    ticker: String
+  }
+});
+</pre></div>
+
+
+<hr />
+<p><strong>Q</strong>. Why don't in-place modifications to date objects (e.g. <code>date.setMonth(1);</code>) get saved?</p>
+<div class="codehilite"><pre><span></span>doc.createdAt.setDate(2011, 5, 1);
+doc.save();
+</pre></div>
+
+
+<p><strong>A</strong>. Mongoose currently doesn't watch for in-place updates to date objects. If you have need for this feature, feel free to discuss on <a href="https://github.com/Automattic/mongoose/issues/3738">this GitHub issue</a>. There are several workarounds:</p>
+<div class="codehilite"><pre><span></span>doc.createdAt.setDate(2011, 5, 1);
+doc.markModified(&#39;createdAt&#39;);
+doc.save();
+
+doc.createdAt = new Date(2011, 5, 1).setHours(4);
+doc.save();
+</pre></div>
+
+
+<hr />
+<p><strong>Q</strong>. I'm populating a nested property under an array like the below code:</p>
+<div class="codehilite"><pre><span></span>  new Schema({
+    arr: [{
+      child: { ref: &#39;OtherModel&#39;, type: Schema.Types.ObjectId }
+    }]
+  });
+</pre></div>
+
+
+<p><code>.populate({ path: 'arr.child', options: { sort: 'name' } })</code> won't sort by <code>arr.child.name</code>?</p>
+<p><strong>A</strong>. See <a href="https://github.com/Automattic/mongoose/issues/2202">this GitHub issue</a>. It's a known issue but one that's exceptionally difficult to fix.</p>
+<hr />
+<p><strong>Q</strong>. All function calls on my models hang, what am I doing wrong?</p>
+<p><strong>A</strong>. By default, mongoose will buffer your function calls until it can connect to MongoDB. Read the <a href="http://mongoosejs.com/docs/connections.html#buffering">buffering section of the connection docs</a> for more information.</p>
+<hr />
+<p><strong>Q</strong>. How can I enable debugging?</p>
+<p><strong>A</strong>. Set the <code>debug</code> option to <code>true</code>:</p>
+<div class="codehilite"><pre><span></span>mongoose.set(&#39;debug&#39;, true)
+</pre></div>
+
+
+<p>All executed collection methods will log output of their arguments to your console.</p>
+<hr />
+<p><strong>Q</strong>. My <code>save()</code> callback never executes. What am I doing wrong?</p>
+<p><strong>A</strong>. All <code>collection</code> actions (insert, remove, queries, etc.) are queued until the <code>connection</code> opens. It is likely that an error occurred while attempting to connect. Try adding an error handler to your connection.</p>
+<div class="codehilite"><pre><span></span>mongoose.connect(..);
+mongoose.connection.on(&#39;error&#39;, handleError);
+
+
+var conn = mongoose.createConnection(..);
+conn.on(&#39;error&#39;, handleError);
+</pre></div>
+
+
+<p>If you want to opt out of mongoose's buffering mechanism across your entire application, set the global <code>bufferCommands</code> option to false:</p>
+<div class="codehilite"><pre><span></span>mongoose.set(&#39;bufferCommands&#39;, false);
+</pre></div>
+
+
+<hr />
+<p><strong>Q</strong>. Should I create/destroy a new connection for each database operation?</p>
+<p><strong>A</strong>. No. Open your connection when your application starts up and leave it open until the application shuts down.</p>
+<hr />
+<p><strong>Q</strong>. Why do I get "OverwriteModelError: Cannot overwrite .. model once compiled" when I use nodemon / a testing framework?</p>
+<p><strong>A</strong>. <code>mongoose.model('ModelName', schema)</code> requires 'ModelName' to be unique, so you can access the model by using <code>mongoose.model('ModelName')</code>. If you put <code>mongoose.model('ModelName', schema);</code> in a <a href="https://mochajs.org/#hooks">mocha <code>beforeEach()</code> hook</a>, this code will attempt to create a new model named 'ModelName' before <strong>every</strong> test, and so you will get an error. Make sure you only create a new model with a given name <strong>once</strong>. If you need to create multiple models with the same name, create a new connection and bind the model to the connection.</p>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">mongoose</span> <span class="o">=</span> <span class="nt">require</span><span class="o">(</span><span class="s1">&#39;mongoose&#39;</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">connection</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">createConnection</span><span class="o">(..);</span>
+
+
+<span class="nt">var</span> <span class="nt">kittySchema</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="n">String</span> <span class="p">}</span><span class="o">);</span>
+
+
+<span class="nt">var</span> <span class="nt">Kitten</span> <span class="o">=</span> <span class="nt">connection</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Kitten&#39;</span><span class="o">,</span> <span class="nt">kittySchema</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>Something to add?</strong></p>
+<p>If you'd like to contribute to this page, please <a href="https://github.com/Automattic/mongoose/tree/master/docs/faq.jade">visit it</a> on github and use the <a href="https://github.com/blog/844-forking-with-the-edit-button">Edit</a> button to send a pull request.</p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../VersionCompatibility/" title="版本兼容性" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                版本兼容性
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            版权 &copy; 2018 -  wohugb.github.io
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.6cdc17f0.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              <script src="../assets/javascripts/lunr/lunr.zh.js"></script>
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"0.17.2",url:{base:".."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

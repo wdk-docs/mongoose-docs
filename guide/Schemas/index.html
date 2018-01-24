@@ -1,0 +1,1747 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="mongodb nodejs组件中文文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="zh">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.2.5">
+    
+    
+      
+        <title>模式 - Mongoose文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.bcabdff3.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.792431c1.css">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    
+      <body data-md-color-primary="indigo" data-md-color-accent="indigo">
+    
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Mongoose文档" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Mongoose文档
+              </span>
+              <span class="md-header-nav__topic">
+                模式
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wohugb/mongoose-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wohugb/mongoose-docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="前言" class="md-tabs__link">
+        前言
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" title="指南" class="md-tabs__link md-tabs__link--active">
+          指南
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../api/" title="API" class="md-tabs__link">
+          API
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    Mongoose文档
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wohugb/mongoose-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wohugb/mongoose-docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="前言" class="md-nav__link">
+      前言
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../QuickStart/" title="快速开始" class="md-nav__link">
+      快速开始
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      指南
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        指南
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        模式
+      </label>
+    
+    <a href="./" title="模式" class="md-nav__link md-nav__link--active">
+      模式
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="定义你的模式" class="md-nav__link">
+    定义你的模式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="创建一个模式" class="md-nav__link">
+    创建一个模式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="实例方法" class="md-nav__link">
+    实例方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="静态方法" class="md-nav__link">
+    静态方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="查询助手" class="md-nav__link">
+    查询助手
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="索引" class="md-nav__link">
+    索引
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="虚拟字段" class="md-nav__link">
+    虚拟字段
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="别名" class="md-nav__link">
+    别名
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" title="选项" class="md-nav__link">
+    选项
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#autoindex" title="autoIndex" class="md-nav__link">
+    autoIndex
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buffercommands" title="bufferCommands" class="md-nav__link">
+    bufferCommands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capped" title="capped" class="md-nav__link">
+    capped
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collection" title="collection" class="md-nav__link">
+    collection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id" title="id" class="md-nav__link">
+    id
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_id" title="_id" class="md-nav__link">
+    _id
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimize" title="minimize" class="md-nav__link">
+    minimize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read" title="read" class="md-nav__link">
+    read
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shardkey" title="shardKey" class="md-nav__link">
+    shardKey
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strict" title="strict" class="md-nav__link">
+    strict
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tojson" title="toJSON" class="md-nav__link">
+    toJSON
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toobject" title="toObject" class="md-nav__link">
+    toObject
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typekey" title="typeKey" class="md-nav__link">
+    typeKey
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validatebeforesave" title="validateBeforeSave" class="md-nav__link">
+    validateBeforeSave
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versionkey" title="versionKey" class="md-nav__link">
+    versionKey
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collation" title="collation" class="md-nav__link">
+    collation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skipversioning" title="skipVersioning" class="md-nav__link">
+    skipVersioning
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timestamps" title="timestamps" class="md-nav__link">
+    timestamps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usenestedstrict" title="useNestedStrict" class="md-nav__link">
+    useNestedStrict
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" title="可插拔" class="md-nav__link">
+    可插拔
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" title="接下来" class="md-nav__link">
+    接下来
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Connections/" title="连接" class="md-nav__link">
+      连接
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Models/" title="楷模" class="md-nav__link">
+      楷模
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Documents/" title="文件" class="md-nav__link">
+      文件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Queries/" title="查询" class="md-nav__link">
+      查询
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Validation/" title="验证" class="md-nav__link">
+      验证
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Middleware/" title="中间件" class="md-nav__link">
+      中间件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Populate/" title="填充" class="md-nav__link">
+      填充
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Discriminators/" title="鉴" class="md-nav__link">
+      鉴
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Plugins/" title="插件" class="md-nav__link">
+      插件
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/" title="接口" class="md-nav__link">
+      接口
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Schema/" title="架构" class="md-nav__link">
+      架构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Connection/" title="架构" class="md-nav__link">
+      架构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Document/" title="文件" class="md-nav__link">
+      文件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Model/" title="模型" class="md-nav__link">
+      模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Query/" title="询问" class="md-nav__link">
+      询问
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Aggregate/" title="骨料" class="md-nav__link">
+      骨料
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/SchemaType/" title="架构类型" class="md-nav__link">
+      架构类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/VirtualType/" title="虚拟类型" class="md-nav__link">
+      虚拟类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Error/" title="错误" class="md-nav__link">
+      错误
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../VersionCompatibility/" title="版本兼容性" class="md-nav__link">
+      版本兼容性
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../FAQ/" title="常问问题" class="md-nav__link">
+      常问问题
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="定义你的模式" class="md-nav__link">
+    定义你的模式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="创建一个模式" class="md-nav__link">
+    创建一个模式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="实例方法" class="md-nav__link">
+    实例方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="静态方法" class="md-nav__link">
+    静态方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="查询助手" class="md-nav__link">
+    查询助手
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="索引" class="md-nav__link">
+    索引
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="虚拟字段" class="md-nav__link">
+    虚拟字段
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="别名" class="md-nav__link">
+    别名
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" title="选项" class="md-nav__link">
+    选项
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#autoindex" title="autoIndex" class="md-nav__link">
+    autoIndex
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buffercommands" title="bufferCommands" class="md-nav__link">
+    bufferCommands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capped" title="capped" class="md-nav__link">
+    capped
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collection" title="collection" class="md-nav__link">
+    collection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id" title="id" class="md-nav__link">
+    id
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_id" title="_id" class="md-nav__link">
+    _id
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimize" title="minimize" class="md-nav__link">
+    minimize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read" title="read" class="md-nav__link">
+    read
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shardkey" title="shardKey" class="md-nav__link">
+    shardKey
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strict" title="strict" class="md-nav__link">
+    strict
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tojson" title="toJSON" class="md-nav__link">
+    toJSON
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toobject" title="toObject" class="md-nav__link">
+    toObject
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typekey" title="typeKey" class="md-nav__link">
+    typeKey
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validatebeforesave" title="validateBeforeSave" class="md-nav__link">
+    validateBeforeSave
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versionkey" title="versionKey" class="md-nav__link">
+    versionKey
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collation" title="collation" class="md-nav__link">
+    collation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skipversioning" title="skipVersioning" class="md-nav__link">
+    skipVersioning
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timestamps" title="timestamps" class="md-nav__link">
+    timestamps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usenestedstrict" title="useNestedStrict" class="md-nav__link">
+    useNestedStrict
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" title="可插拔" class="md-nav__link">
+    可插拔
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" title="接下来" class="md-nav__link">
+    接下来
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">模式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p><a href="http://mongoosejs.com/docs/guide.html" title="Permalink to Mongoose v5.0.1: Schemas">Source</a></p>
+<p>If you haven't yet done so, please take a minute to read the <a href="http://mongoosejs.com/index.html">quickstart</a> to get an idea of how Mongoose works. If you are migrating from 4.x to 5.x please take a moment to read the <a href="https://github.com/Automattic/mongoose/blob/master/migrating_to_5.md">migration guide</a>.</p>
+<h2 id="_2">定义你的模式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Everything in Mongoose starts with a Schema. Each schema maps to a MongoDB collection and defines the shape of the documents within that collection.</p>
+<div class="codehilite"><pre><span></span>    <span class="kd">var</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongoose&#39;</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">Schema</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">blogSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span>
+    <span class="nx">title</span><span class="o">:</span>  <span class="nb">String</span><span class="p">,</span>
+    <span class="nx">author</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+    <span class="nx">body</span><span class="o">:</span>   <span class="nb">String</span><span class="p">,</span>
+    <span class="nx">comments</span><span class="o">:</span> <span class="p">[{</span> <span class="nx">body</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">date</span><span class="o">:</span> <span class="nb">Date</span> <span class="p">}],</span>
+    <span class="nx">date</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nb">Date</span><span class="p">,</span> <span class="k">default</span><span class="o">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span> <span class="p">},</span>
+    <span class="nx">hidden</span><span class="o">:</span> <span class="nb">Boolean</span><span class="p">,</span>
+    <span class="nx">meta</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">votes</span><span class="o">:</span> <span class="nb">Number</span><span class="p">,</span>
+        <span class="nx">favs</span><span class="o">:</span>  <span class="nb">Number</span>
+    <span class="p">}</span>
+    <span class="p">});</span>
+</pre></div>
+
+<p>If you want to add additional keys later, use the <a href="http://mongoosejs.com/api.html#schema_Schema-add">Schema#add</a> method.</p>
+<p>Each key in our code <code>blogSchema</code> defines a property in our documents which will be cast to its associated <a href="http://mongoosejs.com/api.html#schematype_SchemaType">SchemaType</a>. For example, we've defined a property <code>title</code> which will be cast to the <a href="http://mongoosejs.com/api.html#schema-string-js">String</a> SchemaType and property <code>date</code> which will be cast to a <code>Date</code> SchemaType. Keys may also be assigned nested objects containing further key/type definitions like the <code>meta</code> property above.</p>
+<p>The permitted SchemaTypes are:</p>
+<ul>
+<li>String</li>
+<li>Number</li>
+<li>Date</li>
+<li>Buffer</li>
+<li>Boolean</li>
+<li>Mixed</li>
+<li>ObjectId</li>
+<li>Array</li>
+</ul>
+<p>Read more about <a href="http://mongoosejs.com/schematypes.html">SchemaTypes here</a>.</p>
+<p>Schemas not only define the structure of your document and casting of properties, they also define document [instance methods][8], [static Model methods][9], [compound indexes][10], and document lifecycle hooks called <a href="http://mongoosejs.com/middleware.html">middleware</a></p>
+<h2 id="_3">创建一个模式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>To use our schema definition, we need to convert our <code>blogSchema</code> into a <a href="http://mongoosejs.com/models.html">Model</a> we can work with. To do so, we pass it into <code>mongoose.model(modelName, schema)</code>:</p>
+<div class="codehilite"><pre><span></span>    <span class="kd">var</span> <span class="nx">Blog</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Blog&#39;</span><span class="p">,</span> <span class="nx">blogSchema</span><span class="p">);</span>
+</pre></div>
+
+<h2 id="_4">实例方法<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Instances of <code>Models</code> are <a href="http://mongoosejs.com/documents.html">documents</a>. Documents have many of their own <a href="http://mongoosejs.com/api.html#document-js">built-in instance methods</a>. We may also define our own custom document instance methods too.</p>
+<div class="codehilite"><pre><span></span>  <span class="nt">var</span> <span class="nt">animalSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="n">type</span><span class="o">:</span> <span class="n">String</span> <span class="p">}</span><span class="o">);</span>
+
+  <span class="nt">animalSchema</span><span class="p">.</span><span class="nc">methods</span><span class="p">.</span><span class="nc">findSimilarTypes</span> <span class="o">=</span> <span class="nt">function</span><span class="o">(</span><span class="nt">cb</span><span class="o">)</span> <span class="p">{</span>
+    <span class="err">return</span> <span class="err">this.model(&#39;Animal&#39;).find({</span> <span class="n">type</span><span class="p">:</span> <span class="n">this</span><span class="o">.</span><span class="n">type</span> <span class="p">}</span><span class="o">,</span> <span class="nt">cb</span><span class="o">);</span>
+  <span class="err">}</span><span class="o">;</span>
+</pre></div>
+
+
+<p>Now all of our <code>animal</code> instances have a <code>findSimilarTypes</code> method available to them.</p>
+<div class="codehilite"><pre><span></span>  <span class="nt">var</span> <span class="nt">Animal</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Animal&#39;</span><span class="o">,</span> <span class="nt">animalSchema</span><span class="o">);</span>
+  <span class="nt">var</span> <span class="nt">dog</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Animal</span><span class="o">(</span><span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="s1">&#39;dog&#39;</span> <span class="p">}</span><span class="o">);</span>
+
+  <span class="nt">dog</span><span class="p">.</span><span class="nc">findSimilarTypes</span><span class="o">(</span><span class="nt">function</span><span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">dogs</span><span class="o">)</span> <span class="p">{</span>
+    <span class="err">console.log(dogs)</span><span class="p">;</span>
+  <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<ul>
+<li>Overwriting a default mongoose document method may lead to unpredictable results. See <a href="http://mongoosejs.com/api.html#schema_Schema.reserved">this</a> for more details.</li>
+<li>Do <strong>not</strong> declare methods using ES6 arrow functions (<code>=&gt;</code>). Arrow functions <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_binding_of_this">explicitly prevent binding <code>this</code></a>, so your method will <strong>not</strong> have access to the document and the above examples will not work.</li>
+</ul>
+<h2 id="_5">静态方法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Adding static methods to a <code>Model</code> is simple as well. Continuing with our <code>animalSchema</code>:</p>
+<div class="codehilite"><pre><span></span>  <span class="nt">animalSchema</span><span class="p">.</span><span class="nc">statics</span><span class="p">.</span><span class="nc">findByName</span> <span class="o">=</span> <span class="nt">function</span><span class="o">(</span><span class="nt">name</span><span class="o">,</span> <span class="nt">cb</span><span class="o">)</span> <span class="p">{</span>
+    <span class="err">return</span> <span class="err">this.find({</span> <span class="n">name</span><span class="p">:</span> <span class="n">new</span> <span class="nf">RegExp</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">)</span> <span class="p">}</span><span class="o">,</span> <span class="nt">cb</span><span class="o">);</span>
+  <span class="err">}</span><span class="o">;</span>
+
+  <span class="nt">var</span> <span class="nt">Animal</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Animal&#39;</span><span class="o">,</span> <span class="nt">animalSchema</span><span class="o">);</span>
+  <span class="nt">Animal</span><span class="p">.</span><span class="nc">findByName</span><span class="o">(</span><span class="s1">&#39;fido&#39;</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">animals</span><span class="o">)</span> <span class="p">{</span>
+    <span class="err">console.log(animals)</span><span class="p">;</span>
+  <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<p><em>Do <strong>not</strong> declare statics using ES6 arrow functions (<code>=&gt;</code>). Arrow functions <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_binding_of_this">explicitly prevent binding <code>this</code></a>, so the above examples will not work because of the value of <code>this</code>.</em></p>
+<h2 id="_6">查询助手<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>You can also add query helper functions, which are like instance methods but for mongoose queries. Query helper methods let you extend mongoose's <a href="http://mongoosejs.com/queries.html">chainable query builder API</a>.</p>
+<div class="codehilite"><pre><span></span>  <span class="nt">animalSchema</span><span class="p">.</span><span class="nc">query</span><span class="p">.</span><span class="nc">byName</span> <span class="o">=</span> <span class="nt">function</span><span class="o">(</span><span class="nt">name</span><span class="o">)</span> <span class="p">{</span>
+    <span class="err">return</span> <span class="err">this.find({</span> <span class="n">name</span><span class="p">:</span> <span class="n">new</span> <span class="nf">RegExp</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">)</span> <span class="p">}</span><span class="o">);</span>
+  <span class="err">}</span><span class="o">;</span>
+
+  <span class="nt">var</span> <span class="nt">Animal</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Animal&#39;</span><span class="o">,</span> <span class="nt">animalSchema</span><span class="o">);</span>
+  <span class="nt">Animal</span><span class="p">.</span><span class="nc">find</span><span class="o">()</span><span class="p">.</span><span class="nc">byName</span><span class="o">(</span><span class="s1">&#39;fido&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">exec</span><span class="o">(</span><span class="nt">function</span><span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">animals</span><span class="o">)</span> <span class="p">{</span>
+    <span class="err">console.log(animals)</span><span class="p">;</span>
+  <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<h2 id="_7">索引<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>MongoDB supports <a href="http://docs.mongodb.org/manual/indexes/">secondary indexes</a>. With mongoose, we define these indexes within our <code>Schema</code> <a href="http://mongoosejs.com/api.html#schematype_SchemaType-index">at</a> <a href="http://mongoosejs.com/api.html#schematype_SchemaType-unique">the</a> <a href="http://mongoosejs.com/api.html#schematype_SchemaType-sparse">path</a> <a href="http://mongoosejs.com/api.html#schema_date_SchemaDate-expires">level</a> or the <code>schema</code> level. Defining indexes at the schema level is necessary when creating <a href="http://www.mongodb.org/display/DOCS/Indexes#Indexes-CompoundKeys">compound indexes</a>.</p>
+<div class="codehilite"><pre><span></span>  <span class="nt">var</span> <span class="nt">animalSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span>
+    <span class="n">type</span><span class="o">:</span> <span class="n">String</span><span class="p">,</span>
+    <span class="n">tags</span><span class="o">:</span> <span class="err">{</span> <span class="n">type</span><span class="o">:</span> <span class="cp">[</span><span class="kt">String</span><span class="cp">]</span><span class="p">,</span> <span class="n">index</span><span class="o">:</span> <span class="n">true</span> <span class="p">}</span>
+  <span class="err">}</span><span class="o">);</span>
+
+  <span class="nt">animalSchema</span><span class="p">.</span><span class="nc">index</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">type</span><span class="o">:</span> <span class="mi">-1</span> <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<p>When your application starts up, Mongoose automatically calls <a href="https://docs.mongodb.com/manual/reference/method/db.collection.createIndex/#db.collection.createIndex"><code>createIndex</code></a> for each defined index in your schema. Mongoose will call <code>createIndex</code> for each index sequentially, and emit an 'index' event on the model when all the <code>createIndex</code> calls succeeded or when there was an error. While nice for development, it is recommended this behavior be disabled in production since index creation can cause a <a href="http://docs.mongodb.org/manual/core/indexes/#index-creation-operations">significant performance impact</a>. Disable the behavior by setting the <code>autoIndex</code> option of your schema to <code>false</code>, or globally on the connection by setting the option <code>autoIndex</code> to <code>false</code>.</p>
+<div class="codehilite"><pre><span></span>  <span class="nt">mongoose</span><span class="p">.</span><span class="nc">connect</span><span class="o">(</span><span class="s1">&#39;mongodb://user:pass@localhost:port/database&#39;</span><span class="o">,</span> <span class="p">{</span> <span class="n">autoIndex</span><span class="p">:</span> <span class="n">false</span> <span class="p">}</span><span class="o">);</span>
+
+  <span class="nt">mongoose</span><span class="p">.</span><span class="nc">createConnection</span><span class="o">(</span><span class="s1">&#39;mongodb://user:pass@localhost:port/database&#39;</span><span class="o">,</span> <span class="p">{</span> <span class="n">autoIndex</span><span class="p">:</span> <span class="n">false</span> <span class="p">}</span><span class="o">);</span>
+
+  <span class="nt">animalSchema</span><span class="p">.</span><span class="nc">set</span><span class="o">(</span><span class="s1">&#39;autoIndex&#39;</span><span class="o">,</span> <span class="nt">false</span><span class="o">);</span>
+
+  <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span><span class="err">..</span><span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">autoIndex</span><span class="p">:</span> <span class="n">false</span> <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<p>Mongoose will emit an <code>index</code> event on the model when indexes are done building or an error occurred.</p>
+<div class="codehilite"><pre><span></span>  <span class="nt">animalSchema</span><span class="p">.</span><span class="nc">index</span><span class="o">(</span><span class="p">{</span> <span class="n">_id</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">sparse</span><span class="p">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">);</span>
+  <span class="nt">var</span> <span class="nt">Animal</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Animal&#39;</span><span class="o">,</span> <span class="nt">animalSchema</span><span class="o">);</span>
+
+  <span class="nt">Animal</span><span class="p">.</span><span class="nc">on</span><span class="o">(</span><span class="s1">&#39;index&#39;</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">error</span><span class="o">)</span> <span class="p">{</span>
+
+    <span class="err">console.log(error.message)</span><span class="p">;</span>
+  <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<p>See also the <a href="http://mongoosejs.com/api.html#model_Model.ensureIndexes">Model#ensureIndexes</a> method.</p>
+<h2 id="_8">虚拟字段<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p><a href="http://mongoosejs.com/api.html#schema_Schema-virtual">Virtuals</a> are document properties that you can get and set but that do not get persisted to MongoDB. The getters are useful for formatting or combining fields, while setters are useful for de-composing a single value into multiple values for storage.</p>
+<div class="codehilite"><pre><span></span>  var personSchema = new Schema({
+    name: {
+      first: String,
+      last: String
+    }
+  });
+
+  var Person = mongoose.model(&#39;Person&#39;, personSchema);
+
+  var axl = new Person({
+    name: { first: &#39;Axl&#39;, last: &#39;Rose&#39; }
+  });
+</pre></div>
+
+
+<p>Suppose you want to print out the person's full name. You could do it yourself:</p>
+<div class="codehilite"><pre><span></span>console.log(axl.name.first + &#39; &#39; + axl.name.last);
+</pre></div>
+
+
+<p>But concatenating the first and last name every time can get cumbersome. And what if you want to do some extra processing on the name, like <a href="https://www.npmjs.com/package/diacritics">removing diacritics?</a>. A <a href="http://mongoosejs.com/api.html#virtualtype_VirtualType-get">virtual property getter</a> lets you</p>
+<p>define a <code>fullName</code> property that won't get persisted to MongoDB.</p>
+<div class="codehilite"><pre><span></span>personSchema.virtual(&#39;fullName&#39;).get(function () {
+  return this.name.first + &#39; &#39; + this.name.last;
+});
+</pre></div>
+
+
+<p>Now, mongoose will call your getter function every time you access the <code>fullName</code> property:</p>
+<div class="codehilite"><pre><span></span>console.log(axl.fullName);
+</pre></div>
+
+
+<p>If you use <code>toJSON()</code> or <code>toObject()</code> (or use <code>JSON.stringify()</code> on a mongoose document) mongoose will <em>not</em> include virtuals by default. Pass <code>{ virtuals: true }</code> to either <a href="http://mongoosejs.com/api.html#document_Document-toObject">toObject()</a> or <code>toJSON()</code>.</p>
+<p>You can also add a custom setter to your virtual that will let you set both first name and last name via the <code>fullName</code> virtual.</p>
+<div class="codehilite"><pre><span></span>personSchema.virtual(&#39;fullName&#39;).
+  get(function() { return this.name.first + &#39; &#39; + this.name.last; }).
+  set(function(v) {
+    this.name.first = v.substr(0, v.indexOf(&#39; &#39;));
+    this.name.last = v.substr(v.indexOf(&#39; &#39;) + 1);
+  });
+
+axl.fullName = &#39;William Rose&#39;;
+</pre></div>
+
+
+<p>Virtual property setters are applied before other validation. So the example above would still work even if the <code>first</code> and <code>last</code> name fields were required.</p>
+<p>Only non-virtual properties work as part of queries and for field selection. Since virtuals are not stored in MongoDB, you can't query with them.</p>
+<h3 id="_9">别名<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>Aliases are a particular type of virtual where the getter and setter seamlessly get and set another property. This is handy for saving network bandwidth, so you can convert a short property name stored in the database into a longer name for code readability.</p>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">personSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span>
+  <span class="n">n</span><span class="p">:</span> <span class="err">{</span>
+    <span class="n">type</span><span class="o">:</span> <span class="n">String</span><span class="p">,</span>
+
+    <span class="kc">alias</span><span class="o">:</span> <span class="s1">&#39;name&#39;</span>
+  <span class="p">}</span>
+<span class="err">}</span><span class="o">);</span>
+
+<span class="nt">var</span> <span class="nt">person</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Person</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Val&#39;</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">console</span><span class="p">.</span><span class="nc">log</span><span class="o">(</span><span class="nt">person</span><span class="o">);</span>
+<span class="nt">console</span><span class="p">.</span><span class="nc">log</span><span class="o">(</span><span class="nt">person</span><span class="p">.</span><span class="nc">toObject</span><span class="o">(</span><span class="p">{</span> <span class="n">virtuals</span><span class="p">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">));</span>
+<span class="nt">console</span><span class="p">.</span><span class="nc">log</span><span class="o">(</span><span class="nt">person</span><span class="p">.</span><span class="nc">name</span><span class="o">);</span>
+
+<span class="nt">person</span><span class="p">.</span><span class="nc">name</span> <span class="o">=</span> <span class="s1">&#39;Not Val&#39;</span><span class="o">;</span>
+<span class="nt">console</span><span class="p">.</span><span class="nc">log</span><span class="o">(</span><span class="nt">person</span><span class="o">);</span>
+</pre></div>
+
+
+<h2 id="_10">选项<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>Schemas have a few configurable options which can be passed to the constructor or <code>set</code> directly:</p>
+<div class="codehilite"><pre><span></span>new Schema({..}, options);
+
+var schema = new Schema({..});
+schema.set(option, value);
+</pre></div>
+
+
+<p>Valid options:</p>
+<h3 id="autoindex">autoIndex<a class="headerlink" href="#autoindex" title="Permanent link">&para;</a></h3>
+<p>At application startup, Mongoose sends a <a href="https://docs.mongodb.com/manual/reference/method/db.collection.createIndex/#db.collection.createIndex"><code>createIndex</code> command</a> for each index declared in your <code>Schema</code>. As of Mongoose v3, indexes are created in the <code>background</code> by default. If you wish to disable the auto-creation feature and manually handle when indexes are created, set your <code>Schema</code>s <code>autoIndex</code> option to <code>false</code> and use the <a href="http://mongoosejs.com/api.html#model_Model.ensureIndexes">ensureIndexes</a> method on your model.</p>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span><span class="err">..</span><span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">autoIndex</span><span class="p">:</span> <span class="n">false</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">Clock</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Clock&#39;</span><span class="o">,</span> <span class="nt">schema</span><span class="o">);</span>
+<span class="nt">Clock</span><span class="p">.</span><span class="nc">ensureIndexes</span><span class="o">(</span><span class="nt">callback</span><span class="o">);</span>
+</pre></div>
+
+
+<h3 id="buffercommands">bufferCommands<a class="headerlink" href="#buffercommands" title="Permanent link">&para;</a></h3>
+<p>By default, mongoose buffers commands when the connection goes down until the driver manages to reconnect. To disable buffering, set <code>bufferCommands</code> to false.</p>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span><span class="err">..</span><span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">bufferCommands</span><span class="p">:</span> <span class="n">false</span> <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<p>The schema <code>bufferCommands</code> option overrides the global <code>bufferCommands</code> option.</p>
+<div class="codehilite"><pre><span></span><span class="nt">mongoose</span><span class="p">.</span><span class="nc">set</span><span class="o">(</span><span class="s1">&#39;bufferCommands&#39;</span><span class="o">,</span> <span class="nt">true</span><span class="o">);</span>
+
+<span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span><span class="err">..</span><span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">bufferCommands</span><span class="p">:</span> <span class="n">false</span> <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<h3 id="capped">capped<a class="headerlink" href="#capped" title="Permanent link">&para;</a></h3>
+<p>Mongoose supports MongoDBs <a href="http://www.mongodb.org/display/DOCS/Capped+Collections">capped</a> collections. To specify the underlying MongoDB collection be <code>capped</code>, set the <code>capped</code> option to the maximum size of the collection in <a href="http://www.mongodb.org/display/DOCS/Capped+Collections#CappedCollections-size.">bytes</a>.</p>
+<div class="codehilite"><pre><span></span><span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span><span class="err">..</span><span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">capped</span><span class="p">:</span> <span class="mi">1024</span> <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<p>The <code>capped</code> option may also be set to an object if you want to pass additional options like <a href="http://www.mongodb.org/display/DOCS/Capped+Collections#CappedCollections-max">max</a> or <a href="http://www.mongodb.org/display/DOCS/Capped+Collections#CappedCollections-autoIndexId">autoIndexId</a>. In this case you must explicitly pass the <code>size</code> option, which is required.</p>
+<div class="codehilite"><pre><span></span><span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span><span class="err">..</span><span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">capped</span><span class="p">:</span> <span class="err">{</span> <span class="k">size</span><span class="o">:</span> <span class="mi">1024</span><span class="p">,</span> <span class="n">max</span><span class="o">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">autoIndexId</span><span class="o">:</span> <span class="n">true</span> <span class="p">}</span> <span class="err">}</span><span class="o">);</span>
+</pre></div>
+
+
+<h3 id="collection">collection<a class="headerlink" href="#collection" title="Permanent link">&para;</a></h3>
+<p>Mongoose by default produces a collection name by passing the model name to the <a href="http://mongoosejs.com/api.html#utils_exports.toCollectionName">utils.toCollectionName</a> method. This method pluralizes the name. Set this option if you need a different name for your collection.</p>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">dataSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span><span class="err">..</span><span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">collection</span><span class="p">:</span> <span class="s1">&#39;data&#39;</span> <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<h3 id="id">id<a class="headerlink" href="#id" title="Permanent link">&para;</a></h3>
+<p>Mongoose assigns each of your schemas an <code>id</code> virtual getter by default which returns the documents <code>_id</code> field cast to a string, or in the case of ObjectIds, its hexString. If you don't want an <code>id</code> getter added to your schema, you may disable it passing this option at schema construction time.</p>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="n">String</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">Page</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Page&#39;</span><span class="o">,</span> <span class="nt">schema</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">p</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Page</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;mongodb.org&#39;</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">console</span><span class="p">.</span><span class="nc">log</span><span class="o">(</span><span class="nt">p</span><span class="p">.</span><span class="nc">id</span><span class="o">);</span>
+
+<span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="n">String</span> <span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">id</span><span class="p">:</span> <span class="n">false</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">Page</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Page&#39;</span><span class="o">,</span> <span class="nt">schema</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">p</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Page</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;mongodb.org&#39;</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">console</span><span class="p">.</span><span class="nc">log</span><span class="o">(</span><span class="nt">p</span><span class="p">.</span><span class="nc">id</span><span class="o">);</span>
+</pre></div>
+
+
+<h3 id="_id">_id<a class="headerlink" href="#_id" title="Permanent link">&para;</a></h3>
+<p>Mongoose assigns each of your schemas an <code>_id</code> field by default if one is not passed into the <a href="http://mongoosejs.com/docs/api.html#schema-js">Schema</a> constructor. The type assigned is an <a href="http://mongoosejs.com/docs/api.html#schema_Schema.Types">ObjectId</a> to coincide with MongoDB's default behavior. If you don't want an <code>_id</code> added to your schema at all, you may disable it using this option.</p>
+<p>You can <strong>only</strong> use this option on sub-documents. Mongoose can't save a document without knowing its id, so you will get an error if you try to save a document without an <code>_id</code>.</p>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="n">String</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">Page</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Page&#39;</span><span class="o">,</span> <span class="nt">schema</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">p</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Page</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;mongodb.org&#39;</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">console</span><span class="p">.</span><span class="nc">log</span><span class="o">(</span><span class="nt">p</span><span class="o">);</span>
+
+<span class="nt">var</span> <span class="nt">childSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="n">String</span> <span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">_id</span><span class="p">:</span> <span class="n">false</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">parentSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">children</span><span class="p">:</span> <span class="cp">[</span><span class="nx">childSchema</span><span class="cp">]</span> <span class="p">}</span><span class="o">);</span>
+
+<span class="nt">var</span> <span class="nt">Model</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Model&#39;</span><span class="o">,</span> <span class="nt">parentSchema</span><span class="o">);</span>
+
+<span class="nt">Model</span><span class="p">.</span><span class="nc">create</span><span class="o">(</span><span class="p">{</span> <span class="n">children</span><span class="p">:</span> <span class="cp">[</span><span class="p">{</span> <span class="nx">name</span><span class="p">:</span> <span class="s1">&#39;Luke&#39;</span> <span class="p">}</span><span class="cp">]</span> <span class="p">}</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">error</span><span class="o">,</span> <span class="nt">doc</span><span class="o">)</span> <span class="p">{</span>
+
+<span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<h3 id="minimize">minimize<a class="headerlink" href="#minimize" title="Permanent link">&para;</a></h3>
+<p>Mongoose will, by default, "minimize" schemas by removing empty objects.</p>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="n">inventory</span><span class="o">:</span> <span class="err">{</span><span class="p">}</span> <span class="err">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">Character</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Character&#39;</span><span class="o">,</span> <span class="nt">schema</span><span class="o">);</span>
+
+<span class="nt">var</span> <span class="nt">frodo</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Character</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Frodo&#39;</span><span class="p">,</span> <span class="n">inventory</span><span class="o">:</span> <span class="err">{</span> <span class="n">ringOfPower</span><span class="o">:</span> <span class="mi">1</span> <span class="p">}</span><span class="err">}</span><span class="o">);</span>
+<span class="nt">Character</span><span class="p">.</span><span class="nc">findOne</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Frodo&#39;</span> <span class="p">}</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">character</span><span class="o">)</span> <span class="p">{</span>
+  <span class="err">console.log(character)</span><span class="p">;</span>
+<span class="p">}</span><span class="o">);</span>
+
+<span class="nt">var</span> <span class="nt">sam</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Character</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Sam&#39;</span><span class="p">,</span> <span class="n">inventory</span><span class="o">:</span> <span class="err">{</span><span class="p">}</span><span class="err">}</span><span class="o">);</span>
+<span class="nt">Character</span><span class="p">.</span><span class="nc">findOne</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Sam&#39;</span> <span class="p">}</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">character</span><span class="o">)</span> <span class="p">{</span>
+  <span class="err">console.log(character)</span><span class="p">;</span>
+<span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<p>This behavior can be overridden by setting <code>minimize</code> option to <code>false</code>. It will then store empty objects.</p>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="n">inventory</span><span class="o">:</span> <span class="err">{</span><span class="p">}</span> <span class="err">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">minimize</span><span class="p">:</span> <span class="n">false</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">Character</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Character&#39;</span><span class="o">,</span> <span class="nt">schema</span><span class="o">);</span>
+
+<span class="nt">var</span> <span class="nt">sam</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Character</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Sam&#39;</span><span class="p">,</span> <span class="n">inventory</span><span class="o">:</span> <span class="err">{</span><span class="p">}</span><span class="err">}</span><span class="o">);</span>
+<span class="nt">Character</span><span class="p">.</span><span class="nc">findOne</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Sam&#39;</span> <span class="p">}</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">character</span><span class="o">)</span> <span class="p">{</span>
+  <span class="err">console.log(character)</span><span class="p">;</span>
+<span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<h3 id="read">read<a class="headerlink" href="#read" title="Permanent link">&para;</a></h3>
+<p>Allows setting <a href="http://mongoosejs.com/docs/api.html#query_Query-read">query#read</a> options at the schema level, providing us a way to apply default <a href="http://docs.mongodb.org/manual/applications/replication/#replica-set-read-preference">ReadPreferences</a> to all queries derived from a model.</p>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span><span class="err">..</span><span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">read</span><span class="p">:</span> <span class="s1">&#39;primary&#39;</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span><span class="err">..</span><span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">read</span><span class="p">:</span> <span class="s1">&#39;primaryPreferred&#39;</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span><span class="err">..</span><span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">read</span><span class="p">:</span> <span class="s1">&#39;secondary&#39;</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span><span class="err">..</span><span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">read</span><span class="p">:</span> <span class="s1">&#39;secondaryPreferred&#39;</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span><span class="err">..</span><span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">read</span><span class="p">:</span> <span class="s1">&#39;nearest&#39;</span> <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<p>The alias of each pref is also permitted so instead of having to type out 'secondaryPreferred' and getting the spelling wrong, we can simply pass 'sp'.</p>
+<p>The read option also allows us to specify <em>tag sets</em>. These tell the <a href="https://github.com/mongodb/node-mongodb-native/">driver</a> from which members of the replica-set it should attempt to read. Read more about tag sets <a href="http://docs.mongodb.org/manual/applications/replication/#tag-sets">here</a> and <a href="http://mongodb.github.com/node-mongodb-native/driver-articles/anintroductionto1_1and2_2.html#read-preferences">here</a>.</p>
+<p><em>NOTE: you may also specify the driver read pref <a href="http://mongodb.github.com/node-mongodb-native/api-generated/replset.html?highlight=strategy">strategy</a> option when connecting:</em></p>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">options</span> <span class="o">=</span> <span class="p">{</span> <span class="n">replset</span><span class="p">:</span> <span class="err">{</span> <span class="n">strategy</span><span class="o">:</span> <span class="s1">&#39;ping&#39;</span> <span class="p">}</span><span class="err">}</span><span class="o">;</span>
+<span class="nt">mongoose</span><span class="p">.</span><span class="nc">connect</span><span class="o">(</span><span class="nt">uri</span><span class="o">,</span> <span class="nt">options</span><span class="o">);</span>
+
+<span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span><span class="err">..</span><span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">read</span><span class="p">:</span> <span class="cp">[</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">disk</span><span class="p">:</span> <span class="s1">&#39;ssd&#39;</span> <span class="p">}</span><span class="cp">]</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;JellyBean&#39;</span><span class="o">,</span> <span class="nt">schema</span><span class="o">);</span>
+</pre></div>
+
+
+<h3 id="shardkey">shardKey<a class="headerlink" href="#shardkey" title="Permanent link">&para;</a></h3>
+<p>The <code>shardKey</code> option is used when we have a <a href="http://www.mongodb.org/display/DOCS/Sharding+Introduction">sharded MongoDB architecture</a>. Each sharded collection is given a shard key which must be present in all insert/update operations. We just need to set this schema option to the same shard key and we'll be all set.</p>
+<div class="codehilite"><pre><span></span>new Schema({ .. }, { shardKey: { tag: 1, name: 1 }})
+</pre></div>
+
+
+<p><em>Note that Mongoose does not send the <code>shardcollection</code> command for you. You must configure your shards yourself.</em></p>
+<h3 id="strict">strict<a class="headerlink" href="#strict" title="Permanent link">&para;</a></h3>
+<p>The strict option, (enabled by default), ensures that values passed to our model constructor that were not specified in our schema do not get saved to the db.</p>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">thingSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span><span class="err">..</span><span class="p">}</span><span class="o">)</span>
+<span class="nt">var</span> <span class="nt">Thing</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Thing&#39;</span><span class="o">,</span> <span class="nt">thingSchema</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">thing</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Thing</span><span class="o">(</span><span class="p">{</span> <span class="n">iAmNotInTheSchema</span><span class="p">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">thing</span><span class="p">.</span><span class="nc">save</span><span class="o">();</span>
+
+<span class="nt">var</span> <span class="nt">thingSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span><span class="err">..</span><span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">strict</span><span class="p">:</span> <span class="n">false</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">thing</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Thing</span><span class="o">(</span><span class="p">{</span> <span class="n">iAmNotInTheSchema</span><span class="p">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">thing</span><span class="p">.</span><span class="nc">save</span><span class="o">();</span>
+</pre></div>
+
+
+<p>This also affects the use of <code>doc.set()</code> to set a property value.</p>
+<div class="codehilite"><pre><span></span>var thingSchema = new Schema({..})
+var Thing = mongoose.model(&#39;Thing&#39;, thingSchema);
+var thing = new Thing;
+thing.set(&#39;iAmNotInTheSchema&#39;, true);
+thing.save();
+</pre></div>
+
+
+<p>This value can be overridden at the model instance level by passing a second boolean argument:</p>
+<div class="codehilite"><pre><span></span>var Thing = mongoose.model(&#39;Thing&#39;);
+var thing = new Thing(doc, true);
+var thing = new Thing(doc, false);
+</pre></div>
+
+
+<p>The <code>strict</code> option may also be set to <code>"throw"</code> which will cause errors to be produced instead of dropping the bad data.</p>
+<p><em>NOTE: Any key/val set on the instance that does not exist in your schema is always ignored, regardless of schema option.</em></p>
+<div class="codehilite"><pre><span></span>var thingSchema = new Schema({..})
+var Thing = mongoose.model(&#39;Thing&#39;, thingSchema);
+var thing = new Thing;
+thing.iAmNotInTheSchema = true;
+thing.save();
+</pre></div>
+
+
+<h3 id="tojson">toJSON<a class="headerlink" href="#tojson" title="Permanent link">&para;</a></h3>
+<p>Exactly the same as the [toObject][60] option but only applies when the documents <code>toJSON</code> method is called.</p>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="n">String</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">schema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">get</span><span class="o">(</span><span class="nt">function</span> <span class="o">(</span><span class="nt">v</span><span class="o">)</span> <span class="p">{</span>
+  <span class="err">return</span> <span class="err">v</span> <span class="err">+</span> <span class="err">&#39;</span> <span class="err">is</span> <span class="err">my</span> <span class="err">name&#39;</span><span class="p">;</span>
+<span class="p">}</span><span class="o">);</span>
+<span class="nt">schema</span><span class="p">.</span><span class="nc">set</span><span class="o">(</span><span class="s1">&#39;toJSON&#39;</span><span class="o">,</span> <span class="p">{</span> <span class="n">getters</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span> <span class="n">virtuals</span><span class="o">:</span> <span class="n">false</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">M</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Person&#39;</span><span class="o">,</span> <span class="nt">schema</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">m</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">M</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Max Headroom&#39;</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">console</span><span class="p">.</span><span class="nc">log</span><span class="o">(</span><span class="nt">m</span><span class="p">.</span><span class="nc">toObject</span><span class="o">());</span>
+<span class="nt">console</span><span class="p">.</span><span class="nc">log</span><span class="o">(</span><span class="nt">m</span><span class="p">.</span><span class="nc">toJSON</span><span class="o">());</span>
+
+<span class="nt">console</span><span class="p">.</span><span class="nc">log</span><span class="o">(</span><span class="nt">JSON</span><span class="p">.</span><span class="nc">stringify</span><span class="o">(</span><span class="nt">m</span><span class="o">));</span>
+</pre></div>
+
+
+<p>To see all available <code>toJSON/toObject</code> options, read <a href="http://mongoosejs.com/docs/api.html#document_Document-toObject">this</a>.</p>
+<h3 id="toobject">toObject<a class="headerlink" href="#toobject" title="Permanent link">&para;</a></h3>
+<p>Documents have a <a href="http://mongoosejs.com/docs/api.html#document_Document-toObject">toObject</a> method which converts the mongoose document into a plain javascript object. This method accepts a few options. Instead of applying these options on a per-document basis we may declare the options here and have it applied to all of this schemas documents by default.</p>
+<p>To have all virtuals show up in your <code>console.log</code> output, set the <code>toObject</code> option to <code>{ getters: true }</code>:</p>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="n">String</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">schema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">get</span><span class="o">(</span><span class="nt">function</span> <span class="o">(</span><span class="nt">v</span><span class="o">)</span> <span class="p">{</span>
+  <span class="err">return</span> <span class="err">v</span> <span class="err">+</span> <span class="err">&#39;</span> <span class="err">is</span> <span class="err">my</span> <span class="err">name&#39;</span><span class="p">;</span>
+<span class="p">}</span><span class="o">);</span>
+<span class="nt">schema</span><span class="p">.</span><span class="nc">set</span><span class="o">(</span><span class="s1">&#39;toObject&#39;</span><span class="o">,</span> <span class="p">{</span> <span class="n">getters</span><span class="p">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">M</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Person&#39;</span><span class="o">,</span> <span class="nt">schema</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">m</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">M</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Max Headroom&#39;</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">console</span><span class="p">.</span><span class="nc">log</span><span class="o">(</span><span class="nt">m</span><span class="o">);</span>
+</pre></div>
+
+
+<p>To see all available <code>toObject</code> options, read <a href="http://mongoosejs.com/docs/api.html#document_Document-toObject">this</a>.</p>
+<h3 id="typekey">typeKey<a class="headerlink" href="#typekey" title="Permanent link">&para;</a></h3>
+<p>By default, if you have an object with key 'type' in your schema, mongoose will interpret it as a type declaration.</p>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">loc</span><span class="p">:</span> <span class="err">{</span> <span class="n">type</span><span class="o">:</span> <span class="n">String</span><span class="p">,</span> <span class="n">coordinates</span><span class="o">:</span> <span class="cp">[</span><span class="nx">Number</span><span class="cp">]</span> <span class="p">}</span> <span class="err">}</span><span class="o">);</span>
+</pre></div>
+
+
+<p>However, for applications like <a href="http://docs.mongodb.org/manual/reference/geojson/">geoJSON</a>, the 'type' property is important. If you want to control which key mongoose uses to find type declarations, set the 'typeKey' schema option.</p>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span>
+
+  <span class="n">loc</span><span class="p">:</span> <span class="err">{</span> <span class="n">type</span><span class="o">:</span> <span class="n">String</span><span class="p">,</span> <span class="n">coordinates</span><span class="o">:</span> <span class="cp">[</span><span class="nx">Number</span><span class="cp">]</span> <span class="p">}</span><span class="o">,</span>
+
+  <span class="nt">name</span><span class="o">:</span> <span class="p">{</span> <span class="err">$</span><span class="n">type</span><span class="p">:</span> <span class="n">String</span> <span class="p">}</span>
+<span class="err">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">typeKey</span><span class="p">:</span> <span class="s1">&#39;$type&#39;</span> <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<h3 id="validatebeforesave">validateBeforeSave<a class="headerlink" href="#validatebeforesave" title="Permanent link">&para;</a></h3>
+<p>By default, documents are automatically validated before they are saved to the database. This is to prevent saving an invalid document. If you want to handle validation manually, and be able to save objects which don't pass validation, you can set <code>validateBeforeSave</code> to false.</p>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="n">String</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">schema</span><span class="p">.</span><span class="nc">set</span><span class="o">(</span><span class="s1">&#39;validateBeforeSave&#39;</span><span class="o">,</span> <span class="nt">false</span><span class="o">);</span>
+<span class="nt">schema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">validate</span><span class="o">(</span><span class="nt">function</span> <span class="o">(</span><span class="nt">value</span><span class="o">)</span> <span class="p">{</span>
+    <span class="err">return</span> <span class="err">v</span> <span class="err">!=</span> <span class="err">null</span><span class="p">;</span>
+<span class="p">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">M</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Person&#39;</span><span class="o">,</span> <span class="nt">schema</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">m</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">M</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="n">null</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">m</span><span class="p">.</span><span class="nc">validate</span><span class="o">(</span><span class="nt">function</span><span class="o">(</span><span class="nt">err</span><span class="o">)</span> <span class="p">{</span>
+    <span class="err">console.log(err)</span><span class="p">;</span>
+<span class="p">}</span><span class="o">);</span>
+<span class="nt">m</span><span class="p">.</span><span class="nc">save</span><span class="o">();</span>
+</pre></div>
+
+
+<h3 id="versionkey">versionKey<a class="headerlink" href="#versionkey" title="Permanent link">&para;</a></h3>
+<p>The <code>versionKey</code> is a property set on each document when first created by Mongoose. This keys value contains the internal <a href="http://aaronheckmann.tumblr.com/post/48943525537/mongoose-v3-part-1-versioning">revision</a> of the document. The <code>versionKey</code> option is a string that represents the path to use for versioning. The default is <code>__v</code>. If this conflicts with your application you can configure as such:</p>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">Thing</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Thing&#39;</span><span class="o">,</span> <span class="nt">schema</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">thing</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Thing</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;mongoose v3&#39;</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">thing</span><span class="p">.</span><span class="nc">save</span><span class="o">();</span>
+
+<span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span><span class="err">..</span><span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">versionKey</span><span class="p">:</span> <span class="s1">&#39;_somethingElse&#39;</span> <span class="p">}</span><span class="o">)</span>
+<span class="nt">var</span> <span class="nt">Thing</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Thing&#39;</span><span class="o">,</span> <span class="nt">schema</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">thing</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Thing</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;mongoose v3&#39;</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">thing</span><span class="p">.</span><span class="nc">save</span><span class="o">();</span>
+</pre></div>
+
+
+<p>Document versioning can also be disabled by setting the <code>versionKey</code> to <code>false</code>. <em>DO NOT disable versioning unless you <a href="http://aaronheckmann.tumblr.com/post/48943525537/mongoose-v3-part-1-versioning">know what you are doing</a>.</em></p>
+<div class="codehilite"><pre><span></span><span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span><span class="err">..</span><span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">versionKey</span><span class="p">:</span> <span class="n">false</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">Thing</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Thing&#39;</span><span class="o">,</span> <span class="nt">schema</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">thing</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Thing</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;no versioning please&#39;</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">thing</span><span class="p">.</span><span class="nc">save</span><span class="o">();</span>
+</pre></div>
+
+
+<h3 id="collation">collation<a class="headerlink" href="#collation" title="Permanent link">&para;</a></h3>
+<p>Sets a default <a href="https://docs.mongodb.com/manual/reference/collation/">collation</a> for every query and aggregation. <a href="http://thecodebarbarian.com/a-nodejs-perspective-on-mongodb-34-collations">Here's a beginner-friendly overview of collations</a>.</p>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span>
+  <span class="n">name</span><span class="p">:</span> <span class="n">String</span>
+<span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">collation</span><span class="p">:</span> <span class="err">{</span> <span class="n">locale</span><span class="o">:</span> <span class="s1">&#39;en_US&#39;</span><span class="p">,</span> <span class="n">strength</span><span class="o">:</span> <span class="mi">1</span> <span class="p">}</span> <span class="err">}</span><span class="o">);</span>
+
+<span class="nt">var</span> <span class="nt">MyModel</span> <span class="o">=</span> <span class="nt">db</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;MyModel&#39;</span><span class="o">,</span> <span class="nt">schema</span><span class="o">);</span>
+
+<span class="nt">MyModel</span><span class="p">.</span><span class="nc">create</span><span class="o">(</span><span class="cp">[</span><span class="p">{</span> <span class="nx">name</span><span class="p">:</span> <span class="s1">&#39;val&#39;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">name</span><span class="p">:</span> <span class="s1">&#39;Val&#39;</span> <span class="p">}</span><span class="cp">]</span><span class="o">).</span>
+  <span class="nt">then</span><span class="o">(</span><span class="nt">function</span><span class="o">()</span> <span class="p">{</span>
+    <span class="err">return</span> <span class="err">MyModel.find({</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;val&#39;</span> <span class="p">}</span><span class="o">);</span>
+  <span class="err">}</span><span class="o">).</span>
+  <span class="nt">then</span><span class="o">(</span><span class="nt">function</span><span class="o">(</span><span class="nt">docs</span><span class="o">)</span> <span class="p">{</span>
+
+  <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<h3 id="skipversioning">skipVersioning<a class="headerlink" href="#skipversioning" title="Permanent link">&para;</a></h3>
+<p><code>skipVersioning</code> allows excluding paths from versioning (i.e., the internal revision will not be incremented even if these paths are updated). DO NOT do this unless you know what you're doing. For sub-documents, include this on the parent document using the fully qualified path.</p>
+<div class="codehilite"><pre><span></span><span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span><span class="err">..</span><span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">skipVersioning</span><span class="p">:</span> <span class="err">{</span> <span class="n">dontVersionMe</span><span class="o">:</span> <span class="n">true</span> <span class="p">}</span> <span class="err">}</span><span class="o">);</span>
+<span class="nt">thing</span><span class="p">.</span><span class="nc">dontVersionMe</span><span class="p">.</span><span class="nc">push</span><span class="o">(</span><span class="s1">&#39;hey&#39;</span><span class="o">);</span>
+<span class="nt">thing</span><span class="p">.</span><span class="nc">save</span><span class="o">();</span>
+</pre></div>
+
+
+<h3 id="timestamps">timestamps<a class="headerlink" href="#timestamps" title="Permanent link">&para;</a></h3>
+<p>If set <code>timestamps</code>, mongoose assigns <code>createdAt</code> and <code>updatedAt</code> fields to your schema, the type assigned is <a href="http://mongoosejs.com/docs/api.html#schema-date-js">Date</a>.</p>
+<p>By default, the name of two fields are <code>createdAt</code> and <code>updatedAt</code>, customize the field name by setting <code>timestamps.createdAt</code> and <code>timestamps.updatedAt</code>.</p>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">thingSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span><span class="err">..</span><span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">timestamps</span><span class="p">:</span> <span class="err">{</span> <span class="n">createdAt</span><span class="o">:</span> <span class="s1">&#39;created_at&#39;</span> <span class="p">}</span> <span class="err">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">Thing</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Thing&#39;</span><span class="o">,</span> <span class="nt">thingSchema</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">thing</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Thing</span><span class="o">();</span>
+<span class="nt">thing</span><span class="p">.</span><span class="nc">save</span><span class="o">();</span>
+</pre></div>
+
+
+<h3 id="usenestedstrict">useNestedStrict<a class="headerlink" href="#usenestedstrict" title="Permanent link">&para;</a></h3>
+<p>In mongoose 4, <code>update()</code> and <code>findOneAndUpdate()</code> only check the top-level schema's strict mode setting.</p>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">childSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{}</span><span class="o">,</span> <span class="p">{</span> <span class="n">strict</span><span class="p">:</span> <span class="n">false</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">parentSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">child</span><span class="p">:</span> <span class="n">childSchema</span> <span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">strict</span><span class="p">:</span> <span class="s1">&#39;throw&#39;</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">Parent</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Parent&#39;</span><span class="o">,</span> <span class="nt">parentSchema</span><span class="o">);</span>
+<span class="nt">Parent</span><span class="p">.</span><span class="nc">update</span><span class="o">(</span><span class="p">{}</span><span class="o">,</span> <span class="p">{</span> <span class="err">&#39;child.name&#39;:</span> <span class="err">&#39;Luke</span> <span class="err">Skywalker&#39;</span> <span class="p">}</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">error</span><span class="o">)</span> <span class="p">{</span>
+
+<span class="p">}</span><span class="o">);</span>
+
+<span class="nt">var</span> <span class="nt">update</span> <span class="o">=</span> <span class="p">{</span> <span class="err">&#39;child.name&#39;:</span> <span class="err">&#39;Luke</span> <span class="err">Skywalker&#39;</span> <span class="p">}</span><span class="o">;</span>
+<span class="nt">var</span> <span class="nt">opts</span> <span class="o">=</span> <span class="p">{</span> <span class="n">strict</span><span class="p">:</span> <span class="n">false</span> <span class="p">}</span><span class="o">;</span>
+<span class="nt">Parent</span><span class="p">.</span><span class="nc">update</span><span class="o">(</span><span class="p">{}</span><span class="o">,</span> <span class="nt">update</span><span class="o">,</span> <span class="nt">opts</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">error</span><span class="o">)</span> <span class="p">{</span>
+
+<span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<p>If you set <code>useNestedStrict</code> to true, mongoose will use the child schema's <code>strict</code> option for casting updates.</p>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">childSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{}</span><span class="o">,</span> <span class="p">{</span> <span class="n">strict</span><span class="p">:</span> <span class="n">false</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">parentSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">child</span><span class="p">:</span> <span class="n">childSchema</span> <span class="p">}</span><span class="o">,</span>
+  <span class="p">{</span> <span class="n">strict</span><span class="p">:</span> <span class="s1">&#39;throw&#39;</span><span class="p">,</span> <span class="n">useNestedStrict</span><span class="o">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">Parent</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Parent&#39;</span><span class="o">,</span> <span class="nt">parentSchema</span><span class="o">);</span>
+<span class="nt">Parent</span><span class="p">.</span><span class="nc">update</span><span class="o">(</span><span class="p">{}</span><span class="o">,</span> <span class="p">{</span> <span class="err">&#39;child.name&#39;:</span> <span class="err">&#39;Luke</span> <span class="err">Skywalker&#39;</span> <span class="p">}</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">error</span><span class="o">)</span> <span class="p">{</span>
+
+<span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<h2 id="_11">可插拔<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>Schema也是<a href="http://mongoosejs.com/plugins.html">可插拔</a>，它允许我们将可重用的特性打包成可与社区共享或只在您的项目之间共享的插件。</p>
+<h2 id="_12">接下来<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>现在我们已经介绍了模式，我们来看看<a href="http://mongoosejs.com/docs/schematypes.html">模式类型</a>.</p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../QuickStart/" title="快速开始" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                快速开始
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Connections/" title="连接" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                连接
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            版权 &copy; 2018 -  wohugb.github.io
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.6cdc17f0.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              <script src="../../assets/javascripts/lunr/lunr.zh.js"></script>
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"0.17.2",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

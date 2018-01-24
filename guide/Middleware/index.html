@@ -1,0 +1,1165 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="mongodb nodejs组件中文文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="zh">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.2.5">
+    
+    
+      
+        <title>中间件 - Mongoose文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.bcabdff3.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.792431c1.css">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    
+      <body data-md-color-primary="indigo" data-md-color-accent="indigo">
+    
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Mongoose文档" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Mongoose文档
+              </span>
+              <span class="md-header-nav__topic">
+                中间件
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wohugb/mongoose-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wohugb/mongoose-docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="前言" class="md-tabs__link">
+        前言
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../Schemas/" title="指南" class="md-tabs__link md-tabs__link--active">
+          指南
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../api/" title="API" class="md-tabs__link">
+          API
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    Mongoose文档
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wohugb/mongoose-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wohugb/mongoose-docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="前言" class="md-nav__link">
+      前言
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../QuickStart/" title="快速开始" class="md-nav__link">
+      快速开始
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      指南
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        指南
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Schemas/" title="模式" class="md-nav__link">
+      模式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Connections/" title="连接" class="md-nav__link">
+      连接
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Models/" title="楷模" class="md-nav__link">
+      楷模
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Documents/" title="文件" class="md-nav__link">
+      文件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Queries/" title="查询" class="md-nav__link">
+      查询
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Validation/" title="验证" class="md-nav__link">
+      验证
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        中间件
+      </label>
+    
+    <a href="./" title="中间件" class="md-nav__link md-nav__link--active">
+      中间件
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#middleware" title="Middleware" class="md-nav__link">
+    Middleware
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre" title="Pre" class="md-nav__link">
+    Pre
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serial" title="Serial" class="md-nav__link">
+    Serial
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallel" title="Parallel" class="md-nav__link">
+    Parallel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-cases" title="Use Cases" class="md-nav__link">
+    Use Cases
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling" title="Error handling" class="md-nav__link">
+    Error handling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-middleware" title="Post middleware" class="md-nav__link">
+    Post middleware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asynchronous-post-hooks" title="Asynchronous Post Hooks" class="md-nav__link">
+    Asynchronous Post Hooks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#savevalidate-hooks" title="Save/Validate Hooks" class="md-nav__link">
+    Save/Validate Hooks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes-on-findandupdate-and-query-middleware" title="Notes on findAndUpdate() and Query Middleware" class="md-nav__link">
+    Notes on findAndUpdate() and Query Middleware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling-middleware" title="Error Handling Middleware" class="md-nav__link">
+    Error Handling Middleware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#next-up" title="Next Up" class="md-nav__link">
+    Next Up
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Populate/" title="填充" class="md-nav__link">
+      填充
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Discriminators/" title="鉴" class="md-nav__link">
+      鉴
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Plugins/" title="插件" class="md-nav__link">
+      插件
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/" title="接口" class="md-nav__link">
+      接口
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Schema/" title="架构" class="md-nav__link">
+      架构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Connection/" title="架构" class="md-nav__link">
+      架构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Document/" title="文件" class="md-nav__link">
+      文件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Model/" title="模型" class="md-nav__link">
+      模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Query/" title="询问" class="md-nav__link">
+      询问
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Aggregate/" title="骨料" class="md-nav__link">
+      骨料
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/SchemaType/" title="架构类型" class="md-nav__link">
+      架构类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/VirtualType/" title="虚拟类型" class="md-nav__link">
+      虚拟类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Error/" title="错误" class="md-nav__link">
+      错误
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../VersionCompatibility/" title="版本兼容性" class="md-nav__link">
+      版本兼容性
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../FAQ/" title="常问问题" class="md-nav__link">
+      常问问题
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#middleware" title="Middleware" class="md-nav__link">
+    Middleware
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre" title="Pre" class="md-nav__link">
+    Pre
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serial" title="Serial" class="md-nav__link">
+    Serial
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallel" title="Parallel" class="md-nav__link">
+    Parallel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-cases" title="Use Cases" class="md-nav__link">
+    Use Cases
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling" title="Error handling" class="md-nav__link">
+    Error handling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-middleware" title="Post middleware" class="md-nav__link">
+    Post middleware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asynchronous-post-hooks" title="Asynchronous Post Hooks" class="md-nav__link">
+    Asynchronous Post Hooks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#savevalidate-hooks" title="Save/Validate Hooks" class="md-nav__link">
+    Save/Validate Hooks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes-on-findandupdate-and-query-middleware" title="Notes on findAndUpdate() and Query Middleware" class="md-nav__link">
+    Notes on findAndUpdate() and Query Middleware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling-middleware" title="Error Handling Middleware" class="md-nav__link">
+    Error Handling Middleware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#next-up" title="Next Up" class="md-nav__link">
+    Next Up
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="mongoose-v501-middleware">Mongoose v5.0.1: Middleware<a class="headerlink" href="#mongoose-v501-middleware" title="Permanent link">&para;</a></h1>
+<h2 id="middleware">Middleware<a class="headerlink" href="#middleware" title="Permanent link">&para;</a></h2>
+<p><a href="http://mongoosejs.com/docs/middleware.html" title="Permalink to Mongoose v5.0.1: Middleware">Source</a></p>
+<p>Middleware (also called pre and post <em>hooks</em>) are functions which are passed control during execution of asynchronous functions. Middleware is specified on the schema level and is useful for writing <a href="http://mongoosejs.com/plugins.html">plugins</a>. Mongoose 4.x has 4 types of middleware: document middleware, model middleware, aggregate middleware, and query middleware. Document middleware is supported for the following document functions. In document middleware functions, <code>this</code> refers to the document.</p>
+<p>Query middleware is supported for the following Model and Query functions. In query middleware functions, <code>this</code> refers to the query.</p>
+<p>Aggregate middleware is for <code>MyModel.aggregate()</code>. Aggregate middleware executes when you call <code>exec()</code> on an aggregate object. In aggregate middleware, <code>this</code> refers to the <a href="http://mongoosejs.com/docs/api.html#model_Model.aggregate">aggregation object</a>.</p>
+<p>Model middleware is supported for the following model functions. In model middleware functions, <code>this</code> refers to the model.</p>
+<p>All middleware types support pre and post hooks. How pre and post hooks work is described in more detail below.</p>
+<p><strong>Note:</strong> There is no query hook for <code>remove()</code>, only for documents. If you set a 'remove' hook, it will be fired when you call <code>myDoc.remove()</code>, not when you call <code>MyModel.remove()</code>. <strong>Note:</strong> The <code>create()</code> function fires <code>save()</code> hooks.</p>
+<h3 id="pre">Pre<a class="headerlink" href="#pre" title="Permanent link">&para;</a></h3>
+<p>There are two types of <code>pre</code> hooks, serial and parallel.</p>
+<h4 id="serial">Serial<a class="headerlink" href="#serial" title="Permanent link">&para;</a></h4>
+<p>Serial middleware functions are executed one after another, when each middleware calls <code>next</code>.</p>
+<div class="codehilite"><pre><span></span>var schema = new Schema(..);
+schema.pre(&#39;save&#39;, function(next) {
+
+  next();
+});
+</pre></div>
+
+
+<p>The <code>next()</code> call does <strong>not</strong> stop the rest of the code in your middleware function from executing. Use <a href="https://www.bennadel.com/blog/2323-use-a-return-statement-when-invoking-callbacks-especially-in-a-guard-statement.htm">the early <code>return</code> pattern</a> to prevent the rest of your middleware function from running when you call <code>next()</code>.</p>
+<div class="codehilite"><pre><span></span>var schema = new Schema(..);
+schema.pre(&#39;save&#39;, function(next) {
+  if (foo()) {
+    console.log(&#39;calling next!&#39;);
+
+     next();
+  }
+
+  console.log(&#39;after next&#39;);
+});
+</pre></div>
+
+
+<h4 id="parallel">Parallel<a class="headerlink" href="#parallel" title="Permanent link">&para;</a></h4>
+<p>Parallel middleware offer more fine-grained flow control.</p>
+<div class="codehilite"><pre><span></span>var schema = new Schema(..);
+
+
+
+schema.pre(&#39;save&#39;, true, function(next, done) {
+
+  next();
+  setTimeout(done, 100);
+});
+</pre></div>
+
+
+<p>The hooked method, in this case <code>save</code>, will not be executed until <code>done</code> is called by each middleware.</p>
+<h4 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">&para;</a></h4>
+<p>Middleware are useful for atomizing model logic. Here are some other ideas:</p>
+<ul>
+<li>complex validation</li>
+<li>removing dependent documents (removing a user removes all his blogposts)</li>
+<li>asynchronous defaults</li>
+<li>asynchronous tasks that a certain action triggers</li>
+</ul>
+<h4 id="error-handling">Error handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h4>
+<p>If any middleware calls <code>next</code> or <code>done</code> with a parameter of type <code>Error</code>, the flow is interrupted, and the error is passed to the callback.</p>
+<div class="codehilite"><pre><span></span>schema.pre(&#39;save&#39;, function(next) {
+  var err = new Error(&#39;something went wrong&#39;);
+  next(err);
+});
+
+
+
+myDoc.save(function(err) {
+  console.log(err.message)
+});
+</pre></div>
+
+
+<h3 id="post-middleware">Post middleware<a class="headerlink" href="#post-middleware" title="Permanent link">&para;</a></h3>
+<p><a href="http://mongoosejs.com/docs/api.html#schema_Schema-post">post</a> middleware are executed <em>after</em> the hooked method and all of its <code>pre</code> middleware have completed.</p>
+<div class="codehilite"><pre><span></span>schema.post(&#39;init&#39;, function(doc) {
+  console.log(&#39;%s has been initialized from the db&#39;, doc._id);
+});
+schema.post(&#39;validate&#39;, function(doc) {
+  console.log(&#39;%s has been validated (but not saved yet)&#39;, doc._id);
+});
+schema.post(&#39;save&#39;, function(doc) {
+  console.log(&#39;%s has been saved&#39;, doc._id);
+});
+schema.post(&#39;remove&#39;, function(doc) {
+  console.log(&#39;%s has been removed&#39;, doc._id);
+});
+</pre></div>
+
+
+<h3 id="asynchronous-post-hooks">Asynchronous Post Hooks<a class="headerlink" href="#asynchronous-post-hooks" title="Permanent link">&para;</a></h3>
+<p>If your post hook function takes at least 2 parameters, mongoose will assume the second parameter is a <code>next()</code> function that you will call to trigger the next middleware in the sequence.</p>
+<div class="codehilite"><pre><span></span>schema.post(&#39;save&#39;, function(doc, next) {
+  setTimeout(function() {
+    console.log(&#39;post1&#39;);
+
+    next();
+  }, 10);
+});
+
+
+schema.post(&#39;save&#39;, function(doc, next) {
+  console.log(&#39;post2&#39;);
+  next();
+});
+</pre></div>
+
+
+<h3 id="savevalidate-hooks">Save/Validate Hooks<a class="headerlink" href="#savevalidate-hooks" title="Permanent link">&para;</a></h3>
+<p>The <code>save()</code> function triggers <code>validate()</code> hooks, because mongoose has a built-in <code>pre('save')</code> hook that calls <code>validate()</code>. This means that all <code>pre('validate')</code> and <code>post('validate')</code> hooks get called <strong>before</strong> any <code>pre('save')</code> hooks.</p>
+<div class="codehilite"><pre><span></span>schema.pre(&#39;validate&#39;, function() {
+  console.log(&#39;this gets printed first&#39;);
+});
+schema.post(&#39;validate&#39;, function() {
+  console.log(&#39;this gets printed second&#39;);
+});
+schema.pre(&#39;save&#39;, function() {
+  console.log(&#39;this gets printed third&#39;);
+});
+schema.post(&#39;save&#39;, function() {
+  console.log(&#39;this gets printed fourth&#39;);
+});
+</pre></div>
+
+
+<h3 id="notes-on-findandupdate-and-query-middleware">Notes on findAndUpdate() and Query Middleware<a class="headerlink" href="#notes-on-findandupdate-and-query-middleware" title="Permanent link">&para;</a></h3>
+<p>Pre and post <code>save()</code> hooks are <strong>not</strong> executed on <code>update()</code>, <code>findOneAndUpdate()</code>, etc. You can see a more detailed discussion why in <a href="http://github.com/Automattic/mongoose/issues/964">this GitHub issue</a>. Mongoose 4.0 introduced distinct hooks for these functions.</p>
+<div class="codehilite"><pre><span></span>schema.pre(&#39;find&#39;, function() {
+  console.log(this instanceof mongoose.Query);
+  this.start = Date.now();
+});
+
+schema.post(&#39;find&#39;, function(result) {
+  console.log(this instanceof mongoose.Query);
+
+  console.log(&#39;find() returned &#39; + JSON.stringify(result));
+
+  console.log(&#39;find() took &#39; + (Date.now() - this.start) + &#39; millis&#39;);
+});
+</pre></div>
+
+
+<p>Query middleware differs from document middleware in a subtle but important way: in document middleware, <code>this</code> refers to the document being updated. In query middleware, mongoose doesn't necessarily have a reference to the document being updated, so <code>this</code> refers to the <strong>query</strong> object rather than the document being updated.</p>
+<p>For instance, if you wanted to add an <code>updatedAt</code> timestamp to every <code>update()</code> call, you would use the following pre hook.</p>
+<div class="codehilite"><pre><span></span><span class="nt">schema</span><span class="p">.</span><span class="nc">pre</span><span class="o">(</span><span class="s1">&#39;update&#39;</span><span class="o">,</span> <span class="nt">function</span><span class="o">()</span> <span class="p">{</span>
+  <span class="err">this.update({</span><span class="p">}</span><span class="o">,</span><span class="p">{</span> <span class="err">$</span><span class="n">set</span><span class="p">:</span> <span class="err">{</span> <span class="n">updatedAt</span><span class="o">:</span> <span class="n">new</span> <span class="nf">Date</span><span class="p">()</span> <span class="p">}</span> <span class="err">}</span><span class="o">);</span>
+<span class="err">}</span><span class="o">);</span>
+</pre></div>
+
+
+<h3 id="error-handling-middleware">Error Handling Middleware<a class="headerlink" href="#error-handling-middleware" title="Permanent link">&para;</a></h3>
+<p><em>New in 4.5.0</em></p>
+<p>Middleware execution normally stops the first time a piece of middleware calls <code>next()</code> with an error. However, there is a special kind of post middleware called "error handling middleware" that executes specifically when an error occurs.</p>
+<p>Error handling middleware is defined as middleware that takes one extra parameter: the 'error' that occurred as the first parameter to the function. Error handling middleware can then transform the error however you want.</p>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span>
+  <span class="n">name</span><span class="p">:</span> <span class="err">{</span>
+    <span class="n">type</span><span class="o">:</span> <span class="n">String</span><span class="p">,</span>
+
+
+    <span class="n">unique</span><span class="o">:</span> <span class="n">true</span>
+  <span class="p">}</span>
+<span class="err">}</span><span class="o">);</span>
+
+
+
+<span class="nt">schema</span><span class="p">.</span><span class="nc">post</span><span class="o">(</span><span class="s1">&#39;save&#39;</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">error</span><span class="o">,</span> <span class="nt">doc</span><span class="o">,</span> <span class="nt">next</span><span class="o">)</span> <span class="p">{</span>
+  <span class="err">if</span> <span class="err">(error.name</span> <span class="err">===</span> <span class="err">&#39;MongoError&#39;</span> <span class="err">&amp;&amp;</span> <span class="err">error.code</span> <span class="err">===</span> <span class="err">11000)</span> <span class="err">{</span>
+    <span class="err">next(new</span> <span class="err">Error(&#39;There</span> <span class="err">was</span> <span class="err">a</span> <span class="err">duplicate</span> <span class="err">key</span> <span class="err">error&#39;))</span><span class="p">;</span>
+  <span class="p">}</span> <span class="nt">else</span> <span class="p">{</span>
+    <span class="err">next(error)</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="err">}</span><span class="o">);</span>
+
+
+<span class="nt">Person</span><span class="p">.</span><span class="nc">create</span><span class="o">(</span><span class="cp">[</span><span class="p">{</span> <span class="nx">name</span><span class="p">:</span> <span class="s1">&#39;Axl Rose&#39;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">name</span><span class="p">:</span> <span class="s1">&#39;Axl Rose&#39;</span> <span class="p">}</span><span class="cp">]</span><span class="o">);</span>
+</pre></div>
+
+
+<p>Error handling middleware also works with query middleware. You can also define a post <code>update()</code> hook that will catch MongoDB duplicate key errors.</p>
+<div class="codehilite"><pre><span></span><span class="nt">schema</span><span class="p">.</span><span class="nc">post</span><span class="o">(</span><span class="s1">&#39;update&#39;</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">error</span><span class="o">,</span> <span class="nt">res</span><span class="o">,</span> <span class="nt">next</span><span class="o">)</span> <span class="p">{</span>
+  <span class="err">if</span> <span class="err">(error.name</span> <span class="err">===</span> <span class="err">&#39;MongoError&#39;</span> <span class="err">&amp;&amp;</span> <span class="err">error.code</span> <span class="err">===</span> <span class="err">11000)</span> <span class="err">{</span>
+    <span class="err">next(new</span> <span class="err">Error(&#39;There</span> <span class="err">was</span> <span class="err">a</span> <span class="err">duplicate</span> <span class="err">key</span> <span class="err">error&#39;))</span><span class="p">;</span>
+  <span class="p">}</span> <span class="nt">else</span> <span class="p">{</span>
+    <span class="err">next(error)</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="err">}</span><span class="o">);</span>
+
+<span class="nt">var</span> <span class="nt">people</span> <span class="o">=</span> <span class="cp">[</span><span class="p">{</span> <span class="nx">name</span><span class="p">:</span> <span class="s1">&#39;Axl Rose&#39;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">name</span><span class="p">:</span> <span class="s1">&#39;Slash&#39;</span> <span class="p">}</span><span class="cp">]</span><span class="o">;</span>
+<span class="nt">Person</span><span class="p">.</span><span class="nc">create</span><span class="o">(</span><span class="nt">people</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">error</span><span class="o">)</span> <span class="p">{</span>
+  <span class="err">Person.update({</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Slash&#39;</span> <span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="err">$</span><span class="n">set</span><span class="p">:</span> <span class="err">{</span> <span class="n">name</span><span class="o">:</span> <span class="s1">&#39;Axl Rose&#39;</span> <span class="p">}</span> <span class="err">}</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">error</span><span class="o">)</span> <span class="p">{</span>
+
+  <span class="p">}</span><span class="o">);</span>
+<span class="err">}</span><span class="o">);</span>
+</pre></div>
+
+
+<h3 id="next-up">Next Up<a class="headerlink" href="#next-up" title="Permanent link">&para;</a></h3>
+<p>Now that we've covered middleware, let's take a look at Mongoose's approach to faking JOINs with its query <a href="http://mongoosejs.com/docs/populate.html">population</a> helper.</p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../Validation/" title="验证" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                验证
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Populate/" title="填充" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                填充
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            版权 &copy; 2018 -  wohugb.github.io
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.6cdc17f0.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              <script src="../../assets/javascripts/lunr/lunr.zh.js"></script>
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"0.17.2",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

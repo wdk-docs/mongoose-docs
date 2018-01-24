@@ -1,0 +1,927 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="mongodb nodejs组件中文文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="zh">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.2.5">
+    
+    
+      
+        <title>楷模 - Mongoose文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.bcabdff3.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.792431c1.css">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    
+      <body data-md-color-primary="indigo" data-md-color-accent="indigo">
+    
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Mongoose文档" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Mongoose文档
+              </span>
+              <span class="md-header-nav__topic">
+                楷模
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wohugb/mongoose-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wohugb/mongoose-docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="前言" class="md-tabs__link">
+        前言
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../Schemas/" title="指南" class="md-tabs__link md-tabs__link--active">
+          指南
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../api/" title="API" class="md-tabs__link">
+          API
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    Mongoose文档
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wohugb/mongoose-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wohugb/mongoose-docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="前言" class="md-nav__link">
+      前言
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../QuickStart/" title="快速开始" class="md-nav__link">
+      快速开始
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      指南
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        指南
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Schemas/" title="模式" class="md-nav__link">
+      模式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Connections/" title="连接" class="md-nav__link">
+      连接
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        楷模
+      </label>
+    
+    <a href="./" title="楷模" class="md-nav__link md-nav__link--active">
+      楷模
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#models" title="Models" class="md-nav__link">
+    Models
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compiling-your-first-model" title="Compiling your first model" class="md-nav__link">
+    Compiling your first model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructing-documents" title="Constructing documents" class="md-nav__link">
+    Constructing documents
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#querying" title="Querying" class="md-nav__link">
+    Querying
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing" title="Removing" class="md-nav__link">
+    Removing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating" title="Updating" class="md-nav__link">
+    Updating
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yet-more" title="Yet more" class="md-nav__link">
+    Yet more
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#next-up" title="Next Up" class="md-nav__link">
+    Next Up
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Documents/" title="文件" class="md-nav__link">
+      文件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Queries/" title="查询" class="md-nav__link">
+      查询
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Validation/" title="验证" class="md-nav__link">
+      验证
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Middleware/" title="中间件" class="md-nav__link">
+      中间件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Populate/" title="填充" class="md-nav__link">
+      填充
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Discriminators/" title="鉴" class="md-nav__link">
+      鉴
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Plugins/" title="插件" class="md-nav__link">
+      插件
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/" title="接口" class="md-nav__link">
+      接口
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Schema/" title="架构" class="md-nav__link">
+      架构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Connection/" title="架构" class="md-nav__link">
+      架构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Document/" title="文件" class="md-nav__link">
+      文件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Model/" title="模型" class="md-nav__link">
+      模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Query/" title="询问" class="md-nav__link">
+      询问
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Aggregate/" title="骨料" class="md-nav__link">
+      骨料
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/SchemaType/" title="架构类型" class="md-nav__link">
+      架构类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/VirtualType/" title="虚拟类型" class="md-nav__link">
+      虚拟类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Error/" title="错误" class="md-nav__link">
+      错误
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../VersionCompatibility/" title="版本兼容性" class="md-nav__link">
+      版本兼容性
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../FAQ/" title="常问问题" class="md-nav__link">
+      常问问题
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#models" title="Models" class="md-nav__link">
+    Models
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compiling-your-first-model" title="Compiling your first model" class="md-nav__link">
+    Compiling your first model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructing-documents" title="Constructing documents" class="md-nav__link">
+    Constructing documents
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#querying" title="Querying" class="md-nav__link">
+    Querying
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing" title="Removing" class="md-nav__link">
+    Removing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating" title="Updating" class="md-nav__link">
+    Updating
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yet-more" title="Yet more" class="md-nav__link">
+    Yet more
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#next-up" title="Next Up" class="md-nav__link">
+    Next Up
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="mongoose-v501-models">Mongoose v5.0.1: Models<a class="headerlink" href="#mongoose-v501-models" title="Permanent link">&para;</a></h1>
+<h2 id="models">Models<a class="headerlink" href="#models" title="Permanent link">&para;</a></h2>
+<p><a href="http://mongoosejs.com/docs/models.html" title="Permalink to Mongoose v5.0.1: Models">Source</a></p>
+<p><a href="http://mongoosejs.com/api.html#model-js">Models</a> are fancy constructors compiled from our <code>Schema</code> definitions. Instances of these models represent <a href="http://mongoosejs.com/documents.html">documents</a> which can be saved and retrieved from our database. All document creation and retrieval from the database is handled by these models.</p>
+<h3 id="compiling-your-first-model">Compiling your first model<a class="headerlink" href="#compiling-your-first-model" title="Permanent link">&para;</a></h3>
+<p>var schema = new mongoose.Schema({ name: 'string', size: 'string' }); var Tank = mongoose.model('Tank', schema);</p>
+<p>The first argument is the <em>singular</em> name of the collection your model is for. <strong> Mongoose automatically looks for the <em>plural</em> version of your model name. </strong> Thus, for the example above, the model Tank is for the <strong>tanks</strong> collection in the database. The <code>.model()</code> function makes a copy of <code>schema</code>. Make sure that you've added everything you want to <code>schema</code> before calling <code>.model()</code>!</p>
+<h3 id="constructing-documents">Constructing documents<a class="headerlink" href="#constructing-documents" title="Permanent link">&para;</a></h3>
+<p><a href="http://mongoosejs.com/documents.html">Documents</a> are instances of our model. Creating them and saving to the database is easy:</p>
+<p>var Tank = mongoose.model('Tank', yourSchema); var small = new Tank({ size: 'small' }); small.save(function (err) { if (err) return handleError(err); // saved! }) // or Tank.create({ size: 'small' }, function (err, small) { if (err) return handleError(err); // saved! })</p>
+<p>Note that no tanks will be created/removed until the connection your model uses is open. Every model has an associated connection. When you use <code>mongoose.model()</code>, your model will use the default mongoose connection.</p>
+<p>mongoose.connect('localhost', 'gettingstarted');</p>
+<p>If you create a custom connection, use that connection's <code>model()</code> function instead.</p>
+<p>var connection = mongoose.createConnection('mongodb://localhost:27017/test'); var Tank = connection.model('Tank', yourSchema);</p>
+<h3 id="querying">Querying<a class="headerlink" href="#querying" title="Permanent link">&para;</a></h3>
+<p>Finding documents is easy with Mongoose, which supports the <a href="http://www.mongodb.org/display/DOCS/Advanced+Queries">rich</a> query syntax of MongoDB. Documents can be retreived using each <code>models</code> <a href="http://mongoosejs.com/api.html#model_Model.find">find</a>, <a href="http://mongoosejs.com/api.html#model_Model.findById">findById</a>, <a href="http://mongoosejs.com/api.html#model_Model.findOne">findOne</a>, or <a href="http://mongoosejs.com/api.html#model_Model.where">where</a> static methods.</p>
+<p>Tank.find({ size: 'small' }).where('createdDate').gt(oneYearAgo).exec(callback);</p>
+<p>See the chapter on <a href="http://mongoosejs.com/queries.html">querying</a> for more details on how to use the <a href="http://mongoosejs.com/api.html#query-js">Query</a> api.</p>
+<h3 id="removing">Removing<a class="headerlink" href="#removing" title="Permanent link">&para;</a></h3>
+<p>Models have a static <code>remove</code> method available for removing all documents matching <code>conditions</code>.</p>
+<p>Tank.remove({ size: 'large' }, function (err) { if (err) return handleError(err); // removed! });</p>
+<h3 id="updating">Updating<a class="headerlink" href="#updating" title="Permanent link">&para;</a></h3>
+<p>Each <code>model</code> has its own <code>update</code> method for modifying documents in the database without returning them to your application. See the <a href="http://mongoosejs.com/api.html#model_Model.update">API</a> docs for more detail.</p>
+<p><em>If you want to update a single document in the db and return it to your application, use <a href="http://mongoosejs.com/api.html#model_Model.findOneAndUpdate">findOneAndUpdate</a> instead.</em></p>
+<h3 id="yet-more">Yet more<a class="headerlink" href="#yet-more" title="Permanent link">&para;</a></h3>
+<p>The <a href="http://mongoosejs.com/api.html#model_Model">API docs</a> cover many additional methods available like <a href="http://mongoosejs.com/api.html#model_Model.count">count</a>, <a href="http://mongoosejs.com/api.html#model_Model.mapReduce">mapReduce</a>, <a href="http://mongoosejs.com/api.html#model_Model.aggregate">aggregate</a>, and <a href="http://mongoosejs.com/api.html#model_Model.findOneAndRemove">more</a>.</p>
+<h3 id="next-up">Next Up<a class="headerlink" href="#next-up" title="Permanent link">&para;</a></h3>
+<p>Now that we've covered <code>Models</code>, let's take a look at <a href="http://mongoosejs.com/docs/documents.html">Documents</a>.</p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../Connections/" title="连接" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                连接
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Documents/" title="文件" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                文件
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            版权 &copy; 2018 -  wohugb.github.io
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.6cdc17f0.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              <script src="../../assets/javascripts/lunr/lunr.zh.js"></script>
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"0.17.2",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

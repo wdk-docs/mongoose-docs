@@ -1,0 +1,1193 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="mongodb nodejs组件中文文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="zh">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.2.5">
+    
+    
+      
+        <title>验证 - Mongoose文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.bcabdff3.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.792431c1.css">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    
+      <body data-md-color-primary="indigo" data-md-color-accent="indigo">
+    
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Mongoose文档" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Mongoose文档
+              </span>
+              <span class="md-header-nav__topic">
+                验证
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wohugb/mongoose-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wohugb/mongoose-docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="前言" class="md-tabs__link">
+        前言
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../Schemas/" title="指南" class="md-tabs__link md-tabs__link--active">
+          指南
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../api/" title="API" class="md-tabs__link">
+          API
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    Mongoose文档
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wohugb/mongoose-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wohugb/mongoose-docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="前言" class="md-nav__link">
+      前言
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../QuickStart/" title="快速开始" class="md-nav__link">
+      快速开始
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      指南
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        指南
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Schemas/" title="模式" class="md-nav__link">
+      模式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Connections/" title="连接" class="md-nav__link">
+      连接
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Models/" title="楷模" class="md-nav__link">
+      楷模
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Documents/" title="文件" class="md-nav__link">
+      文件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Queries/" title="查询" class="md-nav__link">
+      查询
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+    <a href="./" title="验证" class="md-nav__link md-nav__link--active">
+      验证
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Middleware/" title="中间件" class="md-nav__link">
+      中间件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Populate/" title="填充" class="md-nav__link">
+      填充
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Discriminators/" title="鉴" class="md-nav__link">
+      鉴
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Plugins/" title="插件" class="md-nav__link">
+      插件
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/" title="接口" class="md-nav__link">
+      接口
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Schema/" title="架构" class="md-nav__link">
+      架构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Connection/" title="架构" class="md-nav__link">
+      架构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Document/" title="文件" class="md-nav__link">
+      文件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Model/" title="模型" class="md-nav__link">
+      模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Query/" title="询问" class="md-nav__link">
+      询问
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Aggregate/" title="骨料" class="md-nav__link">
+      骨料
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/SchemaType/" title="架构类型" class="md-nav__link">
+      架构类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/VirtualType/" title="虚拟类型" class="md-nav__link">
+      虚拟类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/Error/" title="错误" class="md-nav__link">
+      错误
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../VersionCompatibility/" title="版本兼容性" class="md-nav__link">
+      版本兼容性
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../FAQ/" title="常问问题" class="md-nav__link">
+      常问问题
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="validation">Validation<a class="headerlink" href="#validation" title="Permanent link">&para;</a></h1>
+<p><a href="http://mongoosejs.com/docs/validation.html" title="Permalink to Mongoose v5.0.1: Validation">Source</a></p>
+<p>Before we get into the specifics of validation syntax, please keep the following rules in mind:</p>
+<ul>
+<li>Validation is defined in the <a href="http://mongoosejs.com/schematypes.html">SchemaType</a></li>
+<li>Validation is <a href="http://mongoosejs.com/middleware.html">middleware</a>. Mongoose registers validation as a <code>pre('save')</code> hook on every schema by default.</li>
+<li>You can manually run validation using <code>doc.validate(callback)</code> or <code>doc.validateSync()</code></li>
+<li>Validators are not run on undefined values. The only exception is the <a href="http://mongoosejs.com/api.html#schematype_SchemaType-required"><code>required</code> validator</a>.</li>
+<li>Validation is asynchronously recursive; when you call <a href="http://mongoosejs.com/api.html#model_Model-save">Model#save</a>, sub-document validation is executed as well. If an error occurs, your <a href="http://mongoosejs.com/api.html#model_Model-save">Model#save</a> callback receives it</li>
+<li>Validation is customizable<div class="codehilite"><pre><span></span>var schema = new Schema({
+  name: {
+    type: String,
+    required: true
+  }
+});
+var Cat = db.model(&#39;Cat&#39;, schema);
+
+var cat = new Cat();
+cat.save(function(error) {
+  assert.equal(error.errors[&#39;name&#39;].message,
+    &#39;Path `name` is required.&#39;);
+
+  error = cat.validateSync();
+  assert.equal(error.errors[&#39;name&#39;].message,
+    &#39;Path `name` is required.&#39;);
+});
+</pre></div>
+
+
+</li>
+</ul>
+<p>Mongoose has several built-in validators.</p>
+<p>Each of the validator links above provide more information about how to enable them and customize their error messages.</p>
+<div class="codehilite"><pre><span></span>    var breakfastSchema = new Schema({
+      eggs: {
+        type: Number,
+        min: [6, &#39;Too few eggs&#39;],
+        max: 12
+      },
+      bacon: {
+        type: Number,
+        required: [true, &#39;Why no bacon?&#39;]
+      },
+      drink: {
+        type: String,
+        enum: [&#39;Coffee&#39;, &#39;Tea&#39;],
+        required: function() {
+          return this.bacon &gt; 3;
+        }
+      }
+    });
+    var Breakfast = db.model(&#39;Breakfast&#39;, breakfastSchema);
+
+    var badBreakfast = new Breakfast({
+      eggs: 2,
+      bacon: 0,
+      drink: &#39;Milk&#39;
+    });
+    var error = badBreakfast.validateSync();
+    assert.equal(error.errors[&#39;eggs&#39;].message,
+      &#39;Too few eggs&#39;);
+    assert.ok(!error.errors[&#39;bacon&#39;]);
+    assert.equal(error.errors[&#39;drink&#39;].message,
+      &#39;`Milk` is not a valid enum value for path `drink`.&#39;);
+
+    badBreakfast.bacon = 5;
+    badBreakfast.drink = null;
+
+    error = badBreakfast.validateSync();
+    assert.equal(error.errors[&#39;drink&#39;].message, &#39;Path `drink` is required.&#39;);
+
+    badBreakfast.bacon = null;
+    error = badBreakfast.validateSync();
+    assert.equal(error.errors[&#39;bacon&#39;].message, &#39;Why no bacon?&#39;);
+</pre></div>
+
+
+<p>A common gotcha for beginners is that the <code>unique</code> option for schemas is <em>not</em> a validator. It's a convenient helper for building <a href="https://docs.mongodb.com/manual/core/index-unique/">MongoDB unique indexes</a>. See the <a href="http://mongoosejs.com/docs/faq.html">FAQ</a> for more information.</p>
+<div class="codehilite"><pre><span></span>    <span class="nt">var</span> <span class="nt">uniqueUsernameSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span>
+      <span class="n">username</span><span class="p">:</span> <span class="err">{</span>
+        <span class="n">type</span><span class="o">:</span> <span class="n">String</span><span class="p">,</span>
+        <span class="n">unique</span><span class="o">:</span> <span class="n">true</span>
+      <span class="p">}</span>
+    <span class="err">}</span><span class="o">);</span>
+    <span class="nt">var</span> <span class="nt">U1</span> <span class="o">=</span> <span class="nt">db</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;U1&#39;</span><span class="o">,</span> <span class="nt">uniqueUsernameSchema</span><span class="o">);</span>
+    <span class="nt">var</span> <span class="nt">U2</span> <span class="o">=</span> <span class="nt">db</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;U2&#39;</span><span class="o">,</span> <span class="nt">uniqueUsernameSchema</span><span class="o">);</span>
+
+    <span class="nt">var</span> <span class="nt">dup</span> <span class="o">=</span> <span class="cp">[</span><span class="p">{</span> <span class="nx">username</span><span class="p">:</span> <span class="s1">&#39;Val&#39;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">username</span><span class="p">:</span> <span class="s1">&#39;Val&#39;</span> <span class="p">}</span><span class="cp">]</span><span class="o">;</span>
+    <span class="nt">U1</span><span class="p">.</span><span class="nc">create</span><span class="o">(</span><span class="nt">dup</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">error</span><span class="o">)</span> <span class="p">{</span>
+
+
+    <span class="p">}</span><span class="o">);</span>
+
+
+
+    <span class="nt">U2</span><span class="p">.</span><span class="nc">once</span><span class="o">(</span><span class="s1">&#39;index&#39;</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">error</span><span class="o">)</span> <span class="p">{</span>
+      <span class="err">assert.ifError(error)</span><span class="p">;</span>
+      <span class="err">U2.create(dup,</span> <span class="err">function(error)</span> <span class="err">{</span>
+
+
+        <span class="err">assert.ok(error)</span><span class="p">;</span>
+        <span class="err">assert.ok(!error.errors)</span><span class="p">;</span>
+        <span class="err">assert.ok(error.message.indexOf(&#39;duplicate</span> <span class="err">key</span> <span class="err">error&#39;)</span> <span class="err">!==</span> <span class="err">-1)</span><span class="p">;</span>
+      <span class="p">}</span><span class="o">);</span>
+    <span class="err">}</span><span class="o">);</span>
+
+
+
+
+    <span class="nt">U2</span><span class="p">.</span><span class="nc">init</span><span class="o">()</span><span class="p">.</span><span class="nc">then</span><span class="o">(</span><span class="nt">function</span><span class="o">()</span> <span class="p">{</span>
+      <span class="err">U2.create(dup,</span> <span class="err">function(error)</span> <span class="err">{</span>
+
+
+        <span class="err">assert.ok(error)</span><span class="p">;</span>
+        <span class="err">assert.ok(!error.errors)</span><span class="p">;</span>
+        <span class="err">assert.ok(error.message.indexOf(&#39;duplicate</span> <span class="err">key</span> <span class="err">error&#39;)</span> <span class="err">!==</span> <span class="err">-1)</span><span class="p">;</span>
+      <span class="p">}</span><span class="o">);</span>
+    <span class="err">}</span><span class="o">);</span>
+</pre></div>
+
+
+<p>If the built-in validators aren't enough, you can define custom validators to suit your needs.</p>
+<p>Custom validation is declared by passing a validation function. You can find detailed instructions on how to do this in the <a href="http://mongoosejs.com/api.html#schematype_SchemaType-validate"><code>SchemaType#validate()</code> API docs</a>.</p>
+<div class="codehilite"><pre><span></span>    var userSchema = new Schema({
+      phone: {
+        type: String,
+        validate: {
+          validator: function(v) {
+            return /d{3}-d{3}-d{4}/.test(v);
+          },
+          message: &#39;{VALUE} is not a valid phone number!&#39;
+        },
+        required: [true, &#39;User phone number required&#39;]
+      }
+    });
+
+    var User = db.model(&#39;user&#39;, userSchema);
+    var user = new User();
+    var error;
+
+    user.phone = &#39;555.0123&#39;;
+    error = user.validateSync();
+    assert.equal(error.errors[&#39;phone&#39;].message,
+      &#39;555.0123 is not a valid phone number!&#39;);
+
+    user.phone = &#39;&#39;;
+    error = user.validateSync();
+    assert.equal(error.errors[&#39;phone&#39;].message,
+      &#39;User phone number required&#39;);
+
+    user.phone = &#39;201-555-0123&#39;;
+
+
+    error = user.validateSync();
+    assert.equal(error, null);
+</pre></div>
+
+
+<p>Custom validators can also be asynchronous. If your validator function takes 2 arguments, mongoose will assume the 2nd argument is a callback.</p>
+<p>Even if you don't want to use asynchronous validators, be careful, because mongoose 4 will assume that <strong>all</strong> functions that take 2 arguments are asynchronous, like the <a href="https://www.npmjs.com/package/validator"><code>validator.isEmail</code> function</a>. This behavior is considered deprecated as of 4.9.0, and you can shut it off by specifying <code>isAsync: false</code> on your custom validator.</p>
+<div class="codehilite"><pre><span></span>    var userSchema = new Schema({
+      phone: {
+        type: String,
+        validate: {
+
+
+
+          isAsync: true,
+          validator: function(v, cb) {
+            setTimeout(function() {
+              var phoneRegex = /d{3}-d{3}-d{4}/;
+              var msg = v + &#39; is not a valid phone number!&#39;;
+
+
+              cb(phoneRegex.test(v), msg);
+            }, 5);
+          },
+
+          message: &#39;Default error message&#39;
+        },
+        required: [true, &#39;User phone number required&#39;]
+      },
+      name: {
+        type: String,
+
+
+        validate: function(v) {
+          return new Promise(function(resolve, reject) {
+            setTimeout(function() {
+              resolve(false);
+            }, 5);
+          });
+        }
+      }
+    });
+
+    var User = db.model(&#39;User&#39;, userSchema);
+    var user = new User();
+    var error;
+
+    user.phone = &#39;555.0123&#39;;
+    user.name = &#39;test&#39;;
+    user.validate(function(error) {
+      assert.ok(error);
+      assert.equal(error.errors[&#39;phone&#39;].message,
+        &#39;555.0123 is not a valid phone number!&#39;);
+      assert.equal(error.errors[&#39;name&#39;].message,
+        &#39;Validator failed for path `name` with value `test`&#39;);
+    });
+</pre></div>
+
+
+<p>Errors returned after failed validation contain an <code>errors</code> object whose values are <code>ValidatorError</code> objects. Each <a href="http://mongoosejs.com/api.html#error-validation-js">ValidatorError</a> has <code>kind</code>, <code>path</code>, <code>value</code>, and <code>message</code> properties. A ValidatorError also may have a <code>reason</code> property. If an error was thrown in the validator, this property will contain the error that was thrown.</p>
+<div class="codehilite"><pre><span></span>    <span class="nt">var</span> <span class="nt">toySchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span>
+      <span class="k">color</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span>
+      <span class="n">name</span><span class="o">:</span> <span class="n">String</span>
+    <span class="p">}</span><span class="o">);</span>
+
+    <span class="nt">var</span> <span class="nt">validator</span> <span class="o">=</span> <span class="nt">function</span><span class="o">(</span><span class="nt">value</span><span class="o">)</span> <span class="p">{</span>
+      <span class="err">return</span> <span class="err">/red|white|gold/i.test(value)</span><span class="p">;</span>
+    <span class="p">}</span><span class="o">;</span>
+    <span class="nt">toySchema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;color&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">validate</span><span class="o">(</span><span class="nt">validator</span><span class="o">,</span>
+      <span class="s1">&#39;Color `{VALUE}` not valid&#39;</span><span class="o">,</span> <span class="s1">&#39;Invalid color&#39;</span><span class="o">);</span>
+    <span class="nt">toySchema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">validate</span><span class="o">(</span><span class="nt">function</span><span class="o">(</span><span class="nt">v</span><span class="o">)</span> <span class="p">{</span>
+      <span class="err">if</span> <span class="err">(v</span> <span class="err">!==</span> <span class="err">&#39;Turbo</span> <span class="err">Man&#39;)</span> <span class="err">{</span>
+        <span class="err">throw</span> <span class="err">new</span> <span class="err">Error(&#39;Need</span> <span class="err">to</span> <span class="err">get</span> <span class="err">a</span> <span class="err">Turbo</span> <span class="err">Man</span> <span class="err">for</span> <span class="err">Christmas&#39;)</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="nt">return</span> <span class="nt">true</span><span class="o">;</span>
+    <span class="err">}</span><span class="o">,</span> <span class="s1">&#39;Name `{VALUE}` is not valid&#39;</span><span class="o">);</span>
+
+    <span class="nt">var</span> <span class="nt">Toy</span> <span class="o">=</span> <span class="nt">db</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Toy&#39;</span><span class="o">,</span> <span class="nt">toySchema</span><span class="o">);</span>
+
+    <span class="nt">var</span> <span class="nt">toy</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Toy</span><span class="o">(</span><span class="p">{</span> <span class="k">color</span><span class="p">:</span> <span class="s1">&#39;Green&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">:</span> <span class="s1">&#39;Power Ranger&#39;</span> <span class="p">}</span><span class="o">);</span>
+
+    <span class="nt">toy</span><span class="p">.</span><span class="nc">save</span><span class="o">(</span><span class="nt">function</span> <span class="o">(</span><span class="nt">err</span><span class="o">)</span> <span class="p">{</span>
+
+
+      <span class="err">assert.equal(err.errors.color.message,</span> <span class="err">&#39;Color</span> <span class="err">`Green`</span> <span class="err">not</span> <span class="err">valid&#39;)</span><span class="p">;</span>
+      <span class="err">assert.equal(err.errors.color.kind,</span> <span class="err">&#39;Invalid</span> <span class="err">color&#39;)</span><span class="p">;</span>
+      <span class="err">assert.equal(err.errors.color.path,</span> <span class="err">&#39;color&#39;)</span><span class="p">;</span>
+      <span class="err">assert.equal(err.errors.color.value,</span> <span class="err">&#39;Green&#39;)</span><span class="p">;</span>
+
+
+
+
+      <span class="err">assert.equal(err.errors.name.message,</span>
+        <span class="err">&#39;Need</span> <span class="err">to</span> <span class="err">get</span> <span class="err">a</span> <span class="err">Turbo</span> <span class="err">Man</span> <span class="err">for</span> <span class="err">Christmas&#39;)</span><span class="p">;</span>
+      <span class="err">assert.equal(err.errors.name.value,</span> <span class="err">&#39;Power</span> <span class="err">Ranger&#39;)</span><span class="p">;</span>
+
+
+      <span class="err">assert.equal(err.errors.name.reason.message,</span>
+        <span class="err">&#39;Need</span> <span class="err">to</span> <span class="err">get</span> <span class="err">a</span> <span class="err">Turbo</span> <span class="err">Man</span> <span class="err">for</span> <span class="err">Christmas&#39;)</span><span class="p">;</span>
+
+      <span class="err">assert.equal(err.name,</span> <span class="err">&#39;ValidationError&#39;)</span><span class="p">;</span>
+    <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<p>Defining validators on nested objects in mongoose is tricky, because nested objects are not fully fledged paths.</p>
+<div class="codehilite"><pre><span></span>    var personSchema = new Schema({
+      name: {
+        first: String,
+        last: String
+      }
+    });
+
+    assert.throws(function() {
+
+      personSchema.path(&#39;name&#39;).required(true);
+    }, /Cannot.*&#39;required&#39;/);
+
+
+    var nameSchema = new Schema({
+      first: String,
+      last: String
+    });
+
+    personSchema = new Schema({
+      name: {
+        type: nameSchema,
+        required: true
+      }
+    });
+
+    var Person = db.model(&#39;Person&#39;, personSchema);
+
+    var person = new Person();
+    var error = person.validateSync();
+    assert.ok(error.errors[&#39;name&#39;]);
+</pre></div>
+
+
+<p>In the above examples, you learned about document validation. Mongoose also supports validation for <code>update()</code> and <code>findOneAndUpdate()</code> operations. In Mongoose 4.x, update validators are off by default - you need to specify the <code>runValidators</code> option.</p>
+<p>To turn on update validators, set the <code>runValidators</code> option for <code>update()</code> or <code>findOneAndUpdate()</code>. Be careful: update validators are off by default because they have several caveats.</p>
+<div class="codehilite"><pre><span></span>    <span class="nt">var</span> <span class="nt">toySchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span>
+      <span class="k">color</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span>
+      <span class="n">name</span><span class="o">:</span> <span class="n">String</span>
+    <span class="p">}</span><span class="o">);</span>
+
+    <span class="nt">var</span> <span class="nt">Toy</span> <span class="o">=</span> <span class="nt">db</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Toys&#39;</span><span class="o">,</span> <span class="nt">toySchema</span><span class="o">);</span>
+
+    <span class="nt">Toy</span><span class="p">.</span><span class="nc">schema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;color&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">validate</span><span class="o">(</span><span class="nt">function</span> <span class="o">(</span><span class="nt">value</span><span class="o">)</span> <span class="p">{</span>
+      <span class="err">return</span> <span class="err">/blue|green|white|red|orange|periwinkle/i.test(value)</span><span class="p">;</span>
+    <span class="p">}</span><span class="o">,</span> <span class="s1">&#39;Invalid color&#39;</span><span class="o">);</span>
+
+    <span class="nt">var</span> <span class="nt">opts</span> <span class="o">=</span> <span class="p">{</span> <span class="n">runValidators</span><span class="p">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">;</span>
+    <span class="nt">Toy</span><span class="p">.</span><span class="nc">update</span><span class="o">(</span><span class="p">{}</span><span class="o">,</span> <span class="p">{</span> <span class="k">color</span><span class="p">:</span> <span class="s1">&#39;bacon&#39;</span> <span class="p">}</span><span class="o">,</span> <span class="nt">opts</span><span class="o">,</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">err</span><span class="o">)</span> <span class="p">{</span>
+      <span class="err">assert.equal(err.errors.color.message,</span>
+        <span class="err">&#39;Invalid</span> <span class="err">color&#39;)</span><span class="p">;</span>
+    <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<p>There are a couple of key differences between update validators and document validators. In the color validation function above, <code>this</code> refers to the document being validated when using document validation. However, when running update validators, the document being updated may not be in the server's memory, so by default the value of <code>this</code> is not defined.</p>
+<div class="codehilite"><pre><span></span>    <span class="nt">var</span> <span class="nt">toySchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span>
+      <span class="k">color</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span>
+      <span class="n">name</span><span class="o">:</span> <span class="n">String</span>
+    <span class="p">}</span><span class="o">);</span>
+
+    <span class="nt">toySchema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;color&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">validate</span><span class="o">(</span><span class="nt">function</span><span class="o">(</span><span class="nt">value</span><span class="o">)</span> <span class="p">{</span>
+
+
+
+      <span class="err">if</span> <span class="err">(this.name.toLowerCase().indexOf(&#39;red&#39;)</span> <span class="err">!==</span> <span class="err">-1)</span> <span class="err">{</span>
+        <span class="err">return</span> <span class="err">value</span> <span class="err">!==</span> <span class="err">&#39;red&#39;</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="nt">return</span> <span class="nt">true</span><span class="o">;</span>
+    <span class="err">}</span><span class="o">);</span>
+
+    <span class="nt">var</span> <span class="nt">Toy</span> <span class="o">=</span> <span class="nt">db</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;ActionFigure&#39;</span><span class="o">,</span> <span class="nt">toySchema</span><span class="o">);</span>
+
+    <span class="nt">var</span> <span class="nt">toy</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Toy</span><span class="o">(</span><span class="p">{</span> <span class="k">color</span><span class="p">:</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">:</span> <span class="s1">&#39;Red Power Ranger&#39;</span> <span class="p">}</span><span class="o">);</span>
+    <span class="nt">var</span> <span class="nt">error</span> <span class="o">=</span> <span class="nt">toy</span><span class="p">.</span><span class="nc">validateSync</span><span class="o">();</span>
+    <span class="nt">assert</span><span class="p">.</span><span class="nc">ok</span><span class="o">(</span><span class="nt">error</span><span class="p">.</span><span class="nc">errors</span><span class="cp">[</span><span class="s1">&#39;color&#39;</span><span class="cp">]</span><span class="o">);</span>
+
+    <span class="nt">var</span> <span class="nt">update</span> <span class="o">=</span> <span class="p">{</span> <span class="k">color</span><span class="p">:</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">:</span> <span class="s1">&#39;Red Power Ranger&#39;</span> <span class="p">}</span><span class="o">;</span>
+    <span class="nt">var</span> <span class="nt">opts</span> <span class="o">=</span> <span class="p">{</span> <span class="n">runValidators</span><span class="p">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">;</span>
+
+    <span class="nt">Toy</span><span class="p">.</span><span class="nc">update</span><span class="o">(</span><span class="p">{}</span><span class="o">,</span> <span class="nt">update</span><span class="o">,</span> <span class="nt">opts</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">error</span><span class="o">)</span> <span class="p">{</span>
+
+
+
+
+      <span class="err">assert.ok(error)</span><span class="p">;</span>
+    <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<p>The <code>context</code> option lets you set the value of <code>this</code> in update validators to the underlying query.</p>
+<div class="codehilite"><pre><span></span>    <span class="nt">toySchema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;color&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">validate</span><span class="o">(</span><span class="nt">function</span><span class="o">(</span><span class="nt">value</span><span class="o">)</span> <span class="p">{</span>
+
+
+      <span class="err">if</span> <span class="err">(this.getUpdate().$set.name.toLowerCase().indexOf(&#39;red&#39;)</span> <span class="err">!==</span> <span class="err">-1)</span> <span class="err">{</span>
+        <span class="err">return</span> <span class="err">value</span> <span class="err">===</span> <span class="err">&#39;red&#39;</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="nt">return</span> <span class="nt">true</span><span class="o">;</span>
+    <span class="err">}</span><span class="o">);</span>
+
+    <span class="nt">var</span> <span class="nt">Toy</span> <span class="o">=</span> <span class="nt">db</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Figure&#39;</span><span class="o">,</span> <span class="nt">toySchema</span><span class="o">);</span>
+
+    <span class="nt">var</span> <span class="nt">update</span> <span class="o">=</span> <span class="p">{</span> <span class="k">color</span><span class="p">:</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">:</span> <span class="s1">&#39;Red Power Ranger&#39;</span> <span class="p">}</span><span class="o">;</span>
+
+    <span class="nt">var</span> <span class="nt">opts</span> <span class="o">=</span> <span class="p">{</span> <span class="n">runValidators</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span> <span class="n">context</span><span class="o">:</span> <span class="s1">&#39;query&#39;</span> <span class="p">}</span><span class="o">;</span>
+
+    <span class="nt">Toy</span><span class="p">.</span><span class="nc">update</span><span class="o">(</span><span class="p">{}</span><span class="o">,</span> <span class="nt">update</span><span class="o">,</span> <span class="nt">opts</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">error</span><span class="o">)</span> <span class="p">{</span>
+      <span class="err">assert.ok(error.errors</span><span class="cp">[</span><span class="s1">&#39;color&#39;</span><span class="cp">]</span><span class="err">)</span><span class="p">;</span>
+    <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<p>The other key difference that update validators only run on the paths specified in the update. For instance, in the below example, because 'name' is not specified in the update operation, update validation will succeed.</p>
+<p>When using update validators, <code>required</code> validators <strong>only</strong> fail when you try to explicitly <code>$unset</code> the key.</p>
+<div class="codehilite"><pre><span></span>    <span class="nt">var</span> <span class="nt">kittenSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span>
+      <span class="n">name</span><span class="p">:</span> <span class="err">{</span> <span class="n">type</span><span class="o">:</span> <span class="n">String</span><span class="p">,</span> <span class="n">required</span><span class="o">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">,</span>
+      <span class="nt">age</span><span class="o">:</span> <span class="nt">Number</span>
+    <span class="err">}</span><span class="o">);</span>
+
+    <span class="nt">var</span> <span class="nt">Kitten</span> <span class="o">=</span> <span class="nt">db</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Kitten&#39;</span><span class="o">,</span> <span class="nt">kittenSchema</span><span class="o">);</span>
+
+    <span class="nt">var</span> <span class="nt">update</span> <span class="o">=</span> <span class="p">{</span> <span class="k">color</span><span class="p">:</span> <span class="s1">&#39;blue&#39;</span> <span class="p">}</span><span class="o">;</span>
+    <span class="nt">var</span> <span class="nt">opts</span> <span class="o">=</span> <span class="p">{</span> <span class="n">runValidators</span><span class="p">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">;</span>
+    <span class="nt">Kitten</span><span class="p">.</span><span class="nc">update</span><span class="o">(</span><span class="p">{}</span><span class="o">,</span> <span class="nt">update</span><span class="o">,</span> <span class="nt">opts</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">err</span><span class="o">)</span> <span class="p">{</span>
+
+    <span class="p">}</span><span class="o">);</span>
+
+    <span class="nt">var</span> <span class="nt">unset</span> <span class="o">=</span> <span class="p">{</span> <span class="err">$</span><span class="n">unset</span><span class="p">:</span> <span class="err">{</span> <span class="n">name</span><span class="o">:</span> <span class="mi">1</span> <span class="p">}</span> <span class="err">}</span><span class="o">;</span>
+    <span class="nt">Kitten</span><span class="p">.</span><span class="nc">update</span><span class="o">(</span><span class="p">{}</span><span class="o">,</span> <span class="nt">unset</span><span class="o">,</span> <span class="nt">opts</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">err</span><span class="o">)</span> <span class="p">{</span>
+
+      <span class="err">assert.ok(err)</span><span class="p">;</span>
+      <span class="err">assert.ok(err.errors</span><span class="cp">[</span><span class="s1">&#39;name&#39;</span><span class="cp">]</span><span class="err">)</span><span class="p">;</span>
+    <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<p>One final detail worth noting: update validators <strong>only</strong> run on the following update operators:
+* <code>$set</code> * <code>$unset</code> * <code>$push</code> (&gt;= 4.8.0) * <code>$addToSet</code> (&gt;= 4.8.0) * <code>$pull</code> (&gt;= 4.12.0) * <code>$pullAll</code> (&gt;= 4.12.0)</p>
+<p>For instance, the below update will succeed, regardless of the value of <code>number</code>, because update validators ignore <code>$inc</code>. Also, <code>$push</code>, <code>$addToSet</code>, <code>$pull</code>, and <code>$pullAll</code> validation does <strong>not</strong> run any validation on the array itself, only individual elements of the array.</p>
+<div class="codehilite"><pre><span></span>    <span class="nt">var</span> <span class="nt">testSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span>
+      <span class="n">number</span><span class="p">:</span> <span class="err">{</span> <span class="n">type</span><span class="o">:</span> <span class="n">Number</span><span class="p">,</span> <span class="n">max</span><span class="o">:</span> <span class="mi">0</span> <span class="p">}</span><span class="o">,</span>
+      <span class="nt">arr</span><span class="o">:</span> <span class="cp">[</span><span class="p">{</span> <span class="nx">message</span><span class="p">:</span> <span class="p">{</span> <span class="k">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nx">maxLength</span><span class="p">:</span> <span class="mi">10</span> <span class="p">}</span> <span class="p">}</span><span class="cp">]</span>
+    <span class="err">}</span><span class="o">);</span>
+
+
+
+    <span class="nt">testSchema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;arr&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">validate</span><span class="o">(</span><span class="nt">function</span><span class="o">(</span><span class="nt">v</span><span class="o">)</span> <span class="p">{</span>
+      <span class="err">return</span> <span class="err">v.length</span> <span class="err">&lt;</span> <span class="err">2</span><span class="p">;</span>
+    <span class="p">}</span><span class="o">);</span>
+
+    <span class="nt">var</span> <span class="nt">Test</span> <span class="o">=</span> <span class="nt">db</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Test&#39;</span><span class="o">,</span> <span class="nt">testSchema</span><span class="o">);</span>
+
+    <span class="nt">var</span> <span class="nt">update</span> <span class="o">=</span> <span class="p">{</span> <span class="err">$</span><span class="n">inc</span><span class="p">:</span> <span class="err">{</span> <span class="n">number</span><span class="o">:</span> <span class="mi">1</span> <span class="p">}</span> <span class="err">}</span><span class="o">;</span>
+    <span class="nt">var</span> <span class="nt">opts</span> <span class="o">=</span> <span class="p">{</span> <span class="n">runValidators</span><span class="p">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">;</span>
+    <span class="nt">Test</span><span class="p">.</span><span class="nc">update</span><span class="o">(</span><span class="p">{}</span><span class="o">,</span> <span class="nt">update</span><span class="o">,</span> <span class="nt">opts</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">error</span><span class="o">)</span> <span class="p">{</span>
+
+      <span class="err">update</span> <span class="err">=</span> <span class="err">{</span> <span class="err">$</span><span class="n">push</span><span class="p">:</span> <span class="cp">[</span><span class="p">{</span> <span class="nx">message</span><span class="p">:</span> <span class="s1">&#39;hello&#39;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">message</span><span class="p">:</span> <span class="s1">&#39;world&#39;</span> <span class="p">}</span><span class="cp">]</span> <span class="p">}</span><span class="o">;</span>
+      <span class="nt">Test</span><span class="p">.</span><span class="nc">update</span><span class="o">(</span><span class="p">{}</span><span class="o">,</span> <span class="nt">update</span><span class="o">,</span> <span class="nt">opts</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">error</span><span class="o">)</span> <span class="p">{</span>
+
+
+      <span class="p">}</span><span class="o">);</span>
+    <span class="err">}</span><span class="o">);</span>
+</pre></div>
+
+
+<p>New in 4.8.0: update validators also run on <code>$push</code> and <code>$addToSet</code></p>
+<div class="codehilite"><pre><span></span>    <span class="nt">var</span> <span class="nt">testSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span>
+      <span class="n">numbers</span><span class="p">:</span> <span class="cp">[</span><span class="p">{</span> <span class="k">type</span><span class="p">:</span> <span class="nx">Number</span><span class="p">,</span> <span class="k">max</span><span class="p">:</span> <span class="mi">0</span> <span class="p">}</span><span class="cp">]</span><span class="p">,</span>
+      <span class="n">docs</span><span class="o">:</span> <span class="cp">[</span><span class="p">{</span>
+        <span class="nx">name</span><span class="p">:</span> <span class="p">{</span> <span class="k">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nx">required</span><span class="p">:</span> <span class="kc">true</span> <span class="p">}</span>
+      <span class="p">}</span><span class="cp">]</span>
+    <span class="p">}</span><span class="o">);</span>
+
+    <span class="nt">var</span> <span class="nt">Test</span> <span class="o">=</span> <span class="nt">db</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;TestPush&#39;</span><span class="o">,</span> <span class="nt">testSchema</span><span class="o">);</span>
+
+    <span class="nt">var</span> <span class="nt">update</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="err">$</span><span class="n">push</span><span class="p">:</span> <span class="err">{</span>
+        <span class="n">numbers</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">docs</span><span class="o">:</span> <span class="err">{</span> <span class="n">name</span><span class="o">:</span> <span class="n">null</span> <span class="p">}</span>
+      <span class="err">}</span>
+    <span class="err">}</span><span class="o">;</span>
+    <span class="nt">var</span> <span class="nt">opts</span> <span class="o">=</span> <span class="p">{</span> <span class="n">runValidators</span><span class="p">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">;</span>
+    <span class="nt">Test</span><span class="p">.</span><span class="nc">update</span><span class="o">(</span><span class="p">{}</span><span class="o">,</span> <span class="nt">update</span><span class="o">,</span> <span class="nt">opts</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">error</span><span class="o">)</span> <span class="p">{</span>
+      <span class="err">assert.ok(error.errors</span><span class="cp">[</span><span class="s1">&#39;numbers&#39;</span><span class="cp">]</span><span class="err">)</span><span class="p">;</span>
+      <span class="err">assert.ok(error.errors</span><span class="cp">[</span><span class="s1">&#39;docs&#39;</span><span class="cp">]</span><span class="err">)</span><span class="p">;</span>
+    <span class="p">}</span><span class="o">);</span>
+</pre></div>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../Queries/" title="查询" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                查询
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Middleware/" title="中间件" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                中间件
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            版权 &copy; 2018 -  wohugb.github.io
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.6cdc17f0.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              <script src="../../assets/javascripts/lunr/lunr.zh.js"></script>
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"0.17.2",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
