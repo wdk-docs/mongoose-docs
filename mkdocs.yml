@@ -1,0 +1,77 @@
+site_name: Mongoose文档
+site_description: mongodb nodejs组件中文文档
+site_author: Nosy
+copyright: '版权 &copy; 2018 -  wohugb.github.io'
+
+repo_name: wohugb/mongoose-docs
+repo_url: https://github.com/wohugb/mongoose-docs
+edit_uri: ""
+
+theme:
+  name: material
+
+  include_search_page: false
+  search_index_only: true
+
+  language: zh
+  feature:
+    tabs: true
+  palette:
+    primary: indigo
+    accent: indigo
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/images/favicon.png
+  logo:
+    icon: "\uE80C"
+  extra_css: [assets/stylesheets/extra.css]
+extra:
+  social:
+    - type: globe
+      link: http://wohugb.github.io
+    - type: github-alt
+      link: https://github.com/wohugb
+    - type: twitter
+      link: https://twitter.com/wohugb
+    - type: linkedin
+      link: https://linkedin.com/in/wohugb
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      linenums: false
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.details
+
+pages:
+  - 前言: index.md
+  - 快速开始: QuickStart.md
+  - 指南:
+    - 模式: guide/Schemas.md
+    - 连接: guide/Connections.md
+    - 楷模: guide/Models.md
+    - 文件: guide/Documents.md
+    - 查询: guide/Queries.md
+    - 验证: guide/Validation.md
+    - 中间件: guide/Middleware.md
+    - 填充: guide/Populate.md
+    - 鉴: guide/Discriminators.md
+    - 插件: guide/Plugins.md
+  - API:
+    - 接口: api/index.md
+    - 架构: api/Schema.md
+    - 架构: api/Connection.md
+    - 文件: api/Document.md
+    - 模型: api/Model.md
+    - 询问: api/Query.md
+    - 骨料: api/Aggregate.md
+    - 架构类型: api/SchemaType.md
+    - 虚拟类型: api/VirtualType.md
+    - 错误: api/Error.md
+  - 版本兼容性: VersionCompatibility.md
+  - 常问问题: FAQ.md
