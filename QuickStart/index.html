@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="mongodb nodejs组件中文文档">
+        <meta name="description" content="Mongodb NodeJs 组件中文文档">
       
       
       
@@ -304,22 +304,16 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#getting-started" title="Getting Started" class="md-nav__link">
-    Getting Started
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#congratulations" title="Congratulations" class="md-nav__link">
-    Congratulations
+  <a href="#_2" title="入门使用" class="md-nav__link">
+    入门使用
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="祝贺" class="md-nav__link">
+    祝贺
+  </a>
   
 </li>
       
@@ -381,8 +375,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../guide/Models/" title="楷模" class="md-nav__link">
-      楷模
+    <a href="../guide/Models/" title="模式" class="md-nav__link">
+      模式
     </a>
   </li>
 
@@ -393,8 +387,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../guide/Documents/" title="文件" class="md-nav__link">
-      文件
+    <a href="../guide/Documents/" title="文档" class="md-nav__link">
+      文档
     </a>
   </li>
 
@@ -453,8 +447,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../guide/Discriminators/" title="鉴" class="md-nav__link">
-      鉴
+    <a href="../guide/Discriminators/" title="鉴别器" class="md-nav__link">
+      鉴别器
     </a>
   </li>
 
@@ -665,22 +659,16 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#getting-started" title="Getting Started" class="md-nav__link">
-    Getting Started
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#congratulations" title="Congratulations" class="md-nav__link">
-    Congratulations
+  <a href="#_2" title="入门使用" class="md-nav__link">
+    入门使用
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="祝贺" class="md-nav__link">
+    祝贺
+  </a>
   
 </li>
       
@@ -699,91 +687,79 @@
               
                 
                 
-                <h1 id="mongoose-v501-getting-started">Mongoose v5.0.1: Getting Started<a class="headerlink" href="#mongoose-v501-getting-started" title="Permanent link">&para;</a></h1>
-<p><a href="http://mongoosejs.com/docs/index.html" title="Permalink to Mongoose v5.0.1: Getting Started">Source</a></p>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
-<p><em>First be sure you have <a href="http://www.mongodb.org/downloads">MongoDB</a> and <a href="http://nodejs.org/">Node.js</a> installed.</em></p>
-<p>Next install Mongoose from the command line using <code>npm</code>:</p>
-<div class="codehilite"><pre><span></span>$ npm install mongoose
+                <h1 id="_1">入门<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">入门使用<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><a href="http://mongoosejs.com/docs/index.html" title="Mongoose v5.0.1的永久链接：入门">源</a></p>
+<p><em>首先安装<a href="http://www.mongodb.org/downloads">MongoDB</a>和<a href="http://nodejs.org/">Node.js</a>。</em></p>
+<p>接下来使用<code>npm</code>安装Mongoose：</p>
+<div class="codehilite"><pre><span></span>    $ npm install mongoose
 </pre></div>
 
-
-<p>Now say we like fuzzy kittens and want to record every kitten we ever meet in MongoDB. The first thing we need to do is include mongoose in our project and open a connection to the <code>test</code> database on our locally running instance of MongoDB.</p>
-<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">mongoose</span> <span class="o">=</span> <span class="nt">require</span><span class="o">(</span><span class="s1">&#39;mongoose&#39;</span><span class="o">);</span>
-<span class="nt">mongoose</span><span class="p">.</span><span class="nc">connect</span><span class="o">(</span><span class="s1">&#39;mongodb://localhost/test&#39;</span><span class="o">);</span>
+<p>做个小猫模型，先连接本地数据库<code>test</code>.</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongoose&#39;</span><span class="p">);</span>
+<span class="nx">mongoose</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">&#39;mongodb://localhost/test&#39;</span><span class="p">);</span>
 </pre></div>
 
+<p>添加错误通知，以及连接成功方法:</p>
+<div class="codehilite"><pre><span></span>    <span class="kd">var</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">connection</span><span class="p">;</span>
+    <span class="nx">db</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">console</span><span class="p">,</span> <span class="s1">&#39;connection error:&#39;</span><span class="p">));</span>
+    <span class="nx">db</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s1">&#39;open&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
-<p>We have a pending connection to the test database running on localhost. We now need to get notified if we connect successfully or if a connection error occurs:</p>
-<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">db</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">connection</span><span class="o">;</span>
-<span class="nt">db</span><span class="p">.</span><span class="nc">on</span><span class="o">(</span><span class="s1">&#39;error&#39;</span><span class="o">,</span> <span class="nt">console</span><span class="p">.</span><span class="nc">error</span><span class="p">.</span><span class="nc">bind</span><span class="o">(</span><span class="nt">console</span><span class="o">,</span> <span class="s1">&#39;connection error:&#39;</span><span class="o">));</span>
-<span class="nt">db</span><span class="p">.</span><span class="nc">once</span><span class="o">(</span><span class="s1">&#39;open&#39;</span><span class="o">,</span> <span class="nt">function</span><span class="o">()</span> <span class="p">{</span>
-
-<span class="p">}</span><span class="o">);</span>
+    <span class="p">});</span>
 </pre></div>
 
-
-<p>Once our connection opens, our callback will be called. For brevity, let's assume that all following code is within this callback.</p>
-<p>With Mongoose, everything is derived from a <a href="http://mongoosejs.com/docs/guide.html">Schema</a>. Let's get a reference to it and define our kittens.</p>
-<div class="codehilite"><pre><span></span>var kittySchema = mongoose.Schema({
-  name: String
-});
+<p>一旦我们的连接打开，我们的回调将被调用，为简洁起见，我们假设以下所有代码都位于此回调中。</p>
+<p>定义小猫<a href="http://mongoosejs.com/docs/guide.html">模式</a>.</p>
+<div class="codehilite"><pre><span></span>    <span class="kd">var</span> <span class="nx">kittySchema</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="nb">String</span>
+    <span class="p">});</span>
 </pre></div>
 
-
-<p>So far so good. We've got a schema with one property, <code>name</code>, which will be a <code>String</code>. The next step is compiling our schema into a <a href="http://mongoosejs.com/docs/models.html">Model</a>.</p>
-<div class="codehilite"><pre><span></span>var Kitten = mongoose.model(&#39;Kitten&#39;, kittySchema);
+<p>我们有定义了一个属性 <code>name</code>, 类型 <code>String</code>. 下一步是将我们的模式编译成一个<a href="http://mongoosejs.com/docs/models.html">模型</a>.</p>
+<div class="codehilite"><pre><span></span>    <span class="kd">var</span> <span class="nx">Kitten</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Kitten&#39;</span><span class="p">,</span> <span class="nx">kittySchema</span><span class="p">);</span>
 </pre></div>
 
-
-<p>A model is a class with which we construct documents. In this case, each document will be a kitten with properties and behaviors as declared in our schema. Let's create a kitten document representing the little guy we just met on the sidewalk outside:</p>
-<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">silence</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Kitten</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Silence&#39;</span> <span class="p">}</span><span class="o">);</span>
-<span class="nt">console</span><span class="p">.</span><span class="nc">log</span><span class="o">(</span><span class="nt">silence</span><span class="p">.</span><span class="nc">name</span><span class="o">);</span>
+<p>模型是我们构造文档的类。 在这种情况下， 每个文档将成为一个小猫，其特性和行为在我们的模式中声明。 让我们创建一个小猫文档，代表我们刚刚在外面的人行道上遇到的小家伙：</p>
+<div class="codehilite"><pre><span></span>    <span class="kd">var</span> <span class="nx">silence</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Kitten</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Silence&#39;</span> <span class="p">});</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">silence</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
 </pre></div>
 
-
-<p>Kittens can meow, so let's take a look at how to add "speak" functionality to our documents:</p>
-<div class="codehilite"><pre><span></span>kittySchema.methods.speak = function () {
-  var greeting = this.name
-    ? &quot;Meow name is &quot; + this.name
-    : &quot;I don&#39;t have a name&quot;;
-  console.log(greeting);
-}
-
-var Kitten = mongoose.model(&#39;Kitten&#39;, kittySchema);
+<p>小猫可以喵喵叫，那么让我们来看看如何在我们的文档中添加“speak”功能：</p>
+<div class="codehilite"><pre><span></span>    <span class="nx">kittySchema</span><span class="p">.</span><span class="nx">methods</span><span class="p">.</span><span class="nx">speak</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">greeting</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span>
+        <span class="o">?</span> <span class="s2">&quot;Meow name is &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span>
+        <span class="o">:</span> <span class="s2">&quot;I don&#39;t have a name&quot;</span><span class="p">;</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">greeting</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kd">var</span> <span class="nx">Kitten</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Kitten&#39;</span><span class="p">,</span> <span class="nx">kittySchema</span><span class="p">);</span>
 </pre></div>
 
-
-<p>Functions added to the <code>methods</code> property of a schema get compiled into the <code>Model</code> prototype and exposed on each document instance:</p>
-<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">fluffy</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Kitten</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;fluffy&#39;</span> <span class="p">}</span><span class="o">);</span>
-<span class="nt">fluffy</span><span class="p">.</span><span class="nc">speak</span><span class="o">();</span>
+<p>添加到模式的“方法”属性的函数被编译到“模型”原型中，并显示在每个文档实例上：</p>
+<div class="codehilite"><pre><span></span>    <span class="kd">var</span> <span class="nx">fluffy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Kitten</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;fluffy&#39;</span> <span class="p">});</span>
+    <span class="nx">fluffy</span><span class="p">.</span><span class="nx">speak</span><span class="p">();</span>
 </pre></div>
 
-
-<p>We have talking kittens! But we still haven't saved anything to MongoDB. Each document can be saved to the database by calling its <a href="http://mongoosejs.com/docs/api.html#model_Model-save">save</a> method. The first argument to the callback will be an error if any occured.</p>
-<div class="codehilite"><pre><span></span>  fluffy.save(function (err, fluffy) {
-    if (err) return console.error(err);
-    fluffy.speak();
-  });
+<p>我们有说话的小猫！但是我们还没有保存任何东西给MongoDB。 每个文档可以通过调用<a href="http://mongoosejs.com/docs/api.html#model_Model-save">save</a>方法保存到数据库中。 回调的第一个参数将是一个错误，如果有错误将显示出来。</p>
+<div class="codehilite"><pre><span></span>    <span class="nx">fluffy</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">fluffy</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+    <span class="nx">fluffy</span><span class="p">.</span><span class="nx">speak</span><span class="p">();</span>
+    <span class="p">});</span>
 </pre></div>
 
-
-<p>Say time goes by and we want to display all the kittens we've seen. We can access all of the kitten documents through our Kitten <a href="http://mongoosejs.com/docs/models.html">model</a>.</p>
-<div class="codehilite"><pre><span></span>Kitten.find(function (err, kittens) {
-  if (err) return console.error(err);
-  console.log(kittens);
-})
+<p>说时间过去了，我们想要显示我们看到的所有小猫。 我们可以通过我们的小猫<a href="http://mongoosejs.com/docs/models.html">模型</a>访问所有的小猫文档。</p>
+<div class="codehilite"><pre><span></span>    <span class="nx">Kitten</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">kittens</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">kittens</span><span class="p">);</span>
+    <span class="p">})</span>
 </pre></div>
 
-
-<p>We just logged all of the kittens in our db to the console. If we want to filter our kittens by name, Mongoose supports MongoDBs rich <a href="http://mongoosejs.com/docs/queries.html">querying</a> syntax.</p>
-<div class="codehilite"><pre><span></span><span class="nt">Kitten</span><span class="p">.</span><span class="nc">find</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="o">/^</span><span class="n">fluff</span><span class="o">/</span> <span class="p">}</span><span class="o">,</span> <span class="nt">callback</span><span class="o">);</span>
+<p>我们只把我们的数据库中的所有小猫记录到控制台。 如果我们想按名字过滤我们的小猫，Mongoose支持MongoDB丰富的<a href="http://mongoosejs.com/docs/queries.html">查询</a>语法。</p>
+<div class="codehilite"><pre><span></span>    <span class="nx">Kitten</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="sr">/^fluff/</span> <span class="p">},</span> <span class="nx">callback</span><span class="p">);</span>
 </pre></div>
 
-
-<p>This performs a search for all documents with a name property that begins with "Fluff" and returns the result as an array of kittens to the callback.</p>
-<h3 id="congratulations">Congratulations<a class="headerlink" href="#congratulations" title="Permanent link">&para;</a></h3>
-<p>That's the end of our quick start. We created a schema, added a custom document method, saved and queried kittens in MongoDB using Mongoose. Head over to the <a href="http://mongoosejs.com/guide.html">guide</a>, or <a href="http://mongoosejs.com/api.html">API docs</a> for more.</p>
+<p>这将搜索名称属性以“Fluff”开头的所有文档，并将结果作为小猫数组返回给回调。</p>
+<h2 id="_3">祝贺<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>这是我们快速启动的结束。,我们创建了一个模式，添加了一个自定义的文档方法，使用Mongoose在MongoDB中保存并查询了小猫。,请转到<a href="http://mongoosejs.com/guide.html">guide</a>或<a href="http://mongoosejs.com/api.html">API文档</a>了解更多信息。</p>
                 
                   
                 

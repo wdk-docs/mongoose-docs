@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="mongodb nodejs组件中文文档">
+        <meta name="description" content="Mongodb NodeJs 组件中文文档">
       
       
       
@@ -334,8 +334,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../guide/Models/" title="楷模" class="md-nav__link">
-      楷模
+    <a href="../../guide/Models/" title="模式" class="md-nav__link">
+      模式
     </a>
   </li>
 
@@ -346,8 +346,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../guide/Documents/" title="文件" class="md-nav__link">
-      文件
+    <a href="../../guide/Documents/" title="文档" class="md-nav__link">
+      文档
     </a>
   </li>
 
@@ -406,8 +406,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../guide/Discriminators/" title="鉴" class="md-nav__link">
-      鉴
+    <a href="../../guide/Discriminators/" title="鉴别器" class="md-nav__link">
+      鉴别器
     </a>
   </li>
 
@@ -498,9 +498,964 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        文件
+      </label>
+    
     <a href="./" title="文件" class="md-nav__link md-nav__link--active">
       文件
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeschema41" title="[Document.prototype.schema][41]" class="md-nav__link">
+    [Document.prototype.schema][41]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeisnew42" title="[Document.prototype.isNew][42]" class="md-nav__link">
+    [Document.prototype.isNew][42]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeid43" title="[Document.prototype.id][43]" class="md-nav__link">
+    [Document.prototype.id][43]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeerrors45" title="[Document.prototype.errors][45]" class="md-nav__link">
+    [Document.prototype.errors][45]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeinit46" title="[Document.prototype.init()][46]" class="md-nav__link">
+    [Document.prototype.init()][46]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeupdate47" title="[Document.prototype.update()][47]" class="md-nav__link">
+    [Document.prototype.update()][47]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valid-options" title="Valid options:" class="md-nav__link">
+    Valid options:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeset" title="Document.prototype.$set()" class="md-nav__link">
+    Document.prototype.$set()
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeset48" title="[Document.prototype.set()][48]" class="md-nav__link">
+    [Document.prototype.set()][48]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_1" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeget49" title="[Document.prototype.get()][49]" class="md-nav__link">
+    [Document.prototype.get()][49]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_4" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_2" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypemarkmodified50" title="[Document.prototype.markModified()][50]" class="md-nav__link">
+    [Document.prototype.markModified()][50]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_5" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_3" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeunmarkmodified52" title="[Document.prototype.unmarkModified()][52]" class="md-nav__link">
+    [Document.prototype.unmarkModified()][52]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_6" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_4" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeignore" title="Document.prototype.$ignore()" class="md-nav__link">
+    Document.prototype.$ignore()
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_7" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_5" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypemodifiedpaths53" title="[Document.prototype.modifiedPaths()][53]" class="md-nav__link">
+    [Document.prototype.modifiedPaths()][53]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns_1" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeismodified54" title="[Document.prototype.isModified()][54]" class="md-nav__link">
+    [Document.prototype.isModified()][54]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_8" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_2" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_6" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeisdefault" title="Document.prototype.$isDefault()" class="md-nav__link">
+    Document.prototype.$isDefault()
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_9" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_3" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_7" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeisdeleted" title="Document.prototype.$isDeleted()" class="md-nav__link">
+    Document.prototype.$isDeleted()
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_10" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_4" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_8" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeisdirectmodified55" title="[Document.prototype.isDirectModified()][55]" class="md-nav__link">
+    [Document.prototype.isDirectModified()][55]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_11" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_5" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_9" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeisinit56" title="[Document.prototype.isInit()][56]" class="md-nav__link">
+    [Document.prototype.isInit()][56]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_12" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_6" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeisselected57" title="[Document.prototype.isSelected()][57]" class="md-nav__link">
+    [Document.prototype.isSelected()][57]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_13" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_7" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_10" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeisdirectselected58" title="[Document.prototype.isDirectSelected()][58]" class="md-nav__link">
+    [Document.prototype.isDirectSelected()][58]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_14" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_8" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_11" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypevalidate59" title="[Document.prototype.validate()][59]" class="md-nav__link">
+    [Document.prototype.validate()][59]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_15" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_9" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_1" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_12" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypevalidatesync61" title="[Document.prototype.validateSync()][61]" class="md-nav__link">
+    [Document.prototype.validateSync()][61]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_16" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_10" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_2" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_13" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeinvalidate62" title="[Document.prototype.invalidate()][62]" class="md-nav__link">
+    [Document.prototype.invalidate()][62]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_17" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_11" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypemarkvalid" title="Document.prototype.$markValid()" class="md-nav__link">
+    Document.prototype.$markValid()
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_18" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypesave63" title="[Document.prototype.save()][63]" class="md-nav__link">
+    [Document.prototype.save()][63]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_19" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_12" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_14" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_15" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypetoobject64" title="[Document.prototype.toObject()][64]" class="md-nav__link">
+    [Document.prototype.toObject()][64]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_20" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_13" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" title="Options:" class="md-nav__link">
+    Options:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettersvirtuals" title="Getters/Virtuals" class="md-nav__link">
+    Getters/Virtuals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transform" title="Transform" class="md-nav__link">
+    Transform
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_16" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypetojson67" title="[Document.prototype.toJSON()][67]" class="md-nav__link">
+    [Document.prototype.toJSON()][67]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_21" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_14" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeinspect69" title="[Document.prototype.inspect()][69]" class="md-nav__link">
+    [Document.prototype.inspect()][69]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypetostring70" title="[Document.prototype.toString()][70]" class="md-nav__link">
+    [Document.prototype.toString()][70]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeequals71" title="[Document.prototype.equals()][71]" class="md-nav__link">
+    [Document.prototype.equals()][71]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_22" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_15" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypepopulate72" title="[Document.prototype.populate()][72]" class="md-nav__link">
+    [Document.prototype.populate()][72]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_23" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_16" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_17" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_3" title="NOTE:" class="md-nav__link">
+    NOTE:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeexecpopulate73" title="[Document.prototype.execPopulate()][73]" class="md-nav__link">
+    [Document.prototype.execPopulate()][73]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns_17" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_18" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypepopulated75" title="[Document.prototype.populated()][75]" class="md-nav__link">
+    [Document.prototype.populated()][75]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_24" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_18" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_19" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypedepopulate76" title="[Document.prototype.depopulate()][76]" class="md-nav__link">
+    [Document.prototype.depopulate()][76]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_25" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_19" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_20" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -613,6 +1568,963 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeschema41" title="[Document.prototype.schema][41]" class="md-nav__link">
+    [Document.prototype.schema][41]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeisnew42" title="[Document.prototype.isNew][42]" class="md-nav__link">
+    [Document.prototype.isNew][42]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeid43" title="[Document.prototype.id][43]" class="md-nav__link">
+    [Document.prototype.id][43]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeerrors45" title="[Document.prototype.errors][45]" class="md-nav__link">
+    [Document.prototype.errors][45]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeinit46" title="[Document.prototype.init()][46]" class="md-nav__link">
+    [Document.prototype.init()][46]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeupdate47" title="[Document.prototype.update()][47]" class="md-nav__link">
+    [Document.prototype.update()][47]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valid-options" title="Valid options:" class="md-nav__link">
+    Valid options:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeset" title="Document.prototype.$set()" class="md-nav__link">
+    Document.prototype.$set()
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeset48" title="[Document.prototype.set()][48]" class="md-nav__link">
+    [Document.prototype.set()][48]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_1" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeget49" title="[Document.prototype.get()][49]" class="md-nav__link">
+    [Document.prototype.get()][49]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_4" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_2" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypemarkmodified50" title="[Document.prototype.markModified()][50]" class="md-nav__link">
+    [Document.prototype.markModified()][50]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_5" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_3" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeunmarkmodified52" title="[Document.prototype.unmarkModified()][52]" class="md-nav__link">
+    [Document.prototype.unmarkModified()][52]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_6" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_4" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeignore" title="Document.prototype.$ignore()" class="md-nav__link">
+    Document.prototype.$ignore()
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_7" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_5" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypemodifiedpaths53" title="[Document.prototype.modifiedPaths()][53]" class="md-nav__link">
+    [Document.prototype.modifiedPaths()][53]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns_1" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeismodified54" title="[Document.prototype.isModified()][54]" class="md-nav__link">
+    [Document.prototype.isModified()][54]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_8" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_2" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_6" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeisdefault" title="Document.prototype.$isDefault()" class="md-nav__link">
+    Document.prototype.$isDefault()
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_9" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_3" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_7" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeisdeleted" title="Document.prototype.$isDeleted()" class="md-nav__link">
+    Document.prototype.$isDeleted()
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_10" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_4" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_8" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeisdirectmodified55" title="[Document.prototype.isDirectModified()][55]" class="md-nav__link">
+    [Document.prototype.isDirectModified()][55]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_11" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_5" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_9" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeisinit56" title="[Document.prototype.isInit()][56]" class="md-nav__link">
+    [Document.prototype.isInit()][56]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_12" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_6" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeisselected57" title="[Document.prototype.isSelected()][57]" class="md-nav__link">
+    [Document.prototype.isSelected()][57]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_13" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_7" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_10" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeisdirectselected58" title="[Document.prototype.isDirectSelected()][58]" class="md-nav__link">
+    [Document.prototype.isDirectSelected()][58]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_14" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_8" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_11" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypevalidate59" title="[Document.prototype.validate()][59]" class="md-nav__link">
+    [Document.prototype.validate()][59]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_15" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_9" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_1" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_12" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypevalidatesync61" title="[Document.prototype.validateSync()][61]" class="md-nav__link">
+    [Document.prototype.validateSync()][61]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_16" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_10" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_2" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_13" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeinvalidate62" title="[Document.prototype.invalidate()][62]" class="md-nav__link">
+    [Document.prototype.invalidate()][62]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_17" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_11" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypemarkvalid" title="Document.prototype.$markValid()" class="md-nav__link">
+    Document.prototype.$markValid()
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_18" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypesave63" title="[Document.prototype.save()][63]" class="md-nav__link">
+    [Document.prototype.save()][63]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_19" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_12" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_14" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_15" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypetoobject64" title="[Document.prototype.toObject()][64]" class="md-nav__link">
+    [Document.prototype.toObject()][64]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_20" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_13" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" title="Options:" class="md-nav__link">
+    Options:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettersvirtuals" title="Getters/Virtuals" class="md-nav__link">
+    Getters/Virtuals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transform" title="Transform" class="md-nav__link">
+    Transform
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_16" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypetojson67" title="[Document.prototype.toJSON()][67]" class="md-nav__link">
+    [Document.prototype.toJSON()][67]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_21" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_14" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeinspect69" title="[Document.prototype.inspect()][69]" class="md-nav__link">
+    [Document.prototype.inspect()][69]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypetostring70" title="[Document.prototype.toString()][70]" class="md-nav__link">
+    [Document.prototype.toString()][70]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeequals71" title="[Document.prototype.equals()][71]" class="md-nav__link">
+    [Document.prototype.equals()][71]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_22" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_15" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypepopulate72" title="[Document.prototype.populate()][72]" class="md-nav__link">
+    [Document.prototype.populate()][72]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_23" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_16" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_17" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_3" title="NOTE:" class="md-nav__link">
+    NOTE:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypeexecpopulate73" title="[Document.prototype.execPopulate()][73]" class="md-nav__link">
+    [Document.prototype.execPopulate()][73]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns_17" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_18" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypepopulated75" title="[Document.prototype.populated()][75]" class="md-nav__link">
+    [Document.prototype.populated()][75]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_24" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_18" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_19" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentprototypedepopulate76" title="[Document.prototype.depopulate()][76]" class="md-nav__link">
+    [Document.prototype.depopulate()][76]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_25" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_19" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_20" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -621,7 +2533,571 @@
                 
                   <h1>文件</h1>
                 
-                
+                <h3 id="documentprototypeschema41">[Document.prototype.schema][41]<a class="headerlink" href="#documentprototypeschema41" title="Permanent link">&para;</a></h3>
+<hr />
+<h3 id="documentprototypeisnew42">[Document.prototype.isNew][42]<a class="headerlink" href="#documentprototypeisnew42" title="Permanent link">&para;</a></h3>
+<p>Boolean flag specifying if the document is new.</p>
+<hr />
+<h3 id="documentprototypeid43">[Document.prototype.id][43]<a class="headerlink" href="#documentprototypeid43" title="Permanent link">&para;</a></h3>
+<p>The string version of this documents _id.</p>
+<h4 id="note">Note:<a class="headerlink" href="#note" title="Permanent link">&para;</a></h4>
+<p>This getter exists on all documents by default. The getter can be disabled by setting the <code>id</code> [option][44] of its <code>Schema</code> to false at construction time.</p>
+<div class="codehilite"><pre><span></span><span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="n">String</span> <span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">id</span><span class="p">:</span> <span class="n">false</span> <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<hr />
+<h3 id="documentprototypeerrors45">[Document.prototype.errors][45]<a class="headerlink" href="#documentprototypeerrors45" title="Permanent link">&para;</a></h3>
+<p>Hash containing current validation errors.</p>
+<hr />
+<h3 id="documentprototypeinit46">[Document.prototype.init()][46]<a class="headerlink" href="#documentprototypeinit46" title="Permanent link">&para;</a></h3>
+<h5 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h5>
+<ul>
+<li>doc «Object» document returned by mongo</li>
+</ul>
+<p>Initializes the document without setters or marking anything modified.</p>
+<p>Called internally after a document is returned from mongodb.</p>
+<hr />
+<h3 id="documentprototypeupdate47">[Document.prototype.update()][47]<a class="headerlink" href="#documentprototypeupdate47" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h5>
+<h5 id="returns">Returns:<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h5>
+<p>Sends an update command with this document <code>_id</code> as the query selector.</p>
+<h4 id="example">Example:<a class="headerlink" href="#example" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">weirdCar</span><span class="p">.</span><span class="nc">update</span><span class="o">(</span><span class="p">{</span><span class="err">$</span><span class="n">inc</span><span class="p">:</span> <span class="err">{</span><span class="n">wheels</span><span class="o">:</span><span class="mi">1</span><span class="p">}</span><span class="err">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">w</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span><span class="o">,</span> <span class="nt">callback</span><span class="o">);</span>
+</pre></div>
+
+
+<h4 id="valid-options">Valid options:<a class="headerlink" href="#valid-options" title="Permanent link">&para;</a></h4>
+<hr />
+<h3 id="documentprototypeset">Document.prototype.$set()<a class="headerlink" href="#documentprototypeset" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li>[options] «Object» optionally specify options that modify the behavior of the set</li>
+</ul>
+<p>Alias for <code>set()</code>, used internally to avoid conflicts</p>
+<hr />
+<h3 id="documentprototypeset48">[Document.prototype.set()][48]<a class="headerlink" href="#documentprototypeset48" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h5>
+<ul>
+<li>[options] «Object» optionally specify options that modify the behavior of the set</li>
+</ul>
+<p>Sets the value of a path, or many paths.</p>
+<h4 id="example_1">Example:<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">doc</span><span class="p">.</span><span class="nc">set</span><span class="o">(</span><span class="nt">path</span><span class="o">,</span> <span class="nt">value</span><span class="o">)</span>
+
+
+<span class="nt">doc</span><span class="p">.</span><span class="nc">set</span><span class="o">(</span><span class="p">{</span>
+    <span class="n">path</span>  <span class="p">:</span> <span class="n">value</span>
+  <span class="p">,</span> <span class="n">path2</span> <span class="o">:</span> <span class="err">{</span>
+       <span class="n">path</span>  <span class="o">:</span> <span class="n">value</span>
+    <span class="p">}</span>
+<span class="err">}</span><span class="o">)</span>
+
+
+<span class="nt">doc</span><span class="p">.</span><span class="nc">set</span><span class="o">(</span><span class="nt">path</span><span class="o">,</span> <span class="nt">value</span><span class="o">,</span> <span class="nt">Number</span><span class="o">)</span>
+
+
+<span class="nt">doc</span><span class="p">.</span><span class="nc">set</span><span class="o">(</span><span class="nt">path</span><span class="o">,</span> <span class="nt">value</span><span class="o">,</span> <span class="nt">String</span><span class="o">)</span>
+
+
+<span class="nt">doc</span><span class="p">.</span><span class="nc">set</span><span class="o">(</span><span class="nt">path</span><span class="o">,</span> <span class="nt">value</span><span class="o">,</span> <span class="p">{</span> <span class="n">strict</span><span class="p">:</span> <span class="n">false</span> <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<hr />
+<h3 id="documentprototypeget49">[Document.prototype.get()][49]<a class="headerlink" href="#documentprototypeget49" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h5>
+<ul>
+<li>[type] «Schema,String,Number,Buffer,*» optionally specify a type for on-the-fly attributes</li>
+</ul>
+<p>Returns the value of a path.</p>
+<h4 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>doc.get(&#39;age&#39;)
+
+
+doc.get(&#39;age&#39;, String)
+</pre></div>
+
+
+<hr />
+<h3 id="documentprototypemarkmodified50">[Document.prototype.markModified()][50]<a class="headerlink" href="#documentprototypemarkmodified50" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h5>
+<ul>
+<li>[scope] «Document» the scope to run validators with</li>
+</ul>
+<p>Marks the path as having pending changes to write to the db.</p>
+<p><em>Very helpful when using [Mixed][51] types.</em></p>
+<h4 id="example_3">Example:<a class="headerlink" href="#example_3" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>doc.mixed.type = &#39;changed&#39;;
+doc.markModified(&#39;mixed.type&#39;);
+doc.save()
+</pre></div>
+
+
+<hr />
+<h3 id="documentprototypeunmarkmodified52">[Document.prototype.unmarkModified()][52]<a class="headerlink" href="#documentprototypeunmarkmodified52" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">&para;</a></h5>
+<ul>
+<li>path «String» the path to unmark modified</li>
+</ul>
+<p>Clears the modified state on the specified path.</p>
+<h4 id="example_4">Example:<a class="headerlink" href="#example_4" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>doc.foo = &#39;bar&#39;;
+doc.unmarkModified(&#39;foo&#39;);
+doc.save()
+</pre></div>
+
+
+<hr />
+<h3 id="documentprototypeignore">Document.prototype.$ignore()<a class="headerlink" href="#documentprototypeignore" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">&para;</a></h5>
+<ul>
+<li>path «String» the path to ignore</li>
+</ul>
+<p>Don't run validation on this path or persist changes to this path.</p>
+<h4 id="example_5">Example:<a class="headerlink" href="#example_5" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>doc.foo = null;
+doc.$ignore(&#39;foo&#39;);
+doc.save()
+</pre></div>
+
+
+<hr />
+<h3 id="documentprototypemodifiedpaths53">[Document.prototype.modifiedPaths()][53]<a class="headerlink" href="#documentprototypemodifiedpaths53" title="Permanent link">&para;</a></h3>
+<h5 id="returns_1">Returns:<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h5>
+<p>Returns the list of paths that have been modified.</p>
+<hr />
+<h3 id="documentprototypeismodified54">[Document.prototype.isModified()][54]<a class="headerlink" href="#documentprototypeismodified54" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Permanent link">&para;</a></h5>
+<ul>
+<li>[path] «String» optional</li>
+</ul>
+<h5 id="returns_2">Returns:<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h5>
+<p>Returns true if this document was modified, else false.</p>
+<p>If <code>path</code> is given, checks if a path or any full path containing <code>path</code> as part of its path chain has been modified.</p>
+<h4 id="example_6">Example<a class="headerlink" href="#example_6" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>doc.set(&#39;documents.0.title&#39;, &#39;changed&#39;);
+doc.isModified()
+doc.isModified(&#39;documents&#39;)
+doc.isModified(&#39;documents.0.title&#39;)
+doc.isModified(&#39;documents otherProp&#39;)
+doc.isDirectModified(&#39;documents&#39;)
+</pre></div>
+
+
+<hr />
+<h3 id="documentprototypeisdefault">Document.prototype.$isDefault()<a class="headerlink" href="#documentprototypeisdefault" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Permanent link">&para;</a></h5>
+<h5 id="returns_3">Returns:<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h5>
+<p>Checks if a path is set to its default.</p>
+<h4 id="example_7">Example<a class="headerlink" href="#example_7" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">MyModel</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;test&#39;</span><span class="o">,</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="err">{</span> <span class="n">type</span><span class="o">:</span> <span class="n">String</span><span class="p">,</span> <span class="kc">default</span><span class="o">:</span> <span class="s1">&#39;Val &#39;</span><span class="p">}</span> <span class="err">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">m</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">MyModel</span><span class="o">();</span>
+<span class="nt">m</span><span class="o">.$</span><span class="nt">isDefault</span><span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">);</span>
+</pre></div>
+
+
+<hr />
+<h3 id="documentprototypeisdeleted">Document.prototype.$isDeleted()<a class="headerlink" href="#documentprototypeisdeleted" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">&para;</a></h5>
+<ul>
+<li>[val] «Boolean» optional, overrides whether mongoose thinks the doc is deleted</li>
+</ul>
+<h5 id="returns_4">Returns:<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h5>
+<ul>
+<li>«Boolean» whether mongoose thinks this doc is deleted.</li>
+</ul>
+<p>Getter/setter, determines whether the document was removed or not.</p>
+<h4 id="example_8">Example:<a class="headerlink" href="#example_8" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>product.remove(function (err, product) {
+  product.isDeleted();
+  product.remove();
+
+  product.isDeleted(false);
+  product.isDeleted();
+  product.remove();
+})
+</pre></div>
+
+
+<hr />
+<h3 id="documentprototypeisdirectmodified55">[Document.prototype.isDirectModified()][55]<a class="headerlink" href="#documentprototypeisdirectmodified55" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Permanent link">&para;</a></h5>
+<h5 id="returns_5">Returns:<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h5>
+<p>Returns true if <code>path</code> was directly set and modified, else false.</p>
+<h4 id="example_9">Example<a class="headerlink" href="#example_9" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>doc.set(&#39;documents.0.title&#39;, &#39;changed&#39;);
+doc.isDirectModified(&#39;documents.0.title&#39;)
+doc.isDirectModified(&#39;documents&#39;)
+</pre></div>
+
+
+<hr />
+<h3 id="documentprototypeisinit56">[Document.prototype.isInit()][56]<a class="headerlink" href="#documentprototypeisinit56" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_12">Parameters<a class="headerlink" href="#parameters_12" title="Permanent link">&para;</a></h5>
+<h5 id="returns_6">Returns:<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h5>
+<p>Checks if <code>path</code> was initialized.</p>
+<hr />
+<h3 id="documentprototypeisselected57">[Document.prototype.isSelected()][57]<a class="headerlink" href="#documentprototypeisselected57" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_13">Parameters<a class="headerlink" href="#parameters_13" title="Permanent link">&para;</a></h5>
+<h5 id="returns_7">Returns:<a class="headerlink" href="#returns_7" title="Permanent link">&para;</a></h5>
+<p>Checks if <code>path</code> was selected in the source query which initialized this document.</p>
+<h4 id="example_10">Example<a class="headerlink" href="#example_10" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>Thing.findOne().select(&#39;name&#39;).exec(function (err, doc) {
+   doc.isSelected(&#39;name&#39;)
+   doc.isSelected(&#39;age&#39;)
+})
+</pre></div>
+
+
+<hr />
+<h3 id="documentprototypeisdirectselected58">[Document.prototype.isDirectSelected()][58]<a class="headerlink" href="#documentprototypeisdirectselected58" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_14">Parameters<a class="headerlink" href="#parameters_14" title="Permanent link">&para;</a></h5>
+<h5 id="returns_8">Returns:<a class="headerlink" href="#returns_8" title="Permanent link">&para;</a></h5>
+<p>Checks if <code>path</code> was explicitly selected. If no projection, always returns true.</p>
+<h4 id="example_11">Example<a class="headerlink" href="#example_11" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>Thing.findOne().select(&#39;nested.name&#39;).exec(function (err, doc) {
+   doc.isDirectSelected(&#39;nested.name&#39;)
+   doc.isDirectSelected(&#39;nested.otherName&#39;)
+   doc.isDirectSelected(&#39;nested&#39;)
+})
+</pre></div>
+
+
+<hr />
+<h3 id="documentprototypevalidate59">[Document.prototype.validate()][59]<a class="headerlink" href="#documentprototypevalidate59" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_15">Parameters<a class="headerlink" href="#parameters_15" title="Permanent link">&para;</a></h5>
+<ul>
+<li>callback «Function» optional callback called after validation completes, passing an error if one occurred</li>
+</ul>
+<h5 id="returns_9">Returns:<a class="headerlink" href="#returns_9" title="Permanent link">&para;</a></h5>
+<p>Executes registered validation rules for this document.</p>
+<h4 id="note_1">Note:<a class="headerlink" href="#note_1" title="Permanent link">&para;</a></h4>
+<p>This method is called <code>pre</code> save and if a validation rule is violated, [save][60] is aborted and the error is returned to your <code>callback</code>.</p>
+<h4 id="example_12">Example:<a class="headerlink" href="#example_12" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>doc.validate(function (err) {
+  if (err) handleError(err);
+  else
+});
+</pre></div>
+
+
+<hr />
+<h3 id="documentprototypevalidatesync61">[Document.prototype.validateSync()][61]<a class="headerlink" href="#documentprototypevalidatesync61" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_16">Parameters<a class="headerlink" href="#parameters_16" title="Permanent link">&para;</a></h5>
+<ul>
+<li>pathsToValidate «Array,string» only validate the given paths</li>
+</ul>
+<h5 id="returns_10">Returns:<a class="headerlink" href="#returns_10" title="Permanent link">&para;</a></h5>
+<ul>
+<li>«MongooseError,undefined» MongooseError if there are errors during validation, or undefined if there is no error.</li>
+</ul>
+<p>Executes registered validation rules (skipping asynchronous validators) for this document.</p>
+<h4 id="note_2">Note:<a class="headerlink" href="#note_2" title="Permanent link">&para;</a></h4>
+<p>This method is useful if you need synchronous validation.</p>
+<h4 id="example_13">Example:<a class="headerlink" href="#example_13" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>var err = doc.validateSync();
+if ( err ){
+  handleError( err );
+} else {
+
+}
+</pre></div>
+
+
+<hr />
+<h3 id="documentprototypeinvalidate62">[Document.prototype.invalidate()][62]<a class="headerlink" href="#documentprototypeinvalidate62" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_17">Parameters<a class="headerlink" href="#parameters_17" title="Permanent link">&para;</a></h5>
+<ul>
+<li>[kind] «String» optional <code>kind</code> property for the error</li>
+</ul>
+<h5 id="returns_11">Returns:<a class="headerlink" href="#returns_11" title="Permanent link">&para;</a></h5>
+<ul>
+<li>«ValidationError» the current ValidationError, with all currently invalidated paths</li>
+</ul>
+<p>Marks a path as invalid, causing validation to fail.</p>
+<p>The <code>errorMsg</code> argument will become the message of the <code>ValidationError</code>.</p>
+<p>The <code>value</code> argument (if passed) will be available through the <code>ValidationError.value</code> property.</p>
+<div class="codehilite"><pre><span></span>doc.invalidate(&#39;size&#39;, &#39;must be less than 20&#39;, 14);
+
+doc.validate(function (err) {
+  console.log(err)
+
+  { message: &#39;Validation failed&#39;,
+    name: &#39;ValidationError&#39;,
+    errors:
+     { size:
+        { message: &#39;must be less than 20&#39;,
+          name: &#39;ValidatorError&#39;,
+          path: &#39;size&#39;,
+          type: &#39;user defined&#39;,
+          value: 14 } } }
+})
+</pre></div>
+
+
+<hr />
+<h3 id="documentprototypemarkvalid">Document.prototype.$markValid()<a class="headerlink" href="#documentprototypemarkvalid" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_18">Parameters<a class="headerlink" href="#parameters_18" title="Permanent link">&para;</a></h5>
+<ul>
+<li>path «String» the field to mark as valid</li>
+</ul>
+<p>Marks a path as valid, removing existing validation errors.</p>
+<hr />
+<h3 id="documentprototypesave63">[Document.prototype.save()][63]<a class="headerlink" href="#documentprototypesave63" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_19">Parameters<a class="headerlink" href="#parameters_19" title="Permanent link">&para;</a></h5>
+<ul>
+<li>[fn] «Function» optional callback</li>
+</ul>
+<h5 id="returns_12">Returns:<a class="headerlink" href="#returns_12" title="Permanent link">&para;</a></h5>
+<p>Saves this document.</p>
+<h4 id="example_14">Example:<a class="headerlink" href="#example_14" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>product.sold = Date.now();
+product.save(function (err, product, numAffected) {
+  if (err) ..
+})
+</pre></div>
+
+
+<p>The callback will receive three parameters</p>
+<ol>
+<li><code>err</code> if an error occurred</li>
+<li><code>product</code> which is the saved <code>product</code></li>
+<li><code>numAffected</code> will be 1 when the document was successfully persisted to MongoDB, otherwise 0. Unless you tweak mongoose's internals, you don't need to worry about checking this parameter for errors - checking <code>err</code> is sufficient to make sure your document was properly saved.</li>
+</ol>
+<p>As an extra measure of flow control, save will return a Promise.</p>
+<h4 id="example_15">Example:<a class="headerlink" href="#example_15" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>product.save().then(function(product) {
+   ...
+});
+</pre></div>
+
+
+<hr />
+<h3 id="documentprototypetoobject64">[Document.prototype.toObject()][64]<a class="headerlink" href="#documentprototypetoobject64" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_20">Parameters<a class="headerlink" href="#parameters_20" title="Permanent link">&para;</a></h5>
+<h5 id="returns_13">Returns:<a class="headerlink" href="#returns_13" title="Permanent link">&para;</a></h5>
+<p>Converts this document into a plain javascript object, ready for storage in MongoDB.</p>
+<p>Buffers are converted to instances of [mongodb.Binary][65] for proper storage.</p>
+<h4 id="options">Options:<a class="headerlink" href="#options" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>getters</code> apply all getters (path and virtual getters)</li>
+<li><code>virtuals</code> apply virtual getters (can override <code>getters</code> option)</li>
+<li><code>minimize</code> remove empty objects (defaults to true)</li>
+<li><code>transform</code> a transform function to apply to the resulting document before returning</li>
+<li><code>depopulate</code> depopulate any populated paths, replacing them with their original refs (defaults to false)</li>
+<li><code>versionKey</code> whether to include the version key (defaults to true)</li>
+</ul>
+<h4 id="gettersvirtuals">Getters/Virtuals<a class="headerlink" href="#gettersvirtuals" title="Permanent link">&para;</a></h4>
+<p>Example of only applying path getters</p>
+<div class="codehilite"><pre><span></span>doc.toObject({ getters: true, virtuals: false })
+</pre></div>
+
+
+<p>Example of only applying virtual getters</p>
+<div class="codehilite"><pre><span></span>doc.toObject({ virtuals: true })
+</pre></div>
+
+
+<p>Example of applying both path and virtual getters</p>
+<div class="codehilite"><pre><span></span>doc.toObject({ getters: true })
+</pre></div>
+
+
+<p>To apply these options to every document of your schema by default, set your [schemas][1] <code>toObject</code> option to the same argument.</p>
+<div class="codehilite"><pre><span></span>schema.set(&#39;toObject&#39;, { virtuals: true })
+</pre></div>
+
+
+<h4 id="transform">Transform<a class="headerlink" href="#transform" title="Permanent link">&para;</a></h4>
+<p>We may need to perform a transformation of the resulting object based on some criteria, say to remove some sensitive information or return a custom object. In this case we set the optional <code>transform</code> function.</p>
+<p>Transform functions receive three arguments</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="p">(</span><span class="nx">doc</span><span class="p">,</span> <span class="nx">ret</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="p">{}</span>
+</pre></div>
+
+
+<ul>
+<li><code>doc</code> The mongoose document which is being converted</li>
+<li><code>ret</code> The plain object representation which has been converted</li>
+<li><code>options</code> The options in use (either schema options or the options passed inline)</li>
+</ul>
+<h4 id="example_16">Example<a class="headerlink" href="#example_16" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>if (!schema.options.toObject) schema.options.toObject = {};
+schema.options.toObject.transform = function (doc, ret, options) {
+
+  delete ret._id;
+  return ret;
+}
+
+
+doc.toObject();
+
+
+doc.toObject();
+</pre></div>
+
+
+<p>With transformations we can do a lot more than remove properties. We can even return completely new customized objects:</p>
+<div class="codehilite"><pre><span></span>if (!schema.options.toObject) schema.options.toObject = {};
+schema.options.toObject.transform = function (doc, ret, options) {
+  return { movie: ret.name }
+}
+
+
+doc.toObject();
+
+
+doc.toObject();
+</pre></div>
+
+
+<p><em>Note: if a transform function returns <code>undefined</code>, the return value will be ignored.</em></p>
+<p>Transformations may also be applied inline, overridding any transform set in the options:</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">xform</span> <span class="p">(</span><span class="nx">doc</span><span class="p">,</span> <span class="nx">ret</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span> <span class="nx">inline</span>: <span class="kt">ret.name</span><span class="p">,</span> <span class="nx">custom</span>: <span class="kt">true</span> <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="nx">doc</span><span class="p">.</span><span class="nx">toObject</span><span class="p">({</span> <span class="nx">transform</span>: <span class="kt">xform</span> <span class="p">});</span>
+</pre></div>
+
+
+<p>If you want to skip transformations, use <code>transform: false</code>:</p>
+<div class="codehilite"><pre><span></span><span class="nt">if</span> <span class="o">(!</span><span class="nt">schema</span><span class="p">.</span><span class="nc">options</span><span class="p">.</span><span class="nc">toObject</span><span class="o">)</span> <span class="nt">schema</span><span class="p">.</span><span class="nc">options</span><span class="p">.</span><span class="nc">toObject</span> <span class="o">=</span> <span class="p">{}</span><span class="o">;</span>
+<span class="nt">schema</span><span class="p">.</span><span class="nc">options</span><span class="p">.</span><span class="nc">toObject</span><span class="p">.</span><span class="nc">hide</span> <span class="o">=</span> <span class="s1">&#39;_id&#39;</span><span class="o">;</span>
+<span class="nt">schema</span><span class="p">.</span><span class="nc">options</span><span class="p">.</span><span class="nc">toObject</span><span class="p">.</span><span class="nc">transform</span> <span class="o">=</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">doc</span><span class="o">,</span> <span class="nt">ret</span><span class="o">,</span> <span class="nt">options</span><span class="o">)</span> <span class="p">{</span>
+  <span class="err">if</span> <span class="err">(options.hide)</span> <span class="err">{</span>
+    <span class="err">options.hide.split(&#39;</span> <span class="err">&#39;).forEach(function</span> <span class="err">(prop)</span> <span class="err">{</span>
+      <span class="err">delete</span> <span class="err">ret</span><span class="cp">[</span><span class="nx">prop</span><span class="cp">]</span><span class="p">;</span>
+    <span class="p">}</span><span class="o">);</span>
+  <span class="err">}</span>
+  <span class="nt">return</span> <span class="nt">ret</span><span class="o">;</span>
+<span class="err">}</span>
+
+<span class="nt">var</span> <span class="nt">doc</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Doc</span><span class="o">(</span><span class="p">{</span> <span class="n">_id</span><span class="p">:</span> <span class="s1">&#39;anId&#39;</span><span class="p">,</span> <span class="n">secret</span><span class="o">:</span> <span class="mi">47</span><span class="p">,</span> <span class="n">name</span><span class="o">:</span> <span class="s1">&#39;Wreck-it Ralph&#39;</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">doc</span><span class="p">.</span><span class="nc">toObject</span><span class="o">();</span>
+<span class="nt">doc</span><span class="p">.</span><span class="nc">toObject</span><span class="o">(</span><span class="p">{</span> <span class="n">hide</span><span class="p">:</span> <span class="s1">&#39;secret _id&#39;</span><span class="p">,</span> <span class="k">transform</span><span class="o">:</span> <span class="n">false</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">doc</span><span class="p">.</span><span class="nc">toObject</span><span class="o">(</span><span class="p">{</span> <span class="n">hide</span><span class="p">:</span> <span class="s1">&#39;secret _id&#39;</span><span class="p">,</span> <span class="k">transform</span><span class="o">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<p>Transforms are applied <em>only to the document and are not applied to sub-documents</em>.</p>
+<p>Transforms, like all of these options, are also available for <code>toJSON</code>.</p>
+<p>See [schema options][66] for some more details.</p>
+<p><em>During save, no custom options are applied to the document before being sent to the database.</em></p>
+<hr />
+<h3 id="documentprototypetojson67">[Document.prototype.toJSON()][67]<a class="headerlink" href="#documentprototypetojson67" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_21">Parameters<a class="headerlink" href="#parameters_21" title="Permanent link">&para;</a></h5>
+<h5 id="returns_14">Returns:<a class="headerlink" href="#returns_14" title="Permanent link">&para;</a></h5>
+<p>The return value of this method is used in calls to JSON.stringify(doc).</p>
+<p>This method accepts the same options as [Document#toObject][64]. To apply the options to every document of your schema by default, set your [schemas][1] <code>toJSON</code> option to the same argument.</p>
+<div class="codehilite"><pre><span></span>schema.set(&#39;toJSON&#39;, { virtuals: true })
+</pre></div>
+
+
+<p>See [schema options][68] for details.</p>
+<hr />
+<h3 id="documentprototypeinspect69">[Document.prototype.inspect()][69]<a class="headerlink" href="#documentprototypeinspect69" title="Permanent link">&para;</a></h3>
+<hr />
+<h3 id="documentprototypetostring70">[Document.prototype.toString()][70]<a class="headerlink" href="#documentprototypetostring70" title="Permanent link">&para;</a></h3>
+<hr />
+<h3 id="documentprototypeequals71">[Document.prototype.equals()][71]<a class="headerlink" href="#documentprototypeequals71" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_22">Parameters<a class="headerlink" href="#parameters_22" title="Permanent link">&para;</a></h5>
+<ul>
+<li>doc «Document» a document to compare</li>
+</ul>
+<h5 id="returns_15">Returns:<a class="headerlink" href="#returns_15" title="Permanent link">&para;</a></h5>
+<p>Returns true if the Document stores the same data as doc.</p>
+<p>Documents are considered equal when they have matching <code>_id</code>s, unless neither document has an <code>_id</code>, in which case this function falls back to using <code>deepEqual()</code>.</p>
+<hr />
+<h3 id="documentprototypepopulate72">[Document.prototype.populate()][72]<a class="headerlink" href="#documentprototypepopulate72" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_23">Parameters<a class="headerlink" href="#parameters_23" title="Permanent link">&para;</a></h5>
+<ul>
+<li>[callback] «Function» When passed, population is invoked</li>
+</ul>
+<h5 id="returns_16">Returns:<a class="headerlink" href="#returns_16" title="Permanent link">&para;</a></h5>
+<p>Populates document references, executing the <code>callback</code> when complete. If you want to use promises instead, use this function with [<code>execPopulate()</code>][73]</p>
+<h4 id="example_17">Example:<a class="headerlink" href="#example_17" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>doc
+.populate(&#39;company&#39;)
+.populate({
+  path: &#39;notes&#39;,
+  match: /airline/,
+  select: &#39;text&#39;,
+  model: &#39;modelName&#39;
+  options: opts
+}, function (err, user) {
+  assert(doc._id === user._id)
+})
+
+
+doc.populate(path)
+doc.populate(options);
+doc.populate(path, callback)
+doc.populate(options, callback);
+doc.populate(callback);
+doc.populate(options).execPopulate()
+</pre></div>
+
+
+<h4 id="note_3">NOTE:<a class="headerlink" href="#note_3" title="Permanent link">&para;</a></h4>
+<p>Population does not occur unless a <code>callback</code> is passed <em>or</em> you explicitly call <code>execPopulate()</code>. Passing the same path a second time will overwrite the previous path options. See [Model.populate()][74] for explaination of options.</p>
+<hr />
+<h3 id="documentprototypeexecpopulate73">[Document.prototype.execPopulate()][73]<a class="headerlink" href="#documentprototypeexecpopulate73" title="Permanent link">&para;</a></h3>
+<h5 id="returns_17">Returns:<a class="headerlink" href="#returns_17" title="Permanent link">&para;</a></h5>
+<ul>
+<li>«Promise» promise that resolves to the document when population is done</li>
+</ul>
+<p>Explicitly executes population and returns a promise. Useful for ES2015 integration.</p>
+<h4 id="example_18">Example:<a class="headerlink" href="#example_18" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>var promise = doc.
+  populate(&#39;company&#39;).
+  populate({
+    path: &#39;notes&#39;,
+    match: /airline/,
+    select: &#39;text&#39;,
+    model: &#39;modelName&#39;
+    options: opts
+  }).
+  execPopulate();
+
+
+doc.execPopulate().then(resolve, reject);
+</pre></div>
+
+
+<hr />
+<h3 id="documentprototypepopulated75">[Document.prototype.populated()][75]<a class="headerlink" href="#documentprototypepopulated75" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_24">Parameters<a class="headerlink" href="#parameters_24" title="Permanent link">&para;</a></h5>
+<h5 id="returns_18">Returns:<a class="headerlink" href="#returns_18" title="Permanent link">&para;</a></h5>
+<ul>
+<li>«Array,ObjectId,Number,Buffer,String,undefined»</li>
+</ul>
+<p>Gets _id(s) used during population of the given <code>path</code>.</p>
+<h4 id="example_19">Example:<a class="headerlink" href="#example_19" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>Model.findOne().populate(&#39;author&#39;).exec(function (err, doc) {
+  console.log(doc.author.name)
+  console.log(doc.populated(&#39;author&#39;))
+})
+</pre></div>
+
+
+<p>If the path was not populated, undefined is returned.</p>
+<hr />
+<h3 id="documentprototypedepopulate76">[Document.prototype.depopulate()][76]<a class="headerlink" href="#documentprototypedepopulate76" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_25">Parameters<a class="headerlink" href="#parameters_25" title="Permanent link">&para;</a></h5>
+<h5 id="returns_19">Returns:<a class="headerlink" href="#returns_19" title="Permanent link">&para;</a></h5>
+<p>Takes a populated field and returns it to its unpopulated state.</p>
+<h4 id="example_20">Example:<a class="headerlink" href="#example_20" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>Model.findOne().populate(&#39;author&#39;).exec(function (err, doc) {
+  console.log(doc.author.name);
+  console.log(doc.depopulate(&#39;author&#39;));
+  console.log(doc.author);
+})
+</pre></div>
+
+
+<p>If the path was not populated, this is a no-op.</p>
                 
                   
                 

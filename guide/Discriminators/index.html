@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="mongodb nodejs组件中文文档">
+        <meta name="description" content="Mongodb NodeJs 组件中文文档">
       
       
       
@@ -36,7 +36,7 @@
     
     
       
-        <title>鉴 - Mongoose文档</title>
+        <title>鉴别器 - Mongoose文档</title>
       
     
     
@@ -98,7 +98,7 @@
                 Mongoose文档
               </span>
               <span class="md-header-nav__topic">
-                鉴
+                鉴别器
               </span>
             
           
@@ -336,8 +336,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Models/" title="楷模" class="md-nav__link">
-      楷模
+    <a href="../Models/" title="模式" class="md-nav__link">
+      模式
     </a>
   </li>
 
@@ -348,8 +348,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Documents/" title="文件" class="md-nav__link">
-      文件
+    <a href="../Documents/" title="文档" class="md-nav__link">
+      文档
     </a>
   </li>
 
@@ -416,8 +416,8 @@
       
     
     
-    <a href="./" title="鉴" class="md-nav__link md-nav__link--active">
-      鉴
+    <a href="./" title="鉴别器" class="md-nav__link md-nav__link--active">
+      鉴别器
     </a>
     
   </li>
@@ -636,289 +636,261 @@
               
                 
                 
-                <h1 id="mongoose-v501-discriminators">Mongoose v5.0.1: Discriminators<a class="headerlink" href="#mongoose-v501-discriminators" title="Permanent link">&para;</a></h1>
-<p><a href="http://mongoosejs.com/docs/discriminators.html" title="Permalink to Mongoose v5.0.1: Discriminators">Source</a></p>
-<p>Discriminators are a schema inheritance mechanism. They enable you to have multiple models with overlapping schemas on top of the same underlying MongoDB collection.</p>
-<p>Suppose you wanted to track different types of events in a single collection. Every event will have a timestamp, but events that represent clicked links should have a URL. You can achieve this using the <code>model.discriminator()</code> function. This function takes 2 parameters, a model name and a discriminator schema. It returns a model whose schema is the union of the base schema and the discriminator schema.</p>
-<div class="codehilite"><pre><span></span>    <span class="nt">var</span> <span class="nt">options</span> <span class="o">=</span> <span class="p">{</span><span class="n">discriminatorKey</span><span class="p">:</span> <span class="s1">&#39;kind&#39;</span><span class="p">}</span><span class="o">;</span>
-
-    <span class="nt">var</span> <span class="nt">eventSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">Schema</span><span class="o">(</span><span class="p">{</span><span class="n">time</span><span class="p">:</span> <span class="n">Date</span><span class="p">}</span><span class="o">,</span> <span class="nt">options</span><span class="o">);</span>
-    <span class="nt">var</span> <span class="nt">Event</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Event&#39;</span><span class="o">,</span> <span class="nt">eventSchema</span><span class="o">);</span>
-
-
-
-    <span class="nt">var</span> <span class="nt">ClickedLinkEvent</span> <span class="o">=</span> <span class="nt">Event</span><span class="p">.</span><span class="nc">discriminator</span><span class="o">(</span><span class="s1">&#39;ClickedLink&#39;</span><span class="o">,</span>
-      <span class="nt">new</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">Schema</span><span class="o">(</span><span class="p">{</span><span class="n">url</span><span class="p">:</span> <span class="n">String</span><span class="p">}</span><span class="o">,</span> <span class="nt">options</span><span class="o">));</span>
-
-
-    <span class="nt">var</span> <span class="nt">genericEvent</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Event</span><span class="o">(</span><span class="p">{</span><span class="n">time</span><span class="p">:</span> <span class="n">Date</span><span class="o">.</span><span class="nf">now</span><span class="p">(),</span> <span class="n">url</span><span class="o">:</span> <span class="s1">&#39;google.com&#39;</span><span class="p">}</span><span class="o">);</span>
-    <span class="nt">assert</span><span class="p">.</span><span class="nc">ok</span><span class="o">(!</span><span class="nt">genericEvent</span><span class="p">.</span><span class="nc">url</span><span class="o">);</span>
-
-
-    <span class="nt">var</span> <span class="nt">clickedEvent</span> <span class="o">=</span>
-      <span class="nt">new</span> <span class="nt">ClickedLinkEvent</span><span class="o">(</span><span class="p">{</span><span class="n">time</span><span class="p">:</span> <span class="n">Date</span><span class="o">.</span><span class="nf">now</span><span class="p">(),</span> <span class="n">url</span><span class="o">:</span> <span class="s1">&#39;google.com&#39;</span><span class="p">}</span><span class="o">);</span>
-    <span class="nt">assert</span><span class="p">.</span><span class="nc">ok</span><span class="o">(</span><span class="nt">clickedEvent</span><span class="p">.</span><span class="nc">url</span><span class="o">);</span>
+                <h1 id="_1">鉴别器<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p><a href="http://mongoosejs.com/docs/discriminators.html" title="Mongoose v5.0.1的永久链接：判别者">资源</a></p>
+<p>鉴别器是一个模式继承机制。 它们使您能够在相同的基础MongoDB集合之上拥有多个具有重叠模式的模型。</p>
+<p>假设您想要在单个集合中跟踪不同类型的事件。 每个事件都会有一个时间戳，但代表点击链接​​的事件应该有一个URL。 你可以使用<code>model.discriminator（）</code>函数实现这个功能。 该功能需要2个参数， 一个模型名称和一个鉴别器模式 它返回一个模式，其模式是基本模式和鉴别器模式的联合。</p>
+<div class="codehilite"><pre><span></span>  <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span><span class="nx">discriminatorKey</span><span class="o">:</span> <span class="s1">&#39;kind&#39;</span><span class="p">};</span>
+  <span class="kd">var</span> <span class="nx">eventSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span><span class="nx">time</span><span class="o">:</span> <span class="nb">Date</span><span class="p">},</span> <span class="nx">options</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">Event</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Event&#39;</span><span class="p">,</span> <span class="nx">eventSchema</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">ClickedLinkEvent</span> <span class="o">=</span> <span class="nx">Event</span><span class="p">.</span><span class="nx">discriminator</span><span class="p">(</span><span class="s1">&#39;ClickedLink&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span><span class="nx">url</span><span class="o">:</span> <span class="nb">String</span><span class="p">},</span> <span class="nx">options</span><span class="p">));</span>
+  <span class="kd">var</span> <span class="nx">genericEvent</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Event</span><span class="p">({</span><span class="nx">time</span><span class="o">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">(),</span> <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;google.com&#39;</span><span class="p">});</span>
+  <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="o">!</span><span class="nx">genericEvent</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">clickedEvent</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClickedLinkEvent</span><span class="p">({</span><span class="nx">time</span><span class="o">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">(),</span> <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;google.com&#39;</span><span class="p">});</span>
+  <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="nx">clickedEvent</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>
 </pre></div>
 
+<p>假设您创建了另一个鉴别器来跟踪新用户注册的事件。这些<code>SignedUpEvent</code>实例将被存储在与通用事件和<code>ClickedLinkEvent</code>实例相同的集合中。</p>
+<div class="codehilite"><pre><span></span>  <span class="kd">var</span> <span class="nx">event1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Event</span><span class="p">({</span><span class="nx">time</span><span class="o">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()});</span>
+  <span class="kd">var</span> <span class="nx">event2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClickedLinkEvent</span><span class="p">({</span><span class="nx">time</span><span class="o">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">(),</span> <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;google.com&#39;</span><span class="p">});</span>
+  <span class="kd">var</span> <span class="nx">event3</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SignedUpEvent</span><span class="p">({</span><span class="nx">time</span><span class="o">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">(),</span> <span class="nx">user</span><span class="o">:</span> <span class="s1">&#39;testuser&#39;</span><span class="p">});</span>
 
-<p>Suppose you created another discriminator to track events where a new user registered. These <code>SignedUpEvent</code> instances will be stored in the same collection as generic events and <code>ClickedLinkEvent</code> instances.</p>
-<div class="codehilite"><pre><span></span>    <span class="nt">var</span> <span class="nt">event1</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Event</span><span class="o">(</span><span class="p">{</span><span class="n">time</span><span class="p">:</span> <span class="n">Date</span><span class="o">.</span><span class="nf">now</span><span class="p">()}</span><span class="o">);</span>
-    <span class="nt">var</span> <span class="nt">event2</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">ClickedLinkEvent</span><span class="o">(</span><span class="p">{</span><span class="n">time</span><span class="p">:</span> <span class="n">Date</span><span class="o">.</span><span class="nf">now</span><span class="p">(),</span> <span class="n">url</span><span class="o">:</span> <span class="s1">&#39;google.com&#39;</span><span class="p">}</span><span class="o">);</span>
-    <span class="nt">var</span> <span class="nt">event3</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">SignedUpEvent</span><span class="o">(</span><span class="p">{</span><span class="n">time</span><span class="p">:</span> <span class="n">Date</span><span class="o">.</span><span class="nf">now</span><span class="p">(),</span> <span class="n">user</span><span class="o">:</span> <span class="s1">&#39;testuser&#39;</span><span class="p">}</span><span class="o">);</span>
+  <span class="kd">var</span> <span class="nx">save</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">doc</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">doc</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">doc</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">callback</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">doc</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">};</span>
 
-    <span class="nt">var</span> <span class="nt">save</span> <span class="o">=</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">doc</span><span class="o">,</span> <span class="nt">callback</span><span class="o">)</span> <span class="p">{</span>
-      <span class="err">doc.save(function</span> <span class="err">(error,</span> <span class="err">doc)</span> <span class="err">{</span>
-        <span class="err">callback(error,</span> <span class="err">doc)</span><span class="p">;</span>
-      <span class="p">}</span><span class="o">);</span>
-    <span class="err">}</span><span class="o">;</span>
+  <span class="nx">async</span><span class="p">.</span><span class="nx">map</span><span class="p">([</span><span class="nx">event1</span><span class="p">,</span> <span class="nx">event2</span><span class="p">,</span> <span class="nx">event3</span><span class="p">],</span> <span class="nx">save</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
 
-    <span class="nt">async</span><span class="p">.</span><span class="nc">map</span><span class="o">(</span><span class="cp">[</span><span class="nx">event1</span><span class="p">,</span> <span class="nx">event2</span><span class="p">,</span> <span class="nx">event3</span><span class="cp">]</span><span class="o">,</span> <span class="nt">save</span><span class="o">,</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">error</span><span class="o">)</span> <span class="p">{</span>
-
-      <span class="err">Event.count({</span><span class="p">}</span><span class="o">,</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">error</span><span class="o">,</span> <span class="nt">count</span><span class="o">)</span> <span class="p">{</span>
-        <span class="err">assert.equal(count,</span> <span class="err">3)</span><span class="p">;</span>
-      <span class="p">}</span><span class="o">);</span>
-    <span class="err">}</span><span class="o">);</span>
+    <span class="nx">Event</span><span class="p">.</span><span class="nx">count</span><span class="p">({},</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">count</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">count</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
 </pre></div>
 
+<p>猫鼬的方式告诉不同的鉴别器模型之间的差异是由“鉴别钥匙”, 默认是<code>__t</code>。 ,Mongoose将一个名为<code>__t</code>的String路径添加到您的模式中，用于跟踪该文档是哪个鉴别器的实例。</p>
+<div class="codehilite"><pre><span></span>  <span class="kd">var</span> <span class="nx">event1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Event</span><span class="p">({</span><span class="nx">time</span><span class="o">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()});</span>
+  <span class="kd">var</span> <span class="nx">event2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClickedLinkEvent</span><span class="p">({</span><span class="nx">time</span><span class="o">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">(),</span> <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;google.com&#39;</span><span class="p">});</span>
+  <span class="kd">var</span> <span class="nx">event3</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SignedUpEvent</span><span class="p">({</span><span class="nx">time</span><span class="o">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">(),</span> <span class="nx">user</span><span class="o">:</span> <span class="s1">&#39;testuser&#39;</span><span class="p">});</span>
 
-<p>The way mongoose tells the difference between the different discriminator models is by the 'discriminator key', which is <code>__t</code> by default. Mongoose adds a String path called <code>__t</code> to your schemas that it uses to track which discriminator this document is an instance of.</p>
-<div class="codehilite"><pre><span></span>    <span class="nt">var</span> <span class="nt">event1</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Event</span><span class="o">(</span><span class="p">{</span><span class="n">time</span><span class="p">:</span> <span class="n">Date</span><span class="o">.</span><span class="nf">now</span><span class="p">()}</span><span class="o">);</span>
-    <span class="nt">var</span> <span class="nt">event2</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">ClickedLinkEvent</span><span class="o">(</span><span class="p">{</span><span class="n">time</span><span class="p">:</span> <span class="n">Date</span><span class="o">.</span><span class="nf">now</span><span class="p">(),</span> <span class="n">url</span><span class="o">:</span> <span class="s1">&#39;google.com&#39;</span><span class="p">}</span><span class="o">);</span>
-    <span class="nt">var</span> <span class="nt">event3</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">SignedUpEvent</span><span class="o">(</span><span class="p">{</span><span class="n">time</span><span class="p">:</span> <span class="n">Date</span><span class="o">.</span><span class="nf">now</span><span class="p">(),</span> <span class="n">user</span><span class="o">:</span> <span class="s1">&#39;testuser&#39;</span><span class="p">}</span><span class="o">);</span>
-
-    <span class="nt">assert</span><span class="p">.</span><span class="nc">ok</span><span class="o">(!</span><span class="nt">event1</span><span class="p">.</span><span class="nc">__t</span><span class="o">);</span>
-    <span class="nt">assert</span><span class="p">.</span><span class="nc">equal</span><span class="o">(</span><span class="nt">event2</span><span class="p">.</span><span class="nc">__t</span><span class="o">,</span> <span class="s1">&#39;ClickedLink&#39;</span><span class="o">);</span>
-    <span class="nt">assert</span><span class="p">.</span><span class="nc">equal</span><span class="o">(</span><span class="nt">event3</span><span class="p">.</span><span class="nc">__t</span><span class="o">,</span> <span class="s1">&#39;SignedUp&#39;</span><span class="o">);</span>
+  <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="o">!</span><span class="nx">event1</span><span class="p">.</span><span class="nx">__t</span><span class="p">);</span>
+  <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">event2</span><span class="p">.</span><span class="nx">__t</span><span class="p">,</span> <span class="s1">&#39;ClickedLink&#39;</span><span class="p">);</span>
+  <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">event3</span><span class="p">.</span><span class="nx">__t</span><span class="p">,</span> <span class="s1">&#39;SignedUp&#39;</span><span class="p">);</span>
 </pre></div>
 
+<p>辨别器模型是特殊的;他们将鉴别键附加到查询。 换一种说法， <code>find()</code>, <code>count()</code>, <code>aggregate()</code>, 等等都足够聪明来解释鉴别者。</p>
+<div class="codehilite"><pre><span></span>  <span class="kd">var</span> <span class="nx">event1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Event</span><span class="p">({</span><span class="nx">time</span><span class="o">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()});</span>
+  <span class="kd">var</span> <span class="nx">event2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClickedLinkEvent</span><span class="p">({</span><span class="nx">time</span><span class="o">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">(),</span> <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;google.com&#39;</span><span class="p">});</span>
+  <span class="kd">var</span> <span class="nx">event3</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SignedUpEvent</span><span class="p">({</span><span class="nx">time</span><span class="o">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">(),</span> <span class="nx">user</span><span class="o">:</span> <span class="s1">&#39;testuser&#39;</span><span class="p">});</span>
 
-<p>Discriminator models are special; they attach the discriminator key to queries. In other words, <code>find()</code>, <code>count()</code>, <code>aggregate()</code>, etc. are smart enough to account for discriminators.</p>
-<div class="codehilite"><pre><span></span>    <span class="nt">var</span> <span class="nt">event1</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Event</span><span class="o">(</span><span class="p">{</span><span class="n">time</span><span class="p">:</span> <span class="n">Date</span><span class="o">.</span><span class="nf">now</span><span class="p">()}</span><span class="o">);</span>
-    <span class="nt">var</span> <span class="nt">event2</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">ClickedLinkEvent</span><span class="o">(</span><span class="p">{</span><span class="n">time</span><span class="p">:</span> <span class="n">Date</span><span class="o">.</span><span class="nf">now</span><span class="p">(),</span> <span class="n">url</span><span class="o">:</span> <span class="s1">&#39;google.com&#39;</span><span class="p">}</span><span class="o">);</span>
-    <span class="nt">var</span> <span class="nt">event3</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">SignedUpEvent</span><span class="o">(</span><span class="p">{</span><span class="n">time</span><span class="p">:</span> <span class="n">Date</span><span class="o">.</span><span class="nf">now</span><span class="p">(),</span> <span class="n">user</span><span class="o">:</span> <span class="s1">&#39;testuser&#39;</span><span class="p">}</span><span class="o">);</span>
+  <span class="kd">var</span> <span class="nx">save</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">doc</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">doc</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">doc</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">callback</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">doc</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">};</span>
 
-    <span class="nt">var</span> <span class="nt">save</span> <span class="o">=</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">doc</span><span class="o">,</span> <span class="nt">callback</span><span class="o">)</span> <span class="p">{</span>
-      <span class="err">doc.save(function</span> <span class="err">(error,</span> <span class="err">doc)</span> <span class="err">{</span>
-        <span class="err">callback(error,</span> <span class="err">doc)</span><span class="p">;</span>
-      <span class="p">}</span><span class="o">);</span>
-    <span class="err">}</span><span class="o">;</span>
+  <span class="nx">async</span><span class="p">.</span><span class="nx">map</span><span class="p">([</span><span class="nx">event1</span><span class="p">,</span> <span class="nx">event2</span><span class="p">,</span> <span class="nx">event3</span><span class="p">],</span> <span class="nx">save</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
 
-    <span class="nt">async</span><span class="p">.</span><span class="nc">map</span><span class="o">(</span><span class="cp">[</span><span class="nx">event1</span><span class="p">,</span> <span class="nx">event2</span><span class="p">,</span> <span class="nx">event3</span><span class="cp">]</span><span class="o">,</span> <span class="nt">save</span><span class="o">,</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">error</span><span class="o">)</span> <span class="p">{</span>
-
-      <span class="err">ClickedLinkEvent.find({</span><span class="p">}</span><span class="o">,</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">error</span><span class="o">,</span> <span class="nt">docs</span><span class="o">)</span> <span class="p">{</span>
-        <span class="err">assert.equal(docs.length,</span> <span class="err">1)</span><span class="p">;</span>
-        <span class="err">assert.equal(docs</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span><span class="err">._id.toString(),</span> <span class="err">event2._id.toString())</span><span class="p">;</span>
-        <span class="err">assert.equal(docs</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span><span class="err">.url,</span> <span class="err">&#39;google.com&#39;)</span><span class="p">;</span>
-      <span class="p">}</span><span class="o">);</span>
-    <span class="err">}</span><span class="o">);</span>
+    <span class="nx">ClickedLinkEvent</span><span class="p">.</span><span class="nx">find</span><span class="p">({},</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">docs</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">docs</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">docs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">_id</span><span class="p">.</span><span class="nx">toString</span><span class="p">(),</span> <span class="nx">event2</span><span class="p">.</span><span class="nx">_id</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">docs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">url</span><span class="p">,</span> <span class="s1">&#39;google.com&#39;</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
 </pre></div>
 
+<p>鉴别者也采取他们的基本模式的前后中间件。 但是，您也可以将中间件附加到鉴别器模式，而不会影响基本模式。</p>
+<div class="codehilite"><pre><span></span>  <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span><span class="nx">discriminatorKey</span><span class="o">:</span> <span class="s1">&#39;kind&#39;</span><span class="p">};</span>
 
-<p>Discriminators also take their base schema's pre and post middleware. However, you can also attach middleware to the discriminator schema without affecting the base schema.</p>
-<div class="codehilite"><pre><span></span>    <span class="nt">var</span> <span class="nt">options</span> <span class="o">=</span> <span class="p">{</span><span class="n">discriminatorKey</span><span class="p">:</span> <span class="s1">&#39;kind&#39;</span><span class="p">}</span><span class="o">;</span>
+  <span class="kd">var</span> <span class="nx">eventSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span><span class="nx">time</span><span class="o">:</span> <span class="nb">Date</span><span class="p">},</span> <span class="nx">options</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">eventSchemaCalls</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="nx">eventSchema</span><span class="p">.</span><span class="nx">pre</span><span class="p">(</span><span class="s1">&#39;validate&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">++</span><span class="nx">eventSchemaCalls</span><span class="p">;</span>
+    <span class="nx">next</span><span class="p">();</span>
+  <span class="p">});</span>
+  <span class="kd">var</span> <span class="nx">Event</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;GenericEvent&#39;</span><span class="p">,</span> <span class="nx">eventSchema</span><span class="p">);</span>
 
-    <span class="nt">var</span> <span class="nt">eventSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">Schema</span><span class="o">(</span><span class="p">{</span><span class="n">time</span><span class="p">:</span> <span class="n">Date</span><span class="p">}</span><span class="o">,</span> <span class="nt">options</span><span class="o">);</span>
-    <span class="nt">var</span> <span class="nt">eventSchemaCalls</span> <span class="o">=</span> <span class="nt">0</span><span class="o">;</span>
-    <span class="nt">eventSchema</span><span class="p">.</span><span class="nc">pre</span><span class="o">(</span><span class="s1">&#39;validate&#39;</span><span class="o">,</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">next</span><span class="o">)</span> <span class="p">{</span>
-      <span class="err">++eventSchemaCalls</span><span class="p">;</span>
-      <span class="err">next()</span><span class="p">;</span>
-    <span class="p">}</span><span class="o">);</span>
-    <span class="nt">var</span> <span class="nt">Event</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;GenericEvent&#39;</span><span class="o">,</span> <span class="nt">eventSchema</span><span class="o">);</span>
+  <span class="kd">var</span> <span class="nx">clickedLinkSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span><span class="nx">url</span><span class="o">:</span> <span class="nb">String</span><span class="p">},</span> <span class="nx">options</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">clickedSchemaCalls</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="nx">clickedLinkSchema</span><span class="p">.</span><span class="nx">pre</span><span class="p">(</span><span class="s1">&#39;validate&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">++</span><span class="nx">clickedSchemaCalls</span><span class="p">;</span>
+    <span class="nx">next</span><span class="p">();</span>
+  <span class="p">});</span>
+  <span class="kd">var</span> <span class="nx">ClickedLinkEvent</span> <span class="o">=</span> <span class="nx">Event</span><span class="p">.</span><span class="nx">discriminator</span><span class="p">(</span><span class="s1">&#39;ClickedLinkEvent&#39;</span><span class="p">,</span>
+    <span class="nx">clickedLinkSchema</span><span class="p">);</span>
 
-    <span class="nt">var</span> <span class="nt">clickedLinkSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">Schema</span><span class="o">(</span><span class="p">{</span><span class="n">url</span><span class="p">:</span> <span class="n">String</span><span class="p">}</span><span class="o">,</span> <span class="nt">options</span><span class="o">);</span>
-    <span class="nt">var</span> <span class="nt">clickedSchemaCalls</span> <span class="o">=</span> <span class="nt">0</span><span class="o">;</span>
-    <span class="nt">clickedLinkSchema</span><span class="p">.</span><span class="nc">pre</span><span class="o">(</span><span class="s1">&#39;validate&#39;</span><span class="o">,</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">next</span><span class="o">)</span> <span class="p">{</span>
-      <span class="err">++clickedSchemaCalls</span><span class="p">;</span>
-      <span class="err">next()</span><span class="p">;</span>
-    <span class="p">}</span><span class="o">);</span>
-    <span class="nt">var</span> <span class="nt">ClickedLinkEvent</span> <span class="o">=</span> <span class="nt">Event</span><span class="p">.</span><span class="nc">discriminator</span><span class="o">(</span><span class="s1">&#39;ClickedLinkEvent&#39;</span><span class="o">,</span>
-      <span class="nt">clickedLinkSchema</span><span class="o">);</span>
+  <span class="kd">var</span> <span class="nx">event1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClickedLinkEvent</span><span class="p">();</span>
+  <span class="nx">event1</span><span class="p">.</span><span class="nx">validate</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">eventSchemaCalls</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">clickedSchemaCalls</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 
-    <span class="nt">var</span> <span class="nt">event1</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">ClickedLinkEvent</span><span class="o">();</span>
-    <span class="nt">event1</span><span class="p">.</span><span class="nc">validate</span><span class="o">(</span><span class="nt">function</span><span class="o">()</span> <span class="p">{</span>
-      <span class="err">assert.equal(eventSchemaCalls,</span> <span class="err">1)</span><span class="p">;</span>
-      <span class="err">assert.equal(clickedSchemaCalls,</span> <span class="err">1)</span><span class="p">;</span>
-
-      <span class="err">var</span> <span class="err">generic</span> <span class="err">=</span> <span class="err">new</span> <span class="err">Event()</span><span class="p">;</span>
-      <span class="err">generic.validate(function()</span> <span class="err">{</span>
-        <span class="err">assert.equal(eventSchemaCalls,</span> <span class="err">2)</span><span class="p">;</span>
-        <span class="err">assert.equal(clickedSchemaCalls,</span> <span class="err">1)</span><span class="p">;</span>
-      <span class="p">}</span><span class="o">);</span>
-    <span class="err">}</span><span class="o">);</span>
+    <span class="kd">var</span> <span class="nx">generic</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Event</span><span class="p">();</span>
+    <span class="nx">generic</span><span class="p">.</span><span class="nx">validate</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">eventSchemaCalls</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">clickedSchemaCalls</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
 </pre></div>
 
+<p>鉴别器的字段是基本模式字段和鉴别器模式字段的联合， 并且鉴别器模式的字段优先。,有一个例外：默认的<code>_id</code>字段。</p>
+<p>您可以通过在鉴别器模式中将_id选项设置为false来解决这个问题，如下所示。</p>
+<div class="codehilite"><pre><span></span>  <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span><span class="nx">discriminatorKey</span><span class="o">:</span> <span class="s1">&#39;kind&#39;</span><span class="p">};</span>
 
-<p>A discriminator's fields are the union of the base schema's fields and the discriminator schema's fields, and the discriminator schema's fields take precedence. There is one exception: the default <code>_id</code> field.</p>
-<p>You can work around this by setting the <code>_id</code> option to false in the discriminator schema as shown below.</p>
-<div class="codehilite"><pre><span></span>    <span class="nt">var</span> <span class="nt">options</span> <span class="o">=</span> <span class="p">{</span><span class="n">discriminatorKey</span><span class="p">:</span> <span class="s1">&#39;kind&#39;</span><span class="p">}</span><span class="o">;</span>
+  <span class="kd">var</span> <span class="nx">eventSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span><span class="nx">_id</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">time</span><span class="o">:</span> <span class="nb">Date</span><span class="p">},</span>
+    <span class="nx">options</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">Event</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;BaseEvent&#39;</span><span class="p">,</span> <span class="nx">eventSchema</span><span class="p">);</span>
 
+  <span class="kd">var</span> <span class="nx">clickedLinkSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+    <span class="nx">time</span><span class="o">:</span> <span class="nb">String</span>
+  <span class="p">},</span> <span class="nx">options</span><span class="p">);</span>
 
-    <span class="nt">var</span> <span class="nt">eventSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">Schema</span><span class="o">(</span><span class="p">{</span><span class="n">_id</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="n">time</span><span class="o">:</span> <span class="n">Date</span><span class="p">}</span><span class="o">,</span>
-      <span class="nt">options</span><span class="o">);</span>
-    <span class="nt">var</span> <span class="nt">Event</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;BaseEvent&#39;</span><span class="o">,</span> <span class="nt">eventSchema</span><span class="o">);</span>
+  <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="nx">clickedLinkSchema</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s1">&#39;_id&#39;</span><span class="p">));</span>
+  <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">clickedLinkSchema</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s1">&#39;_id&#39;</span><span class="p">).</span><span class="nx">instance</span><span class="p">,</span> <span class="s1">&#39;ObjectID&#39;</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">ClickedLinkEvent</span> <span class="o">=</span> <span class="nx">Event</span><span class="p">.</span><span class="nx">discriminator</span><span class="p">(</span><span class="s1">&#39;ChildEventBad&#39;</span><span class="p">,</span>
+    <span class="nx">clickedLinkSchema</span><span class="p">);</span>
 
-    <span class="nt">var</span> <span class="nt">clickedLinkSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">Schema</span><span class="o">(</span><span class="p">{</span>
-      <span class="n">url</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span>
-      <span class="n">time</span><span class="o">:</span> <span class="n">String</span>
-    <span class="p">}</span><span class="o">,</span> <span class="nt">options</span><span class="o">);</span>
+  <span class="kd">var</span> <span class="nx">event1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClickedLinkEvent</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;custom id&#39;</span><span class="p">,</span> <span class="nx">time</span><span class="o">:</span> <span class="s1">&#39;4pm&#39;</span> <span class="p">});</span>
 
-
-    <span class="nt">assert</span><span class="p">.</span><span class="nc">ok</span><span class="o">(</span><span class="nt">clickedLinkSchema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;_id&#39;</span><span class="o">));</span>
-    <span class="nt">assert</span><span class="p">.</span><span class="nc">equal</span><span class="o">(</span><span class="nt">clickedLinkSchema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;_id&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">instance</span><span class="o">,</span> <span class="s1">&#39;ObjectID&#39;</span><span class="o">);</span>
-    <span class="nt">var</span> <span class="nt">ClickedLinkEvent</span> <span class="o">=</span> <span class="nt">Event</span><span class="p">.</span><span class="nc">discriminator</span><span class="o">(</span><span class="s1">&#39;ChildEventBad&#39;</span><span class="o">,</span>
-      <span class="nt">clickedLinkSchema</span><span class="o">);</span>
-
-    <span class="nt">var</span> <span class="nt">event1</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">ClickedLinkEvent</span><span class="o">(</span><span class="p">{</span> <span class="n">_id</span><span class="p">:</span> <span class="s1">&#39;custom id&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">:</span> <span class="s1">&#39;4pm&#39;</span> <span class="p">}</span><span class="o">);</span>
-
-
-    <span class="nt">assert</span><span class="p">.</span><span class="nc">ok</span><span class="o">(</span><span class="nt">typeof</span> <span class="nt">event1</span><span class="p">.</span><span class="nc">_id</span> <span class="o">===</span> <span class="s1">&#39;string&#39;</span><span class="o">);</span>
-    <span class="nt">assert</span><span class="p">.</span><span class="nc">ok</span><span class="o">(</span><span class="nt">typeof</span> <span class="nt">event1</span><span class="p">.</span><span class="nc">time</span> <span class="o">===</span> <span class="s1">&#39;string&#39;</span><span class="o">);</span>
+  <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">event1</span><span class="p">.</span><span class="nx">_id</span> <span class="o">===</span> <span class="s1">&#39;string&#39;</span><span class="p">);</span>
+  <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">event1</span><span class="p">.</span><span class="nx">time</span> <span class="o">===</span> <span class="s1">&#39;string&#39;</span><span class="p">);</span>
 </pre></div>
 
+<p>当你使用<code>Model.create（）</code>时，猫鼬会从你的鉴别器键中取出正确的类型。</p>
+<div class="codehilite"><pre><span></span>  <span class="kd">var</span> <span class="nx">Schema</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">shapeSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="nb">String</span>
+  <span class="p">},</span> <span class="p">{</span> <span class="nx">discriminatorKey</span><span class="o">:</span> <span class="s1">&#39;kind&#39;</span> <span class="p">});</span>
 
-<p>When you use <code>Model.create()</code>, mongoose will pull the correct type from the discriminator key for you.</p>
-<div class="codehilite"><pre><span></span>    <span class="nt">var</span> <span class="nt">Schema</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">Schema</span><span class="o">;</span>
-    <span class="nt">var</span> <span class="nt">shapeSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span>
-      <span class="n">name</span><span class="p">:</span> <span class="n">String</span>
-    <span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">discriminatorKey</span><span class="p">:</span> <span class="s1">&#39;kind&#39;</span> <span class="p">}</span><span class="o">);</span>
+  <span class="kd">var</span> <span class="nx">Shape</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Shape&#39;</span><span class="p">,</span> <span class="nx">shapeSchema</span><span class="p">);</span>
 
-    <span class="nt">var</span> <span class="nt">Shape</span> <span class="o">=</span> <span class="nt">db</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Shape&#39;</span><span class="o">,</span> <span class="nt">shapeSchema</span><span class="o">);</span>
+  <span class="kd">var</span> <span class="nx">Circle</span> <span class="o">=</span> <span class="nx">Shape</span><span class="p">.</span><span class="nx">discriminator</span><span class="p">(</span><span class="s1">&#39;Circle&#39;</span><span class="p">,</span>
+    <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">radius</span><span class="o">:</span> <span class="nb">Number</span> <span class="p">}));</span>
+  <span class="kd">var</span> <span class="nx">Square</span> <span class="o">=</span> <span class="nx">Shape</span><span class="p">.</span><span class="nx">discriminator</span><span class="p">(</span><span class="s1">&#39;Square&#39;</span><span class="p">,</span>
+    <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">side</span><span class="o">:</span> <span class="nb">Number</span> <span class="p">}));</span>
 
-    <span class="nt">var</span> <span class="nt">Circle</span> <span class="o">=</span> <span class="nt">Shape</span><span class="p">.</span><span class="nc">discriminator</span><span class="o">(</span><span class="s1">&#39;Circle&#39;</span><span class="o">,</span>
-      <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">radius</span><span class="p">:</span> <span class="n">Number</span> <span class="p">}</span><span class="o">));</span>
-    <span class="nt">var</span> <span class="nt">Square</span> <span class="o">=</span> <span class="nt">Shape</span><span class="p">.</span><span class="nc">discriminator</span><span class="o">(</span><span class="s1">&#39;Square&#39;</span><span class="o">,</span>
-      <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">side</span><span class="p">:</span> <span class="n">Number</span> <span class="p">}</span><span class="o">));</span>
-
-    <span class="nt">var</span> <span class="nt">shapes</span> <span class="o">=</span> <span class="cp">[</span>
-      <span class="p">{</span> <span class="nx">name</span><span class="p">:</span> <span class="s1">&#39;Test&#39;</span> <span class="p">},</span>
-      <span class="p">{</span> <span class="nx">kind</span><span class="p">:</span> <span class="s1">&#39;Circle&#39;</span><span class="p">,</span> <span class="nx">radius</span><span class="p">:</span> <span class="mi">5</span> <span class="p">},</span>
-      <span class="p">{</span> <span class="nx">kind</span><span class="p">:</span> <span class="s1">&#39;Square&#39;</span><span class="p">,</span> <span class="nx">side</span><span class="p">:</span> <span class="mi">10</span> <span class="p">}</span>
-    <span class="cp">]</span><span class="o">;</span>
-    <span class="nt">Shape</span><span class="p">.</span><span class="nc">create</span><span class="o">(</span><span class="nt">shapes</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">error</span><span class="o">,</span> <span class="nt">shapes</span><span class="o">)</span> <span class="p">{</span>
-      <span class="err">assert.ifError(error)</span><span class="p">;</span>
-      <span class="err">assert.ok(shapes</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span> <span class="err">instanceof</span> <span class="err">Shape)</span><span class="p">;</span>
-      <span class="err">assert.ok(shapes</span><span class="cp">[</span><span class="mi">1</span><span class="cp">]</span> <span class="err">instanceof</span> <span class="err">Circle)</span><span class="p">;</span>
-      <span class="err">assert.equal(shapes</span><span class="cp">[</span><span class="mi">1</span><span class="cp">]</span><span class="err">.radius,</span> <span class="err">5)</span><span class="p">;</span>
-      <span class="err">assert.ok(shapes</span><span class="cp">[</span><span class="mi">2</span><span class="cp">]</span> <span class="err">instanceof</span> <span class="err">Square)</span><span class="p">;</span>
-      <span class="err">assert.equal(shapes</span><span class="cp">[</span><span class="mi">2</span><span class="cp">]</span><span class="err">.side,</span> <span class="err">10)</span><span class="p">;</span>
-    <span class="p">}</span><span class="o">);</span>
+  <span class="kd">var</span> <span class="nx">shapes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Test&#39;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">kind</span><span class="o">:</span> <span class="s1">&#39;Circle&#39;</span><span class="p">,</span> <span class="nx">radius</span><span class="o">:</span> <span class="mi">5</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">kind</span><span class="o">:</span> <span class="s1">&#39;Square&#39;</span><span class="p">,</span> <span class="nx">side</span><span class="o">:</span> <span class="mi">10</span> <span class="p">}</span>
+  <span class="p">];</span>
+  <span class="nx">Shape</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">shapes</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">shapes</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">ifError</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="nx">shapes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">instanceof</span> <span class="nx">Shape</span><span class="p">);</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="nx">shapes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">instanceof</span> <span class="nx">Circle</span><span class="p">);</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">shapes</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">radius</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="nx">shapes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">instanceof</span> <span class="nx">Square</span><span class="p">);</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">shapes</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="nx">side</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+  <span class="p">});</span>
 </pre></div>
 
+<p>您也可以在嵌入式文档数组上定义鉴别器。 嵌入式鉴别器是不同的，因为不同的鉴别器类型存储在相同的文档数组（在文档中）而不是相同的集合。换句话说，嵌入式鉴别器可让您将与不同模式匹配的子文档存储在同一个数组中。</p>
+<p>作为一个通用的最佳实践，确保你在使用它们之前，在模式**上声明任何钩子。 在调用discriminator（）之后，你不应该调用<code>pre（）</code>或<code>post（）</code></p>
+<div class="codehilite"><pre><span></span>  <span class="kd">var</span> <span class="nx">eventSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">message</span><span class="o">:</span> <span class="nb">String</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">discriminatorKey</span><span class="o">:</span> <span class="s1">&#39;kind&#39;</span><span class="p">,</span> <span class="nx">_id</span><span class="o">:</span> <span class="kc">false</span> <span class="p">});</span>
 
-<p>You can also define discriminators on embedded document arrays. Embedded discriminators are different because the different discriminator types are stored in the same document array (within a document) rather than the same collection. In other words, embedded discriminators let you store subdocuments matching different schemas in the same array.</p>
-<p>As a general best practice, make sure you declare any hooks on your schemas <strong>before</strong> you use them. You should <strong>not</strong> call <code>pre()</code> or <code>post()</code> after calling <code>discriminator()</code></p>
-<div class="codehilite"><pre><span></span>    <span class="nt">var</span> <span class="nt">eventSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">message</span><span class="p">:</span> <span class="n">String</span> <span class="p">}</span><span class="o">,</span>
-      <span class="p">{</span> <span class="n">discriminatorKey</span><span class="p">:</span> <span class="s1">&#39;kind&#39;</span><span class="p">,</span> <span class="n">_id</span><span class="o">:</span> <span class="n">false</span> <span class="p">}</span><span class="o">);</span>
+  <span class="kd">var</span> <span class="nx">batchSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">events</span><span class="o">:</span> <span class="p">[</span><span class="nx">eventSchema</span><span class="p">]</span> <span class="p">});</span>
 
-    <span class="nt">var</span> <span class="nt">batchSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">events</span><span class="p">:</span> <span class="cp">[</span><span class="nx">eventSchema</span><span class="cp">]</span> <span class="p">}</span><span class="o">);</span>
+  <span class="kd">var</span> <span class="nx">docArray</span> <span class="o">=</span> <span class="nx">batchSchema</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s1">&#39;events&#39;</span><span class="p">);</span>
 
+  <span class="kd">var</span> <span class="nx">clickedSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span>
+    <span class="nx">element</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+      <span class="nx">required</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="p">{</span> <span class="nx">_id</span><span class="o">:</span> <span class="kc">false</span> <span class="p">});</span>
 
-    <span class="nt">var</span> <span class="nt">docArray</span> <span class="o">=</span> <span class="nt">batchSchema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;events&#39;</span><span class="o">);</span>
+  <span class="kd">var</span> <span class="nx">Clicked</span> <span class="o">=</span> <span class="nx">docArray</span><span class="p">.</span><span class="nx">discriminator</span><span class="p">(</span><span class="s1">&#39;Clicked&#39;</span><span class="p">,</span> <span class="nx">clickedSchema</span><span class="p">);</span>
 
+  <span class="kd">var</span> <span class="nx">Purchased</span> <span class="o">=</span> <span class="nx">docArray</span><span class="p">.</span><span class="nx">discriminator</span><span class="p">(</span><span class="s1">&#39;Purchased&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span>
+    <span class="nx">product</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+      <span class="nx">required</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="p">{</span> <span class="nx">_id</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}));</span>
 
+  <span class="kd">var</span> <span class="nx">Batch</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;EventBatch&#39;</span><span class="p">,</span> <span class="nx">batchSchema</span><span class="p">);</span>
 
-    <span class="nt">var</span> <span class="nt">clickedSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span>
-      <span class="n">element</span><span class="p">:</span> <span class="err">{</span>
-        <span class="n">type</span><span class="o">:</span> <span class="n">String</span><span class="p">,</span>
-        <span class="n">required</span><span class="o">:</span> <span class="n">true</span>
-      <span class="p">}</span>
-    <span class="err">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">_id</span><span class="p">:</span> <span class="n">false</span> <span class="p">}</span><span class="o">);</span>
+  <span class="kd">var</span> <span class="nx">batch</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">events</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span> <span class="nx">kind</span><span class="o">:</span> <span class="s1">&#39;Clicked&#39;</span><span class="p">,</span> <span class="nx">element</span><span class="o">:</span> <span class="s1">&#39;#hero&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;hello&#39;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="nx">kind</span><span class="o">:</span> <span class="s1">&#39;Purchased&#39;</span><span class="p">,</span> <span class="nx">product</span><span class="o">:</span> <span class="s1">&#39;action-figure-1&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;world&#39;</span> <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">};</span>
 
+  <span class="nx">Batch</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">batch</span><span class="p">).</span>
+    <span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">doc</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
 
-    <span class="nt">var</span> <span class="nt">Clicked</span> <span class="o">=</span> <span class="nt">docArray</span><span class="p">.</span><span class="nc">discriminator</span><span class="o">(</span><span class="s1">&#39;Clicked&#39;</span><span class="o">,</span> <span class="nt">clickedSchema</span><span class="o">);</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">events</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">element</span><span class="p">,</span> <span class="s1">&#39;#hero&#39;</span><span class="p">);</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">events</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">message</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">);</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">events</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">instanceof</span> <span class="nx">Clicked</span><span class="p">);</span>
 
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">events</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">product</span><span class="p">,</span> <span class="s1">&#39;action-figure-1&#39;</span><span class="p">);</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">events</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">message</span><span class="p">,</span> <span class="s1">&#39;world&#39;</span><span class="p">);</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">events</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">instanceof</span> <span class="nx">Purchased</span><span class="p">);</span>
 
-    <span class="nt">var</span> <span class="nt">Purchased</span> <span class="o">=</span> <span class="nt">docArray</span><span class="p">.</span><span class="nc">discriminator</span><span class="o">(</span><span class="s1">&#39;Purchased&#39;</span><span class="o">,</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span>
-      <span class="n">product</span><span class="p">:</span> <span class="err">{</span>
-        <span class="n">type</span><span class="o">:</span> <span class="n">String</span><span class="p">,</span>
-        <span class="n">required</span><span class="o">:</span> <span class="n">true</span>
-      <span class="p">}</span>
-    <span class="err">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">_id</span><span class="p">:</span> <span class="n">false</span> <span class="p">}</span><span class="o">));</span>
+      <span class="nx">doc</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span> <span class="nx">kind</span><span class="o">:</span> <span class="s1">&#39;Purchased&#39;</span><span class="p">,</span> <span class="nx">product</span><span class="o">:</span> <span class="s1">&#39;action-figure-2&#39;</span> <span class="p">});</span>
+      <span class="k">return</span> <span class="nx">doc</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+    <span class="p">}).</span>
+    <span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">doc</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
 
-    <span class="nt">var</span> <span class="nt">Batch</span> <span class="o">=</span> <span class="nt">db</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;EventBatch&#39;</span><span class="o">,</span> <span class="nt">batchSchema</span><span class="o">);</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">events</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="nx">product</span><span class="p">,</span> <span class="s1">&#39;action-figure-2&#39;</span><span class="p">);</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">events</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">instanceof</span> <span class="nx">Purchased</span><span class="p">);</span>
 
-
-    <span class="nt">var</span> <span class="nt">batch</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="n">events</span><span class="p">:</span> <span class="cp">[</span>
-        <span class="p">{</span> <span class="nx">kind</span><span class="p">:</span> <span class="s1">&#39;Clicked&#39;</span><span class="p">,</span> <span class="nx">element</span><span class="p">:</span> <span class="s1">&#39;#hero&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">:</span> <span class="s1">&#39;hello&#39;</span> <span class="p">},</span>
-        <span class="p">{</span> <span class="nx">kind</span><span class="p">:</span> <span class="s1">&#39;Purchased&#39;</span><span class="p">,</span> <span class="nx">product</span><span class="p">:</span> <span class="s1">&#39;action-figure-1&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">:</span> <span class="s1">&#39;world&#39;</span> <span class="p">}</span>
-      <span class="cp">]</span>
-    <span class="p">}</span><span class="o">;</span>
-
-    <span class="nt">Batch</span><span class="p">.</span><span class="nc">create</span><span class="o">(</span><span class="nt">batch</span><span class="o">).</span>
-      <span class="nt">then</span><span class="o">(</span><span class="nt">function</span><span class="o">(</span><span class="nt">doc</span><span class="o">)</span> <span class="p">{</span>
-        <span class="err">assert.equal(doc.events.length,</span> <span class="err">2)</span><span class="p">;</span>
-
-        <span class="err">assert.equal(doc.events</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span><span class="err">.element,</span> <span class="err">&#39;#hero&#39;)</span><span class="p">;</span>
-        <span class="err">assert.equal(doc.events</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span><span class="err">.message,</span> <span class="err">&#39;hello&#39;)</span><span class="p">;</span>
-        <span class="err">assert.ok(doc.events</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span> <span class="err">instanceof</span> <span class="err">Clicked)</span><span class="p">;</span>
-
-        <span class="err">assert.equal(doc.events</span><span class="cp">[</span><span class="mi">1</span><span class="cp">]</span><span class="err">.product,</span> <span class="err">&#39;action-figure-1&#39;)</span><span class="p">;</span>
-        <span class="err">assert.equal(doc.events</span><span class="cp">[</span><span class="mi">1</span><span class="cp">]</span><span class="err">.message,</span> <span class="err">&#39;world&#39;)</span><span class="p">;</span>
-        <span class="err">assert.ok(doc.events</span><span class="cp">[</span><span class="mi">1</span><span class="cp">]</span> <span class="err">instanceof</span> <span class="err">Purchased)</span><span class="p">;</span>
-
-        <span class="err">doc.events.push({</span> <span class="n">kind</span><span class="p">:</span> <span class="s1">&#39;Purchased&#39;</span><span class="p">,</span> <span class="n">product</span><span class="o">:</span> <span class="s1">&#39;action-figure-2&#39;</span> <span class="p">}</span><span class="o">);</span>
-        <span class="nt">return</span> <span class="nt">doc</span><span class="p">.</span><span class="nc">save</span><span class="o">();</span>
-      <span class="err">}</span><span class="o">).</span>
-      <span class="nt">then</span><span class="o">(</span><span class="nt">function</span><span class="o">(</span><span class="nt">doc</span><span class="o">)</span> <span class="p">{</span>
-        <span class="err">assert.equal(doc.events.length,</span> <span class="err">3)</span><span class="p">;</span>
-
-        <span class="err">assert.equal(doc.events</span><span class="cp">[</span><span class="mi">2</span><span class="cp">]</span><span class="err">.product,</span> <span class="err">&#39;action-figure-2&#39;)</span><span class="p">;</span>
-        <span class="err">assert.ok(doc.events</span><span class="cp">[</span><span class="mi">2</span><span class="cp">]</span> <span class="err">instanceof</span> <span class="err">Purchased)</span><span class="p">;</span>
-
-        <span class="err">done()</span><span class="p">;</span>
-      <span class="p">}</span><span class="o">).</span>
-      <span class="nt">catch</span><span class="o">(</span><span class="nt">done</span><span class="o">);</span>
+      <span class="nx">done</span><span class="p">();</span>
+    <span class="p">}).</span>
+    <span class="k">catch</span><span class="p">(</span><span class="nx">done</span><span class="p">);</span>
 </pre></div>
 
+<p>嵌入式递归鉴别器</p>
+<div class="codehilite"><pre><span></span>  <span class="kd">var</span> <span class="nx">singleEventSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">message</span><span class="o">:</span> <span class="nb">String</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">discriminatorKey</span><span class="o">:</span> <span class="s1">&#39;kind&#39;</span><span class="p">,</span> <span class="nx">_id</span><span class="o">:</span> <span class="kc">false</span> <span class="p">});</span>
 
-<p>Recursive embedded discriminators</p>
-<div class="codehilite"><pre><span></span>    <span class="nt">var</span> <span class="nt">singleEventSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">message</span><span class="p">:</span> <span class="n">String</span> <span class="p">}</span><span class="o">,</span>
-      <span class="p">{</span> <span class="n">discriminatorKey</span><span class="p">:</span> <span class="s1">&#39;kind&#39;</span><span class="p">,</span> <span class="n">_id</span><span class="o">:</span> <span class="n">false</span> <span class="p">}</span><span class="o">);</span>
+  <span class="kd">var</span> <span class="nx">eventListSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">events</span><span class="o">:</span> <span class="p">[</span><span class="nx">singleEventSchema</span><span class="p">]</span> <span class="p">});</span>
 
-    <span class="nt">var</span> <span class="nt">eventListSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">events</span><span class="p">:</span> <span class="cp">[</span><span class="nx">singleEventSchema</span><span class="cp">]</span> <span class="p">}</span><span class="o">);</span>
+  <span class="kd">var</span> <span class="nx">subEventSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span>
+      <span class="nx">sub_events</span><span class="o">:</span> <span class="p">[</span><span class="nx">singleEventSchema</span><span class="p">]</span>
+  <span class="p">},</span> <span class="p">{</span> <span class="nx">_id</span><span class="o">:</span> <span class="kc">false</span> <span class="p">});</span>
 
-    <span class="nt">var</span> <span class="nt">subEventSchema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span>
-       <span class="n">sub_events</span><span class="p">:</span> <span class="cp">[</span><span class="nx">singleEventSchema</span><span class="cp">]</span>
-    <span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">_id</span><span class="p">:</span> <span class="n">false</span> <span class="p">}</span><span class="o">);</span>
+  <span class="kd">var</span> <span class="nx">SubEvent</span> <span class="o">=</span> <span class="nx">subEventSchema</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s1">&#39;sub_events&#39;</span><span class="p">).</span><span class="nx">discriminator</span><span class="p">(</span><span class="s1">&#39;SubEvent&#39;</span><span class="p">,</span> <span class="nx">subEventSchema</span><span class="p">)</span>
+  <span class="nx">eventListSchema</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s1">&#39;events&#39;</span><span class="p">).</span><span class="nx">discriminator</span><span class="p">(</span><span class="s1">&#39;SubEvent&#39;</span><span class="p">,</span> <span class="nx">subEventSchema</span><span class="p">);</span>
 
-    <span class="nt">var</span> <span class="nt">SubEvent</span> <span class="o">=</span> <span class="nt">subEventSchema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;sub_events&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">discriminator</span><span class="o">(</span><span class="s1">&#39;SubEvent&#39;</span><span class="o">,</span> <span class="nt">subEventSchema</span><span class="o">)</span>
-    <span class="nt">eventListSchema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;events&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">discriminator</span><span class="o">(</span><span class="s1">&#39;SubEvent&#39;</span><span class="o">,</span> <span class="nt">subEventSchema</span><span class="o">);</span>
+  <span class="kd">var</span> <span class="nx">Eventlist</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;EventList&#39;</span><span class="p">,</span> <span class="nx">eventListSchema</span><span class="p">);</span>
 
-    <span class="nt">var</span> <span class="nt">Eventlist</span> <span class="o">=</span> <span class="nt">db</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;EventList&#39;</span><span class="o">,</span> <span class="nt">eventListSchema</span><span class="o">);</span>
+  <span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">events</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span> <span class="nx">kind</span><span class="o">:</span> <span class="s1">&#39;SubEvent&#39;</span><span class="p">,</span> <span class="nx">sub_events</span><span class="o">:</span> <span class="p">[{</span><span class="nx">kind</span><span class="o">:</span><span class="s1">&#39;SubEvent&#39;</span><span class="p">,</span> <span class="nx">sub_events</span><span class="o">:</span><span class="p">[],</span> <span class="nx">message</span><span class="o">:</span><span class="s1">&#39;test1&#39;</span><span class="p">}],</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;hello&#39;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="nx">kind</span><span class="o">:</span> <span class="s1">&#39;SubEvent&#39;</span><span class="p">,</span> <span class="nx">sub_events</span><span class="o">:</span> <span class="p">[{</span><span class="nx">kind</span><span class="o">:</span><span class="s1">&#39;SubEvent&#39;</span><span class="p">,</span> <span class="nx">sub_events</span><span class="o">:</span><span class="p">[{</span><span class="nx">kind</span><span class="o">:</span><span class="s1">&#39;SubEvent&#39;</span><span class="p">,</span> <span class="nx">sub_events</span><span class="o">:</span><span class="p">[],</span> <span class="nx">message</span><span class="o">:</span><span class="s1">&#39;test3&#39;</span><span class="p">}],</span> <span class="nx">message</span><span class="o">:</span><span class="s1">&#39;test2&#39;</span><span class="p">}],</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;world&#39;</span> <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">};</span>
 
+  <span class="nx">Eventlist</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">list</span><span class="p">).</span>
+    <span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">doc</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
 
-    <span class="nt">var</span> <span class="nt">list</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="n">events</span><span class="p">:</span> <span class="cp">[</span>
-        <span class="p">{</span> <span class="nx">kind</span><span class="p">:</span> <span class="s1">&#39;SubEvent&#39;</span><span class="p">,</span> <span class="nx">sub_events</span><span class="p">:</span> <span class="err">[</span><span class="p">{</span><span class="nx">kind</span><span class="p">:</span><span class="s1">&#39;SubEvent&#39;</span><span class="p">,</span> <span class="nx">sub_events</span><span class="p">:</span><span class="err">[</span><span class="cp">]</span><span class="p">,</span> <span class="n">message</span><span class="o">:</span><span class="s1">&#39;test1&#39;</span><span class="p">}</span><span class="o">],</span> <span class="nt">message</span><span class="o">:</span> <span class="s1">&#39;hello&#39;</span> <span class="err">}</span><span class="o">,</span>
-        <span class="p">{</span> <span class="n">kind</span><span class="p">:</span> <span class="s1">&#39;SubEvent&#39;</span><span class="p">,</span> <span class="n">sub_events</span><span class="o">:</span> <span class="cp">[</span><span class="p">{</span><span class="nx">kind</span><span class="p">:</span><span class="s1">&#39;SubEvent&#39;</span><span class="p">,</span> <span class="nx">sub_events</span><span class="p">:</span><span class="err">[</span><span class="p">{</span><span class="nx">kind</span><span class="p">:</span><span class="s1">&#39;SubEvent&#39;</span><span class="p">,</span> <span class="nx">sub_events</span><span class="p">:</span><span class="err">[</span><span class="cp">]</span><span class="p">,</span> <span class="n">message</span><span class="o">:</span><span class="s1">&#39;test3&#39;</span><span class="p">}</span><span class="o">],</span> <span class="nt">message</span><span class="o">:</span><span class="s1">&#39;test2&#39;</span><span class="err">}</span><span class="o">],</span> <span class="nt">message</span><span class="o">:</span> <span class="s1">&#39;world&#39;</span> <span class="err">}</span>
-      <span class="o">]</span>
-    <span class="err">}</span><span class="o">;</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">events</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">sub_events</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">message</span><span class="p">,</span> <span class="s1">&#39;test1&#39;</span><span class="p">);</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">events</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">message</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">);</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">events</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">sub_events</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">instanceof</span> <span class="nx">SubEvent</span><span class="p">);</span>
 
-    <span class="nt">Eventlist</span><span class="p">.</span><span class="nc">create</span><span class="o">(</span><span class="nt">list</span><span class="o">).</span>
-      <span class="nt">then</span><span class="o">(</span><span class="nt">function</span><span class="o">(</span><span class="nt">doc</span><span class="o">)</span> <span class="p">{</span>
-        <span class="err">assert.equal(doc.events.length,</span> <span class="err">2)</span><span class="p">;</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">events</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">sub_events</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">sub_events</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">message</span><span class="p">,</span> <span class="s1">&#39;test3&#39;</span><span class="p">);</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">events</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">message</span><span class="p">,</span> <span class="s1">&#39;world&#39;</span><span class="p">);</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">events</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">sub_events</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">sub_events</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">instanceof</span> <span class="nx">SubEvent</span><span class="p">);</span>
 
-        <span class="err">assert.equal(doc.events</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span><span class="err">.sub_events</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span><span class="err">.message,</span> <span class="err">&#39;test1&#39;)</span><span class="p">;</span>
-        <span class="err">assert.equal(doc.events</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span><span class="err">.message,</span> <span class="err">&#39;hello&#39;)</span><span class="p">;</span>
-        <span class="err">assert.ok(doc.events</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span><span class="err">.sub_events</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span> <span class="err">instanceof</span> <span class="err">SubEvent)</span><span class="p">;</span>
+      <span class="nx">doc</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="nx">kind</span><span class="o">:</span><span class="s1">&#39;SubEvent&#39;</span><span class="p">,</span> <span class="nx">sub_events</span><span class="o">:</span><span class="p">[{</span><span class="nx">kind</span><span class="o">:</span><span class="s1">&#39;SubEvent&#39;</span><span class="p">,</span> <span class="nx">sub_events</span><span class="o">:</span><span class="p">[],</span> <span class="nx">message</span><span class="o">:</span><span class="s1">&#39;test4&#39;</span><span class="p">}],</span> <span class="nx">message</span><span class="o">:</span><span class="s1">&#39;pushed&#39;</span><span class="p">});</span>
+      <span class="k">return</span> <span class="nx">doc</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+    <span class="p">}).</span>
+    <span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">doc</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
 
-        <span class="err">assert.equal(doc.events</span><span class="cp">[</span><span class="mi">1</span><span class="cp">]</span><span class="err">.sub_events</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span><span class="err">.sub_events</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span><span class="err">.message,</span> <span class="err">&#39;test3&#39;)</span><span class="p">;</span>
-        <span class="err">assert.equal(doc.events</span><span class="cp">[</span><span class="mi">1</span><span class="cp">]</span><span class="err">.message,</span> <span class="err">&#39;world&#39;)</span><span class="p">;</span>
-        <span class="err">assert.ok(doc.events</span><span class="cp">[</span><span class="mi">1</span><span class="cp">]</span><span class="err">.sub_events</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span><span class="err">.sub_events</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span> <span class="err">instanceof</span> <span class="err">SubEvent)</span><span class="p">;</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">events</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="nx">message</span><span class="p">,</span> <span class="s1">&#39;pushed&#39;</span><span class="p">);</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">events</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="nx">sub_events</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">instanceof</span> <span class="nx">SubEvent</span><span class="p">);</span>
 
-        <span class="err">doc.events.push({</span><span class="n">kind</span><span class="p">:</span><span class="s1">&#39;SubEvent&#39;</span><span class="p">,</span> <span class="n">sub_events</span><span class="o">:</span><span class="cp">[</span><span class="p">{</span><span class="nx">kind</span><span class="p">:</span><span class="s1">&#39;SubEvent&#39;</span><span class="p">,</span> <span class="nx">sub_events</span><span class="p">:</span><span class="err">[</span><span class="cp">]</span><span class="p">,</span> <span class="n">message</span><span class="o">:</span><span class="s1">&#39;test4&#39;</span><span class="p">}</span><span class="o">],</span> <span class="nt">message</span><span class="o">:</span><span class="s1">&#39;pushed&#39;</span><span class="err">}</span><span class="o">);</span>
-        <span class="nt">return</span> <span class="nt">doc</span><span class="p">.</span><span class="nc">save</span><span class="o">();</span>
-      <span class="err">}</span><span class="o">).</span>
-      <span class="nt">then</span><span class="o">(</span><span class="nt">function</span><span class="o">(</span><span class="nt">doc</span><span class="o">)</span> <span class="p">{</span>
-        <span class="err">assert.equal(doc.events.length,</span> <span class="err">3)</span><span class="p">;</span>
-
-        <span class="err">assert.equal(doc.events</span><span class="cp">[</span><span class="mi">2</span><span class="cp">]</span><span class="err">.message,</span> <span class="err">&#39;pushed&#39;)</span><span class="p">;</span>
-        <span class="err">assert.ok(doc.events</span><span class="cp">[</span><span class="mi">2</span><span class="cp">]</span><span class="err">.sub_events</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span> <span class="err">instanceof</span> <span class="err">SubEvent)</span><span class="p">;</span>
-
-        <span class="err">done()</span><span class="p">;</span>
-      <span class="p">}</span><span class="o">).</span>
-      <span class="nt">catch</span><span class="o">(</span><span class="nt">done</span><span class="o">);</span>
+      <span class="nx">done</span><span class="p">();</span>
+    <span class="p">}).</span>
+    <span class="k">catch</span><span class="p">(</span><span class="nx">done</span><span class="p">);</span>
 </pre></div>
                 
                   

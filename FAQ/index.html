@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="mongodb nodejs组件中文文档">
+        <meta name="description" content="Mongodb NodeJs 组件中文文档">
       
       
       
@@ -332,8 +332,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../guide/Models/" title="楷模" class="md-nav__link">
-      楷模
+    <a href="../guide/Models/" title="模式" class="md-nav__link">
+      模式
     </a>
   </li>
 
@@ -344,8 +344,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../guide/Documents/" title="文件" class="md-nav__link">
-      文件
+    <a href="../guide/Documents/" title="文档" class="md-nav__link">
+      文档
     </a>
   </li>
 
@@ -404,8 +404,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../guide/Discriminators/" title="鉴" class="md-nav__link">
-      鉴
+    <a href="../guide/Discriminators/" title="鉴别器" class="md-nav__link">
+      鉴别器
     </a>
   </li>
 
@@ -597,36 +597,9 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        常问问题
-      </label>
-    
     <a href="./" title="常问问题" class="md-nav__link md-nav__link--active">
       常问问题
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">目录</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#faq" title="FAQ" class="md-nav__link">
-    FAQ
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -648,20 +621,6 @@
     
   
   
-    <label class="md-nav__title" for="toc">目录</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#faq" title="FAQ" class="md-nav__link">
-    FAQ
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -673,217 +632,124 @@
               
                 
                 
-                <h1 id="mongoose-v501-faq">Mongoose v5.0.1: FAQ<a class="headerlink" href="#mongoose-v501-faq" title="Permanent link">&para;</a></h1>
-<p><a href="http://mongoosejs.com/docs/faq.html" title="Permalink to Mongoose v5.0.1: FAQ">Source</a></p>
-<h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h2>
-<p><strong>Q</strong>. Why don't my changes to arrays get saved when I update an element directly?</p>
-<div class="codehilite"><pre><span></span>doc.array[3] = &#39;changed&#39;;
-doc.save();
+                <h1 id="_1">常见问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p><a href="http://mongoosejs.com/docs/faq.html" title="Mongoose v5.0.1的永久链接：FAQ">源</a></p>
+<details class="faq"><summary>当我直接更新数组元素时​​，为什么不更改？</summary><div class="codehilite"><pre><span></span><span class="nx">doc</span><span class="p">.</span><span class="nx">array</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;changed&#39;</span><span class="p">;</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
 </pre></div>
-
-
-<p><strong>A</strong>. Mongoose doesn't create getters/setters for array indexes; without them mongoose never gets notified of the change and so doesn't know to persist the new value. The work-around is to use <a href="http://mongoosejs.com/api.html#types_array_MongooseArray.set">MongooseArray#set</a> available in <strong>Mongoose &gt;= 3.2.0</strong>.</p>
-<div class="codehilite"><pre><span></span>doc.array.set(3, &#39;changed&#39;);
-doc.save();
-
-
-doc.array[3] = &#39;changed&#39;;
-doc.markModified(&#39;array&#39;);
-doc.save();
+<div class="admonition info"><p class="admonition-title">答案</p><p>Mongoose不会为数组索引创建getter/setter; 没有他们猫鼬从来没有得到通知的变化，所以不知道坚持新的价值。 解决方法是使用<strong> Mongoose&gt; = 3.2.0 </strong>中的<a href="http://mongoosejs.com/api.html#types_array_MongooseArray.set">MongooseArray＃set</a>。</p><div class="codehilite"><pre><span></span><span class="nx">doc</span><span class="p">.</span><span class="nx">array</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;changed&#39;</span><span class="p">);</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">array</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;changed&#39;</span><span class="p">;</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">markModified</span><span class="p">(</span><span class="s1">&#39;array&#39;</span><span class="p">);</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
 </pre></div>
+</div></details><details class="faq"><summary>我定义模式属性为“unique”，但我仍然可以保存了重复数据,是什么导致的？</summary><div class="admonition info"><p class="admonition-title">答案</p><p>Mongoose本身并不处理<code>unique</code>：<code>{name：{type：String，unique：true}}</code>只是在<code>name</code>上创建一个[MongoDB唯一索引]的简写<a href="https://docs.mongodb.com/manual/core/index-unique/">2</a> 例如，如果MongoDB在<code>name</code>上没有唯一的索引， 尽管“unique”是真实的，但下面的代码不会出错。</p><div class="codehilite"><pre><span></span>    <span class="kd">var</span> <span class="nx">schema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">unique</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="kd">var</span> <span class="nx">Model</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">,</span> <span class="nx">schema</span><span class="p">);</span>
 
-
-<hr />
-<p><strong>Q</strong>. I declared a schema property as <code>unique</code> but I can still save duplicates. What gives?</p>
-<p><strong>A</strong>. Mongoose doesn't handle <code>unique</code> on its own: <code>{ name: { type: String, unique: true } }</code> is just a shorthand for creating a <a href="https://docs.mongodb.com/manual/core/index-unique/">MongoDB unique index on <code>name</code></a>. For example, if MongoDB doesn't already have a unique index on <code>name</code>, the below code will not error despite the fact that <code>unique</code> is true.</p>
-<div class="codehilite"><pre><span></span>var schema = new mongoose.Schema({
-  name: { type: String, unique: true }
-});
-var Model = db.model(&#39;Test&#39;, schema);
-
-Model.create([{ name: &#39;Val&#39; }, { name: &#39;Val&#39; }], function(err) {
-  console.log(err);
-});
+    <span class="nx">Model</span><span class="p">.</span><span class="nx">create</span><span class="p">([{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Val&#39;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Val&#39;</span> <span class="p">}],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+    <span class="p">});</span>
 </pre></div>
+<p>然而， 如果您使用<code>Model.on（'index'）</code>事件等待索引建立，尝试保存重复将会抛错</p><div class="codehilite"><pre><span></span>    <span class="kd">var</span> <span class="nx">schema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">unique</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="kd">var</span> <span class="nx">Model</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">,</span> <span class="nx">schema</span><span class="p">);</span>
 
+    <span class="nx">Model</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">ifError</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+      <span class="nx">Model</span><span class="p">.</span><span class="nx">create</span><span class="p">([{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Val&#39;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Val&#39;</span> <span class="p">}],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+      <span class="p">});</span>
+    <span class="p">});</span>
 
-<p>However, if you wait for the index to build using the <code>Model.on('index')</code> event, attempts to save duplicates will correctly error.</p>
-<div class="codehilite"><pre><span></span>var schema = new mongoose.Schema({
-  name: { type: String, unique: true }
-});
-var Model = db.model(&#39;Test&#39;, schema);
-
-Model.on(&#39;index&#39;, function(err) {
-  assert.ifError(err);
-  Model.create([{ name: &#39;Val&#39; }, { name: &#39;Val&#39; }], function(err) {
-    console.log(err);
-  });
-});
-
-
-
-
-Model.init().then(function() {
-  assert.ifError(err);
-  Model.create([{ name: &#39;Val&#39; }, { name: &#39;Val&#39; }], function(err) {
-    console.log(err);
-  });
-});
+    <span class="nx">Model</span><span class="p">.</span><span class="nx">init</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">ifError</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+      <span class="nx">Model</span><span class="p">.</span><span class="nx">create</span><span class="p">([{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Val&#39;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Val&#39;</span> <span class="p">}],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+      <span class="p">});</span>
+    <span class="p">});</span>
 </pre></div>
-
-
-<p>MongoDB persists indexes, so you only need to rebuild indexes if you're starting with a fresh database or you ran <code>db.dropDatabase()</code>. In a production environment, you should [create your indexes using the MongoDB shell])() rather than relying on mongoose to do it for you. The <code>unique</code> option for schemas is convenient for development and documentation, but mongoose is <em>not</em> an index management solution.</p>
-<hr />
-<p><strong>Q</strong>. When I have a nested property in a schema, mongoose adds empty objects by default. Why?</p>
-<div class="codehilite"><pre><span></span>var schema = new mongoose.Schema({
-  nested: {
-    prop: String
-  }
-});
-var Model = db.model(&#39;Test&#39;, schema);
-
-
-
-console.log(new Model());
+<p>MongoDB坚持索引， 所以你只需要重新建立索引，如果你开始一个新的数据库，或者你运行<code>db.dropDatabase（）</code>。在生产环境中， 你应该[使用MongoDB shell]）（）创建索引，而不是依靠猫鼬为你做。 模式的<code>unique</code>选项方便开发和文档化，但猫鼬不是索引管理解决方案</p></div></details><details class="faq"><summary>当我在模式中有一个嵌套属性时，mongoose默认添加空对象,为什么？</summary><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">schema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span>
+  <span class="nx">nested</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">prop</span><span class="o">:</span> <span class="nb">String</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+<span class="kd">var</span> <span class="nx">Model</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">,</span> <span class="nx">schema</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">new</span> <span class="nx">Model</span><span class="p">());</span>
 </pre></div>
+<div class="admonition info"><p class="admonition-title">答案</p><p>这是一个性能优化 这些空的对象不会保存到数据库中， 也不是在结果<code>toObject（）</code>中， 除非关闭<a href="http://mongoosejs.com/docs/guide.html#minimize"><code>minimize</code>选项</a>，否则它们不会出现在<code>JSON.stringify（）</code>输出中。</p><p>这种行为的原因是Mongoose的变化检测和getter / setter是基于<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty"><code>Object.defineProperty（）</code></a>。为了支持对嵌套属性的更改检测，而不会在每次创建文档时招致运行Object.defineProperty（）的开销， mongoose在模型编译时定义<code>Model</code>原型的属性。,由于猫鼬需要为<code>nested.prop</code>定义getter和setter， 必须始终将“嵌套”定义为猫鼬文档上的对象， 即使<code>nested</code>在底层的<a href="http://mongoosejs.com/docs/guide.html#minimize">POJO</a>上是未定义的。</p></div></details><details class="faq"><summary>我在<a href="http://mongoosejs.com/docs/guide.html#virtuals">virtual</a>，getter/setter或<a href="http://mongoosejs.com/docs/guide.html#methods">method</a>使用箭头函数，this的值是为什么是错误的？</summary><div class="admonition info"><p class="admonition-title">答案</p><p>箭头函数<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_binding_of_this">处理<code>this</code>关键字与传统函数大不相同</a>. Mongoose getter/setter依赖<code>this</code>来让你访问你正在写的文档，但是这个功能不能使用箭头函数。 除非不打算访问getter/setter中的文档，否则不要使用箭头函数来取得 Mongoose getter/setter。</p><div class="codehilite"><pre><span></span>    <span class="kd">var</span> <span class="nx">schema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span>
+      <span class="nx">propWithGetter</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+        <span class="nx">get</span><span class="o">:</span> <span class="nx">v</span> <span class="p">=&gt;</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+          <span class="k">return</span> <span class="nx">v</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
 
-
-<p><strong>A</strong>. This is a performance optimization. These empty objects are not saved to the database, nor are they in the result <code>toObject()</code>, nor do they show up in <code>JSON.stringify()</code> output unless you turn off the <a href="http://mongoosejs.com/docs/guide.html#minimize"><code>minimize</code> option</a>.</p>
-<p>The reason for this behavior is that Mongoose's change detection and getters/setters are based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty"><code>Object.defineProperty()</code></a>. In order to support change detection on nested properties without incurring the overhead of running <code>Object.defineProperty()</code> every time a document is created, mongoose defines properties on the <code>Model</code> prototype when the model is compiled. Because mongoose needs to define getters and setters for <code>nested.prop</code>, <code>nested</code> must always be defined as an object on a mongoose document, even if <code>nested</code> is undefined on the underlying <a href="http://mongoosejs.com/docs/guide.html#minimize">POJO</a>.</p>
-<hr />
-<p><strong>Q</strong>. I'm using an arrow function for a <a href="http://mongoosejs.com/docs/guide.html#virtuals">virtual</a>, getter/setter, or <a href="http://mongoosejs.com/docs/guide.html#methods">method</a> and the value of <code>this</code> is wrong.</p>
-<p><strong>A</strong>. Arrow functions <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_binding_of_this">handle the <code>this</code> keyword much differently than conventional functions</a>. Mongoose getters/setters depend on <code>this</code> to give you access to the document that you're writing to, but this functionality does not work with arrow functions. Do <strong>not</strong> use arrow functions for mongoose getters/setters unless do not intend to access the document in the getter/setter.</p>
-<div class="codehilite"><pre><span></span>var schema = new mongoose.Schema({
-  propWithGetter: {
-    type: String,
-    get: v =&gt; {
-
-      console.log(this);
-      return v;
-    }
-  }
-});
-
-
-schema.method.arrowMethod = () =&gt; this;
-schema.virtual(&#39;virtualWithArrow&#39;).get(() =&gt; {
-
-  console.log(this);
-});
+    <span class="nx">schema</span><span class="p">.</span><span class="nx">method</span><span class="p">.</span><span class="nx">arrowMethod</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">;</span>
+    <span class="nx">schema</span><span class="p">.</span><span class="nx">virtual</span><span class="p">(</span><span class="s1">&#39;virtualWithArrow&#39;</span><span class="p">).</span><span class="nx">get</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="p">});</span>
 </pre></div>
-
-
-<hr />
-<p><strong>Q</strong>. I have an embedded property named <code>type</code> like this:</p>
-<div class="codehilite"><pre><span></span>const holdingSchema = new Schema({
-
-
-
-  asset: {
-    type: String,
-    ticker: String
-  }
-});
+</div></details><details class="faq"><summary>我有一个名为<code>type</code>的嵌入式属性是这样的：</summary><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">holdingSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span>
+  <span class="nx">asset</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+    <span class="nx">ticker</span><span class="o">:</span> <span class="nb">String</span>
+  <span class="p">}</span>
+<span class="p">});</span>
 </pre></div>
-
-
-<p>But mongoose gives me a CastError telling me that it can't cast an object to a string when I try to save a <code>Holding</code> with an <code>asset</code> object. Why is this?</p>
-<div class="codehilite"><pre><span></span>Holding.create({ asset: { type: &#39;stock&#39;, ticker: &#39;MDB&#39; } }).catch(error =&gt; {
-
-  console.error(error);
-});
+<p>但mongoose给了我一个CastError提示，当我试图用一个<code>asset</code>对象来保存<code>Holding</code>时，它不能把一个对象转换成一个字符串。</p><div class="codehilite"><pre><span></span>  <span class="nx">Holding</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span> <span class="nx">asset</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;stock&#39;</span><span class="p">,</span> <span class="nx">ticker</span><span class="o">:</span> <span class="s1">&#39;MDB&#39;</span> <span class="p">}</span> <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="p">});</span>
 </pre></div>
-
-
-<p><strong>A</strong>. The <code>type</code> property is special in mongoose, so when you say <code>type: String</code>, mongoose interprets it as a type declaration. In the above schema, mongoose thinks <code>asset</code> is a string, not an object. Do this instead:</p>
-<div class="codehilite"><pre><span></span>const holdingSchema = new Schema({
-
-
-
-  asset: {
-    type: { type: String },
-    ticker: String
-  }
-});
+<div class="admonition info"><p class="admonition-title">答案</p><p>“类型”属性在猫鼬是特别的，所以当你说<code>type：String</code>时，猫鼬把它解释为一个类型声明. 在上面的模式中，猫鼬认为“asset”是一个字符串，而不是一个对象。,做这个，而不是：</p><div class="codehilite"><pre><span></span>  <span class="kr">const</span> <span class="nx">holdingSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span>
+    <span class="nx">asset</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">type</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span> <span class="p">},</span>
+      <span class="nx">ticker</span><span class="o">:</span> <span class="nb">String</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
 </pre></div>
-
-
-<hr />
-<p><strong>Q</strong>. Why don't in-place modifications to date objects (e.g. <code>date.setMonth(1);</code>) get saved?</p>
-<div class="codehilite"><pre><span></span>doc.createdAt.setDate(2011, 5, 1);
-doc.save();
+</div></details><details class="faq"><summary>为什么不能对日期对象（例如<code>date.setMonth（1）;</code>）进行就地修改？</summary><div class="codehilite"><pre><span></span><span class="nx">doc</span><span class="p">.</span><span class="nx">createdAt</span><span class="p">.</span><span class="nx">setDate</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
 </pre></div>
+<div class="admonition info"><p class="admonition-title">答案</p><p>Mongoose目前不会监视日期对象的就地更新,如果您需要这个功能，请随时在<a href="https://github.com/Automattic/mongoose/issues/3738">此GitHub问题</a>上讨论。,有几个解决方法：</p><div class="codehilite"><pre><span></span>    <span class="nx">doc</span><span class="p">.</span><span class="nx">createdAt</span><span class="p">.</span><span class="nx">setDate</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="nx">doc</span><span class="p">.</span><span class="nx">markModified</span><span class="p">(</span><span class="s1">&#39;createdAt&#39;</span><span class="p">);</span>
+    <span class="nx">doc</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
 
-
-<p><strong>A</strong>. Mongoose currently doesn't watch for in-place updates to date objects. If you have need for this feature, feel free to discuss on <a href="https://github.com/Automattic/mongoose/issues/3738">this GitHub issue</a>. There are several workarounds:</p>
-<div class="codehilite"><pre><span></span>doc.createdAt.setDate(2011, 5, 1);
-doc.markModified(&#39;createdAt&#39;);
-doc.save();
-
-doc.createdAt = new Date(2011, 5, 1).setHours(4);
-doc.save();
+    <span class="nx">doc</span><span class="p">.</span><span class="nx">createdAt</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span><span class="nx">setHours</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+    <span class="nx">doc</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
 </pre></div>
-
-
-<hr />
-<p><strong>Q</strong>. I'm populating a nested property under an array like the below code:</p>
-<div class="codehilite"><pre><span></span>  new Schema({
-    arr: [{
-      child: { ref: &#39;OtherModel&#39;, type: Schema.Types.ObjectId }
-    }]
-  });
+</div></details><details class="faq"><summary>我在下面的代码中填充数组下的嵌套属性：</summary><div class="codehilite"><pre><span></span>  <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span>
+    <span class="nx">arr</span><span class="o">:</span> <span class="p">[{</span>
+      <span class="nx">child</span><span class="o">:</span> <span class="p">{</span> <span class="nx">ref</span><span class="o">:</span> <span class="s1">&#39;OtherModel&#39;</span><span class="p">,</span> <span class="nx">type</span><span class="o">:</span> <span class="nx">Schema</span><span class="p">.</span><span class="nx">Types</span><span class="p">.</span><span class="nx">ObjectId</span> <span class="p">}</span>
+    <span class="p">}]</span>
+  <span class="p">});</span>
 </pre></div>
-
-
-<p><code>.populate({ path: 'arr.child', options: { sort: 'name' } })</code> won't sort by <code>arr.child.name</code>?</p>
-<p><strong>A</strong>. See <a href="https://github.com/Automattic/mongoose/issues/2202">this GitHub issue</a>. It's a known issue but one that's exceptionally difficult to fix.</p>
-<hr />
-<p><strong>Q</strong>. All function calls on my models hang, what am I doing wrong?</p>
-<p><strong>A</strong>. By default, mongoose will buffer your function calls until it can connect to MongoDB. Read the <a href="http://mongoosejs.com/docs/connections.html#buffering">buffering section of the connection docs</a> for more information.</p>
-<hr />
-<p><strong>Q</strong>. How can I enable debugging?</p>
-<p><strong>A</strong>. Set the <code>debug</code> option to <code>true</code>:</p>
-<div class="codehilite"><pre><span></span>mongoose.set(&#39;debug&#39;, true)
+<p><code>.populate（{path：'arr.child'，options：{sort：'name'}}）</code>不会被<code>arr.child.name</code>排序</p><div class="admonition info"><p class="admonition-title">答案</p><p>见<a href="https://github.com/Automattic/mongoose/issues/2202">这个GitHub问题</a>。,这是一个已知的问题，但是这是一个非常难以解决的问题</p></div></details><details class="faq"><summary>我的模型上的所有函数调用挂起，我做错了什么？</summary><div class="admonition info"><p class="admonition-title">答案</p><p>默认情况下，mongoose会缓冲你的函数调用，直到它可以连接到MongoDB。,阅读<a href="http://mongoosejs.com/docs/connections.html#buffering">连接文档的缓冲部分</a>了解更多信息。</p></div></details><details class="faq"><summary>我怎样才能启用调试？</summary><div class="admonition info"><p class="admonition-title">答案</p><p>将<code>debug</code>选项设置为<code>true</code></p><div class="codehilite"><pre><span></span>  <span class="nx">mongoose</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;debug&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
 </pre></div>
+<p>所有执行的收集方法都会将其参数的输出记录到控制台。</p></div></details><details class="faq"><summary>我的<code>save（）</code>回调从不执行。 我究竟做错了什么？</summary><div class="admonition info"><p class="admonition-title">答案</p><p>所有的“集合”操作（插入，删除，查询等）都被排队，直到“连接”打开. 尝试连接时可能发生错误。尝试添加一个错误处理程序到您的连接。</p><div class="codehilite"><pre><span></span>    <span class="nx">mongoose</span><span class="p">.</span><span class="nx">connect</span><span class="p">(..);</span>
+    <span class="nx">mongoose</span><span class="p">.</span><span class="nx">connection</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="nx">handleError</span><span class="p">);</span>
 
-
-<p>All executed collection methods will log output of their arguments to your console.</p>
-<hr />
-<p><strong>Q</strong>. My <code>save()</code> callback never executes. What am I doing wrong?</p>
-<p><strong>A</strong>. All <code>collection</code> actions (insert, remove, queries, etc.) are queued until the <code>connection</code> opens. It is likely that an error occurred while attempting to connect. Try adding an error handler to your connection.</p>
-<div class="codehilite"><pre><span></span>mongoose.connect(..);
-mongoose.connection.on(&#39;error&#39;, handleError);
-
-
-var conn = mongoose.createConnection(..);
-conn.on(&#39;error&#39;, handleError);
+    <span class="kd">var</span> <span class="nx">conn</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">createConnection</span><span class="p">(..);</span>
+    <span class="nx">conn</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="nx">handleError</span><span class="p">);</span>
 </pre></div>
-
-
-<p>If you want to opt out of mongoose's buffering mechanism across your entire application, set the global <code>bufferCommands</code> option to false:</p>
-<div class="codehilite"><pre><span></span>mongoose.set(&#39;bufferCommands&#39;, false);
+<p>如果您想要在整个应用程序中选择不使用猫鼬的缓冲机制，请将全局<code>bufferCommands</code>选项设置为false</p><div class="codehilite"><pre><span></span>    <span class="nx">mongoose</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;bufferCommands&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
 </pre></div>
-
-
-<hr />
-<p><strong>Q</strong>. Should I create/destroy a new connection for each database operation?</p>
-<p><strong>A</strong>. No. Open your connection when your application starts up and leave it open until the application shuts down.</p>
-<hr />
-<p><strong>Q</strong>. Why do I get "OverwriteModelError: Cannot overwrite .. model once compiled" when I use nodemon / a testing framework?</p>
-<p><strong>A</strong>. <code>mongoose.model('ModelName', schema)</code> requires 'ModelName' to be unique, so you can access the model by using <code>mongoose.model('ModelName')</code>. If you put <code>mongoose.model('ModelName', schema);</code> in a <a href="https://mochajs.org/#hooks">mocha <code>beforeEach()</code> hook</a>, this code will attempt to create a new model named 'ModelName' before <strong>every</strong> test, and so you will get an error. Make sure you only create a new model with a given name <strong>once</strong>. If you need to create multiple models with the same name, create a new connection and bind the model to the connection.</p>
-<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">mongoose</span> <span class="o">=</span> <span class="nt">require</span><span class="o">(</span><span class="s1">&#39;mongoose&#39;</span><span class="o">);</span>
-<span class="nt">var</span> <span class="nt">connection</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">createConnection</span><span class="o">(..);</span>
-
-
-<span class="nt">var</span> <span class="nt">kittySchema</span> <span class="o">=</span> <span class="nt">mongoose</span><span class="p">.</span><span class="nc">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="n">String</span> <span class="p">}</span><span class="o">);</span>
-
-
-<span class="nt">var</span> <span class="nt">Kitten</span> <span class="o">=</span> <span class="nt">connection</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;Kitten&#39;</span><span class="o">,</span> <span class="nt">kittySchema</span><span class="o">);</span>
+</div></details><details class="faq"><summary>我应该为每个数据库操作创建/销毁一个新的连接吗？</summary><div class="admonition info"><p class="admonition-title">答案</p><p>不用。在应用程序启动时打开连接，并保持打开状态，直到应用程序关闭。</p></div></details><details class="faq"><summary>为什么我得到"OverwriteModelError: Cannot overwrite .. model once compiled" 当我使用nodemon(一个测试框架)？</summary><div class="admonition info"><p class="admonition-title">答案</p><p><code>mongoose.model('ModelName',schema)'要求</code>ModelName<code>是唯一的，
+所以你可以通过使用</code>mongoose.model('ModelName')<code>来访问模型。
+如果你把mongoose.model('ModelName',schema);</code>放在<a href="https://mochajs.org/#hooks">mocha<code>beforeEach()</code>hook</a>中，
+此代码将尝试在<strong>每</strong>测试之前创建一个名为“ModelName”的新模型， 所以你会得到一个错误。
+确保你只用一个给定的名字<em>once</em>创建一个新的模型。
+如果您需要创建具有相同名称的多个模型，请创建一个新的连接并将模型绑定到连接。</p><div class="codehilite"><pre><span></span>    <span class="kd">var</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongoose&#39;</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">connection</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">createConnection</span><span class="p">(..);</span>
+    <span class="kd">var</span> <span class="nx">kittySchema</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="nb">String</span> <span class="p">});</span>
+    <span class="kd">var</span> <span class="nx">Kitten</span> <span class="o">=</span> <span class="nx">connection</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Kitten&#39;</span><span class="p">,</span> <span class="nx">kittySchema</span><span class="p">);</span>
 </pre></div>
-
-
-<p><strong>Something to add?</strong></p>
-<p>If you'd like to contribute to this page, please <a href="https://github.com/Automattic/mongoose/tree/master/docs/faq.jade">visit it</a> on github and use the <a href="https://github.com/blog/844-forking-with-the-edit-button">Edit</a> button to send a pull request.</p>
+</div></details><p><strong>要添加的东西?</strong></p>
+<p>如果您想贡献此页面，请在github上<a href="https://github.com/Automattic/mongoose/tree/master/docs/faq.jade">访问它</a>，并使用<a href="https://github.com/blog/844-forking-with-the-edit-button">编辑</a>按钮发送拉取请求。</p>
                 
                   
                 

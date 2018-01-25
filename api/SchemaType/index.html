@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="mongodb nodejs组件中文文档">
+        <meta name="description" content="Mongodb NodeJs 组件中文文档">
       
       
       
@@ -334,8 +334,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../guide/Models/" title="楷模" class="md-nav__link">
-      楷模
+    <a href="../../guide/Models/" title="模式" class="md-nav__link">
+      模式
     </a>
   </li>
 
@@ -346,8 +346,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../guide/Documents/" title="文件" class="md-nav__link">
-      文件
+    <a href="../../guide/Documents/" title="文档" class="md-nav__link">
+      文档
     </a>
   </li>
 
@@ -406,8 +406,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../guide/Discriminators/" title="鉴" class="md-nav__link">
-      鉴
+    <a href="../../guide/Discriminators/" title="鉴别器" class="md-nav__link">
+      鉴别器
     </a>
   </li>
 
@@ -546,9 +546,422 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        架构类型
+      </label>
+    
     <a href="./" title="架构类型" class="md-nav__link md-nav__link--active">
       架构类型
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#schematype263" title="[SchemaType()][263]" class="md-nav__link">
+    [SchemaType()][263]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematypeprototypedefault264" title="[SchemaType.prototype.default()][264]" class="md-nav__link">
+    [SchemaType.prototype.default()][264]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_1" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_2" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematypeprototypeindex265" title="[SchemaType.prototype.index()][265]" class="md-nav__link">
+    [SchemaType.prototype.index()][265]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_1" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_3" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note" title="NOTE:" class="md-nav__link">
+    NOTE:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematypeprototypeunique267" title="[SchemaType.prototype.unique()][267]" class="md-nav__link">
+    [SchemaType.prototype.unique()][267]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_2" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_4" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematypeprototypetext268" title="[SchemaType.prototype.text()][268]" class="md-nav__link">
+    [SchemaType.prototype.text()][268]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_4" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_3" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example_5" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematypeprototypesparse269" title="[SchemaType.prototype.sparse()][269]" class="md-nav__link">
+    [SchemaType.prototype.sparse()][269]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_5" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_4" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_6" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematypeprototypeset270" title="[SchemaType.prototype.set()][270]" class="md-nav__link">
+    [SchemaType.prototype.set()][270]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_6" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_5" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_7" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematypeprototypeget272" title="[SchemaType.prototype.get()][272]" class="md-nav__link">
+    [SchemaType.prototype.get()][272]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_7" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_6" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_8" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematypeprototypevalidate273" title="[SchemaType.prototype.validate()][273]" class="md-nav__link">
+    [SchemaType.prototype.validate()][273]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_8" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_7" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" title="Examples:" class="md-nav__link">
+    Examples:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-message-templates" title="Error message templates:" class="md-nav__link">
+    Error message templates:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asynchronous-validation" title="Asynchronous validation:" class="md-nav__link">
+    Asynchronous validation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematypeprototyperequired276" title="[SchemaType.prototype.required()][276]" class="md-nav__link">
+    [SchemaType.prototype.required()][276]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_9" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_8" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_9" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematypeprototypeselect277" title="[SchemaType.prototype.select()][277]" class="md-nav__link">
+    [SchemaType.prototype.select()][277]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_10" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_9" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_10" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -613,6 +1026,421 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#schematype263" title="[SchemaType()][263]" class="md-nav__link">
+    [SchemaType()][263]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematypeprototypedefault264" title="[SchemaType.prototype.default()][264]" class="md-nav__link">
+    [SchemaType.prototype.default()][264]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_1" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_2" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematypeprototypeindex265" title="[SchemaType.prototype.index()][265]" class="md-nav__link">
+    [SchemaType.prototype.index()][265]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_1" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_3" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note" title="NOTE:" class="md-nav__link">
+    NOTE:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematypeprototypeunique267" title="[SchemaType.prototype.unique()][267]" class="md-nav__link">
+    [SchemaType.prototype.unique()][267]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_2" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_4" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematypeprototypetext268" title="[SchemaType.prototype.text()][268]" class="md-nav__link">
+    [SchemaType.prototype.text()][268]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_4" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_3" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example_5" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematypeprototypesparse269" title="[SchemaType.prototype.sparse()][269]" class="md-nav__link">
+    [SchemaType.prototype.sparse()][269]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_5" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_4" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_6" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematypeprototypeset270" title="[SchemaType.prototype.set()][270]" class="md-nav__link">
+    [SchemaType.prototype.set()][270]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_6" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_5" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_7" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematypeprototypeget272" title="[SchemaType.prototype.get()][272]" class="md-nav__link">
+    [SchemaType.prototype.get()][272]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_7" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_6" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_8" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematypeprototypevalidate273" title="[SchemaType.prototype.validate()][273]" class="md-nav__link">
+    [SchemaType.prototype.validate()][273]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_8" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_7" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" title="Examples:" class="md-nav__link">
+    Examples:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-message-templates" title="Error message templates:" class="md-nav__link">
+    Error message templates:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asynchronous-validation" title="Asynchronous validation:" class="md-nav__link">
+    Asynchronous validation:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematypeprototyperequired276" title="[SchemaType.prototype.required()][276]" class="md-nav__link">
+    [SchemaType.prototype.required()][276]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_9" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_8" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_9" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematypeprototypeselect277" title="[SchemaType.prototype.select()][277]" class="md-nav__link">
+    [SchemaType.prototype.select()][277]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_10" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_9" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_10" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -621,7 +1449,370 @@
                 
                   <h1>架构类型</h1>
                 
-                
+                <h3 id="schematype263">[SchemaType()][263]<a class="headerlink" href="#schematype263" title="Permanent link">&para;</a></h3>
+<h5 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h5>
+<p>SchemaType constructor. Do <strong>not</strong> instantiate <code>SchemaType</code> directly. Mongoose converts your schema paths into SchemaTypes automatically.</p>
+<h4 id="example">Example:<a class="headerlink" href="#example" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">const</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="n">String</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">schema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span> <span class="nt">instanceof</span> <span class="nt">SchemaType</span><span class="o">;</span>
+</pre></div>
+
+
+<hr />
+<h3 id="schematypeprototypedefault264">[SchemaType.prototype.default()][264]<a class="headerlink" href="#schematypeprototypedefault264" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li>val «Function,any» the default value</li>
+</ul>
+<h5 id="returns">Returns:<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h5>
+<p>Sets a default value for this SchemaType.</p>
+<h4 id="example_1">Example:<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>var schema = new Schema({ n: { type: Number, default: 10 })
+var M = db.model(&#39;M&#39;, schema)
+var m = new M;
+console.log(m.n)
+</pre></div>
+
+
+<p>Defaults can be either <code>functions</code> which return the value to use as the default or the literal value itself. Either way, the value will be cast based on its schema type before being set during document creation.</p>
+<h4 id="example_2">Example:<a class="headerlink" href="#example_2" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">aNumber</span><span class="p">:</span> <span class="err">{</span> <span class="n">type</span><span class="o">:</span> <span class="n">Number</span><span class="p">,</span> <span class="kc">default</span><span class="o">:</span> <span class="mf">4.815162342</span> <span class="p">}</span><span class="err">}</span><span class="o">)</span>
+<span class="nt">var</span> <span class="nt">M</span> <span class="o">=</span> <span class="nt">db</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;M&#39;</span><span class="o">,</span> <span class="nt">schema</span><span class="o">)</span>
+<span class="nt">var</span> <span class="nt">m</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">M</span><span class="o">;</span>
+<span class="nt">console</span><span class="p">.</span><span class="nc">log</span><span class="o">(</span><span class="nt">m</span><span class="p">.</span><span class="nc">aNumber</span><span class="o">)</span>
+
+<span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">mixed</span><span class="p">:</span> <span class="n">Schema</span><span class="o">.</span><span class="n">Types</span><span class="o">.</span><span class="n">Mixed</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">schema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;mixed&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">default</span><span class="o">(</span><span class="nt">function</span> <span class="o">()</span> <span class="p">{</span>
+  <span class="err">return</span> <span class="err">{</span><span class="p">}</span><span class="o">;</span>
+<span class="err">}</span><span class="o">);</span>
+
+<span class="nt">var</span> <span class="nt">schema</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">mixed</span><span class="p">:</span> <span class="n">Schema</span><span class="o">.</span><span class="n">Types</span><span class="o">.</span><span class="n">Mixed</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">schema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;mixed&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">default</span><span class="o">(</span><span class="p">{}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">M</span> <span class="o">=</span> <span class="nt">db</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;M&#39;</span><span class="o">,</span> <span class="nt">schema</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">m1</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">M</span><span class="o">;</span>
+<span class="nt">m1</span><span class="p">.</span><span class="nc">mixed</span><span class="p">.</span><span class="nc">added</span> <span class="o">=</span> <span class="nt">1</span><span class="o">;</span>
+<span class="nt">console</span><span class="p">.</span><span class="nc">log</span><span class="o">(</span><span class="nt">m1</span><span class="p">.</span><span class="nc">mixed</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">m2</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">M</span><span class="o">;</span>
+<span class="nt">console</span><span class="p">.</span><span class="nc">log</span><span class="o">(</span><span class="nt">m2</span><span class="p">.</span><span class="nc">mixed</span><span class="o">);</span>
+</pre></div>
+
+
+<hr />
+<h3 id="schematypeprototypeindex265">[SchemaType.prototype.index()][265]<a class="headerlink" href="#schematypeprototypeindex265" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li>options «Object,Boolean,String»</li>
+</ul>
+<h5 id="returns_1">Returns:<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h5>
+<p>Declares the index options for this schematype.</p>
+<h4 id="example_3">Example:<a class="headerlink" href="#example_3" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">s</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="err">{</span> <span class="n">type</span><span class="o">:</span> <span class="n">String</span><span class="p">,</span> <span class="n">index</span><span class="o">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">)</span>
+<span class="nt">var</span> <span class="nt">s</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">loc</span><span class="p">:</span> <span class="err">{</span> <span class="n">type</span><span class="o">:</span> <span class="cp">[</span><span class="nx">Number</span><span class="cp">]</span><span class="p">,</span> <span class="n">index</span><span class="o">:</span> <span class="s1">&#39;hashed&#39;</span> <span class="p">}</span><span class="o">)</span>
+<span class="nt">var</span> <span class="nt">s</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">loc</span><span class="p">:</span> <span class="err">{</span> <span class="n">type</span><span class="o">:</span> <span class="cp">[</span><span class="nx">Number</span><span class="cp">]</span><span class="p">,</span> <span class="n">index</span><span class="o">:</span> <span class="s1">&#39;2d&#39;</span><span class="p">,</span> <span class="n">sparse</span><span class="o">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">)</span>
+<span class="nt">var</span> <span class="nt">s</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">loc</span><span class="p">:</span> <span class="err">{</span> <span class="n">type</span><span class="o">:</span> <span class="cp">[</span><span class="nx">Number</span><span class="cp">]</span><span class="p">,</span> <span class="n">index</span><span class="o">:</span> <span class="err">{</span> <span class="n">type</span><span class="o">:</span> <span class="s1">&#39;2dsphere&#39;</span><span class="p">,</span> <span class="n">sparse</span><span class="o">:</span> <span class="n">true</span> <span class="p">}</span><span class="err">}</span><span class="o">)</span>
+<span class="nt">var</span> <span class="nt">s</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">date</span><span class="p">:</span> <span class="err">{</span> <span class="n">type</span><span class="o">:</span> <span class="n">Date</span><span class="p">,</span> <span class="n">index</span><span class="o">:</span> <span class="err">{</span> <span class="n">unique</span><span class="o">:</span> <span class="n">true</span><span class="p">,</span> <span class="n">expires</span><span class="o">:</span> <span class="s1">&#39;1d&#39;</span> <span class="p">}</span><span class="err">}</span><span class="o">)</span>
+<span class="nt">Schema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;my.path&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">index</span><span class="o">(</span><span class="nt">true</span><span class="o">);</span>
+<span class="nt">Schema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;my.date&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">index</span><span class="o">(</span><span class="p">{</span> <span class="n">expires</span><span class="p">:</span> <span class="mi">60</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">Schema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;my.path&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">index</span><span class="o">(</span><span class="p">{</span> <span class="n">unique</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span> <span class="n">sparse</span><span class="o">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<h4 id="note">NOTE:<a class="headerlink" href="#note" title="Permanent link">&para;</a></h4>
+<p><em>Indexes are created in the background by default. Specify <code>background: false</code> to override.</em></p>
+<p>[Direction doesn't matter for single key indexes][266]</p>
+<hr />
+<h3 id="schematypeprototypeunique267">[SchemaType.prototype.unique()][267]<a class="headerlink" href="#schematypeprototypeunique267" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h5>
+<h5 id="returns_2">Returns:<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h5>
+<p>Declares an unique index.</p>
+<h4 id="example_4">Example:<a class="headerlink" href="#example_4" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">s</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="err">{</span> <span class="n">type</span><span class="o">:</span> <span class="n">String</span><span class="p">,</span> <span class="n">unique</span><span class="o">:</span> <span class="n">true</span> <span class="p">}</span><span class="err">}</span><span class="o">);</span>
+<span class="nt">Schema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">index</span><span class="o">(</span><span class="p">{</span> <span class="n">unique</span><span class="p">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<p><em>NOTE: violating the constraint returns an <code>E11000</code> error from MongoDB when saving, not a Mongoose validation error.</em></p>
+<hr />
+<h3 id="schematypeprototypetext268">[SchemaType.prototype.text()][268]<a class="headerlink" href="#schematypeprototypetext268" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h5>
+<h5 id="returns_3">Returns:<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h5>
+<p>Declares a full text index.</p>
+<h3 id="example_5">Example:<a class="headerlink" href="#example_5" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>var s = new Schema({name : {type: String, text : true })
+ Schema.path(&#39;name&#39;).index({text : true});
+</pre></div>
+
+
+<hr />
+<h3 id="schematypeprototypesparse269">[SchemaType.prototype.sparse()][269]<a class="headerlink" href="#schematypeprototypesparse269" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h5>
+<h5 id="returns_4">Returns:<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h5>
+<p>Declares a sparse index.</p>
+<h4 id="example_6">Example:<a class="headerlink" href="#example_6" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">s</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="err">{</span> <span class="n">type</span><span class="o">:</span> <span class="n">String</span><span class="p">,</span> <span class="n">sparse</span><span class="o">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">)</span>
+<span class="nt">Schema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">index</span><span class="o">(</span><span class="p">{</span> <span class="n">sparse</span><span class="p">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<hr />
+<h3 id="schematypeprototypeset270">[SchemaType.prototype.set()][270]<a class="headerlink" href="#schematypeprototypeset270" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">&para;</a></h5>
+<h5 id="returns_5">Returns:<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h5>
+<p>Adds a setter to this schematype.</p>
+<h4 id="example_7">Example:<a class="headerlink" href="#example_7" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">capitalize</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">val</span> <span class="o">!==</span> <span class="s1">&#39;string&#39;</span><span class="p">)</span> <span class="nx">val</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">val</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="nx">val</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span>: <span class="kt">String</span><span class="p">,</span> <span class="nx">set</span>: <span class="kt">capitalize</span> <span class="p">}})</span>
+
+<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">name</span>: <span class="kt">String</span> <span class="p">})</span>
+<span class="nx">s</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">).</span><span class="nx">set</span><span class="p">(</span><span class="nx">capitalize</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Setters allow you to transform the data before it gets to the raw mongodb document and is set as a value on an actual key.</p>
+<p>Suppose you are implementing user registration for a website. Users provide an email and password, which gets saved to mongodb. The email is a string that you will want to normalize to lower case, in order to avoid one email having more than one account -- e.g., otherwise, [avenue@q.com][271] can be registered for 2 accounts via [avenue@q.com][271] and [AvEnUe@Q.CoM][271].</p>
+<p>You can set up email lower case normalization easily via a Mongoose setter.</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">toLower</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">v</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">UserSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span>
+  <span class="nx">email</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span>: <span class="kt">String</span><span class="p">,</span> <span class="nx">set</span>: <span class="kt">toLower</span> <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">User</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">,</span> <span class="nx">UserSchema</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">({</span><span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;[AVENUE@Q.COM][271]&#39;</span><span class="p">});</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">);</span> <span class="c1">// &#39;[avenue@q.com][271]&#39;</span>
+
+<span class="c1">// or</span>
+<span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">();</span>
+<span class="nx">user</span><span class="p">.</span><span class="nx">email</span> <span class="o">=</span> <span class="s1">&#39;[Avenue@Q.com][271]&#39;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">);</span> <span class="c1">// &#39;[avenue@q.com][271]&#39;</span>
+<span class="nx">User</span><span class="p">.</span><span class="nx">updateOne</span><span class="p">({</span> <span class="nx">_id</span>: <span class="kt">_id</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">$set</span><span class="o">:</span> <span class="p">{</span> <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;[AVENUE@Q.COM][271]&#39;</span> <span class="p">}</span> <span class="p">});</span> <span class="c1">// update to &#39;[avenue@q.com][271]&#39;</span>
+</pre></div>
+
+
+<p>As you can see above, setters allow you to transform the data before it stored in MongoDB.</p>
+<p><em>NOTE: we could have also just used the built-in <code>lowercase: true</code> SchemaType option instead of defining our own function.</em></p>
+<div class="codehilite"><pre><span></span>new Schema({ email: { type: String, lowercase: true }})
+</pre></div>
+
+
+<p>Setters are also passed a second argument, the schematype on which the setter was defined. This allows for tailored behavior based on options passed in the schema.</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">inspector</span> <span class="p">(</span><span class="nx">val</span><span class="p">,</span> <span class="nx">schematype</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">schematype</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">required</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">schematype</span><span class="p">.</span><span class="nx">path</span> <span class="o">+</span> <span class="s1">&#39; is required&#39;</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">val</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">VirusSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span>: <span class="kt">String</span><span class="p">,</span> <span class="nx">required</span>: <span class="kt">true</span><span class="p">,</span> <span class="nx">set</span>: <span class="kt">inspector</span> <span class="p">},</span>
+  <span class="nx">taxonomy</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span>: <span class="kt">String</span><span class="p">,</span> <span class="nx">set</span>: <span class="kt">inspector</span> <span class="p">}</span>
+<span class="p">})</span>
+
+<span class="kd">var</span> <span class="nx">Virus</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Virus&#39;</span><span class="p">,</span> <span class="nx">VirusSchema</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">v</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Virus</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Parvoviridae&#39;</span><span class="p">,</span> <span class="nx">taxonomy</span><span class="o">:</span> <span class="s1">&#39;Parvovirinae&#39;</span> <span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">taxonomy</span><span class="p">);</span>
+</pre></div>
+
+
+<hr />
+<h3 id="schematypeprototypeget272">[SchemaType.prototype.get()][272]<a class="headerlink" href="#schematypeprototypeget272" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">&para;</a></h5>
+<h5 id="returns_6">Returns:<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h5>
+<p>Adds a getter to this schematype.</p>
+<h4 id="example_8">Example:<a class="headerlink" href="#example_8" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">dob</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">val</span><span class="p">)</span> <span class="k">return</span> <span class="nx">val</span><span class="p">;</span>
+  <span class="k">return</span> <span class="p">(</span><span class="nx">val</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="nx">val</span><span class="p">.</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="nx">val</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">born</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span>: <span class="kt">Date</span><span class="p">,</span> <span class="nx">get</span>: <span class="kt">dob</span> <span class="p">})</span>
+
+<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">born</span>: <span class="kt">Date</span> <span class="p">})</span>
+<span class="nx">s</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s1">&#39;born&#39;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="nx">dob</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Getters allow you to transform the representation of the data as it travels from the raw mongodb document to the value that you see.</p>
+<p>Suppose you are storing credit card numbers and you want to hide everything except the last 4 digits to the mongoose user. You can do so by defining a getter in the following way:</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">obfuscate</span> <span class="p">(</span><span class="nx">cc</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s1">&#39;****-****-****-&#39;</span> <span class="o">+</span> <span class="nx">cc</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">cc</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="nx">cc</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">AccountSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span>
+  <span class="nx">creditCardNumber</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span>: <span class="kt">String</span><span class="p">,</span> <span class="nx">get</span>: <span class="kt">obfuscate</span> <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">Account</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Account&#39;</span><span class="p">,</span> <span class="nx">AccountSchema</span><span class="p">);</span>
+
+<span class="nx">Account</span><span class="p">.</span><span class="nx">findById</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">found</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">found</span><span class="p">.</span><span class="nx">creditCardNumber</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<p>Getters are also passed a second argument, the schematype on which the getter was defined. This allows for tailored behavior based on options passed in the schema.</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">inspector</span> <span class="p">(</span><span class="nx">val</span><span class="p">,</span> <span class="nx">schematype</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">schematype</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">required</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">schematype</span><span class="p">.</span><span class="nx">path</span> <span class="o">+</span> <span class="s1">&#39; is required&#39;</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">schematype</span><span class="p">.</span><span class="nx">path</span> <span class="o">+</span> <span class="s1">&#39; is not&#39;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">VirusSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span>: <span class="kt">String</span><span class="p">,</span> <span class="nx">required</span>: <span class="kt">true</span><span class="p">,</span> <span class="nx">get</span>: <span class="kt">inspector</span> <span class="p">},</span>
+  <span class="nx">taxonomy</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span>: <span class="kt">String</span><span class="p">,</span> <span class="nx">get</span>: <span class="kt">inspector</span> <span class="p">}</span>
+<span class="p">})</span>
+
+<span class="kd">var</span> <span class="nx">Virus</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Virus&#39;</span><span class="p">,</span> <span class="nx">VirusSchema</span><span class="p">);</span>
+
+<span class="nx">Virus</span><span class="p">.</span><span class="nx">findById</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">virus</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">virus</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">virus</span><span class="p">.</span><span class="nx">taxonomy</span><span class="p">);</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<hr />
+<h3 id="schematypeprototypevalidate273">[SchemaType.prototype.validate()][273]<a class="headerlink" href="#schematypeprototypevalidate273" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Permanent link">&para;</a></h5>
+<ul>
+<li>[type] «String» optional validator type</li>
+</ul>
+<h5 id="returns_7">Returns:<a class="headerlink" href="#returns_7" title="Permanent link">&para;</a></h5>
+<p>Adds validator(s) for this document path.</p>
+<p>Validators always receive the value to validate as their first argument and must return <code>Boolean</code>. Returning <code>false</code> means validation failed.</p>
+<p>The error message argument is optional. If not passed, the [default generic error message template][274] will be used.</p>
+<h4 id="examples">Examples:<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">validator</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">val</span> <span class="o">==</span> <span class="s1">&#39;something&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span>: <span class="kt">String</span><span class="p">,</span> <span class="nx">validate</span>: <span class="kt">validator</span> <span class="p">}});</span>
+
+<span class="kd">var</span> <span class="nx">custom</span> <span class="o">=</span> <span class="p">[</span><span class="nx">validator</span><span class="p">,</span> <span class="s1">&#39;Uh oh, {PATH} does not equal &quot;something&quot;.&#39;</span><span class="p">]</span>
+<span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span>: <span class="kt">String</span><span class="p">,</span> <span class="nx">validate</span>: <span class="kt">custom</span> <span class="p">}});</span>
+
+<span class="kd">var</span> <span class="nx">many</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="nx">validator</span>: <span class="kt">validator</span><span class="p">,</span> <span class="nx">msg</span><span class="o">:</span> <span class="s1">&#39;uh oh&#39;</span> <span class="p">}</span>
+  <span class="p">,</span> <span class="p">{</span> <span class="nx">validator</span>: <span class="kt">anotherValidator</span><span class="p">,</span> <span class="nx">msg</span><span class="o">:</span> <span class="s1">&#39;failed&#39;</span> <span class="p">}</span>
+<span class="p">]</span>
+<span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span>: <span class="kt">String</span><span class="p">,</span> <span class="nx">validate</span>: <span class="kt">many</span> <span class="p">}});</span>
+
+<span class="kd">var</span> <span class="nx">schema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;string&#39;</span> <span class="p">});</span>
+<span class="nx">schema</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">).</span><span class="nx">validate</span><span class="p">(</span><span class="nx">validator</span><span class="p">,</span> <span class="s1">&#39;validation of `{PATH}` failed with value `{VALUE}`&#39;</span><span class="p">);</span>
+</pre></div>
+
+
+<h4 id="error-message-templates">Error message templates:<a class="headerlink" href="#error-message-templates" title="Permanent link">&para;</a></h4>
+<p>From the examples above, you may have noticed that error messages support basic templating. There are a few other template keywords besides <code>{PATH}</code> and <code>{VALUE}</code> too. To find out more, details are available [here][275]</p>
+<h4 id="asynchronous-validation">Asynchronous validation:<a class="headerlink" href="#asynchronous-validation" title="Permanent link">&para;</a></h4>
+<p>Passing a validator function that receives two arguments tells mongoose that the validator is an asynchronous validator. The first argument passed to the validator function is the value being validated. The second argument is a callback function that must called when you finish validating the value and passed either <code>true</code> or <code>false</code> to communicate either success or failure respectively.</p>
+<div class="codehilite"><pre><span></span>schema.path(&#39;name&#39;).validate({
+  isAsync: true,
+  validator: function (value, respond) {
+    doStuff(value, function () {
+      ...
+      respond(false);
+    });
+  },
+  message: &#39;Custom error message!&#39;
+});
+
+schema.path(&#39;name&#39;).validate({
+  validator: function (value) {
+    return new Promise(function (resolve, reject) {
+      resolve(false);
+    });
+  }
+});
+</pre></div>
+
+
+<p>You might use asynchronous validators to retreive other documents from the database to validate against or to meet other I/O bound validation needs.</p>
+<p>Validation occurs <code>pre('save')</code> or whenever you manually execute [document#validate][59].</p>
+<p>If validation fails during <code>pre('save')</code> and no callback was passed to receive the error, an <code>error</code> event will be emitted on your Models associated db [connection][28], passing the validation error object along.</p>
+<div class="codehilite"><pre><span></span>var conn = mongoose.createConnection(..);
+conn.on(&#39;error&#39;, handleError);
+
+var Product = conn.model(&#39;Product&#39;, yourSchema);
+var dvd = new Product(..);
+dvd.save();
+</pre></div>
+
+
+<p>If you desire handling these errors at the Model level, attach an <code>error</code> listener to your Model and the event will instead be emitted there.</p>
+<div class="codehilite"><pre><span></span>Product.on(&#39;error&#39;, handleError);
+</pre></div>
+
+
+<hr />
+<h3 id="schematypeprototyperequired276">[SchemaType.prototype.required()][276]<a class="headerlink" href="#schematypeprototyperequired276" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Permanent link">&para;</a></h5>
+<ul>
+<li>[message] «String» optional custom error message</li>
+</ul>
+<h5 id="returns_8">Returns:<a class="headerlink" href="#returns_8" title="Permanent link">&para;</a></h5>
+<p>Adds a required validator to this SchemaType. The validator gets added to the front of this SchemaType's validators array using <code>unshift()</code>.</p>
+<h4 id="example_9">Example:<a class="headerlink" href="#example_9" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">s</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">born</span><span class="p">:</span> <span class="err">{</span> <span class="n">type</span><span class="o">:</span> <span class="n">Date</span><span class="p">,</span> <span class="n">required</span><span class="o">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">)</span>
+
+<span class="nt">var</span> <span class="nt">s</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">born</span><span class="p">:</span> <span class="err">{</span> <span class="n">type</span><span class="o">:</span> <span class="n">Date</span><span class="p">,</span> <span class="n">required</span><span class="o">:</span> <span class="s1">&#39;{PATH} is required!&#39;</span> <span class="p">}</span><span class="o">)</span>
+
+<span class="nt">var</span> <span class="nt">s</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span>
+  <span class="n">userId</span><span class="p">:</span> <span class="n">ObjectId</span><span class="p">,</span>
+  <span class="n">username</span><span class="o">:</span> <span class="err">{</span>
+    <span class="n">type</span><span class="o">:</span> <span class="n">String</span><span class="p">,</span>
+    <span class="n">required</span><span class="o">:</span> <span class="nf">function</span><span class="p">()</span> <span class="err">{</span> <span class="n">return</span> <span class="n">this</span><span class="o">.</span><span class="n">userId</span> <span class="o">!=</span> <span class="n">null</span><span class="p">;</span> <span class="p">}</span>
+  <span class="err">}</span>
+<span class="err">}</span><span class="o">)</span>
+
+<span class="nt">var</span> <span class="nt">s</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span>
+  <span class="n">userId</span><span class="p">:</span> <span class="n">ObjectId</span><span class="p">,</span>
+  <span class="n">username</span><span class="o">:</span> <span class="err">{</span>
+    <span class="n">type</span><span class="o">:</span> <span class="n">String</span><span class="p">,</span>
+    <span class="n">required</span><span class="o">:</span> <span class="cp">[</span>
+      <span class="nx">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">this.userId</span> <span class="o">!=</span> <span class="kt">null</span><span class="p">;</span> <span class="p">},</span>
+      <span class="s1">&#39;username is required if id is specified&#39;</span>
+    <span class="cp">]</span>
+  <span class="p">}</span>
+<span class="err">}</span><span class="o">)</span>
+
+<span class="nt">Schema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">required</span><span class="o">(</span><span class="nt">true</span><span class="o">);</span>
+
+<span class="nt">Schema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">required</span><span class="o">(</span><span class="nt">true</span><span class="o">,</span> <span class="s1">&#39;grrr :( &#39;</span><span class="o">);</span>
+
+<span class="nt">var</span> <span class="nt">isOver18</span> <span class="o">=</span> <span class="nt">function</span><span class="o">()</span> <span class="p">{</span> <span class="err">return</span> <span class="err">this.age</span> <span class="err">&gt;=</span> <span class="err">18</span><span class="p">;</span> <span class="p">}</span><span class="o">;</span>
+<span class="nt">Schema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;voterRegistrationId&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">required</span><span class="o">(</span><span class="nt">isOver18</span><span class="o">);</span>
+</pre></div>
+
+
+<p>The required validator uses the SchemaType's <code>checkRequired</code> function to determine whether a given value satisfies the required validator. By default, a value satisfies the required validator if <code>val != null</code> (that is, if the value is not null nor undefined). However, most built-in mongoose schema types override the default <code>checkRequired</code> function:</p>
+<hr />
+<h3 id="schematypeprototypeselect277">[SchemaType.prototype.select()][277]<a class="headerlink" href="#schematypeprototypeselect277" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">&para;</a></h5>
+<h5 id="returns_9">Returns:<a class="headerlink" href="#returns_9" title="Permanent link">&para;</a></h5>
+<p>Sets default <code>select()</code> behavior for this path.</p>
+<p>Set to <code>true</code> if this path should always be included in the results, <code>false</code> if it should be excluded by default. This setting can be overridden at the query level.</p>
+<h4 id="example_10">Example:<a class="headerlink" href="#example_10" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">T</span> <span class="o">=</span> <span class="nt">db</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;T&#39;</span><span class="o">,</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">x</span><span class="p">:</span> <span class="err">{</span> <span class="n">type</span><span class="o">:</span> <span class="n">String</span><span class="p">,</span> <span class="n">select</span><span class="o">:</span> <span class="n">true</span> <span class="p">}</span><span class="err">}</span><span class="o">));</span>
+<span class="nt">T</span><span class="p">.</span><span class="nc">find</span><span class="o">(..);</span>
+
+<span class="nt">T</span><span class="p">.</span><span class="nc">find</span><span class="o">()</span><span class="p">.</span><span class="nc">select</span><span class="o">(</span><span class="s1">&#39;-x&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">exec</span><span class="o">(</span><span class="nt">callback</span><span class="o">);</span>
+</pre></div>
+
+
+<hr />
+<hr />
                 
                   
                 

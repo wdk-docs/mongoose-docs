@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="mongodb nodejs组件中文文档">
+        <meta name="description" content="Mongodb NodeJs 组件中文文档">
       
       
       
@@ -334,8 +334,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../guide/Models/" title="楷模" class="md-nav__link">
-      楷模
+    <a href="../../guide/Models/" title="模式" class="md-nav__link">
+      模式
     </a>
   </li>
 
@@ -346,8 +346,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../guide/Documents/" title="文件" class="md-nav__link">
-      文件
+    <a href="../../guide/Documents/" title="文档" class="md-nav__link">
+      文档
     </a>
   </li>
 
@@ -406,8 +406,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../guide/Discriminators/" title="鉴" class="md-nav__link">
-      鉴
+    <a href="../../guide/Discriminators/" title="鉴别器" class="md-nav__link">
+      鉴别器
     </a>
   </li>
 
@@ -510,9 +510,1453 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        模型
+      </label>
+    
     <a href="./" title="模型" class="md-nav__link md-nav__link--active">
       模型
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model77" title="[Model()][77]" class="md-nav__link">
+    [Model()][77]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypedb78" title="[Model.prototype.db][78]" class="md-nav__link">
+    [Model.prototype.db][78]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypecollection79" title="[Model.prototype.collection][79]" class="md-nav__link">
+    [Model.prototype.collection][79]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypemodelname80" title="[Model.prototype.modelName][80]" class="md-nav__link">
+    [Model.prototype.modelName][80]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypewhere81" title="[Model.prototype.$where][81]" class="md-nav__link">
+    [Model.prototype.$where][81]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypebasemodelname82" title="[Model.prototype.baseModelName][82]" class="md-nav__link">
+    [Model.prototype.baseModelName][82]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypesave60" title="[Model.prototype.save()][60]" class="md-nav__link">
+    [Model.prototype.save()][60]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_1" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypeincrement83" title="[Model.prototype.increment()][83]" class="md-nav__link">
+    [Model.prototype.increment()][83]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_2" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototyperemove84" title="[Model.prototype.remove()][84]" class="md-nav__link">
+    [Model.prototype.remove()][84]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_1" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_3" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_4" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypemodel85" title="[Model.prototype.model()][85]" class="md-nav__link">
+    [Model.prototype.model()][85]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_5" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modeldiscriminator86" title="[Model.discriminator()][86]" class="md-nav__link">
+    [Model.discriminator()][86]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_4" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_6" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelinit87" title="[Model.init()][87]" class="md-nav__link">
+    [Model.init()][87]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_5" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_7" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelensureindexes90" title="[Model.ensureIndexes()][90]" class="md-nav__link">
+    [Model.ensureIndexes()][90]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_6" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_2" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_8" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_9" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelcreateindexes91" title="[Model.createIndexes()][91]" class="md-nav__link">
+    [Model.createIndexes()][91]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_7" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_3" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypeschema93" title="[Model.prototype.schema][93]" class="md-nav__link">
+    [Model.prototype.schema][93]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypebase94" title="[Model.prototype.base][94]" class="md-nav__link">
+    [Model.prototype.base][94]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypediscriminators95" title="[Model.prototype.discriminators][95]" class="md-nav__link">
+    [Model.prototype.discriminators][95]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modeltranslatealiases96" title="[Model.translateAliases()][96]" class="md-nav__link">
+    [Model.translateAliases()][96]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_8" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_4" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_10" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelremove97" title="[Model.remove()][97]" class="md-nav__link">
+    [Model.remove()][97]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_9" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_5" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_11" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_1" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modeldeleteone98" title="[Model.deleteOne()][98]" class="md-nav__link">
+    [Model.deleteOne()][98]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_10" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_6" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_12" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_2" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modeldeletemany99" title="[Model.deleteMany()][99]" class="md-nav__link">
+    [Model.deleteMany()][99]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_11" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_7" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_13" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_3" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelfind100" title="[Model.find()][100]" class="md-nav__link">
+    [Model.find()][100]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_12" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_8" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" title="Examples:" class="md-nav__link">
+    Examples:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelfindbyid101" title="[Model.findById()][101]" class="md-nav__link">
+    [Model.findById()][101]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_13" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_9" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_14" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelfindone102" title="[Model.findOne()][102]" class="md-nav__link">
+    [Model.findOne()][102]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_14" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_10" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_15" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelcount103" title="[Model.count()][103]" class="md-nav__link">
+    [Model.count()][103]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_15" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_11" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_16" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modeldistinct104" title="[Model.distinct()][104]" class="md-nav__link">
+    [Model.distinct()][104]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_16" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_12" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_17" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelwhere105" title="[Model.where()][105]" class="md-nav__link">
+    [Model.where()][105]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_17" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_13" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypewhere81_1" title="[Model.prototype.$where()][81]" class="md-nav__link">
+    [Model.prototype.$where()][81]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_18" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_14" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelfindoneandupdate106" title="[Model.findOneAndUpdate()][106]" class="md-nav__link">
+    [Model.findOneAndUpdate()][106]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_19" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_15" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" title="Options:" class="md-nav__link">
+    Options:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_1" title="Examples:" class="md-nav__link">
+    Examples:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_4" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_18" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_5" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelfindbyidandupdate112" title="[Model.findByIdAndUpdate()][112]" class="md-nav__link">
+    [Model.findByIdAndUpdate()][112]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_20" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_16" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options_1" title="Options:" class="md-nav__link">
+    Options:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_2" title="Examples:" class="md-nav__link">
+    Examples:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_6" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_19" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_7" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelfindoneandremove113" title="[Model.findOneAndRemove()][113]" class="md-nav__link">
+    [Model.findOneAndRemove()][113]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_21" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_17" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options_2" title="Options:" class="md-nav__link">
+    Options:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_3" title="Examples:" class="md-nav__link">
+    Examples:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelfindbyidandremove114" title="[Model.findByIdAndRemove()][114]" class="md-nav__link">
+    [Model.findByIdAndRemove()][114]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_22" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_18" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options_3" title="Options:" class="md-nav__link">
+    Options:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_4" title="Examples:" class="md-nav__link">
+    Examples:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelcreate115" title="[Model.create()][115]" class="md-nav__link">
+    [Model.create()][115]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_23" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_19" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_20" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelwatch116" title="[Model.watch()][116]" class="md-nav__link">
+    [Model.watch()][116]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_24" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_20" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_21" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelinsertmany118" title="[Model.insertMany()][118]" class="md-nav__link">
+    [Model.insertMany()][118]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_25" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_21" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_22" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelbulkwrite120" title="[Model.bulkWrite()][120]" class="md-nav__link">
+    [Model.bulkWrite()][120]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_26" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_22" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_23" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelhydrate122" title="[Model.hydrate()][122]" class="md-nav__link">
+    [Model.hydrate()][122]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_27" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_23" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_24" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelupdate123" title="[Model.update()][123]" class="md-nav__link">
+    [Model.update()][123]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_28" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_24" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_5" title="Examples:" class="md-nav__link">
+    Examples:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valid-options" title="Valid options:" class="md-nav__link">
+    Valid options:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_8" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_25" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_9" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_10" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_11" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelupdatemany125" title="[Model.updateMany()][125]" class="md-nav__link">
+    [Model.updateMany()][125]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_29" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_25" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelupdateone126" title="[Model.updateOne()][126]" class="md-nav__link">
+    [Model.updateOne()][126]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_30" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_26" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelreplaceone127" title="[Model.replaceOne()][127]" class="md-nav__link">
+    [Model.replaceOne()][127]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_31" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_27" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelmapreduce128" title="[Model.mapReduce()][128]" class="md-nav__link">
+    [Model.mapReduce()][128]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_32" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_28" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_26" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-options" title="Other options:" class="md-nav__link">
+    Other options:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#out-options" title="* out options:" class="md-nav__link">
+    * out options:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_27" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelaggregate130" title="[Model.aggregate()][130]" class="md-nav__link">
+    [Model.aggregate()][130]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_33" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_29" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_28" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_12" title="NOTE:" class="md-nav__link">
+    NOTE:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelgeosearch132" title="[Model.geoSearch()][132]" class="md-nav__link">
+    [Model.geoSearch()][132]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_34" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_30" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_29" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options_4" title="Options:" class="md-nav__link">
+    Options:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelpopulate133" title="[Model.populate()][133]" class="md-nav__link">
+    [Model.populate()][133]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_35" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_31" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#available-options" title="Available options:" class="md-nav__link">
+    Available options:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_6" title="Examples:" class="md-nav__link">
+    Examples:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -613,6 +2057,1452 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model77" title="[Model()][77]" class="md-nav__link">
+    [Model()][77]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypedb78" title="[Model.prototype.db][78]" class="md-nav__link">
+    [Model.prototype.db][78]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypecollection79" title="[Model.prototype.collection][79]" class="md-nav__link">
+    [Model.prototype.collection][79]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypemodelname80" title="[Model.prototype.modelName][80]" class="md-nav__link">
+    [Model.prototype.modelName][80]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypewhere81" title="[Model.prototype.$where][81]" class="md-nav__link">
+    [Model.prototype.$where][81]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypebasemodelname82" title="[Model.prototype.baseModelName][82]" class="md-nav__link">
+    [Model.prototype.baseModelName][82]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypesave60" title="[Model.prototype.save()][60]" class="md-nav__link">
+    [Model.prototype.save()][60]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_1" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypeincrement83" title="[Model.prototype.increment()][83]" class="md-nav__link">
+    [Model.prototype.increment()][83]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_2" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototyperemove84" title="[Model.prototype.remove()][84]" class="md-nav__link">
+    [Model.prototype.remove()][84]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_1" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_3" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_4" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypemodel85" title="[Model.prototype.model()][85]" class="md-nav__link">
+    [Model.prototype.model()][85]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_5" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modeldiscriminator86" title="[Model.discriminator()][86]" class="md-nav__link">
+    [Model.discriminator()][86]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_4" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_6" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelinit87" title="[Model.init()][87]" class="md-nav__link">
+    [Model.init()][87]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_5" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_7" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelensureindexes90" title="[Model.ensureIndexes()][90]" class="md-nav__link">
+    [Model.ensureIndexes()][90]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_6" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_2" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_8" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_9" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelcreateindexes91" title="[Model.createIndexes()][91]" class="md-nav__link">
+    [Model.createIndexes()][91]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_7" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_3" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypeschema93" title="[Model.prototype.schema][93]" class="md-nav__link">
+    [Model.prototype.schema][93]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypebase94" title="[Model.prototype.base][94]" class="md-nav__link">
+    [Model.prototype.base][94]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypediscriminators95" title="[Model.prototype.discriminators][95]" class="md-nav__link">
+    [Model.prototype.discriminators][95]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modeltranslatealiases96" title="[Model.translateAliases()][96]" class="md-nav__link">
+    [Model.translateAliases()][96]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_8" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_4" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_10" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelremove97" title="[Model.remove()][97]" class="md-nav__link">
+    [Model.remove()][97]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_9" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_5" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_11" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_1" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modeldeleteone98" title="[Model.deleteOne()][98]" class="md-nav__link">
+    [Model.deleteOne()][98]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_10" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_6" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_12" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_2" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modeldeletemany99" title="[Model.deleteMany()][99]" class="md-nav__link">
+    [Model.deleteMany()][99]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_11" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_7" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_13" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_3" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelfind100" title="[Model.find()][100]" class="md-nav__link">
+    [Model.find()][100]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_12" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_8" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" title="Examples:" class="md-nav__link">
+    Examples:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelfindbyid101" title="[Model.findById()][101]" class="md-nav__link">
+    [Model.findById()][101]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_13" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_9" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_14" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelfindone102" title="[Model.findOne()][102]" class="md-nav__link">
+    [Model.findOne()][102]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_14" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_10" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_15" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelcount103" title="[Model.count()][103]" class="md-nav__link">
+    [Model.count()][103]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_15" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_11" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_16" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modeldistinct104" title="[Model.distinct()][104]" class="md-nav__link">
+    [Model.distinct()][104]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_16" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_12" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_17" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelwhere105" title="[Model.where()][105]" class="md-nav__link">
+    [Model.where()][105]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_17" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_13" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelprototypewhere81_1" title="[Model.prototype.$where()][81]" class="md-nav__link">
+    [Model.prototype.$where()][81]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_18" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_14" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelfindoneandupdate106" title="[Model.findOneAndUpdate()][106]" class="md-nav__link">
+    [Model.findOneAndUpdate()][106]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_19" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_15" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" title="Options:" class="md-nav__link">
+    Options:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_1" title="Examples:" class="md-nav__link">
+    Examples:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_4" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_18" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_5" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelfindbyidandupdate112" title="[Model.findByIdAndUpdate()][112]" class="md-nav__link">
+    [Model.findByIdAndUpdate()][112]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_20" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_16" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options_1" title="Options:" class="md-nav__link">
+    Options:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_2" title="Examples:" class="md-nav__link">
+    Examples:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_6" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_19" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_7" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelfindoneandremove113" title="[Model.findOneAndRemove()][113]" class="md-nav__link">
+    [Model.findOneAndRemove()][113]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_21" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_17" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options_2" title="Options:" class="md-nav__link">
+    Options:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_3" title="Examples:" class="md-nav__link">
+    Examples:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelfindbyidandremove114" title="[Model.findByIdAndRemove()][114]" class="md-nav__link">
+    [Model.findByIdAndRemove()][114]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_22" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_18" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options_3" title="Options:" class="md-nav__link">
+    Options:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_4" title="Examples:" class="md-nav__link">
+    Examples:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelcreate115" title="[Model.create()][115]" class="md-nav__link">
+    [Model.create()][115]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_23" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_19" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_20" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelwatch116" title="[Model.watch()][116]" class="md-nav__link">
+    [Model.watch()][116]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_24" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_20" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_21" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelinsertmany118" title="[Model.insertMany()][118]" class="md-nav__link">
+    [Model.insertMany()][118]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_25" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_21" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_22" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelbulkwrite120" title="[Model.bulkWrite()][120]" class="md-nav__link">
+    [Model.bulkWrite()][120]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_26" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_22" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_23" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelhydrate122" title="[Model.hydrate()][122]" class="md-nav__link">
+    [Model.hydrate()][122]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_27" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_23" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_24" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelupdate123" title="[Model.update()][123]" class="md-nav__link">
+    [Model.update()][123]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_28" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_24" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_5" title="Examples:" class="md-nav__link">
+    Examples:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valid-options" title="Valid options:" class="md-nav__link">
+    Valid options:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_8" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_25" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_9" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_10" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_11" title="Note:" class="md-nav__link">
+    Note:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelupdatemany125" title="[Model.updateMany()][125]" class="md-nav__link">
+    [Model.updateMany()][125]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_29" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_25" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelupdateone126" title="[Model.updateOne()][126]" class="md-nav__link">
+    [Model.updateOne()][126]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_30" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_26" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelreplaceone127" title="[Model.replaceOne()][127]" class="md-nav__link">
+    [Model.replaceOne()][127]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_31" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_27" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelmapreduce128" title="[Model.mapReduce()][128]" class="md-nav__link">
+    [Model.mapReduce()][128]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_32" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_28" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_26" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-options" title="Other options:" class="md-nav__link">
+    Other options:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#out-options" title="* out options:" class="md-nav__link">
+    * out options:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_27" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelaggregate130" title="[Model.aggregate()][130]" class="md-nav__link">
+    [Model.aggregate()][130]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_33" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_29" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_28" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note_12" title="NOTE:" class="md-nav__link">
+    NOTE:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelgeosearch132" title="[Model.geoSearch()][132]" class="md-nav__link">
+    [Model.geoSearch()][132]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_34" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_30" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_29" title="Example:" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options_4" title="Options:" class="md-nav__link">
+    Options:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelpopulate133" title="[Model.populate()][133]" class="md-nav__link">
+    [Model.populate()][133]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_35" title="Parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_31" title="Returns:" class="md-nav__link">
+    Returns:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#available-options" title="Available options:" class="md-nav__link">
+    Available options:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_6" title="Examples:" class="md-nav__link">
+    Examples:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -621,7 +3511,995 @@
                 
                   <h1>模型</h1>
                 
-                
+                <h3 id="model77">[Model()][77]<a class="headerlink" href="#model77" title="Permanent link">&para;</a></h3>
+<h5 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h5>
+<ul>
+<li>doc «Object» values with which to create the document</li>
+</ul>
+<p>Model constructor</p>
+<p>Provides the interface to MongoDB collections as well as creates document instances.</p>
+<hr />
+<h3 id="modelprototypedb78">[Model.prototype.db][78]<a class="headerlink" href="#modelprototypedb78" title="Permanent link">&para;</a></h3>
+<p>Connection the model uses.</p>
+<hr />
+<h3 id="modelprototypecollection79">[Model.prototype.collection][79]<a class="headerlink" href="#modelprototypecollection79" title="Permanent link">&para;</a></h3>
+<p>Collection the model uses.</p>
+<hr />
+<h3 id="modelprototypemodelname80">[Model.prototype.modelName][80]<a class="headerlink" href="#modelprototypemodelname80" title="Permanent link">&para;</a></h3>
+<hr />
+<h3 id="modelprototypewhere81">[Model.prototype.$where][81]<a class="headerlink" href="#modelprototypewhere81" title="Permanent link">&para;</a></h3>
+<p>Additional properties to attach to the query when calling <code>save()</code> and <code>isNew</code> is false.</p>
+<hr />
+<h3 id="modelprototypebasemodelname82">[Model.prototype.baseModelName][82]<a class="headerlink" href="#modelprototypebasemodelname82" title="Permanent link">&para;</a></h3>
+<p>If this is a discriminator model, <code>baseModelName</code> is the name of the base model.</p>
+<hr />
+<h3 id="modelprototypesave60">[Model.prototype.save()][60]<a class="headerlink" href="#modelprototypesave60" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li>[fn] «Function» optional callback</li>
+</ul>
+<h5 id="returns">Returns:<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h5>
+<p>Saves this document.</p>
+<h4 id="example">Example:<a class="headerlink" href="#example" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>product.sold = Date.now();
+product.save(function (err, product) {
+  if (err) ..
+})
+</pre></div>
+
+
+<p>The callback will receive three parameters</p>
+<ol>
+<li><code>err</code> if an error occurred</li>
+<li><code>product</code> which is the saved <code>product</code></li>
+</ol>
+<p>As an extra measure of flow control, save will return a Promise.</p>
+<h4 id="example_1">Example:<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>product.save().then(function(product) {
+   ...
+});
+</pre></div>
+
+
+<hr />
+<h3 id="modelprototypeincrement83">[Model.prototype.increment()][83]<a class="headerlink" href="#modelprototypeincrement83" title="Permanent link">&para;</a></h3>
+<p>Signal that we desire an increment of this documents version.</p>
+<h4 id="example_2">Example:<a class="headerlink" href="#example_2" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>Model.findById(id, function (err, doc) {
+  doc.increment();
+  doc.save(function (err) { .. })
+})
+</pre></div>
+
+
+<hr />
+<h3 id="modelprototyperemove84">[Model.prototype.remove()][84]<a class="headerlink" href="#modelprototyperemove84" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li>[fn] «function(err,product)» optional callback</li>
+</ul>
+<h5 id="returns_1">Returns:<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h5>
+<p>Removes this document from the db.</p>
+<h4 id="example_3">Example:<a class="headerlink" href="#example_3" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>product.remove(function (err, product) {
+  if (err) return handleError(err);
+  Product.findById(product._id, function (err, product) {
+    console.log(product)
+  })
+})
+</pre></div>
+
+
+<p>As an extra measure of flow control, remove will return a Promise (bound to <code>fn</code> if passed) so it could be chained, or hooked to recive errors</p>
+<h4 id="example_4">Example:<a class="headerlink" href="#example_4" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>product.remove().then(function (product) {
+   ...
+}).catch(function (err) {
+   assert.ok(err)
+})
+</pre></div>
+
+
+<hr />
+<h3 id="modelprototypemodel85">[Model.prototype.model()][85]<a class="headerlink" href="#modelprototypemodel85" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h5>
+<ul>
+<li>name «String» model name</li>
+</ul>
+<p>Returns another Model instance.</p>
+<h4 id="example_5">Example:<a class="headerlink" href="#example_5" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>var doc = new Tank;
+doc.model(&#39;User&#39;).findById(id, callback);
+</pre></div>
+
+
+<hr />
+<h3 id="modeldiscriminator86">[Model.discriminator()][86]<a class="headerlink" href="#modeldiscriminator86" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h5>
+<ul>
+<li>schema «Schema» discriminator model schema</li>
+</ul>
+<p>Adds a discriminator type.</p>
+<h4 id="example_6">Example:<a class="headerlink" href="#example_6" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">BaseSchema() {</span>
+  <span class="nx">Schema</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>
+
+  <span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span>
+    <span class="nx">name</span>: <span class="kt">String</span><span class="p">,</span>
+    <span class="nx">createdAt</span>: <span class="kt">Date</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+<span class="nx">util</span><span class="p">.</span><span class="nx">inherits</span><span class="p">(</span><span class="nx">BaseSchema</span><span class="p">,</span> <span class="nx">Schema</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">PersonSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BaseSchema</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">BossSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BaseSchema</span><span class="p">({</span> <span class="nx">department</span>: <span class="kt">String</span> <span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">Person</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Person&#39;</span><span class="p">,</span> <span class="nx">PersonSchema</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">Boss</span> <span class="o">=</span> <span class="nx">Person</span><span class="p">.</span><span class="nx">discriminator</span><span class="p">(</span><span class="s1">&#39;Boss&#39;</span><span class="p">,</span> <span class="nx">BossSchema</span><span class="p">);</span>
+</pre></div>
+
+
+<hr />
+<h3 id="modelinit87">[Model.init()][87]<a class="headerlink" href="#modelinit87" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h5>
+<p>Performs any async initialization of this model against MongoDB. Currently, this function is only responsible for building [indexes][88], unless [<code>autoIndex</code>][89] is turned off.</p>
+<p>This function is called automatically, so you don't need to call it. This function is also idempotent, so you may call it to get back a promise that will resolve when your indexes are finished building as an alternative to <code>MyModel.on('index')</code></p>
+<h4 id="example_7">Example:<a class="headerlink" href="#example_7" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>var eventSchema = new Schema({ thing: { type: &#39;string&#39;, unique: true }})
+
+
+var Event = mongoose.model(&#39;Event&#39;, eventSchema);
+
+Event.init().then(function(Event) {
+
+
+  console.log(&#39;Indexes are done building!&#39;);
+});
+</pre></div>
+
+
+<hr />
+<h3 id="modelensureindexes90">[Model.ensureIndexes()][90]<a class="headerlink" href="#modelensureindexes90" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">&para;</a></h5>
+<ul>
+<li>[cb] «Function» optional callback</li>
+</ul>
+<h5 id="returns_2">Returns:<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h5>
+<p>Sends <code>createIndex</code> commands to mongo for each index declared in the schema. The <code>createIndex</code> commands are sent in series.</p>
+<h4 id="example_8">Example:<a class="headerlink" href="#example_8" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>Event.ensureIndexes(function (err) {
+  if (err) return handleError(err);
+});
+</pre></div>
+
+
+<p>After completion, an <code>index</code> event is emitted on this <code>Model</code> passing an error if one occurred.</p>
+<h4 id="example_9">Example:<a class="headerlink" href="#example_9" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>var eventSchema = new Schema({ thing: { type: &#39;string&#39;, unique: true }})
+var Event = mongoose.model(&#39;Event&#39;, eventSchema);
+
+Event.on(&#39;index&#39;, function (err) {
+  if (err) console.error(err);
+})
+</pre></div>
+
+
+<p><em>NOTE: It is not recommended that you run this in production. Index creation may impact database performance depending on your load. Use with caution.</em></p>
+<hr />
+<h3 id="modelcreateindexes91">[Model.createIndexes()][91]<a class="headerlink" href="#modelcreateindexes91" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">&para;</a></h5>
+<ul>
+<li>[cb] «Function» optional callback</li>
+</ul>
+<h5 id="returns_3">Returns:<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h5>
+<p>Similar to <code>ensureIndexes()</code>, except for it uses the [<code>createIndex</code>][92] function. The <code>ensureIndex()</code> function checks to see if an index with that name already exists, and, if not, does not attempt to create the index. <code>createIndex()</code> bypasses this check.</p>
+<hr />
+<h3 id="modelprototypeschema93">[Model.prototype.schema][93]<a class="headerlink" href="#modelprototypeschema93" title="Permanent link">&para;</a></h3>
+<hr />
+<h3 id="modelprototypebase94">[Model.prototype.base][94]<a class="headerlink" href="#modelprototypebase94" title="Permanent link">&para;</a></h3>
+<p>Base Mongoose instance the model uses.</p>
+<hr />
+<h3 id="modelprototypediscriminators95">[Model.prototype.discriminators][95]<a class="headerlink" href="#modelprototypediscriminators95" title="Permanent link">&para;</a></h3>
+<p>Registered discriminators for this model.</p>
+<hr />
+<h3 id="modeltranslatealiases96">[Model.translateAliases()][96]<a class="headerlink" href="#modeltranslatealiases96" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Permanent link">&para;</a></h5>
+<ul>
+<li>raw «Object» fields/conditions that may contain aliased keys</li>
+</ul>
+<h5 id="returns_4">Returns:<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h5>
+<ul>
+<li>«Object» the translated 'pure' fields/conditions</li>
+</ul>
+<p>Translate any aliases fields/conditions so the final query or document object is pure</p>
+<h4 id="example_10">Example:<a class="headerlink" href="#example_10" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>Character
+  .find(Character.translateAliases({
+    &#39;名&#39;: &#39;Eddard Stark&#39;
+  })
+  .exec(function(err, characters) {})
+</pre></div>
+
+
+<h4 id="note">Note:<a class="headerlink" href="#note" title="Permanent link">&para;</a></h4>
+<p>Only translate arguments of object type anything else is returned raw</p>
+<hr />
+<h3 id="modelremove97">[Model.remove()][97]<a class="headerlink" href="#modelremove97" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Permanent link">&para;</a></h5>
+<h5 id="returns_5">Returns:<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h5>
+<p>Removes all documents that match <code>conditions</code> from the collection. To remove just the first document that matches <code>conditions</code>, set the <code>single</code> option to true.</p>
+<h4 id="example_11">Example:<a class="headerlink" href="#example_11" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">Character</span><span class="p">.</span><span class="nc">remove</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Eddard Stark&#39;</span> <span class="p">}</span><span class="o">,</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">err</span><span class="o">)</span> <span class="p">{}</span><span class="o">);</span>
+</pre></div>
+
+
+<h4 id="note_1">Note:<a class="headerlink" href="#note_1" title="Permanent link">&para;</a></h4>
+<p>This method sends a remove command directly to MongoDB, no Mongoose documents are involved. Because no Mongoose documents are involved, <em>no middleware (hooks) are executed</em>.</p>
+<hr />
+<h3 id="modeldeleteone98">[Model.deleteOne()][98]<a class="headerlink" href="#modeldeleteone98" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">&para;</a></h5>
+<h5 id="returns_6">Returns:<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h5>
+<p>Deletes the first document that matches <code>conditions</code> from the collection. Behaves like <code>remove()</code>, but deletes at most one document regardless of the <code>single</code> option.</p>
+<h4 id="example_12">Example:<a class="headerlink" href="#example_12" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">Character</span><span class="p">.</span><span class="nc">deleteOne</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Eddard Stark&#39;</span> <span class="p">}</span><span class="o">,</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">err</span><span class="o">)</span> <span class="p">{}</span><span class="o">);</span>
+</pre></div>
+
+
+<h4 id="note_2">Note:<a class="headerlink" href="#note_2" title="Permanent link">&para;</a></h4>
+<p>Like <code>Model.remove()</code>, this function does <strong>not</strong> trigger <code>pre('remove')</code> or <code>post('remove')</code> hooks.</p>
+<hr />
+<h3 id="modeldeletemany99">[Model.deleteMany()][99]<a class="headerlink" href="#modeldeletemany99" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Permanent link">&para;</a></h5>
+<h5 id="returns_7">Returns:<a class="headerlink" href="#returns_7" title="Permanent link">&para;</a></h5>
+<p>Deletes all of the documents that match <code>conditions</code> from the collection. Behaves like <code>remove()</code>, but deletes all documents that match <code>conditions</code> regardless of the <code>single</code> option.</p>
+<h4 id="example_13">Example:<a class="headerlink" href="#example_13" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">Character</span><span class="p">.</span><span class="nc">deleteMany</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="o">/</span><span class="n">Stark</span><span class="o">/</span><span class="p">,</span> <span class="n">age</span><span class="o">:</span> <span class="err">{</span> <span class="err">$</span><span class="n">gte</span><span class="o">:</span> <span class="mi">18</span> <span class="p">}</span> <span class="err">}</span><span class="o">,</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">err</span><span class="o">)</span> <span class="p">{}</span><span class="o">);</span>
+</pre></div>
+
+
+<h4 id="note_3">Note:<a class="headerlink" href="#note_3" title="Permanent link">&para;</a></h4>
+<p>Like <code>Model.remove()</code>, this function does <strong>not</strong> trigger <code>pre('remove')</code> or <code>post('remove')</code> hooks.</p>
+<hr />
+<h3 id="modelfind100">[Model.find()][100]<a class="headerlink" href="#modelfind100" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_12">Parameters<a class="headerlink" href="#parameters_12" title="Permanent link">&para;</a></h5>
+<h5 id="returns_8">Returns:<a class="headerlink" href="#returns_8" title="Permanent link">&para;</a></h5>
+<p>Finds documents</p>
+<p>The <code>conditions</code> are cast to their respective SchemaTypes before the command is sent.</p>
+<h4 id="examples">Examples:<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">MyModel</span><span class="p">.</span><span class="nc">find</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">:</span> <span class="err">{</span> <span class="err">$</span><span class="n">gte</span><span class="o">:</span> <span class="mi">18</span> <span class="p">}</span><span class="err">}</span><span class="o">);</span>
+
+
+<span class="nt">MyModel</span><span class="p">.</span><span class="nc">find</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">:</span> <span class="err">{</span> <span class="err">$</span><span class="n">gte</span><span class="o">:</span> <span class="mi">18</span> <span class="p">}</span><span class="err">}</span><span class="o">,</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">docs</span><span class="o">)</span> <span class="p">{}</span><span class="o">);</span>
+
+
+<span class="nt">MyModel</span><span class="p">.</span><span class="nc">find</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="o">/</span><span class="n">john</span><span class="o">/</span><span class="n">i</span> <span class="p">}</span><span class="o">,</span> <span class="s1">&#39;name friends&#39;</span><span class="o">,</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">docs</span><span class="o">)</span> <span class="p">{</span> <span class="p">}</span><span class="o">)</span>
+
+
+<span class="nt">MyModel</span><span class="p">.</span><span class="nc">find</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="o">/</span><span class="n">john</span><span class="o">/</span><span class="n">i</span> <span class="p">}</span><span class="o">,</span> <span class="nt">null</span><span class="o">,</span> <span class="p">{</span> <span class="n">skip</span><span class="p">:</span> <span class="mi">10</span> <span class="p">}</span><span class="o">)</span>
+
+
+<span class="nt">MyModel</span><span class="p">.</span><span class="nc">find</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="o">/</span><span class="n">john</span><span class="o">/</span><span class="n">i</span> <span class="p">}</span><span class="o">,</span> <span class="nt">null</span><span class="o">,</span> <span class="p">{</span> <span class="n">skip</span><span class="p">:</span> <span class="mi">10</span> <span class="p">}</span><span class="o">,</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">docs</span><span class="o">)</span> <span class="p">{}</span><span class="o">);</span>
+
+
+<span class="nt">var</span> <span class="nt">query</span> <span class="o">=</span> <span class="nt">MyModel</span><span class="p">.</span><span class="nc">find</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="o">/</span><span class="n">john</span><span class="o">/</span><span class="n">i</span> <span class="p">}</span><span class="o">,</span> <span class="nt">null</span><span class="o">,</span> <span class="p">{</span> <span class="n">skip</span><span class="p">:</span> <span class="mi">10</span> <span class="p">}</span><span class="o">)</span>
+<span class="nt">query</span><span class="p">.</span><span class="nc">exec</span><span class="o">(</span><span class="nt">function</span> <span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">docs</span><span class="o">)</span> <span class="p">{}</span><span class="o">);</span>
+
+
+<span class="nt">var</span> <span class="nt">query</span> <span class="o">=</span> <span class="nt">MyModel</span><span class="p">.</span><span class="nc">find</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="o">/</span><span class="n">john</span><span class="o">/</span><span class="n">i</span> <span class="p">}</span><span class="o">,</span> <span class="nt">null</span><span class="o">,</span> <span class="p">{</span> <span class="n">skip</span><span class="p">:</span> <span class="mi">10</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">promise</span> <span class="o">=</span> <span class="nt">query</span><span class="p">.</span><span class="nc">exec</span><span class="o">();</span>
+<span class="nt">promise</span><span class="p">.</span><span class="nc">addBack</span><span class="o">(</span><span class="nt">function</span> <span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">docs</span><span class="o">)</span> <span class="p">{}</span><span class="o">);</span>
+</pre></div>
+
+
+<hr />
+<h3 id="modelfindbyid101">[Model.findById()][101]<a class="headerlink" href="#modelfindbyid101" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_13">Parameters<a class="headerlink" href="#parameters_13" title="Permanent link">&para;</a></h5>
+<h5 id="returns_9">Returns:<a class="headerlink" href="#returns_9" title="Permanent link">&para;</a></h5>
+<p>Finds a single document by its _id field. <code>findById(id)</code> is almost* equivalent to <code>findOne({ _id: id })</code>. If you want to query by a document's <code>_id</code>, use <code>findById()</code> instead of <code>findOne()</code>.</p>
+<p>The <code>id</code> is cast based on the Schema before sending the command.</p>
+<p>This function triggers the following middleware.</p>
+<ul>
+<li>Except for how it treats <code>undefined</code>. If you use <code>findOne()</code>, you'll see that <code>findOne(undefined)</code> and <code>findOne({ _id: undefined })</code> are equivalent to <code>findOne({})</code> and return arbitrary documents. However, mongoose translates <code>findById(undefined)</code> into <code>findOne({ _id: null })</code>.</li>
+</ul>
+<h4 id="example_14">Example:<a class="headerlink" href="#example_14" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">Adventure</span><span class="p">.</span><span class="nc">findById</span><span class="o">(</span><span class="nt">id</span><span class="o">,</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">adventure</span><span class="o">)</span> <span class="p">{}</span><span class="o">);</span>
+
+
+<span class="nt">Adventure</span><span class="p">.</span><span class="nc">findById</span><span class="o">(</span><span class="nt">id</span><span class="o">)</span><span class="p">.</span><span class="nc">exec</span><span class="o">(</span><span class="nt">callback</span><span class="o">);</span>
+
+
+<span class="nt">Adventure</span><span class="p">.</span><span class="nc">findById</span><span class="o">(</span><span class="nt">id</span><span class="o">,</span> <span class="s1">&#39;name length&#39;</span><span class="o">,</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">adventure</span><span class="o">)</span> <span class="p">{}</span><span class="o">);</span>
+
+
+<span class="nt">Adventure</span><span class="p">.</span><span class="nc">findById</span><span class="o">(</span><span class="nt">id</span><span class="o">,</span> <span class="s1">&#39;name length&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">exec</span><span class="o">(</span><span class="nt">callback</span><span class="o">);</span>
+
+
+<span class="nt">Adventure</span><span class="p">.</span><span class="nc">findById</span><span class="o">(</span><span class="nt">id</span><span class="o">,</span> <span class="s1">&#39;-length&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">exec</span><span class="o">(</span><span class="nt">function</span> <span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">adventure</span><span class="o">)</span> <span class="p">{}</span><span class="o">);</span>
+
+
+<span class="nt">Adventure</span><span class="p">.</span><span class="nc">findById</span><span class="o">(</span><span class="nt">id</span><span class="o">,</span> <span class="s1">&#39;name&#39;</span><span class="o">,</span> <span class="p">{</span> <span class="n">lean</span><span class="p">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">,</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">doc</span><span class="o">)</span> <span class="p">{}</span><span class="o">);</span>
+
+
+<span class="nt">Adventure</span><span class="p">.</span><span class="nc">findById</span><span class="o">(</span><span class="nt">id</span><span class="o">,</span> <span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">lean</span><span class="o">()</span><span class="p">.</span><span class="nc">exec</span><span class="o">(</span><span class="nt">function</span> <span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">doc</span><span class="o">)</span> <span class="p">{}</span><span class="o">);</span>
+</pre></div>
+
+
+<hr />
+<h3 id="modelfindone102">[Model.findOne()][102]<a class="headerlink" href="#modelfindone102" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_14">Parameters<a class="headerlink" href="#parameters_14" title="Permanent link">&para;</a></h5>
+<h5 id="returns_10">Returns:<a class="headerlink" href="#returns_10" title="Permanent link">&para;</a></h5>
+<p>Finds one document.</p>
+<p>The <code>conditions</code> are cast to their respective SchemaTypes before the command is sent.</p>
+<p><em>Note:</em> <code>conditions</code> is optional, and if <code>conditions</code> is null or undefined, mongoose will send an empty <code>findOne</code> command to MongoDB, which will return an arbitrary document. If you're querying by <code>_id</code>, use <code>findById()</code> instead.</p>
+<h4 id="example_15">Example:<a class="headerlink" href="#example_15" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">Adventure</span><span class="p">.</span><span class="nc">findOne</span><span class="o">(</span><span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="s1">&#39;iphone&#39;</span> <span class="p">}</span><span class="o">,</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">adventure</span><span class="o">)</span> <span class="p">{}</span><span class="o">);</span>
+
+
+<span class="nt">Adventure</span><span class="p">.</span><span class="nc">findOne</span><span class="o">(</span><span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="s1">&#39;iphone&#39;</span> <span class="p">}</span><span class="o">)</span><span class="p">.</span><span class="nc">exec</span><span class="o">(</span><span class="nt">function</span> <span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">adventure</span><span class="o">)</span> <span class="p">{}</span><span class="o">);</span>
+
+
+<span class="nt">Adventure</span><span class="p">.</span><span class="nc">findOne</span><span class="o">(</span><span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="s1">&#39;iphone&#39;</span> <span class="p">}</span><span class="o">,</span> <span class="s1">&#39;name&#39;</span><span class="o">,</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">adventure</span><span class="o">)</span> <span class="p">{}</span><span class="o">);</span>
+
+
+<span class="nt">Adventure</span><span class="p">.</span><span class="nc">findOne</span><span class="o">(</span><span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="s1">&#39;iphone&#39;</span> <span class="p">}</span><span class="o">,</span> <span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">exec</span><span class="o">(</span><span class="nt">function</span> <span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">adventure</span><span class="o">)</span> <span class="p">{}</span><span class="o">);</span>
+
+
+<span class="nt">Adventure</span><span class="p">.</span><span class="nc">findOne</span><span class="o">(</span><span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="s1">&#39;iphone&#39;</span> <span class="p">}</span><span class="o">,</span> <span class="s1">&#39;name&#39;</span><span class="o">,</span> <span class="p">{</span> <span class="n">lean</span><span class="p">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">,</span> <span class="nt">callback</span><span class="o">);</span>
+
+
+<span class="nt">Adventure</span><span class="p">.</span><span class="nc">findOne</span><span class="o">(</span><span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="s1">&#39;iphone&#39;</span> <span class="p">}</span><span class="o">,</span> <span class="s1">&#39;name&#39;</span><span class="o">,</span> <span class="p">{</span> <span class="n">lean</span><span class="p">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">)</span><span class="p">.</span><span class="nc">exec</span><span class="o">(</span><span class="nt">callback</span><span class="o">);</span>
+
+
+<span class="nt">Adventure</span><span class="p">.</span><span class="nc">findOne</span><span class="o">(</span><span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="s1">&#39;iphone&#39;</span> <span class="p">}</span><span class="o">)</span><span class="p">.</span><span class="nc">select</span><span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">lean</span><span class="o">()</span><span class="p">.</span><span class="nc">exec</span><span class="o">(</span><span class="nt">callback</span><span class="o">);</span>
+</pre></div>
+
+
+<hr />
+<h3 id="modelcount103">[Model.count()][103]<a class="headerlink" href="#modelcount103" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_15">Parameters<a class="headerlink" href="#parameters_15" title="Permanent link">&para;</a></h5>
+<h5 id="returns_11">Returns:<a class="headerlink" href="#returns_11" title="Permanent link">&para;</a></h5>
+<p>Counts number of matching documents in a database collection.</p>
+<h4 id="example_16">Example:<a class="headerlink" href="#example_16" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>Adventure.count({ type: &#39;jungle&#39; }, function (err, count) {
+  if (err) ..
+  console.log(&#39;there are %d jungle adventures&#39;, count);
+});
+</pre></div>
+
+
+<hr />
+<h3 id="modeldistinct104">[Model.distinct()][104]<a class="headerlink" href="#modeldistinct104" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_16">Parameters<a class="headerlink" href="#parameters_16" title="Permanent link">&para;</a></h5>
+<h5 id="returns_12">Returns:<a class="headerlink" href="#returns_12" title="Permanent link">&para;</a></h5>
+<p>Creates a Query for a <code>distinct</code> operation.</p>
+<p>Passing a <code>callback</code> immediately executes the query.</p>
+<h4 id="example_17">Example<a class="headerlink" href="#example_17" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="x">Link.distinct(&#39;url&#39;, </span><span class="cp">{</span> <span class="na">clicks</span><span class="o">:</span> <span class="cp">{</span><span class="nv">$gt</span><span class="o">:</span> <span class="m">100</span><span class="cp">}}</span><span class="x">, function (err, result) </span><span class="cp">{</span>
+  <span class="na">if</span> <span class="o">(</span><span class="na">err</span><span class="o">)</span> <span class="na">return</span> <span class="na">handleError</span><span class="o">(</span><span class="na">err</span><span class="o">);</span>
+
+  <span class="na">assert</span><span class="o">(</span><span class="na">Array</span><span class="o">.</span><span class="na">isArray</span><span class="o">(</span><span class="na">result</span><span class="o">));</span>
+  <span class="na">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s1">&#39;unique urls with more than 100 clicks&#39;</span><span class="o">,</span> <span class="na">result</span><span class="o">);</span>
+<span class="cp">}</span><span class="x">)</span>
+
+<span class="x">var query = Link.distinct(&#39;url&#39;);</span>
+<span class="x">query.exec(callback);</span>
+</pre></div>
+
+
+<hr />
+<h3 id="modelwhere105">[Model.where()][105]<a class="headerlink" href="#modelwhere105" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_17">Parameters<a class="headerlink" href="#parameters_17" title="Permanent link">&para;</a></h5>
+<ul>
+<li>[val] «Object» optional value</li>
+</ul>
+<h5 id="returns_13">Returns:<a class="headerlink" href="#returns_13" title="Permanent link">&para;</a></h5>
+<p>Creates a Query, applies the passed conditions, and returns the Query.</p>
+<p>For example, instead of writing:</p>
+<div class="codehilite"><pre><span></span><span class="nt">User</span><span class="p">.</span><span class="nc">find</span><span class="o">(</span><span class="p">{</span><span class="n">age</span><span class="p">:</span> <span class="err">{$</span><span class="n">gte</span><span class="o">:</span> <span class="mi">21</span><span class="p">,</span> <span class="err">$</span><span class="n">lte</span><span class="o">:</span> <span class="mi">65</span><span class="p">}</span><span class="err">}</span><span class="o">,</span> <span class="nt">callback</span><span class="o">);</span>
+</pre></div>
+
+
+<p>we can instead write:</p>
+<div class="codehilite"><pre><span></span>User.where(&#39;age&#39;).gte(21).lte(65).exec(callback);
+</pre></div>
+
+
+<p>Since the Query class also supports <code>where</code> you can continue chaining</p>
+<div class="codehilite"><pre><span></span>User
+.where(&#39;age&#39;).gte(21).lte(65)
+.where(&#39;name&#39;, /^b/i)
+... etc
+</pre></div>
+
+
+<hr />
+<h3 id="modelprototypewhere81_1">[Model.prototype.$where()][81]<a class="headerlink" href="#modelprototypewhere81_1" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_18">Parameters<a class="headerlink" href="#parameters_18" title="Permanent link">&para;</a></h5>
+<ul>
+<li>argument «String,Function» is a javascript string or anonymous function</li>
+</ul>
+<h5 id="returns_14">Returns:<a class="headerlink" href="#returns_14" title="Permanent link">&para;</a></h5>
+<p>Creates a <code>Query</code> and specifies a <code>$where</code> condition.</p>
+<p>Sometimes you need to query for things in mongodb using a JavaScript expression. You can do so via <code>find({ $where: javascript })</code>, or you can use the mongoose shortcut method $where via a Query chain or from your mongoose Model.</p>
+<div class="codehilite"><pre><span></span>Blog.$where(&#39;this.username.indexOf(&quot;val&quot;) !== -1&#39;).exec(function (err, docs) {});
+</pre></div>
+
+
+<hr />
+<h3 id="modelfindoneandupdate106">[Model.findOneAndUpdate()][106]<a class="headerlink" href="#modelfindoneandupdate106" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_19">Parameters<a class="headerlink" href="#parameters_19" title="Permanent link">&para;</a></h5>
+<h5 id="returns_15">Returns:<a class="headerlink" href="#returns_15" title="Permanent link">&para;</a></h5>
+<p>Issues a mongodb findAndModify update command.</p>
+<p>Finds a matching document, updates it according to the <code>update</code> arg, passing any <code>options</code>, and returns the found document (if any) to the callback. The query executes immediately if <code>callback</code> is passed else a Query object is returned.</p>
+<h4 id="options">Options:<a class="headerlink" href="#options" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>new</code>: bool - if true, return the modified document rather than the original. defaults to false (changed in 4.0)</li>
+<li><code>upsert</code>: bool - creates the object if it doesn't exist. defaults to false.</li>
+<li><code>fields</code>: {Object|String} - Field selection. Equivalent to <code>.select(fields).findOneAndUpdate()</code></li>
+<li><code>maxTimeMS</code>: puts a time limit on the query - requires mongodb &gt;= 2.6.0</li>
+<li><code>sort</code>: if multiple docs are found by the conditions, sets the sort order to choose which doc to update</li>
+<li><code>runValidators</code>: if true, runs [update validators][107] on this command. Update validators validate the update operation against the model's schema.</li>
+<li><code>setDefaultsOnInsert</code>: if this and <code>upsert</code> are true, mongoose will apply the [defaults][108] specified in the model's schema if a new document is created. This option only works on MongoDB &gt;= 2.4 because it relies on [MongoDB's <code>$setOnInsert</code> operator][109].</li>
+<li><code>rawResult</code>: if true, returns the [raw result from the MongoDB driver][110]</li>
+<li><code>strict</code>: overwrites the schema's [strict mode option][111] for this update</li>
+</ul>
+<h4 id="examples_1">Examples:<a class="headerlink" href="#examples_1" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>A.findOneAndUpdate(conditions, update, options, callback)
+A.findOneAndUpdate(conditions, update, options)
+A.findOneAndUpdate(conditions, update, callback)
+A.findOneAndUpdate(conditions, update)
+A.findOneAndUpdate()
+</pre></div>
+
+
+<h4 id="note_4">Note:<a class="headerlink" href="#note_4" title="Permanent link">&para;</a></h4>
+<p>All top level update keys which are not <code>atomic</code> operation names are treated as set operations:</p>
+<h4 id="example_18">Example:<a class="headerlink" href="#example_18" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">query</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;borne&#39;</span> <span class="p">}</span><span class="o">;</span>
+<span class="nt">Model</span><span class="p">.</span><span class="nc">findOneAndUpdate</span><span class="o">(</span><span class="nt">query</span><span class="o">,</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;jason bourne&#39;</span> <span class="p">}</span><span class="o">,</span> <span class="nt">options</span><span class="o">,</span> <span class="nt">callback</span><span class="o">)</span>
+
+
+<span class="nt">Model</span><span class="p">.</span><span class="nc">findOneAndUpdate</span><span class="o">(</span><span class="nt">query</span><span class="o">,</span> <span class="p">{</span> <span class="err">$</span><span class="n">set</span><span class="p">:</span> <span class="err">{</span> <span class="n">name</span><span class="o">:</span> <span class="s1">&#39;jason bourne&#39;</span> <span class="p">}</span><span class="err">}</span><span class="o">,</span> <span class="nt">options</span><span class="o">,</span> <span class="nt">callback</span><span class="o">)</span>
+</pre></div>
+
+
+<p>This helps prevent accidentally overwriting your document with <code>{ name: 'jason bourne' }</code>.</p>
+<h4 id="note_5">Note:<a class="headerlink" href="#note_5" title="Permanent link">&para;</a></h4>
+<p>Values are cast to their appropriate types when using the findAndModify helpers. However, the below are not executed by default.</p>
+<ul>
+<li>defaults. Use the <code>setDefaultsOnInsert</code> option to override.</li>
+</ul>
+<p><code>findAndModify</code> helpers support limited validation. You can enable these by setting the <code>runValidators</code> options, respectively.</p>
+<p>If you need full-fledged validation, use the traditional approach of first retrieving the document.</p>
+<div class="codehilite"><pre><span></span>Model.findById(id, function (err, doc) {
+  if (err) ..
+  doc.name = &#39;jason bourne&#39;;
+  doc.save(callback);
+});
+</pre></div>
+
+
+<hr />
+<h3 id="modelfindbyidandupdate112">[Model.findByIdAndUpdate()][112]<a class="headerlink" href="#modelfindbyidandupdate112" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_20">Parameters<a class="headerlink" href="#parameters_20" title="Permanent link">&para;</a></h5>
+<h5 id="returns_16">Returns:<a class="headerlink" href="#returns_16" title="Permanent link">&para;</a></h5>
+<p>Issues a mongodb findAndModify update command by a document's _id field. <code>findByIdAndUpdate(id, ...)</code> is equivalent to <code>findOneAndUpdate({ _id: id }, ...)</code>.</p>
+<p>Finds a matching document, updates it according to the <code>update</code> arg, passing any <code>options</code>, and returns the found document (if any) to the callback. The query executes immediately if <code>callback</code> is passed else a Query object is returned.</p>
+<p>This function triggers the following middleware.</p>
+<h4 id="options_1">Options:<a class="headerlink" href="#options_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>new</code>: bool - true to return the modified document rather than the original. defaults to false</li>
+<li><code>upsert</code>: bool - creates the object if it doesn't exist. defaults to false.</li>
+<li><code>runValidators</code>: if true, runs [update validators][107] on this command. Update validators validate the update operation against the model's schema.</li>
+<li><code>setDefaultsOnInsert</code>: if this and <code>upsert</code> are true, mongoose will apply the [defaults][108] specified in the model's schema if a new document is created. This option only works on MongoDB &gt;= 2.4 because it relies on [MongoDB's <code>$setOnInsert</code> operator][109].</li>
+<li><code>sort</code>: if multiple docs are found by the conditions, sets the sort order to choose which doc to update</li>
+<li><code>select</code>: sets the document fields to return</li>
+<li><code>rawResult</code>: if true, returns the [raw result from the MongoDB driver][110]</li>
+<li><code>strict</code>: overwrites the schema's [strict mode option][111] for this update</li>
+</ul>
+<h4 id="examples_2">Examples:<a class="headerlink" href="#examples_2" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>A.findByIdAndUpdate(id, update, options, callback)
+A.findByIdAndUpdate(id, update, options)
+A.findByIdAndUpdate(id, update, callback)
+A.findByIdAndUpdate(id, update)
+A.findByIdAndUpdate()
+</pre></div>
+
+
+<h4 id="note_6">Note:<a class="headerlink" href="#note_6" title="Permanent link">&para;</a></h4>
+<p>All top level update keys which are not <code>atomic</code> operation names are treated as set operations:</p>
+<h4 id="example_19">Example:<a class="headerlink" href="#example_19" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>Model.findByIdAndUpdate(id, { name: &#39;jason bourne&#39; }, options, callback)
+
+
+Model.findByIdAndUpdate(id, { $set: { name: &#39;jason bourne&#39; }}, options, callback)
+</pre></div>
+
+
+<p>This helps prevent accidentally overwriting your document with <code>{ name: 'jason bourne' }</code>.</p>
+<h4 id="note_7">Note:<a class="headerlink" href="#note_7" title="Permanent link">&para;</a></h4>
+<p>Values are cast to their appropriate types when using the findAndModify helpers. However, the below are not executed by default.</p>
+<ul>
+<li>defaults. Use the <code>setDefaultsOnInsert</code> option to override.</li>
+</ul>
+<p><code>findAndModify</code> helpers support limited validation. You can enable these by setting the <code>runValidators</code> options, respectively.</p>
+<p>If you need full-fledged validation, use the traditional approach of first retrieving the document.</p>
+<div class="codehilite"><pre><span></span>Model.findById(id, function (err, doc) {
+  if (err) ..
+  doc.name = &#39;jason bourne&#39;;
+  doc.save(callback);
+});
+</pre></div>
+
+
+<hr />
+<h3 id="modelfindoneandremove113">[Model.findOneAndRemove()][113]<a class="headerlink" href="#modelfindoneandremove113" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_21">Parameters<a class="headerlink" href="#parameters_21" title="Permanent link">&para;</a></h5>
+<h5 id="returns_17">Returns:<a class="headerlink" href="#returns_17" title="Permanent link">&para;</a></h5>
+<p>Issue a mongodb findAndModify remove command.</p>
+<p>Finds a matching document, removes it, passing the found document (if any) to the callback.</p>
+<p>Executes immediately if <code>callback</code> is passed else a Query object is returned.</p>
+<p>This function triggers the following middleware.</p>
+<h4 id="options_2">Options:<a class="headerlink" href="#options_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>sort</code>: if multiple docs are found by the conditions, sets the sort order to choose which doc to update</li>
+<li><code>maxTimeMS</code>: puts a time limit on the query - requires mongodb &gt;= 2.6.0</li>
+<li><code>select</code>: sets the document fields to return</li>
+<li><code>rawResult</code>: if true, returns the [raw result from the MongoDB driver][110]</li>
+<li><code>strict</code>: overwrites the schema's [strict mode option][111] for this update</li>
+</ul>
+<h4 id="examples_3">Examples:<a class="headerlink" href="#examples_3" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>A.findOneAndRemove(conditions, options, callback)
+A.findOneAndRemove(conditions, options)
+A.findOneAndRemove(conditions, callback)
+A.findOneAndRemove(conditions)
+A.findOneAndRemove()
+</pre></div>
+
+
+<p>Values are cast to their appropriate types when using the findAndModify helpers. However, the below are not executed by default.</p>
+<ul>
+<li>defaults. Use the <code>setDefaultsOnInsert</code> option to override.</li>
+</ul>
+<p><code>findAndModify</code> helpers support limited validation. You can enable these by setting the <code>runValidators</code> options, respectively.</p>
+<p>If you need full-fledged validation, use the traditional approach of first retrieving the document.</p>
+<div class="codehilite"><pre><span></span>Model.findById(id, function (err, doc) {
+  if (err) ..
+  doc.name = &#39;jason bourne&#39;;
+  doc.save(callback);
+});
+</pre></div>
+
+
+<hr />
+<h3 id="modelfindbyidandremove114">[Model.findByIdAndRemove()][114]<a class="headerlink" href="#modelfindbyidandremove114" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_22">Parameters<a class="headerlink" href="#parameters_22" title="Permanent link">&para;</a></h5>
+<h5 id="returns_18">Returns:<a class="headerlink" href="#returns_18" title="Permanent link">&para;</a></h5>
+<p>Issue a mongodb findAndModify remove command by a document's _id field. <code>findByIdAndRemove(id, ...)</code> is equivalent to <code>findOneAndRemove({ _id: id }, ...)</code>.</p>
+<p>Finds a matching document, removes it, passing the found document (if any) to the callback.</p>
+<p>Executes immediately if <code>callback</code> is passed, else a <code>Query</code> object is returned.</p>
+<p>This function triggers the following middleware.</p>
+<h4 id="options_3">Options:<a class="headerlink" href="#options_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>sort</code>: if multiple docs are found by the conditions, sets the sort order to choose which doc to update</li>
+<li><code>select</code>: sets the document fields to return</li>
+<li><code>rawResult</code>: if true, returns the [raw result from the MongoDB driver][110]</li>
+<li><code>strict</code>: overwrites the schema's [strict mode option][111] for this update</li>
+</ul>
+<h4 id="examples_4">Examples:<a class="headerlink" href="#examples_4" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>A.findByIdAndRemove(id, options, callback)
+A.findByIdAndRemove(id, options)
+A.findByIdAndRemove(id, callback)
+A.findByIdAndRemove(id)
+A.findByIdAndRemove()
+</pre></div>
+
+
+<hr />
+<h3 id="modelcreate115">[Model.create()][115]<a class="headerlink" href="#modelcreate115" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_23">Parameters<a class="headerlink" href="#parameters_23" title="Permanent link">&para;</a></h5>
+<ul>
+<li>[callback] «Function» callback</li>
+</ul>
+<h5 id="returns_19">Returns:<a class="headerlink" href="#returns_19" title="Permanent link">&para;</a></h5>
+<p>Shortcut for saving one or more documents to the database. <code>MyModel.create(docs)</code> does <code>new MyModel(doc).save()</code> for every doc in docs.</p>
+<p>This function triggers the following middleware.</p>
+<h4 id="example_20">Example:<a class="headerlink" href="#example_20" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">Candy</span><span class="p">.</span><span class="nc">create</span><span class="o">(</span><span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="s1">&#39;jelly bean&#39;</span> <span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="s1">&#39;snickers&#39;</span> <span class="p">}</span><span class="o">,</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">jellybean</span><span class="o">,</span> <span class="nt">snickers</span><span class="o">)</span> <span class="p">{</span>
+  <span class="err">if</span> <span class="err">(err)</span>
+<span class="p">}</span><span class="o">);</span>
+
+
+<span class="nt">var</span> <span class="nt">array</span> <span class="o">=</span> <span class="cp">[</span><span class="p">{</span> <span class="k">type</span><span class="p">:</span> <span class="s1">&#39;jelly bean&#39;</span> <span class="p">},</span> <span class="p">{</span> <span class="k">type</span><span class="p">:</span> <span class="s1">&#39;snickers&#39;</span> <span class="p">}</span><span class="cp">]</span><span class="o">;</span>
+<span class="nt">Candy</span><span class="p">.</span><span class="nc">create</span><span class="o">(</span><span class="nt">array</span><span class="o">,</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">candies</span><span class="o">)</span> <span class="p">{</span>
+  <span class="err">if</span> <span class="err">(err)</span>
+
+  <span class="err">var</span> <span class="err">jellybean</span> <span class="err">=</span> <span class="err">candies</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span><span class="p">;</span>
+  <span class="err">var</span> <span class="err">snickers</span> <span class="err">=</span> <span class="err">candies</span><span class="cp">[</span><span class="mi">1</span><span class="cp">]</span><span class="p">;</span>
+
+<span class="p">}</span><span class="o">);</span>
+
+
+<span class="nt">var</span> <span class="nt">promise</span> <span class="o">=</span> <span class="nt">Candy</span><span class="p">.</span><span class="nc">create</span><span class="o">(</span><span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="s1">&#39;jawbreaker&#39;</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">promise</span><span class="p">.</span><span class="nc">then</span><span class="o">(</span><span class="nt">function</span> <span class="o">(</span><span class="nt">jawbreaker</span><span class="o">)</span> <span class="p">{</span>
+
+<span class="p">}</span><span class="o">)</span>
+</pre></div>
+
+
+<hr />
+<h3 id="modelwatch116">[Model.watch()][116]<a class="headerlink" href="#modelwatch116" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_24">Parameters<a class="headerlink" href="#parameters_24" title="Permanent link">&para;</a></h5>
+<h5 id="returns_20">Returns:<a class="headerlink" href="#returns_20" title="Permanent link">&para;</a></h5>
+<ul>
+<li>«ChangeStream» mongoose-specific change stream wrapper</li>
+</ul>
+<p><em>Requires a replica set running MongoDB &gt;= 3.6.0.</em> Watches the underlying collection for changes using [MongoDB change streams][117].</p>
+<p>This function does <strong>not</strong> trigger any middleware. In particular, it does <strong>not</strong> trigger aggregate middleware.</p>
+<h4 id="example_21">Example:<a class="headerlink" href="#example_21" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">const</span> <span class="nt">doc</span> <span class="o">=</span> <span class="nt">await</span> <span class="nt">Person</span><span class="p">.</span><span class="nc">create</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Ned Stark&#39;</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">Person</span><span class="p">.</span><span class="nc">watch</span><span class="o">()</span><span class="p">.</span><span class="nc">on</span><span class="o">(</span><span class="s1">&#39;change&#39;</span><span class="o">,</span> <span class="nt">change</span> <span class="o">=&gt;</span> <span class="nt">console</span><span class="p">.</span><span class="nc">log</span><span class="o">(</span><span class="nt">change</span><span class="o">));</span>
+
+
+
+
+
+<span class="nt">await</span> <span class="nt">doc</span><span class="p">.</span><span class="nc">remove</span><span class="o">();</span>
+</pre></div>
+
+
+<hr />
+<h3 id="modelinsertmany118">[Model.insertMany()][118]<a class="headerlink" href="#modelinsertmany118" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_25">Parameters<a class="headerlink" href="#parameters_25" title="Permanent link">&para;</a></h5>
+<ul>
+<li>[callback] «Function» callback</li>
+</ul>
+<h5 id="returns_21">Returns:<a class="headerlink" href="#returns_21" title="Permanent link">&para;</a></h5>
+<p>Shortcut for validating an array of documents and inserting them into MongoDB if they're all valid. This function is faster than <code>.create()</code> because it only sends one operation to the server, rather than one for each document.</p>
+<p>Mongoose always validates each document <strong>before</strong> sending <code>insertMany</code> to MongoDB. So if one document has a validation error, no documents will be saved, unless you set [the <code>ordered</code> option to false][119].</p>
+<p>This function does <strong>not</strong> trigger save middleware.</p>
+<p>This function triggers the following middleware.</p>
+<h4 id="example_22">Example:<a class="headerlink" href="#example_22" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">arr</span> <span class="o">=</span> <span class="cp">[</span><span class="p">{</span> <span class="nx">name</span><span class="p">:</span> <span class="s1">&#39;Star Wars&#39;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">name</span><span class="p">:</span> <span class="s1">&#39;The Empire Strikes Back&#39;</span> <span class="p">}</span><span class="cp">]</span><span class="o">;</span>
+<span class="nt">Movies</span><span class="p">.</span><span class="nc">insertMany</span><span class="o">(</span><span class="nt">arr</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">error</span><span class="o">,</span> <span class="nt">docs</span><span class="o">)</span> <span class="p">{}</span><span class="o">);</span>
+</pre></div>
+
+
+<hr />
+<h3 id="modelbulkwrite120">[Model.bulkWrite()][120]<a class="headerlink" href="#modelbulkwrite120" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_26">Parameters<a class="headerlink" href="#parameters_26" title="Permanent link">&para;</a></h5>
+<ul>
+<li>[callback] «Function» callback <code>function(error, bulkWriteOpResult) {}</code></li>
+</ul>
+<h5 id="returns_22">Returns:<a class="headerlink" href="#returns_22" title="Permanent link">&para;</a></h5>
+<ul>
+<li>«Promise» resolves to a <code>BulkWriteOpResult</code> if the operation succeeds</li>
+</ul>
+<p>Sends multiple <code>insertOne</code>, <code>updateOne</code>, <code>updateMany</code>, <code>replaceOne</code>, <code>deleteOne</code>, and/or <code>deleteMany</code> operations to the MongoDB server in one command. This is faster than sending multiple independent operations (like) if you use <code>create()</code>) because with <code>bulkWrite()</code> there is only one round trip to MongoDB.</p>
+<p>Mongoose will perform casting on all operations you provide.</p>
+<p>This function does <strong>not</strong> trigger any middleware, not <code>save()</code> nor <code>update()</code>. If you need to trigger <code>save()</code> middleware for every document use [<code>create()</code>][121] instead.</p>
+<h4 id="example_23">Example:<a class="headerlink" href="#example_23" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>Character.bulkWrite([
+  {
+    insertOne: {
+      document: {
+        name: &#39;Eddard Stark&#39;,
+        title: &#39;Warden of the North&#39;
+      }
+    }
+  },
+  {
+    updateOne: {
+      filter: { name: &#39;Eddard Stark&#39; },
+
+
+
+      update: { title: &#39;Hand of the King&#39; }
+    }
+  },
+  {
+    deleteOne: {
+      {
+        filter: { name: &#39;Eddard Stark&#39; }
+      }
+    }
+  }
+]).then(handleResult);
+</pre></div>
+
+
+<hr />
+<h3 id="modelhydrate122">[Model.hydrate()][122]<a class="headerlink" href="#modelhydrate122" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_27">Parameters<a class="headerlink" href="#parameters_27" title="Permanent link">&para;</a></h5>
+<h5 id="returns_23">Returns:<a class="headerlink" href="#returns_23" title="Permanent link">&para;</a></h5>
+<ul>
+<li>«Model» document instance</li>
+</ul>
+<p>Shortcut for creating a new Document from existing raw data, pre-saved in the DB. The document returned has no paths marked as modified initially.</p>
+<h4 id="example_24">Example:<a class="headerlink" href="#example_24" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">mongooseCandy</span> <span class="o">=</span> <span class="nt">Candy</span><span class="p">.</span><span class="nc">hydrate</span><span class="o">(</span><span class="p">{</span> <span class="n">_id</span><span class="p">:</span> <span class="s1">&#39;54108337212ffb6d459f854c&#39;</span><span class="p">,</span> <span class="n">type</span><span class="o">:</span> <span class="s1">&#39;jelly bean&#39;</span> <span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<hr />
+<h3 id="modelupdate123">[Model.update()][123]<a class="headerlink" href="#modelupdate123" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_28">Parameters<a class="headerlink" href="#parameters_28" title="Permanent link">&para;</a></h5>
+<h5 id="returns_24">Returns:<a class="headerlink" href="#returns_24" title="Permanent link">&para;</a></h5>
+<p>Updates one document in the database without returning it.</p>
+<p>This function triggers the following middleware.</p>
+<h4 id="examples_5">Examples:<a class="headerlink" href="#examples_5" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">MyModel</span><span class="p">.</span><span class="nc">update</span><span class="o">(</span><span class="p">{</span> <span class="n">age</span><span class="p">:</span> <span class="err">{</span> <span class="err">$</span><span class="n">gt</span><span class="o">:</span> <span class="mi">18</span> <span class="p">}</span> <span class="err">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">oldEnough</span><span class="p">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">,</span> <span class="nt">fn</span><span class="o">);</span>
+<span class="nt">MyModel</span><span class="p">.</span><span class="nc">update</span><span class="o">(</span><span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Tobi&#39;</span> <span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">ferret</span><span class="p">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="n">multi</span><span class="p">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">,</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">raw</span><span class="o">)</span> <span class="p">{</span>
+  <span class="err">if</span> <span class="err">(err)</span> <span class="err">return</span> <span class="err">handleError(err)</span><span class="p">;</span>
+  <span class="err">console.log(&#39;The</span> <span class="err">raw</span> <span class="err">response</span> <span class="err">from</span> <span class="err">Mongo</span> <span class="err">was</span> <span class="err">&#39;,</span> <span class="err">raw)</span><span class="p">;</span>
+<span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<h4 id="valid-options">Valid options:<a class="headerlink" href="#valid-options" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>safe</code> (boolean) safe mode (defaults to value set in schema (true))</li>
+<li><code>upsert</code> (boolean) whether to create the doc if it doesn't match (false)</li>
+<li><code>multi</code> (boolean) whether multiple documents should be updated (false)</li>
+<li><code>runValidators</code>: if true, runs [update validators][107] on this command. Update validators validate the update operation against the model's schema.</li>
+<li><code>setDefaultsOnInsert</code>: if this and <code>upsert</code> are true, mongoose will apply the [defaults][108] specified in the model's schema if a new document is created. This option only works on MongoDB &gt;= 2.4 because it relies on [MongoDB's <code>$setOnInsert</code> operator][109].</li>
+<li><code>strict</code> (boolean) overrides the <code>strict</code> option for this update</li>
+<li><code>overwrite</code> (boolean) disables update-only mode, allowing you to overwrite the doc (false)</li>
+</ul>
+<p>All <code>update</code> values are cast to their appropriate SchemaTypes before being sent.</p>
+<p>The <code>callback</code> function receives <code>(err, rawResponse)</code>.</p>
+<ul>
+<li><code>err</code> is the error if any occurred</li>
+<li><code>rawResponse</code> is the full response from Mongo</li>
+</ul>
+<h4 id="note_8">Note:<a class="headerlink" href="#note_8" title="Permanent link">&para;</a></h4>
+<p>All top level keys which are not <code>atomic</code> operation names are treated as set operations:</p>
+<h4 id="example_25">Example:<a class="headerlink" href="#example_25" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">query</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;borne&#39;</span> <span class="p">}</span><span class="o">;</span>
+<span class="nt">Model</span><span class="p">.</span><span class="nc">update</span><span class="o">(</span><span class="nt">query</span><span class="o">,</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;jason bourne&#39;</span> <span class="p">}</span><span class="o">,</span> <span class="nt">options</span><span class="o">,</span> <span class="nt">callback</span><span class="o">)</span>
+
+
+<span class="nt">Model</span><span class="p">.</span><span class="nc">update</span><span class="o">(</span><span class="nt">query</span><span class="o">,</span> <span class="p">{</span> <span class="err">$</span><span class="n">set</span><span class="p">:</span> <span class="err">{</span> <span class="n">name</span><span class="o">:</span> <span class="s1">&#39;jason bourne&#39;</span> <span class="p">}</span><span class="err">}</span><span class="o">,</span> <span class="nt">options</span><span class="o">,</span> <span class="nt">callback</span><span class="o">)</span>
+</pre></div>
+
+
+<p>This helps prevent accidentally overwriting all documents in your collection with <code>{ name: 'jason bourne' }</code>.</p>
+<h4 id="note_9">Note:<a class="headerlink" href="#note_9" title="Permanent link">&para;</a></h4>
+<p>Be careful to not use an existing model instance for the update clause (this won't work and can cause weird behavior like infinite loops). Also, ensure that the update clause does not have an _id property, which causes Mongo to return a "Mod on _id not allowed" error.</p>
+<h4 id="note_10">Note:<a class="headerlink" href="#note_10" title="Permanent link">&para;</a></h4>
+<p>To update documents without waiting for a response from MongoDB, do not pass a <code>callback</code>, then call <code>exec</code> on the returned [Query][124]:</p>
+<div class="codehilite"><pre><span></span><span class="nt">Comment</span><span class="p">.</span><span class="nc">update</span><span class="o">(</span><span class="p">{</span> <span class="n">_id</span><span class="p">:</span> <span class="n">id</span> <span class="p">}</span><span class="o">,</span> <span class="p">{</span> <span class="err">$</span><span class="n">set</span><span class="p">:</span> <span class="err">{</span> <span class="kc">text</span><span class="o">:</span> <span class="s1">&#39;changed&#39;</span> <span class="p">}</span><span class="err">}</span><span class="o">)</span><span class="p">.</span><span class="nc">exec</span><span class="o">();</span>
+</pre></div>
+
+
+<h4 id="note_11">Note:<a class="headerlink" href="#note_11" title="Permanent link">&para;</a></h4>
+<p>Although values are casted to their appropriate types when using update, the following are <em>not</em> applied:</p>
+<ul>
+<li>defaults</li>
+<li>setters</li>
+<li>validators</li>
+<li>middleware</li>
+</ul>
+<p>If you need those features, use the traditional approach of first retrieving the document.</p>
+<div class="codehilite"><pre><span></span>Model.findOne({ name: &#39;borne&#39; }, function (err, doc) {
+  if (err) ..
+  doc.name = &#39;jason bourne&#39;;
+  doc.save(callback);
+})
+</pre></div>
+
+
+<hr />
+<h3 id="modelupdatemany125">[Model.updateMany()][125]<a class="headerlink" href="#modelupdatemany125" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_29">Parameters<a class="headerlink" href="#parameters_29" title="Permanent link">&para;</a></h5>
+<h5 id="returns_25">Returns:<a class="headerlink" href="#returns_25" title="Permanent link">&para;</a></h5>
+<p>Same as <code>update()</code>, except MongoDB will update <em>all</em> documents that match <code>criteria</code> (as opposed to just the first one) regardless of the value of the <code>multi</code> option.</p>
+<p><strong>Note</strong> updateMany will <em>not</em> fire update middleware. Use <code>pre('updateMany')</code> and <code>post('updateMany')</code> instead.</p>
+<p>This function triggers the following middleware.</p>
+<hr />
+<h3 id="modelupdateone126">[Model.updateOne()][126]<a class="headerlink" href="#modelupdateone126" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_30">Parameters<a class="headerlink" href="#parameters_30" title="Permanent link">&para;</a></h5>
+<h5 id="returns_26">Returns:<a class="headerlink" href="#returns_26" title="Permanent link">&para;</a></h5>
+<p>Same as <code>update()</code>, except MongoDB will update <em>only</em> the first document that matches <code>criteria</code> regardless of the value of the <code>multi</code> option.</p>
+<p>This function triggers the following middleware.</p>
+<hr />
+<h3 id="modelreplaceone127">[Model.replaceOne()][127]<a class="headerlink" href="#modelreplaceone127" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_31">Parameters<a class="headerlink" href="#parameters_31" title="Permanent link">&para;</a></h5>
+<h5 id="returns_27">Returns:<a class="headerlink" href="#returns_27" title="Permanent link">&para;</a></h5>
+<p>Same as <code>update()</code>, except MongoDB replace the existing document with the given document (no atomic operators like <code>$set</code>).</p>
+<p>This function triggers the following middleware.</p>
+<hr />
+<h3 id="modelmapreduce128">[Model.mapReduce()][128]<a class="headerlink" href="#modelmapreduce128" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_32">Parameters<a class="headerlink" href="#parameters_32" title="Permanent link">&para;</a></h5>
+<ul>
+<li>[callback] «Function» optional callback</li>
+</ul>
+<h5 id="returns_28">Returns:<a class="headerlink" href="#returns_28" title="Permanent link">&para;</a></h5>
+<p>Executes a mapReduce command.</p>
+<p><code>o</code> is an object specifying all mapReduce options as well as the map and reduce functions. All options are delegated to the driver implementation. See [node-mongodb-native mapReduce() documentation][129] for more detail about options.</p>
+<p>This function does not trigger any middleware.</p>
+<h4 id="example_26">Example:<a class="headerlink" href="#example_26" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>var o = {};
+o.map = function () { emit(this.name, 1) }
+o.reduce = function (k, vals) { return vals.length }
+User.mapReduce(o, function (err, results) {
+  console.log(results)
+})
+</pre></div>
+
+
+<h4 id="other-options">Other options:<a class="headerlink" href="#other-options" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>query</code> {Object} query filter object.</li>
+<li><code>sort</code> {Object} sort input objects using this key</li>
+<li><code>limit</code> {Number} max number of documents</li>
+<li><code>keeptemp</code> {Boolean, default:false} keep temporary data</li>
+<li><code>finalize</code> {Function} finalize function</li>
+<li><code>scope</code> {Object} scope variables exposed to map/reduce/finalize during execution</li>
+<li><code>jsMode</code> {Boolean, default:false} it is possible to make the execution stay in JS. Provided in MongoDB &gt; 2.0.X</li>
+<li><code>verbose</code> {Boolean, default:false} provide statistics on job execution time.</li>
+<li><code>readPreference</code> {String}</li>
+<li><code>out*</code> {Object, default: {inline:1}} sets the output target for the map reduce job.</li>
+</ul>
+<h4 id="out-options">* out options:<a class="headerlink" href="#out-options" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>{inline:1}</code> the results are returned in an array</li>
+<li><code>{replace: 'collectionName'}</code> add the results to collectionName: the results replace the collection</li>
+<li><code>{reduce: 'collectionName'}</code> add the results to collectionName: if dups are detected, uses the reducer / finalize functions</li>
+<li><code>{merge: 'collectionName'}</code> add the results to collectionName: if dups exist the new docs overwrite the old</li>
+</ul>
+<p>If <code>options.out</code> is set to <code>replace</code>, <code>merge</code>, or <code>reduce</code>, a Model instance is returned that can be used for further querying. Queries run against this model are all executed with the <code>lean</code> option; meaning only the js object is returned and no Mongoose magic is applied (getters, setters, etc).</p>
+<h4 id="example_27">Example:<a class="headerlink" href="#example_27" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>var o = {};
+o.map = function () { emit(this.name, 1) }
+o.reduce = function (k, vals) { return vals.length }
+o.out = { replace: &#39;createdCollectionNameForResults&#39; }
+o.verbose = true;
+
+User.mapReduce(o, function (err, model, stats) {
+  console.log(&#39;map reduce took %d ms&#39;, stats.processtime)
+  model.find().where(&#39;value&#39;).gt(10).exec(function (err, docs) {
+    console.log(docs);
+  });
+})
+
+
+
+o.resolveToObject = true;
+var promise = User.mapReduce(o);
+promise.then(function (res) {
+  var model = res.model;
+  var stats = res.stats;
+  console.log(&#39;map reduce took %d ms&#39;, stats.processtime)
+  return model.find().where(&#39;value&#39;).gt(10).exec();
+}).then(function (docs) {
+   console.log(docs);
+}).then(null, handleError).end()
+</pre></div>
+
+
+<hr />
+<h3 id="modelaggregate130">[Model.aggregate()][130]<a class="headerlink" href="#modelaggregate130" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_33">Parameters<a class="headerlink" href="#parameters_33" title="Permanent link">&para;</a></h5>
+<h5 id="returns_29">Returns:<a class="headerlink" href="#returns_29" title="Permanent link">&para;</a></h5>
+<p>Performs [aggregations][131] on the models collection.</p>
+<p>If a <code>callback</code> is passed, the <code>aggregate</code> is executed and a <code>Promise</code> is returned. If a callback is not passed, the <code>aggregate</code> itself is returned.</p>
+<p>This function does not trigger any middleware.</p>
+<h4 id="example_28">Example:<a class="headerlink" href="#example_28" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>Users.aggregate(
+  { $group: { _id: null, maxBalance: { $max: &#39;$balance&#39; }}},
+  { $project: { _id: 0, maxBalance: 1 }},
+  function (err, res) {
+    if (err) return handleError(err);
+    console.log(res);
+  });
+
+
+Users.aggregate()
+  .group({ _id: null, maxBalance: { $max: &#39;$balance&#39; } })
+  .select(&#39;-id maxBalance&#39;)
+  .exec(function (err, res) {
+    if (err) return handleError(err);
+    console.log(res);
+});
+</pre></div>
+
+
+<h4 id="note_12">NOTE:<a class="headerlink" href="#note_12" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Arguments are not cast to the model's schema because <code>$project</code> operators allow redefining the "shape" of the documents at any stage of the pipeline, which may leave documents in an incompatible format.</li>
+<li>The documents returned are plain javascript objects, not mongoose documents (since any shape of document can be returned).</li>
+<li>Requires MongoDB &gt;= 2.1</li>
+</ul>
+<hr />
+<h3 id="modelgeosearch132">[Model.geoSearch()][132]<a class="headerlink" href="#modelgeosearch132" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_34">Parameters<a class="headerlink" href="#parameters_34" title="Permanent link">&para;</a></h5>
+<ul>
+<li>[callback] «Function» optional callback</li>
+</ul>
+<h5 id="returns_30">Returns:<a class="headerlink" href="#returns_30" title="Permanent link">&para;</a></h5>
+<p>Implements <code>$geoSearch</code> functionality for Mongoose</p>
+<p>This function does not trigger any middleware</p>
+<h4 id="example_29">Example:<a class="headerlink" href="#example_29" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">options</span> <span class="o">=</span> <span class="p">{</span> <span class="n">near</span><span class="p">:</span> <span class="cp">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="cp">]</span><span class="p">,</span> <span class="n">maxDistance</span><span class="o">:</span> <span class="mi">5</span> <span class="p">}</span><span class="o">;</span>
+<span class="nt">Locations</span><span class="p">.</span><span class="nc">geoSearch</span><span class="o">(</span><span class="p">{</span> <span class="n">type</span> <span class="p">:</span> <span class="s2">&quot;house&quot;</span> <span class="p">}</span><span class="o">,</span> <span class="nt">options</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">err</span><span class="o">,</span> <span class="nt">res</span><span class="o">)</span> <span class="p">{</span>
+  <span class="err">console.log(res)</span><span class="p">;</span>
+<span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<h4 id="options_4">Options:<a class="headerlink" href="#options_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>near</code> {Array} x,y point to search for</li>
+<li><code>maxDistance</code> {Number} the maximum distance from the point near that a result can be</li>
+<li><code>limit</code> {Number} The maximum number of results to return</li>
+<li><code>lean</code> {Boolean} return the raw object instead of the Mongoose Model</li>
+</ul>
+<hr />
+<h3 id="modelpopulate133">[Model.populate()][133]<a class="headerlink" href="#modelpopulate133" title="Permanent link">&para;</a></h3>
+<h5 id="parameters_35">Parameters<a class="headerlink" href="#parameters_35" title="Permanent link">&para;</a></h5>
+<ul>
+<li>[callback(err,doc)] «Function» Optional callback, executed upon completion. Receives <code>err</code> and the <code>doc(s)</code>.</li>
+</ul>
+<h5 id="returns_31">Returns:<a class="headerlink" href="#returns_31" title="Permanent link">&para;</a></h5>
+<p>Populates document references.</p>
+<h4 id="available-options">Available options:<a class="headerlink" href="#available-options" title="Permanent link">&para;</a></h4>
+<ul>
+<li>path: space delimited path(s) to populate</li>
+<li>select: optional fields to select</li>
+<li>match: optional query conditions to match</li>
+<li>model: optional name of the model to use for population</li>
+<li>options: optional query options like sort, limit, etc</li>
+</ul>
+<h4 id="examples_6">Examples:<a class="headerlink" href="#examples_6" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>User.findById(id, function (err, user) {
+  var opts = [
+      { path: &#39;company&#39;, match: { x: 1 }, select: &#39;name&#39; }
+    , { path: &#39;notes&#39;, options: { limit: 10 }, model: &#39;override&#39; }
+  ]
+
+  User.populate(user, opts, function (err, user) {
+    console.log(user);
+  });
+});
+
+
+User.find(match, function (err, users) {
+  var opts = [{ path: &#39;company&#39;, match: { x: 1 }, select: &#39;name&#39; }]
+
+  var promise = User.populate(users, opts);
+  promise.then(console.log).end();
+})
+
+
+
+
+
+
+
+
+
+
+var user = { name: &#39;Indiana Jones&#39;, weapon: 389 }
+Weapon.populate(user, { path: &#39;weapon&#39;, model: &#39;Weapon&#39; }, function (err, user) {
+  console.log(user.weapon.name)
+})
+
+
+var users = [{ name: &#39;Indiana Jones&#39;, weapon: 389 }]
+users.push({ name: &#39;Batman&#39;, weapon: 8921 })
+Weapon.populate(users, { path: &#39;weapon&#39; }, function (err, users) {
+  users.forEach(function (user) {
+    console.log(&#39;%s uses a %s&#39;, users.name, user.weapon.name)
+
+
+  });
+});
+</pre></div>
+
+
+<hr />
+<hr />
                 
                   
                 
