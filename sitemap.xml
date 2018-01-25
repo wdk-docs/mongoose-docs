@@ -90,25 +90,31 @@
     </url>
         
     <url>
-     <loc>/api/Schema/</loc>
-     <lastmod>2018-01-25</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>/api/Connection/</loc>
      <lastmod>2018-01-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/api/Document/</loc>
+     <loc>/api/Schema/</loc>
+     <lastmod>2018-01-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/api/SchemaType/</loc>
      <lastmod>2018-01-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/api/Model/</loc>
+     <lastmod>2018-01-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/api/Document/</loc>
      <lastmod>2018-01-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -121,12 +127,6 @@
         
     <url>
      <loc>/api/Aggregate/</loc>
-     <lastmod>2018-01-25</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/api/SchemaType/</loc>
      <lastmod>2018-01-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
