@@ -1,19 +1,17 @@
-# Mongoose v5.0.1: MongoDB Version Compatibility
+# MongoDB服务器版本兼容性
 
-[Source](http://mongoosejs.com/docs/compatibility.html "Permalink to Mongoose v5.0.1: MongoDB Version Compatibility")
+[源](http://mongoosejs.com/docs/compatibility.html "Mongoose v5.0.1的永久链接：MongoDB版本兼容性")
 
-## MongoDB Server Version Compatibility
+Mongoose依靠[MongoDB Node.js 驱动器][1]与MongoDB进行通信。 您可以参考[此表][2]获取哪个版本的MongoDB驱动程序支持哪个版本的MongoDB的最新信息。
 
-Mongoose relies on the [MongoDB Node.js Driver][1] to talk to MongoDB. You can refer to [this table][2] for up-to-date information as to which version of the MongoDB driver supports which version of MongoDB.
+下面是代表哪个版本的mongoose与列出的MongoDB版本兼容的[semver][3]范围
 
-Below are the [semver][3] ranges representing which versions of mongoose are compatible with the listed versions of MongoDB server.
-
-* MongoDB Server 2.4.x: mongoose `~3.8` or `4.x`
-* MongoDB Server 2.6.x: mongoose `~3.8.8` or `4.x`
-* MongoDB Server 3.0.x: mongoose `~3.8.22`, `4.x` or `5.x`
-* MongoDB Server 3.2.x: mongoose `>=4.3.0` or `5.x`
-* MongoDB Server 3.4.x: mongoose `>=4.7.3` or `5.x`
-* MongoDB Server 3.6.x: mongoose `5.x`, or `>=4.11.0` with `useMongoClient` and `usePushEach`
+* MongoDB 服务器 2.4.x: mongoose `~3.8` 或者 `4.x`
+* MongoDB 服务器 2.6.x: mongoose `~3.8.8` 或者 `4.x`
+* MongoDB 服务器 3.0.x: mongoose `~3.8.22`, `4.x` 或者 `5.x`
+* MongoDB 服务器 3.2.x: mongoose `>=4.3.0` 或者 `5.x`
+* MongoDB 服务器 3.4.x: mongoose `>=4.7.3` 或者 `5.x`
+* MongoDB 服务器 3.6.x: mongoose `5.x`, 或者 `>=4.11.0` with `useMongoClient` and `usePushEach`
 
 [1]: http://mongodb.github.io/node-mongodb-native/
 [2]: http://docs.mongodb.org/ecosystem/drivers/node-js/

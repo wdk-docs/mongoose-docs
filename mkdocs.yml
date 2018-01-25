@@ -1,5 +1,5 @@
 site_name: Mongoose文档
-site_description: mongodb nodejs组件中文文档
+site_description: Mongodb NodeJs 组件中文文档
 site_author: Nosy
 copyright: '版权 &copy; 2018 -  wohugb.github.io'
 
@@ -54,13 +54,13 @@ pages:
   - 指南:
     - 模式: guide/Schemas.md
     - 连接: guide/Connections.md
-    - 楷模: guide/Models.md
-    - 文件: guide/Documents.md
+    - 模式: guide/Models.md
+    - 文档: guide/Documents.md
     - 查询: guide/Queries.md
     - 验证: guide/Validation.md
     - 中间件: guide/Middleware.md
     - 填充: guide/Populate.md
-    - 鉴: guide/Discriminators.md
+    - 鉴别器: guide/Discriminators.md
     - 插件: guide/Plugins.md
   - API:
     - 接口: api/index.md

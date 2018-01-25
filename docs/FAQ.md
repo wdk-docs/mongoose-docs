@@ -1,262 +1,242 @@
-# Mongoose v5.0.1: FAQ
+# 常见问题
 
-[Source](http://mongoosejs.com/docs/faq.html "Permalink to Mongoose v5.0.1: FAQ")
+[源](http://mongoosejs.com/docs/faq.html "Mongoose v5.0.1的永久链接：FAQ")
 
-## FAQ
+??? faq "当我直接更新数组元素时​​，为什么不更改？"
 
-**Q**. Why don't my changes to arrays get saved when I update an element directly?
-
-
+    ```js
     doc.array[3] = 'changed';
     doc.save();
+    ```
 
+    !!! info "答案"
 
-**A**. Mongoose doesn't create getters/setters for array indexes; without them mongoose never gets notified of the change and so doesn't know to persist the new value. The work-around is to use [MongooseArray#set][1] available in **Mongoose >= 3.2.0**.
+        Mongoose不会为数组索引创建getter/setter; 没有他们猫鼬从来没有得到通知的变化，所以不知道坚持新的价值。 解决方法是使用** Mongoose> = 3.2.0 **中的[MongooseArray＃set][1]。
 
+        ```js
+        doc.array.set(3, 'changed');
+        doc.save();
+        doc.array[3] = 'changed';
+        doc.markModified('array');
+        doc.save();
+        ```
 
-    doc.array.set(3, 'changed');
-    doc.save();
+??? faq "我定义模式属性为“unique”，但我仍然可以保存了重复数据,是什么导致的？"
 
+    !!! info "答案"
 
-    doc.array[3] = 'changed';
-    doc.markModified('array');
-    doc.save();
+        Mongoose本身并不处理`unique`：`{name：{type：String，unique：true}}`只是在`name`上创建一个[MongoDB唯一索引]的简写[2] 例如，如果MongoDB在`name`上没有唯一的索引， 尽管“unique”是真实的，但下面的代码不会出错。
 
+        ```js
+            var schema = new mongoose.Schema({
+              name: { type: String, unique: true }
+            });
+            var Model = db.model('Test', schema);
 
-* * *
+            Model.create([{ name: 'Val' }, { name: 'Val' }], function(err) {
+              console.log(err);
+            });
+        ```
 
-**Q**. I declared a schema property as `unique` but I can still save duplicates. What gives?
+        然而， 如果您使用`Model.on（'index'）`事件等待索引建立，尝试保存重复将会抛错
 
-**A**. Mongoose doesn't handle `unique` on its own: `{ name: { type: String, unique: true } }` is just a shorthand for creating a [MongoDB unique index on `name`][2]. For example, if MongoDB doesn't already have a unique index on `name`, the below code will not error despite the fact that `unique` is true.
+        ```js
+            var schema = new mongoose.Schema({
+              name: { type: String, unique: true }
+            });
+            var Model = db.model('Test', schema);
 
+            Model.on('index', function(err) {
+              assert.ifError(err);
+              Model.create([{ name: 'Val' }, { name: 'Val' }], function(err) {
+                console.log(err);
+              });
+            });
 
-    var schema = new mongoose.Schema({
-      name: { type: String, unique: true }
-    });
-    var Model = db.model('Test', schema);
+            Model.init().then(function() {
+              assert.ifError(err);
+              Model.create([{ name: 'Val' }, { name: 'Val' }], function(err) {
+                console.log(err);
+              });
+            });
+        ```
 
-    Model.create([{ name: 'Val' }, { name: 'Val' }], function(err) {
-      console.log(err);
-    });
+        MongoDB坚持索引， 所以你只需要重新建立索引，如果你开始一个新的数据库，或者你运行`db.dropDatabase（）`。在生产环境中， 你应该[使用MongoDB shell]）（）创建索引，而不是依靠猫鼬为你做。 模式的`unique`选项方便开发和文档化，但猫鼬不是索引管理解决方案
 
+??? faq "当我在模式中有一个嵌套属性时，mongoose默认添加空对象,为什么？"
 
-However, if you wait for the index to build using the `Model.on('index')` event, attempts to save duplicates will correctly error.
-
-
-    var schema = new mongoose.Schema({
-      name: { type: String, unique: true }
-    });
-    var Model = db.model('Test', schema);
-
-    Model.on('index', function(err) {
-      assert.ifError(err);
-      Model.create([{ name: 'Val' }, { name: 'Val' }], function(err) {
-        console.log(err);
-      });
-    });
-
-
-
-
-    Model.init().then(function() {
-      assert.ifError(err);
-      Model.create([{ name: 'Val' }, { name: 'Val' }], function(err) {
-        console.log(err);
-      });
-    });
-
-
-MongoDB persists indexes, so you only need to rebuild indexes if you're starting with a fresh database or you ran `db.dropDatabase()`. In a production environment, you should [create your indexes using the MongoDB shell])() rather than relying on mongoose to do it for you. The `unique` option for schemas is convenient for development and documentation, but mongoose is _not_ an index management solution.
-
-* * *
-
-**Q**. When I have a nested property in a schema, mongoose adds empty objects by default. Why?
-
-
+    ```js
     var schema = new mongoose.Schema({
       nested: {
         prop: String
       }
     });
     var Model = db.model('Test', schema);
-
-
-
     console.log(new Model());
+    ```
 
+    !!! info "答案"
 
-**A**. This is a performance optimization. These empty objects are not saved to the database, nor are they in the result `toObject()`, nor do they show up in `JSON.stringify()` output unless you turn off the [`minimize` option][3].
+        这是一个性能优化 这些空的对象不会保存到数据库中， 也不是在结果`toObject（）`中， 除非关闭[`minimize`选项] [3]，否则它们不会出现在`JSON.stringify（）`输出中。
 
-The reason for this behavior is that Mongoose's change detection and getters/setters are based on [`Object.defineProperty()`][4]. In order to support change detection on nested properties without incurring the overhead of running `Object.defineProperty()` every time a document is created, mongoose defines properties on the `Model` prototype when the model is compiled. Because mongoose needs to define getters and setters for `nested.prop`, `nested` must always be defined as an object on a mongoose document, even if `nested` is undefined on the underlying [POJO][3].
+        这种行为的原因是Mongoose的变化检测和getter / setter是基于[`Object.defineProperty（）`] [4]。为了支持对嵌套属性的更改检测，而不会在每次创建文档时招致运行Object.defineProperty（）的开销， mongoose在模型编译时定义`Model`原型的属性。,由于猫鼬需要为`nested.prop`定义getter和setter， 必须始终将“嵌套”定义为猫鼬文档上的对象， 即使`nested`在底层的[POJO] [3]上是未定义的。
 
-* * *
+??? faq "我在[virtual][5]，getter/setter或[method][6]使用箭头函数，this的值是为什么是错误的？"
 
-**Q**. I'm using an arrow function for a [virtual][5], getter/setter, or [method][6] and the value of `this` is wrong.
+    !!! info "答案"
 
-**A**. Arrow functions [handle the `this` keyword much differently than conventional functions][7]. Mongoose getters/setters depend on `this` to give you access to the document that you're writing to, but this functionality does not work with arrow functions. Do **not** use arrow functions for mongoose getters/setters unless do not intend to access the document in the getter/setter.
+        箭头函数[处理`this`关键字与传统函数大不相同][7]. Mongoose getter/setter依赖`this`来让你访问你正在写的文档，但是这个功能不能使用箭头函数。 除非不打算访问getter/setter中的文档，否则不要使用箭头函数来取得 Mongoose getter/setter。
 
+        ```js
+            var schema = new mongoose.Schema({
+              propWithGetter: {
+                type: String,
+                get: v => {
+                  console.log(this);
+                  return v;
+                }
+              }
+            });
 
+            schema.method.arrowMethod = () => this;
+            schema.virtual('virtualWithArrow').get(() => {
+              console.log(this);
+            });
+        ```
 
+??? faq "我有一个名为`type`的嵌入式属性是这样的："
 
-    var schema = new mongoose.Schema({
-      propWithGetter: {
-        type: String,
-        get: v => {
-
-          console.log(this);
-          return v;
-        }
-      }
-    });
-
-
-    schema.method.arrowMethod = () => this;
-    schema.virtual('virtualWithArrow').get(() => {
-
-      console.log(this);
-    });
-
-
-* * *
-
-**Q**. I have an embedded property named `type` like this:
-
-
+    ```js
     const holdingSchema = new Schema({
-
-
-
       asset: {
         type: String,
         ticker: String
       }
     });
+    ```
 
+    但mongoose给了我一个CastError提示，当我试图用一个`asset`对象来保存`Holding`时，它不能把一个对象转换成一个字符串。
 
-But mongoose gives me a CastError telling me that it can't cast an object to a string when I try to save a `Holding` with an `asset` object. Why is this?
+    ```js
+      Holding.create({ asset: { type: 'stock', ticker: 'MDB' } }).catch(error => {
+        console.error(error);
+      });
+    ```
 
+    !!! info "答案"
 
-    Holding.create({ asset: { type: 'stock', ticker: 'MDB' } }).catch(error => {
+        “类型”属性在猫鼬是特别的，所以当你说`type：String`时，猫鼬把它解释为一个类型声明. 在上面的模式中，猫鼬认为“asset”是一个字符串，而不是一个对象。,做这个，而不是：
 
-      console.error(error);
-    });
+        ```js
+          const holdingSchema = new Schema({
+            asset: {
+              type: { type: String },
+              ticker: String
+            }
+          });
+        ```
 
+??? faq "为什么不能对日期对象（例如`date.setMonth（1）;`）进行就地修改？"
 
-**A**. The `type` property is special in mongoose, so when you say `type: String`, mongoose interprets it as a type declaration. In the above schema, mongoose thinks `asset` is a string, not an object. Do this instead:
-
-
-    const holdingSchema = new Schema({
-
-
-
-      asset: {
-        type: { type: String },
-        ticker: String
-      }
-    });
-
-
-* * *
-
-**Q**. Why don't in-place modifications to date objects (e.g. `date.setMonth(1);`) get saved?
-
-
+    ```js
     doc.createdAt.setDate(2011, 5, 1);
     doc.save();
+    ```
 
+    !!! info "答案"
 
-**A**. Mongoose currently doesn't watch for in-place updates to date objects. If you have need for this feature, feel free to discuss on [this GitHub issue][8]. There are several workarounds:
+        Mongoose目前不会监视日期对象的就地更新,如果您需要这个功能，请随时在[此GitHub问题][8]上讨论。,有几个解决方法：
 
+        ```js
+            doc.createdAt.setDate(2011, 5, 1);
+            doc.markModified('createdAt');
+            doc.save();
 
-    doc.createdAt.setDate(2011, 5, 1);
-    doc.markModified('createdAt');
-    doc.save();
+            doc.createdAt = new Date(2011, 5, 1).setHours(4);
+            doc.save();
+        ```
 
-    doc.createdAt = new Date(2011, 5, 1).setHours(4);
-    doc.save();
+??? faq "我在下面的代码中填充数组下的嵌套属性："
 
-
-* * *
-
-**Q**. I'm populating a nested property under an array like the below code:
-
-
+    ```js
       new Schema({
         arr: [{
           child: { ref: 'OtherModel', type: Schema.Types.ObjectId }
         }]
       });
+    ```
 
+    `.populate（{path：'arr.child'，options：{sort：'name'}}）`不会被`arr.child.name`排序
 
-`.populate({ path: 'arr.child', options: { sort: 'name' } })` won't sort by `arr.child.name`?
+    !!! info "答案"
 
-**A**. See [this GitHub issue][9]. It's a known issue but one that's exceptionally difficult to fix.
+        见[这个GitHub问题] [9]。,这是一个已知的问题，但是这是一个非常难以解决的问题
 
-* * *
+??? faq "我的模型上的所有函数调用挂起，我做错了什么？"
 
-**Q**. All function calls on my models hang, what am I doing wrong?
+    !!! info "答案"
 
-**A**. By default, mongoose will buffer your function calls until it can connect to MongoDB. Read the [buffering section of the connection docs][10] for more information.
+        默认情况下，mongoose会缓冲你的函数调用，直到它可以连接到MongoDB。,阅读[连接文档的缓冲部分][10]了解更多信息。
 
-* * *
+??? faq "我怎样才能启用调试？"
 
-**Q**. How can I enable debugging?
+    !!! info "答案"
 
-**A**. Set the `debug` option to `true`:
+        将`debug`选项设置为`true`
 
+        ```js
+          mongoose.set('debug', true)
+        ```
 
-    mongoose.set('debug', true)
+        所有执行的收集方法都会将其参数的输出记录到控制台。
 
+??? faq "我的`save（）`回调从不执行。 我究竟做错了什么？"
 
-All executed collection methods will log output of their arguments to your console.
+    !!! info "答案"
 
-* * *
+        所有的“集合”操作（插入，删除，查询等）都被排队，直到“连接”打开. 尝试连接时可能发生错误。尝试添加一个错误处理程序到您的连接。
 
-**Q**. My `save()` callback never executes. What am I doing wrong?
+        ```js
+            mongoose.connect(..);
+            mongoose.connection.on('error', handleError);
 
-**A**. All `collection` actions (insert, remove, queries, etc.) are queued until the `connection` opens. It is likely that an error occurred while attempting to connect. Try adding an error handler to your connection.
+            var conn = mongoose.createConnection(..);
+            conn.on('error', handleError);
+        ```
 
+        如果您想要在整个应用程序中选择不使用猫鼬的缓冲机制，请将全局`bufferCommands`选项设置为false
 
-    mongoose.connect(..);
-    mongoose.connection.on('error', handleError);
+        ```js
+            mongoose.set('bufferCommands', false);
+        ```
 
+??? faq "我应该为每个数据库操作创建/销毁一个新的连接吗？"
 
-    var conn = mongoose.createConnection(..);
-    conn.on('error', handleError);
+    !!! info "答案"
 
+        不用。在应用程序启动时打开连接，并保持打开状态，直到应用程序关闭。
 
-If you want to opt out of mongoose's buffering mechanism across your entire application, set the global `bufferCommands` option to false:
+??? faq "为什么我得到"OverwriteModelError: Cannot overwrite .. model once compiled" 当我使用nodemon(一个测试框架)？"
 
+    !!! info "答案"
 
-    mongoose.set('bufferCommands', false);
+        `mongoose.model('ModelName',schema)'要求`ModelName`是唯一的，
+        所以你可以通过使用`mongoose.model('ModelName')`来访问模型。
+        如果你把mongoose.model('ModelName',schema);`放在[mocha`beforeEach()`hook][11]中，
+        此代码将尝试在**每**测试之前创建一个名为“ModelName”的新模型， 所以你会得到一个错误。
+        确保你只用一个给定的名字*once*创建一个新的模型。
+        如果您需要创建具有相同名称的多个模型，请创建一个新的连接并将模型绑定到连接。
 
+        ```js
+            var mongoose = require('mongoose');
+            var connection = mongoose.createConnection(..);
+            var kittySchema = mongoose.Schema({ name: String });
+            var Kitten = connection.model('Kitten', kittySchema);
+        ```
 
-* * *
+**要添加的东西?**
 
-**Q**. Should I create/destroy a new connection for each database operation?
-
-**A**. No. Open your connection when your application starts up and leave it open until the application shuts down.
-
-* * *
-
-**Q**. Why do I get "OverwriteModelError: Cannot overwrite .. model once compiled" when I use nodemon / a testing framework?
-
-**A**. `mongoose.model('ModelName', schema)` requires 'ModelName' to be unique, so you can access the model by using `mongoose.model('ModelName')`. If you put `mongoose.model('ModelName', schema);` in a [mocha `beforeEach()` hook][11], this code will attempt to create a new model named 'ModelName' before **every** test, and so you will get an error. Make sure you only create a new model with a given name **once**. If you need to create multiple models with the same name, create a new connection and bind the model to the connection.
-
-
-    var mongoose = require('mongoose');
-    var connection = mongoose.createConnection(..);
-
-
-    var kittySchema = mongoose.Schema({ name: String });
-
-
-    var Kitten = connection.model('Kitten', kittySchema);
-
-
-**Something to add?**
-
-If you'd like to contribute to this page, please [visit it][12] on github and use the [Edit][13] button to send a pull request.
+如果您想贡献此页面，请在github上[访问它][12]，并使用[编辑][13]按钮发送拉取请求。
 
 [1]: http://mongoosejs.com/api.html#types_array_MongooseArray.set
 [2]: https://docs.mongodb.com/manual/core/index-unique/
@@ -271,5 +251,4 @@ If you'd like to contribute to this page, please [visit it][12] on github and us
 [11]: https://mochajs.org/#hooks
 [12]: https://github.com/Automattic/mongoose/tree/master/docs/faq.jade
 [13]: https://github.com/blog/844-forking-with-the-edit-button
-
 
