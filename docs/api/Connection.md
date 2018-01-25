@@ -1,118 +1,97 @@
-### [Connection()][28]
+# 连接
 
-##### Parameters
+## Connection()
 
-* base «Mongoose» a mongoose instance
+**参数**
 
-Connection constructor
+基于 «Mongoose» 一个猫鼬的例子
 
-For practical reasons, a Connection equals a Db.
+连接构造
 
-* * *
+出于实际的原因，连接等于Db。
 
-### [Connection.prototype.readyState][29]
+## Connection.prototype.readyState
 
-Connection ready state
+连接准备状态
 
 * 0 = disconnected
 * 1 = connected
 * 2 = connecting
 * 3 = disconnecting
 
-Each state change emits its associated event name.
+每个状态更改都会发出其关联的事件名称
 
-#### Example
-
+**示例**
 
     conn.on('connected', callback);
     conn.on('disconnected', callback);
 
-* * *
+## Connection.prototype.collections
 
-### [Connection.prototype.collections][30]
+与此连接关联的集合的散列
 
-A hash of the collections associated with this connection
+## Connection.prototype.db
 
-* * *
+当连接打开时设置的mongodb.Db实例
 
-### [Connection.prototype.db][31]
+## Connection.prototype.config
 
-The mongodb.Db instance, set when the connection is opened
+与此连接关联的全局选项的散列
 
-* * *
+## Connection.prototype.createCollection()
 
-### [Connection.prototype.config][32]
+**参数**
 
-A hash of the global options that are associated with this connection
+**返回**
 
-* * *
+## Connection.prototype.dropCollection()
 
-### [Connection.prototype.createCollection()][33]
+**参数**
 
-##### Parameters
+**返回**
 
-##### Returns:
+`dropCollection()`助手. 将删除给定的集合，包括所有文档和索引.
 
-* * *
+## Connection.prototype.dropDatabase()
 
-### [Connection.prototype.dropCollection()][34]
+**参数**
 
-##### Parameters
+**返回**
 
-##### Returns:
+`dropDatabase()`助手. 删除给定的数据库，包括所有集合，文档和索引.
 
-Helper for `dropCollection()`. Will delete the given collection, including all documents and indexes.
+## Connection.prototype.close()
 
-* * *
+**参数**
 
-### [Connection.prototype.dropDatabase()][35]
+* 回调«功能»选项
 
-##### Parameters
+**返回**
 
-##### Returns:
+## Connection.prototype.collection()
 
-Helper for `dropDatabase()`. Deletes the given database, including all collections, documents, and indexes.
+**参数**
 
-* * *
+* 选项«对象»可选收集选项
 
-### [Connection.prototype.close()][36]
+**返回**
 
-##### Parameters
+* «Collection» 收集实例
 
-* [callback] «Function» optional
+检索一个集合，如果没有缓存则创建它
+通常不需要应用程序。 Just talk to your collection through your model.
 
-##### Returns:
+## Connection.prototype.model()
 
-* * *
+**参数**
 
-### [Connection.prototype.collection()][37]
+* collection «String» name of mongodb collection (optional) if not given it will be induced from model name
 
-##### Parameters
+**返回**
 
-* [options] «Object» optional collection options
+* «Model» 编译模式
 
-##### Returns:
-
-* «Collection» collection instance
-
-Retrieves a collection, creating it if not cached.
-
-Not typically needed by applications. Just talk to your collection through your model.
-
-* * *
-
-### [Connection.prototype.model()][38]
-
-##### Parameters
-
-* [collection] «String» name of mongodb collection (optional) if not given it will be induced from model name
-
-##### Returns:
-
-* «Model» The compiled model
-
-Defines or retrieves a model.
-
+定义或检索模型
 
     var mongoose = require('mongoose');
     var db = mongoose.createConnection(..);
@@ -120,28 +99,19 @@ Defines or retrieves a model.
     var Ticket = db.model('Ticket', new Schema(..));
     var Venue = db.model('Venue');
 
-_When no `collection` argument is passed, Mongoose produces a collection name by passing the model `name` to the [utils.toCollectionName][39] method. This method pluralizes the name. If you don't like this behavior, either pass a collection name or set your schemas collection name option._
+_When no `collection` argument is passed, Mongoose produces a collection name by passing the model `name` to the utils.toCollectionName method. This method pluralizes the name. If you don't like this behavior, either pass a collection name or set your schemas collection name option._
 
-#### Example:
-
+**示例**
 
     var schema = new Schema({ name: String }, { collection: 'actor' });
 
-
-
     schema.set('collection', 'actor');
-
-
 
     var collectionName = 'actor'
     var M = conn.model('Actor', schema, collectionName)
 
-* * *
+## Connection.prototype.modelNames()
 
-### [Connection.prototype.modelNames()][40]
+**返回**
 
-##### Returns:
-
-Returns an array of model names created on this connection.
-
-* * *
+返回在此连接上创建的模型名称数组。

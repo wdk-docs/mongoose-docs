@@ -1,7 +1,9 @@
 
-### [Model()][77]
+# 模型
 
-##### Parameters
+## Model()
+
+**参数**
 
 * doc «Object» values with which to create the document
 
@@ -9,47 +11,35 @@ Model constructor
 
 Provides the interface to MongoDB collections as well as creates document instances.
 
-* * *
-
-### [Model.prototype.db][78]
+## Model.prototype.db
 
 Connection the model uses.
 
-* * *
-
-### [Model.prototype.collection][79]
+## Model.prototype.collection
 
 Collection the model uses.
 
-* * *
+## Model.prototype.modelName
 
-### [Model.prototype.modelName][80]
-
-* * *
-
-### [Model.prototype.$where][81]
+## Model.prototype.$where
 
 Additional properties to attach to the query when calling `save()` and `isNew` is false.
 
-* * *
-
-### [Model.prototype.baseModelName][82]
+## Model.prototype.baseModelName
 
 If this is a discriminator model, `baseModelName` is the name of the base model.
 
-* * *
+## Model.prototype.save()
 
-### [Model.prototype.save()][60]
-
-##### Parameters
+**参数**
 
 * [fn] «Function» optional callback
 
-##### Returns:
+**返回**
 
 Saves this document.
 
-#### Example:
+**示例**
 
 
     product.sold = Date.now();
@@ -64,20 +54,18 @@ The callback will receive three parameters
 
 As an extra measure of flow control, save will return a Promise.
 
-#### Example:
+**示例**
 
 
     product.save().then(function(product) {
        ...
     });
 
-* * *
-
-### [Model.prototype.increment()][83]
+## Model.prototype.increment()
 
 Signal that we desire an increment of this documents version.
 
-#### Example:
+**示例**
 
 
     Model.findById(id, function (err, doc) {
@@ -85,19 +73,17 @@ Signal that we desire an increment of this documents version.
       doc.save(function (err) { .. })
     })
 
-* * *
+## Model.prototype.remove()
 
-### [Model.prototype.remove()][84]
-
-##### Parameters
+**参数**
 
 * [fn] «function(err,product)» optional callback
 
-##### Returns:
+**返回**
 
 Removes this document from the db.
 
-#### Example:
+**示例**
 
 
     product.remove(function (err, product) {
@@ -109,7 +95,7 @@ Removes this document from the db.
 
 As an extra measure of flow control, remove will return a Promise (bound to `fn` if passed) so it could be chained, or hooked to recive errors
 
-#### Example:
+**示例**
 
 
     product.remove().then(function (product) {
@@ -118,33 +104,29 @@ As an extra measure of flow control, remove will return a Promise (bound to `fn`
        assert.ok(err)
     })
 
-* * *
+## Model.prototype.model()
 
-### [Model.prototype.model()][85]
-
-##### Parameters
+**参数**
 
 * name «String» model name
 
 Returns another Model instance.
 
-#### Example:
+**示例**
 
 
     var doc = new Tank;
     doc.model('User').findById(id, callback);
 
-* * *
+## Model.discriminator()
 
-### [Model.discriminator()][86]
-
-##### Parameters
+**参数**
 
 * schema «Schema» discriminator model schema
 
 Adds a discriminator type.
 
-#### Example:
+**示例**
 
 
     function BaseSchema() {
@@ -163,17 +145,15 @@ Adds a discriminator type.
     var Person = mongoose.model('Person', PersonSchema);
     var Boss = Person.discriminator('Boss', BossSchema);
 
-* * *
+## Model.init()
 
-### [Model.init()][87]
+**参数**
 
-##### Parameters
-
-Performs any async initialization of this model against MongoDB. Currently, this function is only responsible for building [indexes][88], unless [`autoIndex`][89] is turned off.
+Performs any async initialization of this model against MongoDB. Currently, this function is only responsible for building [indexes, unless [`autoIndex` is turned off.
 
 This function is called automatically, so you don't need to call it. This function is also idempotent, so you may call it to get back a promise that will resolve when your indexes are finished building as an alternative to `MyModel.on('index')`
 
-#### Example:
+**示例**
 
 
     var eventSchema = new Schema({ thing: { type: 'string', unique: true }})
@@ -187,19 +167,17 @@ This function is called automatically, so you don't need to call it. This functi
       console.log('Indexes are done building!');
     });
 
-* * *
+## Model.ensureIndexes()
 
-### [Model.ensureIndexes()][90]
-
-##### Parameters
+**参数**
 
 * [cb] «Function» optional callback
 
-##### Returns:
+**返回**
 
 Sends `createIndex` commands to mongo for each index declared in the schema. The `createIndex` commands are sent in series.
 
-#### Example:
+**示例**
 
 
     Event.ensureIndexes(function (err) {
@@ -208,7 +186,7 @@ Sends `createIndex` commands to mongo for each index declared in the schema. The
 
 After completion, an `index` event is emitted on this `Model` passing an error if one occurred.
 
-#### Example:
+**示例**
 
 
     var eventSchema = new Schema({ thing: { type: 'string', unique: true }})
@@ -220,49 +198,39 @@ After completion, an `index` event is emitted on this `Model` passing an error i
 
 _NOTE: It is not recommended that you run this in production. Index creation may impact database performance depending on your load. Use with caution._
 
-* * *
+## Model.createIndexes()
 
-### [Model.createIndexes()][91]
-
-##### Parameters
+**参数**
 
 * [cb] «Function» optional callback
 
-##### Returns:
+**返回**
 
-Similar to `ensureIndexes()`, except for it uses the [`createIndex`][92] function. The `ensureIndex()` function checks to see if an index with that name already exists, and, if not, does not attempt to create the index. `createIndex()` bypasses this check.
+Similar to `ensureIndexes()`, except for it uses the [`createIndex` function. The `ensureIndex()` function checks to see if an index with that name already exists, and, if not, does not attempt to create the index. `createIndex()` bypasses this check.
 
-* * *
+## Model.prototype.schema
 
-### [Model.prototype.schema][93]
-
-* * *
-
-### [Model.prototype.base][94]
+## Model.prototype.base
 
 Base Mongoose instance the model uses.
 
-* * *
-
-### [Model.prototype.discriminators][95]
+## Model.prototype.discriminators
 
 Registered discriminators for this model.
 
-* * *
+## Model.translateAliases()
 
-### [Model.translateAliases()][96]
-
-##### Parameters
+**参数**
 
 * raw «Object» fields/conditions that may contain aliased keys
 
-##### Returns:
+**返回**
 
 * «Object» the translated 'pure' fields/conditions
 
 Translate any aliases fields/conditions so the final query or document object is pure
 
-#### Example:
+**示例**
 
 
     Character
@@ -271,78 +239,74 @@ Translate any aliases fields/conditions so the final query or document object is
       })
       .exec(function(err, characters) {})
 
-#### Note:
+**注释**
 
 Only translate arguments of object type anything else is returned raw
 
-* * *
+## Model.remove()
 
-### [Model.remove()][97]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Removes all documents that match `conditions` from the collection. To remove just the first document that matches `conditions`, set the `single` option to true.
 
-#### Example:
+**示例**
 
 
     Character.remove({ name: 'Eddard Stark' }, function (err) {});
 
-#### Note:
+**注释**
 
 This method sends a remove command directly to MongoDB, no Mongoose documents are involved. Because no Mongoose documents are involved, _no middleware (hooks) are executed_.
 
-* * *
+## Model.deleteOne()
 
-### [Model.deleteOne()][98]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Deletes the first document that matches `conditions` from the collection. Behaves like `remove()`, but deletes at most one document regardless of the `single` option.
 
-#### Example:
+**示例**
 
 
     Character.deleteOne({ name: 'Eddard Stark' }, function (err) {});
 
-#### Note:
+**注释**
 
 Like `Model.remove()`, this function does **not** trigger `pre('remove')` or `post('remove')` hooks.
 * * *
 
-### [Model.deleteMany()][99]
+## Model.deleteMany()
 
-##### Parameters
+**参数**
 
-##### Returns:
+**返回**
 
 Deletes all of the documents that match `conditions` from the collection. Behaves like `remove()`, but deletes all documents that match `conditions` regardless of the `single` option.
 
-#### Example:
+**示例**
 
 
     Character.deleteMany({ name: /Stark/, age: { $gte: 18 } }, function (err) {});
 
-#### Note:
+**注释**
 
 Like `Model.remove()`, this function does **not** trigger `pre('remove')` or `post('remove')` hooks.
 * * *
 
-### [Model.find()][100]
+## Model.find()
 
-##### Parameters
+**参数**
 
-##### Returns:
+**返回**
 
 Finds documents
 
 The `conditions` are cast to their respective SchemaTypes before the command is sent.
 
-#### Examples:
+**示例**
 
 
     MyModel.find({ name: 'john', age: { $gte: 18 }});
@@ -368,13 +332,11 @@ The `conditions` are cast to their respective SchemaTypes before the command is 
     var promise = query.exec();
     promise.addBack(function (err, docs) {});
 
-* * *
+## Model.findById()
 
-### [Model.findById()][101]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Finds a single document by its _id field. `findById(id)` is almost* equivalent to `findOne({ _id: id })`. If you want to query by a document's `_id`, use `findById()` instead of `findOne()`.
 
@@ -384,7 +346,7 @@ This function triggers the following middleware.
 
 * Except for how it treats `undefined`. If you use `findOne()`, you'll see that `findOne(undefined)` and `findOne({ _id: undefined })` are equivalent to `findOne({})` and return arbitrary documents. However, mongoose translates `findById(undefined)` into `findOne({ _id: null })`.
 
-#### Example:
+**示例**
 
 
     Adventure.findById(id, function (err, adventure) {});
@@ -407,13 +369,11 @@ This function triggers the following middleware.
 
     Adventure.findById(id, 'name').lean().exec(function (err, doc) {});
 
-* * *
+## Model.findOne()
 
-### [Model.findOne()][102]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Finds one document.
 
@@ -421,7 +381,7 @@ The `conditions` are cast to their respective SchemaTypes before the command is 
 
 _Note:_ `conditions` is optional, and if `conditions` is null or undefined, mongoose will send an empty `findOne` command to MongoDB, which will return an arbitrary document. If you're querying by `_id`, use `findById()` instead.
 
-#### Example:
+**示例**
 
 
     Adventure.findOne({ type: 'iphone' }, function (err, adventure) {});
@@ -444,17 +404,15 @@ _Note:_ `conditions` is optional, and if `conditions` is null or undefined, mong
 
     Adventure.findOne({ type: 'iphone' }).select('name').lean().exec(callback);
 
-* * *
+## Model.count()
 
-### [Model.count()][103]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Counts number of matching documents in a database collection.
 
-#### Example:
+**示例**
 
 
     Adventure.count({ type: 'jungle' }, function (err, count) {
@@ -462,19 +420,17 @@ Counts number of matching documents in a database collection.
       console.log('there are %d jungle adventures', count);
     });
 
-* * *
+## Model.distinct()
 
-### [Model.distinct()][104]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Creates a Query for a `distinct` operation.
 
 Passing a `callback` immediately executes the query.
 
-#### Example
+**示例**
 
 
     Link.distinct('url', { clicks: {$gt: 100}}, function (err, result) {
@@ -487,15 +443,13 @@ Passing a `callback` immediately executes the query.
     var query = Link.distinct('url');
     query.exec(callback);
 
-* * *
+## Model.where()
 
-### [Model.where()][105]
-
-##### Parameters
+**参数**
 
 * [val] «Object» optional value
 
-##### Returns:
+**返回**
 
 Creates a Query, applies the passed conditions, and returns the Query.
 
@@ -517,15 +471,13 @@ Since the Query class also supports `where` you can continue chaining
     .where('name', /^b/i)
     ... etc
 
-* * *
+## Model.prototype.$where()
 
-### [Model.prototype.$where()][81]
-
-##### Parameters
+**参数**
 
 * argument «String,Function» is a javascript string or anonymous function
 
-##### Returns:
+**返回**
 
 Creates a `Query` and specifies a `$where` condition.
 
@@ -534,31 +486,29 @@ Sometimes you need to query for things in mongodb using a JavaScript expression.
 
     Blog.$where('this.username.indexOf("val") !== -1').exec(function (err, docs) {});
 
-* * *
+## Model.findOneAndUpdate()
 
-### [Model.findOneAndUpdate()][106]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Issues a mongodb findAndModify update command.
 
 Finds a matching document, updates it according to the `update` arg, passing any `options`, and returns the found document (if any) to the callback. The query executes immediately if `callback` is passed else a Query object is returned.
 
-#### Options:
+**选项**
 
 * `new`: bool - if true, return the modified document rather than the original. defaults to false (changed in 4.0)
 * `upsert`: bool - creates the object if it doesn't exist. defaults to false.
 * `fields`: {Object|String} - Field selection. Equivalent to `.select(fields).findOneAndUpdate()`
 * `maxTimeMS`: puts a time limit on the query - requires mongodb >= 2.6.0
 * `sort`: if multiple docs are found by the conditions, sets the sort order to choose which doc to update
-* `runValidators`: if true, runs [update validators][107] on this command. Update validators validate the update operation against the model's schema.
-* `setDefaultsOnInsert`: if this and `upsert` are true, mongoose will apply the [defaults][108] specified in the model's schema if a new document is created. This option only works on MongoDB >= 2.4 because it relies on [MongoDB's `$setOnInsert` operator][109].
-* `rawResult`: if true, returns the [raw result from the MongoDB driver][110]
-* `strict`: overwrites the schema's [strict mode option][111] for this update
+* `runValidators`: if true, runs [update validators on this command. Update validators validate the update operation against the model's schema.
+* `setDefaultsOnInsert`: if this and `upsert` are true, mongoose will apply the [defaults specified in the model's schema if a new document is created. This option only works on MongoDB >= 2.4 because it relies on [MongoDB's `$setOnInsert` operator.
+* `rawResult`: if true, returns the [raw result from the MongoDB driver
+* `strict`: overwrites the schema's [strict mode option for this update
 
-#### Examples:
+**示例**
 
 
     A.findOneAndUpdate(conditions, update, options, callback)
@@ -567,11 +517,11 @@ Finds a matching document, updates it according to the `update` arg, passing any
     A.findOneAndUpdate(conditions, update)
     A.findOneAndUpdate()
 
-#### Note:
+**注释**
 
 All top level update keys which are not `atomic` operation names are treated as set operations:
 
-#### Example:
+**示例**
 
 
     var query = { name: 'borne' };
@@ -582,7 +532,7 @@ All top level update keys which are not `atomic` operation names are treated as 
 
 This helps prevent accidentally overwriting your document with `{ name: 'jason bourne' }`.
 
-#### Note:
+**注释**
 
 Values are cast to their appropriate types when using the findAndModify helpers. However, the below are not executed by default.
 
@@ -599,13 +549,11 @@ If you need full-fledged validation, use the traditional approach of first retri
       doc.save(callback);
     });
 
-* * *
+## Model.findByIdAndUpdate()
 
-### [Model.findByIdAndUpdate()][112]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Issues a mongodb findAndModify update command by a document's _id field. `findByIdAndUpdate(id, ...)` is equivalent to `findOneAndUpdate({ _id: id }, ...)`.
 
@@ -613,18 +561,18 @@ Finds a matching document, updates it according to the `update` arg, passing any
 
 This function triggers the following middleware.
 
-#### Options:
+**选项**
 
 * `new`: bool - true to return the modified document rather than the original. defaults to false
 * `upsert`: bool - creates the object if it doesn't exist. defaults to false.
-* `runValidators`: if true, runs [update validators][107] on this command. Update validators validate the update operation against the model's schema.
-* `setDefaultsOnInsert`: if this and `upsert` are true, mongoose will apply the [defaults][108] specified in the model's schema if a new document is created. This option only works on MongoDB >= 2.4 because it relies on [MongoDB's `$setOnInsert` operator][109].
+* `runValidators`: if true, runs [update validators on this command. Update validators validate the update operation against the model's schema.
+* `setDefaultsOnInsert`: if this and `upsert` are true, mongoose will apply the [defaults specified in the model's schema if a new document is created. This option only works on MongoDB >= 2.4 because it relies on [MongoDB's `$setOnInsert` operator.
 * `sort`: if multiple docs are found by the conditions, sets the sort order to choose which doc to update
 * `select`: sets the document fields to return
-* `rawResult`: if true, returns the [raw result from the MongoDB driver][110]
-* `strict`: overwrites the schema's [strict mode option][111] for this update
+* `rawResult`: if true, returns the [raw result from the MongoDB driver
+* `strict`: overwrites the schema's [strict mode option for this update
 
-#### Examples:
+**示例**
 
 
     A.findByIdAndUpdate(id, update, options, callback)
@@ -633,11 +581,11 @@ This function triggers the following middleware.
     A.findByIdAndUpdate(id, update)
     A.findByIdAndUpdate()
 
-#### Note:
+**注释**
 
 All top level update keys which are not `atomic` operation names are treated as set operations:
 
-#### Example:
+**示例**
 
 
     Model.findByIdAndUpdate(id, { name: 'jason bourne' }, options, callback)
@@ -647,7 +595,7 @@ All top level update keys which are not `atomic` operation names are treated as 
 
 This helps prevent accidentally overwriting your document with `{ name: 'jason bourne' }`.
 
-#### Note:
+**注释**
 
 Values are cast to their appropriate types when using the findAndModify helpers. However, the below are not executed by default.
 
@@ -664,13 +612,11 @@ If you need full-fledged validation, use the traditional approach of first retri
       doc.save(callback);
     });
 
-* * *
+## Model.findOneAndRemove()
 
-### [Model.findOneAndRemove()][113]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Issue a mongodb findAndModify remove command.
 
@@ -680,15 +626,15 @@ Executes immediately if `callback` is passed else a Query object is returned.
 
 This function triggers the following middleware.
 
-#### Options:
+**选项**
 
 * `sort`: if multiple docs are found by the conditions, sets the sort order to choose which doc to update
 * `maxTimeMS`: puts a time limit on the query - requires mongodb >= 2.6.0
 * `select`: sets the document fields to return
-* `rawResult`: if true, returns the [raw result from the MongoDB driver][110]
-* `strict`: overwrites the schema's [strict mode option][111] for this update
+* `rawResult`: if true, returns the [raw result from the MongoDB driver
+* `strict`: overwrites the schema's [strict mode option for this update
 
-#### Examples:
+**示例**
 
 
     A.findOneAndRemove(conditions, options, callback)
@@ -712,13 +658,11 @@ If you need full-fledged validation, use the traditional approach of first retri
       doc.save(callback);
     });
 
-* * *
+## Model.findByIdAndRemove()
 
-### [Model.findByIdAndRemove()][114]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Issue a mongodb findAndModify remove command by a document's _id field. `findByIdAndRemove(id, ...)` is equivalent to `findOneAndRemove({ _id: id }, ...)`.
 
@@ -728,14 +672,14 @@ Executes immediately if `callback` is passed, else a `Query` object is returned.
 
 This function triggers the following middleware.
 
-#### Options:
+**选项**
 
 * `sort`: if multiple docs are found by the conditions, sets the sort order to choose which doc to update
 * `select`: sets the document fields to return
-* `rawResult`: if true, returns the [raw result from the MongoDB driver][110]
-* `strict`: overwrites the schema's [strict mode option][111] for this update
+* `rawResult`: if true, returns the [raw result from the MongoDB driver
+* `strict`: overwrites the schema's [strict mode option for this update
 
-#### Examples:
+**示例**
 
 
     A.findByIdAndRemove(id, options, callback)
@@ -744,21 +688,19 @@ This function triggers the following middleware.
     A.findByIdAndRemove(id)
     A.findByIdAndRemove()
 
-* * *
+## Model.create()
 
-### [Model.create()][115]
-
-##### Parameters
+**参数**
 
 * [callback] «Function» callback
 
-##### Returns:
+**返回**
 
 Shortcut for saving one or more documents to the database. `MyModel.create(docs)` does `new MyModel(doc).save()` for every doc in docs.
 
 This function triggers the following middleware.
 
-#### Example:
+**示例**
 
 
     Candy.create({ type: 'jelly bean' }, { type: 'snickers' }, function (err, jellybean, snickers) {
@@ -781,21 +723,19 @@ This function triggers the following middleware.
 
     })
 
-* * *
+## Model.watch()
 
-### [Model.watch()][116]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 * «ChangeStream» mongoose-specific change stream wrapper
 
-_Requires a replica set running MongoDB >= 3.6.0._ Watches the underlying collection for changes using [MongoDB change streams][117].
+_Requires a replica set running MongoDB >= 3.6.0._ Watches the underlying collection for changes using [MongoDB change streams.
 
 This function does **not** trigger any middleware. In particular, it does **not** trigger aggregate middleware.
 
-#### Example:
+**示例**
 
 
     const doc = await Person.create({ name: 'Ned Stark' });
@@ -807,39 +747,35 @@ This function does **not** trigger any middleware. In particular, it does **not*
 
     await doc.remove();
 
-* * *
+## Model.insertMany()
 
-### [Model.insertMany()][118]
-
-##### Parameters
+**参数**
 
 * [callback] «Function» callback
 
-##### Returns:
+**返回**
 
 Shortcut for validating an array of documents and inserting them into MongoDB if they're all valid. This function is faster than `.create()` because it only sends one operation to the server, rather than one for each document.
 
-Mongoose always validates each document **before** sending `insertMany` to MongoDB. So if one document has a validation error, no documents will be saved, unless you set [the `ordered` option to false][119].
+Mongoose always validates each document **before** sending `insertMany` to MongoDB. So if one document has a validation error, no documents will be saved, unless you set [the `ordered` option to false.
 
 This function does **not** trigger save middleware.
 
 This function triggers the following middleware.
 
-#### Example:
+**示例**
 
 
     var arr = [{ name: 'Star Wars' }, { name: 'The Empire Strikes Back' }];
     Movies.insertMany(arr, function(error, docs) {});
 
-* * *
+## Model.bulkWrite()
 
-### [Model.bulkWrite()][120]
-
-##### Parameters
+**参数**
 
 * [callback] «Function» callback `function(error, bulkWriteOpResult) {}`
 
-##### Returns:
+**返回**
 
 * «Promise» resolves to a `BulkWriteOpResult` if the operation succeeds
 
@@ -847,9 +783,9 @@ Sends multiple `insertOne`, `updateOne`, `updateMany`, `replaceOne`, `deleteOne`
 
 Mongoose will perform casting on all operations you provide.
 
-This function does **not** trigger any middleware, not `save()` nor `update()`. If you need to trigger `save()` middleware for every document use [`create()`][121] instead.
+This function does **not** trigger any middleware, not `save()` nor `update()`. If you need to trigger `save()` middleware for every document use [`create()` instead.
 
-#### Example:
+**示例**
 
 
     Character.bulkWrite([
@@ -879,36 +815,32 @@ This function does **not** trigger any middleware, not `save()` nor `update()`. 
       }
     ]).then(handleResult);
 
-* * *
+## Model.hydrate()
 
-### [Model.hydrate()][122]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 * «Model» document instance
 
 Shortcut for creating a new Document from existing raw data, pre-saved in the DB. The document returned has no paths marked as modified initially.
 
-#### Example:
+**示例**
 
 
     var mongooseCandy = Candy.hydrate({ _id: '54108337212ffb6d459f854c', type: 'jelly bean' });
 
-* * *
+## Model.update()
 
-### [Model.update()][123]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Updates one document in the database without returning it.
 
 This function triggers the following middleware.
 
-#### Examples:
+**示例**
 
 
     MyModel.update({ age: { $gt: 18 } }, { oldEnough: true }, fn);
@@ -917,13 +849,13 @@ This function triggers the following middleware.
       console.log('The raw response from Mongo was ', raw);
     });
 
-#### Valid options:
+**有效的选项**
 
 * `safe` (boolean) safe mode (defaults to value set in schema (true))
 * `upsert` (boolean) whether to create the doc if it doesn't match (false)
 * `multi` (boolean) whether multiple documents should be updated (false)
-* `runValidators`: if true, runs [update validators][107] on this command. Update validators validate the update operation against the model's schema.
-* `setDefaultsOnInsert`: if this and `upsert` are true, mongoose will apply the [defaults][108] specified in the model's schema if a new document is created. This option only works on MongoDB >= 2.4 because it relies on [MongoDB's `$setOnInsert` operator][109].
+* `runValidators`: if true, runs [update validators on this command. Update validators validate the update operation against the model's schema.
+* `setDefaultsOnInsert`: if this and `upsert` are true, mongoose will apply the [defaults specified in the model's schema if a new document is created. This option only works on MongoDB >= 2.4 because it relies on [MongoDB's `$setOnInsert` operator.
 * `strict` (boolean) overrides the `strict` option for this update
 * `overwrite` (boolean) disables update-only mode, allowing you to overwrite the doc (false)
 
@@ -934,11 +866,11 @@ The `callback` function receives `(err, rawResponse)`.
 * `err` is the error if any occurred
 * `rawResponse` is the full response from Mongo
 
-#### Note:
+**注释**
 
 All top level keys which are not `atomic` operation names are treated as set operations:
 
-#### Example:
+**示例**
 
 
     var query = { name: 'borne' };
@@ -950,18 +882,18 @@ All top level keys which are not `atomic` operation names are treated as set ope
 
 This helps prevent accidentally overwriting all documents in your collection with `{ name: 'jason bourne' }`.
 
-#### Note:
+**注释**
 
 Be careful to not use an existing model instance for the update clause (this won't work and can cause weird behavior like infinite loops). Also, ensure that the update clause does not have an _id property, which causes Mongo to return a "Mod on _id not allowed" error.
 
-#### Note:
+**注释**
 
-To update documents without waiting for a response from MongoDB, do not pass a `callback`, then call `exec` on the returned [Query][124]:
+To update documents without waiting for a response from MongoDB, do not pass a `callback`, then call `exec` on the returned [Query:
 
 
     Comment.update({ _id: id }, { $set: { text: 'changed' }}).exec();
 
-#### Note:
+**注释**
 
 Although values are casted to their appropriate types when using update, the following are _not_ applied:
 
@@ -979,13 +911,11 @@ If you need those features, use the traditional approach of first retrieving the
       doc.save(callback);
     })
 
-* * *
+## Model.updateMany()
 
-### [Model.updateMany()][125]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Same as `update()`, except MongoDB will update _all_ documents that match `criteria` (as opposed to just the first one) regardless of the value of the `multi` option.
 
@@ -993,47 +923,41 @@ Same as `update()`, except MongoDB will update _all_ documents that match `crite
 
 This function triggers the following middleware.
 
-* * *
+## Model.updateOne()
 
-### [Model.updateOne()][126]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Same as `update()`, except MongoDB will update _only_ the first document that matches `criteria` regardless of the value of the `multi` option.
 
 This function triggers the following middleware.
 
-* * *
+## Model.replaceOne()
 
-### [Model.replaceOne()][127]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Same as `update()`, except MongoDB replace the existing document with the given document (no atomic operators like `$set`).
 
 This function triggers the following middleware.
 
-* * *
+## Model.mapReduce()
 
-### [Model.mapReduce()][128]
-
-##### Parameters
+**参数**
 
 * [callback] «Function» optional callback
 
-##### Returns:
+**返回**
 
 Executes a mapReduce command.
 
-`o` is an object specifying all mapReduce options as well as the map and reduce functions. All options are delegated to the driver implementation. See [node-mongodb-native mapReduce() documentation][129] for more detail about options.
+`o` is an object specifying all mapReduce options as well as the map and reduce functions. All options are delegated to the driver implementation. See [node-mongodb-native mapReduce() documentation for more detail about options.
 
 This function does not trigger any middleware.
 
-#### Example:
+**示例**
 
 
     var o = {};
@@ -1043,7 +967,7 @@ This function does not trigger any middleware.
       console.log(results)
     })
 
-#### Other options:
+**其他选项**
 
 * `query` {Object} query filter object.
 * `sort` {Object} sort input objects using this key
@@ -1056,7 +980,8 @@ This function does not trigger any middleware.
 * `readPreference` {String}
 * `out*` {Object, default: {inline:1}} sets the output target for the map reduce job.
 
-#### * out options:
+**输出选项**
+
 * `{inline:1}` the results are returned in an array
 * `{replace: 'collectionName'}` add the results to collectionName: the results replace the collection
 * `{reduce: 'collectionName'}` add the results to collectionName: if dups are detected, uses the reducer / finalize functions
@@ -1064,7 +989,7 @@ This function does not trigger any middleware.
 
 If `options.out` is set to `replace`, `merge`, or `reduce`, a Model instance is returned that can be used for further querying. Queries run against this model are all executed with the `lean` option; meaning only the js object is returned and no Mongoose magic is applied (getters, setters, etc).
 
-#### Example:
+**示例**
 
 
     var o = {};
@@ -1093,21 +1018,19 @@ If `options.out` is set to `replace`, `merge`, or `reduce`, a Model instance is 
        console.log(docs);
     }).then(null, handleError).end()
 
-* * *
+## Model.aggregate()
 
-### [Model.aggregate()][130]
+**参数**
 
-##### Parameters
+**返回**
 
-##### Returns:
-
-Performs [aggregations][131] on the models collection.
+Performs [aggregations on the models collection.
 
 If a `callback` is passed, the `aggregate` is executed and a `Promise` is returned. If a callback is not passed, the `aggregate` itself is returned.
 
 This function does not trigger any middleware.
 
-#### Example:
+**示例**
 
 
     Users.aggregate(
@@ -1127,26 +1050,26 @@ This function does not trigger any middleware.
         console.log(res);
     });
 
-#### NOTE:
+**注释**
 
 * Arguments are not cast to the model's schema because `$project` operators allow redefining the "shape" of the documents at any stage of the pipeline, which may leave documents in an incompatible format.
 * The documents returned are plain javascript objects, not mongoose documents (since any shape of document can be returned).
 * Requires MongoDB >= 2.1
 * * *
 
-### [Model.geoSearch()][132]
+## Model.geoSearch()
 
-##### Parameters
+**参数**
 
 * [callback] «Function» optional callback
 
-##### Returns:
+**返回**
 
 Implements `$geoSearch` functionality for Mongoose
 
 This function does not trigger any middleware
 
-#### Example:
+**示例**
 
 
     var options = { near: [10, 10], maxDistance: 5 };
@@ -1154,7 +1077,7 @@ This function does not trigger any middleware
       console.log(res);
     });
 
-#### Options:
+**选项**
 
 * `near` {Array} x,y point to search for
 * `maxDistance` {Number} the maximum distance from the point near that a result can be
@@ -1162,17 +1085,17 @@ This function does not trigger any middleware
 * `lean` {Boolean} return the raw object instead of the Mongoose Model
 * * *
 
-### [Model.populate()][133]
+## Model.populate()
 
-##### Parameters
+**参数**
 
 * [callback(err,doc)] «Function» Optional callback, executed upon completion. Receives `err` and the `doc(s)`.
 
-##### Returns:
+**返回**
 
 Populates document references.
 
-#### Available options:
+**可用的选项**
 
 * path: space delimited path(s) to populate
 * select: optional fields to select
@@ -1180,7 +1103,7 @@ Populates document references.
 * model: optional name of the model to use for population
 * options: optional query options like sort, limit, etc
 
-#### Examples:
+**示例**
 
 
     User.findById(id, function (err, user) {

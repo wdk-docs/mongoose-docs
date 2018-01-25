@@ -1,28 +1,28 @@
 
-### [SchemaType()][263]
+# 模式类型
 
-##### Parameters
+## SchemaType()
+
+**参数**
 
 SchemaType constructor. Do **not** instantiate `SchemaType` directly. Mongoose converts your schema paths into SchemaTypes automatically.
 
-#### Example:
+**示例**
 
     const schema = new Schema({ name: String });
     schema.path('name') instanceof SchemaType;
 
-* * *
+## SchemaType.prototype.default()
 
-### [SchemaType.prototype.default()][264]
-
-##### Parameters
+**参数**
 
 * val «Function,any» the default value
 
-##### Returns:
+**返回**
 
 Sets a default value for this SchemaType.
 
-#### Example:
+**示例**
 
     var schema = new Schema({ n: { type: Number, default: 10 })
     var M = db.model('M', schema)
@@ -31,7 +31,7 @@ Sets a default value for this SchemaType.
 
 Defaults can be either `functions` which return the value to use as the default or the literal value itself. Either way, the value will be cast based on its schema type before being set during document creation.
 
-#### Example:
+**示例**
 
     var schema = new Schema({ aNumber: { type: Number, default: 4.815162342 }})
     var M = db.model('M', schema)
@@ -52,19 +52,17 @@ Defaults can be either `functions` which return the value to use as the default 
     var m2 = new M;
     console.log(m2.mixed);
 
-* * *
+## SchemaType.prototype.index()
 
-### [SchemaType.prototype.index()][265]
-
-##### Parameters
+**参数**
 
 * options «Object,Boolean,String»
 
-##### Returns:
+**返回**
 
 Declares the index options for this schematype.
 
-#### Example:
+**示例**
 
     var s = new Schema({ name: { type: String, index: true })
     var s = new Schema({ loc: { type: [Number], index: 'hashed' })
@@ -75,70 +73,62 @@ Declares the index options for this schematype.
     Schema.path('my.date').index({ expires: 60 });
     Schema.path('my.path').index({ unique: true, sparse: true });
 
-#### NOTE:
+**注释**
 
 _Indexes are created in the background by default. Specify `background: false` to override._
 
-[Direction doesn't matter for single key indexes][266]
+[Direction doesn't matter for single key indexes
 
-* * *
+## SchemaType.prototype.unique()
 
-### [SchemaType.prototype.unique()][267]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Declares an unique index.
 
-#### Example:
+**示例**
 
     var s = new Schema({ name: { type: String, unique: true }});
     Schema.path('name').index({ unique: true });
 
 _NOTE: violating the constraint returns an `E11000` error from MongoDB when saving, not a Mongoose validation error._
 
-* * *
+## SchemaType.prototype.text()
 
-### [SchemaType.prototype.text()][268]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Declares a full text index.
 
-### Example:
+**示例**
 
     var s = new Schema({name : {type: String, text : true })
      Schema.path('name').index({text : true});
 
-* * *
+## SchemaType.prototype.sparse()
 
-### [SchemaType.prototype.sparse()][269]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Declares a sparse index.
 
-#### Example:
+**示例**
 
     var s = new Schema({ name: { type: String, sparse: true })
     Schema.path('name').index({ sparse: true });
 
-* * *
+## SchemaType.prototype.set()
 
-### [SchemaType.prototype.set()][270]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Adds a setter to this schematype.
 
-#### Example:
+**示例**
 
     function capitalize (val) {
       if (typeof val !== 'string') val = '';
@@ -152,7 +142,7 @@ Adds a setter to this schematype.
 
 Setters allow you to transform the data before it gets to the raw mongodb document and is set as a value on an actual key.
 
-Suppose you are implementing user registration for a website. Users provide an email and password, which gets saved to mongodb. The email is a string that you will want to normalize to lower case, in order to avoid one email having more than one account -- e.g., otherwise, [avenue@q.com][271] can be registered for 2 accounts via [avenue@q.com][271] and [AvEnUe@Q.CoM][271].
+Suppose you are implementing user registration for a website. Users provide an email and password, which gets saved to mongodb. The email is a string that you will want to normalize to lower case, in order to avoid one email having more than one account -- e.g., otherwise, [avenue@q.com can be registered for 2 accounts via [avenue@q.com and [AvEnUe@Q.CoM.
 
 You can set up email lower case normalization easily via a Mongoose setter.
 
@@ -166,14 +156,14 @@ You can set up email lower case normalization easily via a Mongoose setter.
 
     var User = db.model('User', UserSchema);
 
-    var user = new User({email: '[AVENUE@Q.COM][271]'});
-    console.log(user.email); // '[avenue@q.com][271]'
+    var user = new User({email: '[AVENUE@Q.COM'});
+    console.log(user.email); // '[avenue@q.com'
 
     // or
     var user = new User();
-    user.email = '[Avenue@Q.com][271]';
-    console.log(user.email); // '[avenue@q.com][271]'
-    User.updateOne({ _id: _id }, { $set: { email: '[AVENUE@Q.COM][271]' } }); // update to '[avenue@q.com][271]'
+    user.email = '[Avenue@Q.com';
+    console.log(user.email); // '[avenue@q.com'
+    User.updateOne({ _id: _id }, { $set: { email: '[AVENUE@Q.COM' } }); // update to '[avenue@q.com'
 
 As you can see above, setters allow you to transform the data before it stored in MongoDB.
 
@@ -202,17 +192,15 @@ Setters are also passed a second argument, the schematype on which the setter wa
     console.log(v.name);
     console.log(v.taxonomy);
 
-* * *
+## SchemaType.prototype.get()
 
-### [SchemaType.prototype.get()][272]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Adds a getter to this schematype.
 
-#### Example:
+**示例**
 
     function dob (val) {
       if (!val) return val;
@@ -264,23 +252,21 @@ Getters are also passed a second argument, the schematype on which the getter wa
       console.log(virus.taxonomy);
     })
 
-* * *
+## SchemaType.prototype.validate()
 
-### [SchemaType.prototype.validate()][273]
-
-##### Parameters
+**参数**
 
 * [type] «String» optional validator type
 
-##### Returns:
+**返回**
 
 Adds validator(s) for this document path.
 
 Validators always receive the value to validate as their first argument and must return `Boolean`. Returning `false` means validation failed.
 
-The error message argument is optional. If not passed, the [default generic error message template][274] will be used.
+The error message argument is optional. If not passed, the [default generic error message template will be used.
 
-#### Examples:
+**示例**
 
     function validator (val) {
       return val == 'something';
@@ -299,11 +285,11 @@ The error message argument is optional. If not passed, the [default generic erro
     var schema = new Schema({ name: 'string' });
     schema.path('name').validate(validator, 'validation of `{PATH}` failed with value `{VALUE}`');
 
-#### Error message templates:
+**错误消息模板**
 
-From the examples above, you may have noticed that error messages support basic templating. There are a few other template keywords besides `{PATH}` and `{VALUE}` too. To find out more, details are available [here][275]
+From the examples above, you may have noticed that error messages support basic templating. There are a few other template keywords besides `{PATH}` and `{VALUE}` too. To find out more, details are available [here
 
-#### Asynchronous validation:
+**异步验证**
 
 Passing a validator function that receives two arguments tells mongoose that the validator is an asynchronous validator. The first argument passed to the validator function is the value being validated. The second argument is a callback function that must called when you finish validating the value and passed either `true` or `false` to communicate either success or failure respectively.
 
@@ -328,9 +314,9 @@ Passing a validator function that receives two arguments tells mongoose that the
 
 You might use asynchronous validators to retreive other documents from the database to validate against or to meet other I/O bound validation needs.
 
-Validation occurs `pre('save')` or whenever you manually execute [document#validate][59].
+Validation occurs `pre('save')` or whenever you manually execute [document#validate.
 
-If validation fails during `pre('save')` and no callback was passed to receive the error, an `error` event will be emitted on your Models associated db [connection][28], passing the validation error object along.
+If validation fails during `pre('save')` and no callback was passed to receive the error, an `error` event will be emitted on your Models associated db [connection, passing the validation error object along.
 
     var conn = mongoose.createConnection(..);
     conn.on('error', handleError);
@@ -343,19 +329,17 @@ If you desire handling these errors at the Model level, attach an `error` listen
 
     Product.on('error', handleError);
 
-* * *
+## SchemaType.prototype.required()
 
-### [SchemaType.prototype.required()][276]
-
-##### Parameters
+**参数**
 
 * [message] «String» optional custom error message
 
-##### Returns:
+**返回**
 
 Adds a required validator to this SchemaType. The validator gets added to the front of this SchemaType's validators array using `unshift()`.
 
-#### Example:
+**示例**
 
     var s = new Schema({ born: { type: Date, required: true })
 
@@ -389,19 +373,17 @@ Adds a required validator to this SchemaType. The validator gets added to the fr
 
 The required validator uses the SchemaType's `checkRequired` function to determine whether a given value satisfies the required validator. By default, a value satisfies the required validator if `val != null` (that is, if the value is not null nor undefined). However, most built-in mongoose schema types override the default `checkRequired` function:
 
-* * *
+## SchemaType.prototype.select()
 
-### [SchemaType.prototype.select()][277]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Sets default `select()` behavior for this path.
 
 Set to `true` if this path should always be included in the results, `false` if it should be excluded by default. This setting can be overridden at the query level.
 
-#### Example:
+**示例**
 
     T = db.model('T', new Schema({ x: { type: String, select: true }}));
     T.find(..);

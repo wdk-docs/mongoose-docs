@@ -1,36 +1,30 @@
 
-### [Document.prototype.schema][41]
+# 文档
 
-* * *
+## Document.prototype.schema
 
-### [Document.prototype.isNew][42]
+## Document.prototype.isNew
 
-Boolean flag specifying if the document is new.
+布尔标志指定文档
 
-* * *
+## Document.prototype.id
 
-### [Document.prototype.id][43]
+这个文件的字符串版本_id
 
-The string version of this documents _id.
+**注释**
 
-#### Note:
-
-This getter exists on all documents by default. The getter can be disabled by setting the `id` [option][44] of its `Schema` to false at construction time.
+这个getter默认存在于所有的文件上。 The getter can be disabled by setting the `id` option of its `Schema` to false at construction time.
 
 
     new Schema({ name: String }, { id: false });
 
-* * *
-
-### [Document.prototype.errors][45]
+## Document.prototype.errors
 
 Hash containing current validation errors.
 
-* * *
+## Document.prototype.init()
 
-### [Document.prototype.init()][46]
-
-##### Parameters
+**参数**
 
 * doc «Object» document returned by mongo
 
@@ -38,44 +32,38 @@ Initializes the document without setters or marking anything modified.
 
 Called internally after a document is returned from mongodb.
 
-* * *
+## Document.prototype.update()
 
-### [Document.prototype.update()][47]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Sends an update command with this document `_id` as the query selector.
 
-#### Example:
+**示例**
 
 
     weirdCar.update({$inc: {wheels:1}}, { w: 1 }, callback);
 
-#### Valid options:
+**有效的选项**
 
-* * *
+## Document.prototype.$set()
 
-### Document.prototype.$set()
+**参数**
 
-##### Parameters
-
-* [options] «Object» optionally specify options that modify the behavior of the set
+* options] «Object» optionally specify options that modify the behavior of the set
 
 Alias for `set()`, used internally to avoid conflicts
 
-* * *
+## Document.prototype.set()
 
-### [Document.prototype.set()][48]
+**参数**
 
-##### Parameters
-
-* [options] «Object» optionally specify options that modify the behavior of the set
+* options] «Object» optionally specify options that modify the behavior of the set
 
 Sets the value of a path, or many paths.
 
-#### Example:
+**示例**
 
 
     doc.set(path, value)
@@ -97,17 +85,15 @@ Sets the value of a path, or many paths.
 
     doc.set(path, value, { strict: false });
 
-* * *
+## Document.prototype.get()
 
-### [Document.prototype.get()][49]
+**参数**
 
-##### Parameters
-
-* [type] «Schema,String,Number,Buffer,*» optionally specify a type for on-the-fly attributes
+* type] «Schema,String,Number,Buffer,*» optionally specify a type for on-the-fly attributes
 
 Returns the value of a path.
 
-#### Example
+**示例**
 
 
     doc.get('age')
@@ -115,82 +101,72 @@ Returns the value of a path.
 
     doc.get('age', String)
 
-* * *
+## Document.prototype.markModified()
 
-### [Document.prototype.markModified()][50]
+**参数**
 
-##### Parameters
-
-* [scope] «Document» the scope to run validators with
+* scope] «Document» the scope to run validators with
 
 Marks the path as having pending changes to write to the db.
 
-_Very helpful when using [Mixed][51] types._
+_Very helpful when using Mixed types._
 
-#### Example:
+**示例**
 
 
     doc.mixed.type = 'changed';
     doc.markModified('mixed.type');
     doc.save()
 
-* * *
+## Document.prototype.unmarkModified()
 
-### [Document.prototype.unmarkModified()][52]
-
-##### Parameters
+**参数**
 
 * path «String» the path to unmark modified
 
 Clears the modified state on the specified path.
 
-#### Example:
+**示例**
 
 
     doc.foo = 'bar';
     doc.unmarkModified('foo');
     doc.save()
 
-* * *
+## Document.prototype.$ignore()
 
-### Document.prototype.$ignore()
-
-##### Parameters
+**参数**
 
 * path «String» the path to ignore
 
 Don't run validation on this path or persist changes to this path.
 
-#### Example:
+**示例**
 
 
     doc.foo = null;
     doc.$ignore('foo');
     doc.save()
 
-* * *
+## Document.prototype.modifiedPaths()
 
-### [Document.prototype.modifiedPaths()][53]
-
-##### Returns:
+**返回**
 
 Returns the list of paths that have been modified.
 
-* * *
+## Document.prototype.isModified()
 
-### [Document.prototype.isModified()][54]
+**参数**
 
-##### Parameters
+* path] «String» optional
 
-* [path] «String» optional
-
-##### Returns:
+**返回**
 
 Returns true if this document was modified, else false.
 
 If `path` is given, checks if a path or any full path containing `path` as part of its path chain has been modified.
 
-#### Example
+**示例**
 
 
     doc.set('documents.0.title', 'changed');
@@ -200,38 +176,34 @@ If `path` is given, checks if a path or any full path containing `path` as part 
     doc.isModified('documents otherProp')
     doc.isDirectModified('documents')
 
-* * *
+## Document.prototype.$isDefault()
 
-### Document.prototype.$isDefault()
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Checks if a path is set to its default.
 
-#### Example
+**示例**
 
 
     MyModel = mongoose.model('test', { name: { type: String, default: 'Val '} });
     var m = new MyModel();
     m.$isDefault('name');
 
-* * *
+## Document.prototype.$isDeleted()
 
-### Document.prototype.$isDeleted()
+**参数**
 
-##### Parameters
+* val] «Boolean» optional, overrides whether mongoose thinks the doc is deleted
 
-* [val] «Boolean» optional, overrides whether mongoose thinks the doc is deleted
-
-##### Returns:
+**返回**
 
 * «Boolean» whether mongoose thinks this doc is deleted.
 
 Getter/setter, determines whether the document was removed or not.
 
-#### Example:
+**示例**
 
 
     product.remove(function (err, product) {
@@ -243,44 +215,38 @@ Getter/setter, determines whether the document was removed or not.
       product.remove();
     })
 
-* * *
+## Document.prototype.isDirectModified()
 
-### [Document.prototype.isDirectModified()][55]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Returns true if `path` was directly set and modified, else false.
 
-#### Example
+**示例**
 
 
     doc.set('documents.0.title', 'changed');
     doc.isDirectModified('documents.0.title')
     doc.isDirectModified('documents')
 
-* * *
+## Document.prototype.isInit()
 
-### [Document.prototype.isInit()][56]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Checks if `path` was initialized.
 
-* * *
+## Document.prototype.isSelected()
 
-### [Document.prototype.isSelected()][57]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Checks if `path` was selected in the source query which initialized this document.
 
-#### Example
+**示例**
 
 
     Thing.findOne().select('name').exec(function (err, doc) {
@@ -288,17 +254,15 @@ Checks if `path` was selected in the source query which initialized this documen
        doc.isSelected('age')
     })
 
-* * *
+## Document.prototype.isDirectSelected()
 
-### [Document.prototype.isDirectSelected()][58]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Checks if `path` was explicitly selected. If no projection, always returns true.
 
-#### Example
+**示例**
 
 
     Thing.findOne().select('nested.name').exec(function (err, doc) {
@@ -307,23 +271,21 @@ Checks if `path` was explicitly selected. If no projection, always returns true.
        doc.isDirectSelected('nested')
     })
 
-* * *
+## Document.prototype.validate()
 
-### [Document.prototype.validate()][59]
-
-##### Parameters
+**参数**
 
 * callback «Function» optional callback called after validation completes, passing an error if one occurred
 
-##### Returns:
+**返回**
 
 Executes registered validation rules for this document.
 
-#### Note:
+**注释**
 
-This method is called `pre` save and if a validation rule is violated, [save][60] is aborted and the error is returned to your `callback`.
+This method is called `pre` save and if a validation rule is violated, save is aborted and the error is returned to your `callback`.
 
-#### Example:
+**示例**
 
 
     doc.validate(function (err) {
@@ -331,25 +293,23 @@ This method is called `pre` save and if a validation rule is violated, [save][60
       else
     });
 
-* * *
+## Document.prototype.validateSync()
 
-### [Document.prototype.validateSync()][61]
-
-##### Parameters
+**参数**
 
 * pathsToValidate «Array,string» only validate the given paths
 
-##### Returns:
+**返回**
 
 * «MongooseError,undefined» MongooseError if there are errors during validation, or undefined if there is no error.
 
 Executes registered validation rules (skipping asynchronous validators) for this document.
 
-#### Note:
+**注释**
 
 This method is useful if you need synchronous validation.
 
-#### Example:
+**示例**
 
 
     var err = doc.validateSync();
@@ -359,15 +319,13 @@ This method is useful if you need synchronous validation.
 
     }
 
-* * *
+## Document.prototype.invalidate()
 
-### [Document.prototype.invalidate()][62]
+**参数**
 
-##### Parameters
+* kind] «String» optional `kind` property for the error
 
-* [kind] «String» optional `kind` property for the error
-
-##### Returns:
+**返回**
 
 * «ValidationError» the current ValidationError, with all currently invalidated paths
 
@@ -394,29 +352,25 @@ The `value` argument (if passed) will be available through the `ValidationError.
               value: 14 } } }
     })
 
-* * *
+## Document.prototype.$markValid()
 
-### Document.prototype.$markValid()
-
-##### Parameters
+**参数**
 
 * path «String» the field to mark as valid
 
 Marks a path as valid, removing existing validation errors.
 
-* * *
+## Document.prototype.save()
 
-### [Document.prototype.save()][63]
+**参数**
 
-##### Parameters
+* fn] «Function» optional callback
 
-* [fn] «Function» optional callback
-
-##### Returns:
+**返回**
 
 Saves this document.
 
-#### Example:
+**示例**
 
 
     product.sold = Date.now();
@@ -432,26 +386,24 @@ The callback will receive three parameters
 
 As an extra measure of flow control, save will return a Promise.
 
-#### Example:
+**示例**
 
 
     product.save().then(function(product) {
        ...
     });
 
-* * *
+## Document.prototype.toObject()
 
-### [Document.prototype.toObject()][64]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Converts this document into a plain javascript object, ready for storage in MongoDB.
 
-Buffers are converted to instances of [mongodb.Binary][65] for proper storage.
+Buffers are converted to instances of mongodb.Binary for proper storage.
 
-#### Options:
+**选项:**
 
 * `getters` apply all getters (path and virtual getters)
 * `virtuals` apply virtual getters (can override `getters` option)
@@ -460,7 +412,7 @@ Buffers are converted to instances of [mongodb.Binary][65] for proper storage.
 * `depopulate` depopulate any populated paths, replacing them with their original refs (defaults to false)
 * `versionKey` whether to include the version key (defaults to true)
 
-#### Getters/Virtuals
+**Getters/Virtuals**
 
 Example of only applying path getters
 
@@ -477,12 +429,12 @@ Example of applying both path and virtual getters
 
     doc.toObject({ getters: true })
 
-To apply these options to every document of your schema by default, set your [schemas][1] `toObject` option to the same argument.
+To apply these options to every document of your schema by default, set your schemas `toObject` option to the same argument.
 
 
     schema.set('toObject', { virtuals: true })
 
-#### Transform
+**转变**
 
 We may need to perform a transformation of the resulting object based on some criteria, say to remove some sensitive information or return a custom object. In this case we set the optional `transform` function.
 
@@ -495,7 +447,7 @@ Transform functions receive three arguments
 * `ret` The plain object representation which has been converted
 * `options` The options in use (either schema options or the options passed inline)
 
-#### Example
+**示例**
 
 
     if (!schema.options.toObject) schema.options.toObject = {};
@@ -545,7 +497,7 @@ If you want to skip transformations, use `transform: false`:
     schema.options.toObject.transform = function (doc, ret, options) {
       if (options.hide) {
         options.hide.split(' ').forEach(function (prop) {
-          delete ret[prop];
+          delete retprop];
         });
       }
       return ret;
@@ -560,62 +512,52 @@ Transforms are applied _only to the document and are not applied to sub-document
 
 Transforms, like all of these options, are also available for `toJSON`.
 
-See [schema options][66] for some more details.
+See schema options for some more details.
 
 _During save, no custom options are applied to the document before being sent to the database._
 
-* * *
+## Document.prototype.toJSON()
 
-### [Document.prototype.toJSON()][67]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 The return value of this method is used in calls to JSON.stringify(doc).
 
-This method accepts the same options as [Document#toObject][64]. To apply the options to every document of your schema by default, set your [schemas][1] `toJSON` option to the same argument.
+This method accepts the same options as Document#toObject. To apply the options to every document of your schema by default, set your schemas `toJSON` option to the same argument.
 
 
     schema.set('toJSON', { virtuals: true })
 
-See [schema options][68] for details.
+See schema options for details.
 
-* * *
+## Document.prototype.inspect()
 
-### [Document.prototype.inspect()][69]
+## Document.prototype.toString()
 
-* * *
+## Document.prototype.equals()
 
-### [Document.prototype.toString()][70]
-
-* * *
-
-### [Document.prototype.equals()][71]
-
-##### Parameters
+**参数**
 
 * doc «Document» a document to compare
 
-##### Returns:
+**返回**
 
 Returns true if the Document stores the same data as doc.
 
 Documents are considered equal when they have matching `_id`s, unless neither document has an `_id`, in which case this function falls back to using `deepEqual()`.
 
-* * *
+## Document.prototype.populate()
 
-### [Document.prototype.populate()][72]
+**参数**
 
-##### Parameters
+* callback] «Function» When passed, population is invoked
 
-* [callback] «Function» When passed, population is invoked
+**返回**
 
-##### Returns:
+Populates document references, executing the `callback` when complete. If you want to use promises instead, use this function with `execPopulate()`
 
-Populates document references, executing the `callback` when complete. If you want to use promises instead, use this function with [`execPopulate()`][73]
-
-#### Example:
+**示例**
 
 
     doc
@@ -638,21 +580,19 @@ Populates document references, executing the `callback` when complete. If you wa
     doc.populate(callback);
     doc.populate(options).execPopulate()
 
-#### NOTE:
+**注释**
 
-Population does not occur unless a `callback` is passed _or_ you explicitly call `execPopulate()`. Passing the same path a second time will overwrite the previous path options. See [Model.populate()][74] for explaination of options.
+Population does not occur unless a `callback` is passed _or_ you explicitly call `execPopulate()`. Passing the same path a second time will overwrite the previous path options. See Model.populate() for explaination of options.
 
-* * *
+## Document.prototype.execPopulate()
 
-### [Document.prototype.execPopulate()][73]
-
-##### Returns:
+**返回**
 
 * «Promise» promise that resolves to the document when population is done
 
 Explicitly executes population and returns a promise. Useful for ES2015 integration.
 
-#### Example:
+**示例**
 
 
     var promise = doc.
@@ -669,19 +609,17 @@ Explicitly executes population and returns a promise. Useful for ES2015 integrat
 
     doc.execPopulate().then(resolve, reject);
 
-* * *
+## Document.prototype.populated()
 
-### [Document.prototype.populated()][75]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 * «Array,ObjectId,Number,Buffer,String,undefined»
 
 Gets _id(s) used during population of the given `path`.
 
-#### Example:
+**示例**
 
 
     Model.findOne().populate('author').exec(function (err, doc) {
@@ -691,17 +629,15 @@ Gets _id(s) used during population of the given `path`.
 
 If the path was not populated, undefined is returned.
 
-* * *
+## Document.prototype.depopulate()
 
-### [Document.prototype.depopulate()][76]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Takes a populated field and returns it to its unpopulated state.
 
-#### Example:
+**示例**
 
 
     Model.findOne().populate('author').exec(function (err, doc) {

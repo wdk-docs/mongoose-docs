@@ -64,13 +64,13 @@ pages:
     - 插件: guide/Plugins.md
   - API:
     - 接口: api/index.md
-    - 架构: api/Schema.md
-    - 架构: api/Connection.md
-    - 文件: api/Document.md
+    - 链接: api/Connection.md
+    - 模式: api/Schema.md
+    - 模式类型: api/SchemaType.md
     - 模型: api/Model.md
-    - 询问: api/Query.md
-    - 骨料: api/Aggregate.md
-    - 架构类型: api/SchemaType.md
+    - 文档: api/Document.md
+    - 查询: api/Query.md
+    - 聚合: api/Aggregate.md
     - 虚拟类型: api/VirtualType.md
     - 错误: api/Error.md
   - 版本兼容性: VersionCompatibility.md

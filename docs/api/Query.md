@@ -1,12 +1,14 @@
-### [Query()][134]
+# 查询
 
-##### Parameters
+## Query()
+
+**参数**
 
 * [collection] «Object» Mongoose collection
 
-Query constructor used for building queries. You do not need to instantiate a `Query` directly. Instead use Model functions like [`Model.find()`][135].
+Query constructor used for building queries. You do not need to instantiate a `Query` directly. Instead use Model functions like [`Model.find()`.
 
-#### Example:
+**示例**
 
     const query = MyModel.find();
     query.setOptions({ lean : true });
@@ -15,9 +17,7 @@ Query constructor used for building queries. You do not need to instantiate a `Q
 
     const query = new mongoose.Query();
 
-* * *
-
-### [Query.prototype.use$geoWithin][136]
+## Query.prototype.use$geoWithin
 
 Flag to opt out of using `$geoWithin`.
 
@@ -25,17 +25,15 @@ Flag to opt out of using `$geoWithin`.
 
 MongoDB 2.4 deprecated the use of `$within`, replacing it with `$geoWithin`. Mongoose uses `$geoWithin` by default (which is 100% backward compatible with $within). If you are running an older version of MongoDB, set this flag to `false` so your `within()` queries continue to work.
 
-* * *
+## Query.prototype.toConstructor()
 
-### [Query.prototype.toConstructor()][137]
-
-##### Returns:
+**返回**
 
 * «Query» subclass-of-Query
 
 Converts this query to a customized, reusable query constructor with all arguments and options retained.
 
-#### Example
+**示例**
 
     var query = Movie.find({ tags: 'adventure' }).read('primaryPreferred');
 
@@ -59,19 +57,17 @@ Converts this query to a customized, reusable query constructor with all argumen
 
 New in 3.7.3
 
-* * *
+## Query.prototype.$where()
 
-### [Query.prototype.$where()][138]
-
-##### Parameters
+**参数**
 
 * js «String,Function» javascript string or function
 
-##### Returns:
+**返回**
 
 Specifies a javascript function or expression to pass to MongoDBs query system.
 
-#### Example
+**示例**
 
     query.$where('this.comments.length === 10 || this.name.length === 5')
 
@@ -79,21 +75,19 @@ Specifies a javascript function or expression to pass to MongoDBs query system.
       return this.comments.length === 10 || this.name.length === 5;
     })
 
-#### NOTE:
+**注释**
 
-Only use `$where` when you have a condition that cannot be met using other MongoDB operators like `$lt`. **Be sure to read about all of [its caveats][139] before using.**
+Only use `$where` when you have a condition that cannot be met using other MongoDB operators like `$lt`. **Be sure to read about all of [its caveats before using.**
 
-* * *
+## Query.prototype.where()
 
-### [Query.prototype.where()][140]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Specifies a `path` for use with chaining.
 
-#### Example
+**示例**
 
     User.find({age: {$gte: 21, $lte: 65}}, callback);
 
@@ -107,167 +101,141 @@ Specifies a `path` for use with chaining.
     .where('friends').slice(10)
     .exec(callback)
 
-* * *
+## Query.prototype.equals()
 
-### [Query.prototype.equals()][141]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Specifies the complementary comparison value for paths specified with `where()`
 
-#### Example
+**示例**
 
     User.where('age').equals(49);
 
     User.where('age', 49);
 
-* * *
+## Query.prototype.or()
 
-### [Query.prototype.or()][142]
-
-##### Parameters
+**参数**
 
 * array «Array» array of conditions
 
-##### Returns:
+**返回**
 
 Specifies arguments for an `$or` condition.
 
-#### Example
+**示例**
 
     query.or([{ color: 'red' }, { status: 'emergency' }])
 
-* * *
+## Query.prototype.nor()
 
-### [Query.prototype.nor()][143]
-
-##### Parameters
+**参数**
 
 * array «Array» array of conditions
 
-##### Returns:
+**返回**
 
 Specifies arguments for a `$nor` condition.
 
-#### Example
+**示例**
 
     query.nor([{ color: 'green' }, { status: 'ok' }])
 
-* * *
+## Query.prototype.and()
 
-### [Query.prototype.and()][144]
-
-##### Parameters
+**参数**
 
 * array «Array» array of conditions
 
-##### Returns:
+**返回**
 
 Specifies arguments for a `$and` condition.
 
-#### Example
+**示例**
 
     query.and([{ color: 'green' }, { status: 'ok' }])
 
-* * *
+## Query.prototype.gt()
 
-### [Query.prototype.gt()][145]
-
-##### Parameters
+**参数**
 
 Specifies a $gt query condition.
 
 When called with one argument, the most recent path passed to `where()` is used.
 
-#### Example
+**示例**
 
     Thing.find().where('age').gt(21)
 
     Thing.find().gt('age', 21)
 
-* * *
+## Query.prototype.gte()
 
-### [Query.prototype.gte()][146]
-
-##### Parameters
+**参数**
 
 Specifies a $gte query condition.
 
 When called with one argument, the most recent path passed to `where()` is used.
 
-* * *
+## Query.prototype.lt()
 
-### [Query.prototype.lt()][147]
-
-##### Parameters
+**参数**
 
 Specifies a $lt query condition.
 
 When called with one argument, the most recent path passed to `where()` is used.
 
-* * *
+## Query.prototype.lte()
 
-### [Query.prototype.lte()][148]
-
-##### Parameters
+**参数**
 
 Specifies a $lte query condition.
 
 When called with one argument, the most recent path passed to `where()` is used.
 
-* * *
+## Query.prototype.ne()
 
-### [Query.prototype.ne()][149]
-
-##### Parameters
+**参数**
 
 Specifies a $ne query condition.
 
 When called with one argument, the most recent path passed to `where()` is used.
 
-* * *
+## Query.prototype.in()
 
-### [Query.prototype.in()][150]
-
-##### Parameters
+**参数**
 
 Specifies an $in query condition.
 
 When called with one argument, the most recent path passed to `where()` is used.
 
-* * *
+## Query.prototype.nin()
 
-### [Query.prototype.nin()][151]
-
-##### Parameters
+**参数**
 
 Specifies an $nin query condition.
 
 When called with one argument, the most recent path passed to `where()` is used.
 
-* * *
+## Query.prototype.all()
 
-### [Query.prototype.all()][152]
-
-##### Parameters
+**参数**
 
 Specifies an $all query condition.
 
 When called with one argument, the most recent path passed to `where()` is used.
 
-* * *
+## Query.prototype.size()
 
-### [Query.prototype.size()][153]
-
-##### Parameters
+**参数**
 
 Specifies a $size query condition.
 
 When called with one argument, the most recent path passed to `where()` is used.
 
-#### Example
+**示例**
 
     MyModel.where('tags').size(0).exec(function (err, docs) {
       if (err) return handleError(err);
@@ -276,56 +244,48 @@ When called with one argument, the most recent path passed to `where()` is used.
       console.log('documents with 0 tags', docs);
     })
 
-* * *
+## Query.prototype.regex()
 
-### [Query.prototype.regex()][154]
-
-##### Parameters
+**参数**
 
 Specifies a $regex query condition.
 
 When called with one argument, the most recent path passed to `where()` is used.
 
-* * *
+## Query.prototype.maxDistance()
 
-### [Query.prototype.maxDistance()][155]
-
-##### Parameters
+**参数**
 
 Specifies a $maxDistance query condition.
 
 When called with one argument, the most recent path passed to `where()` is used.
 
-* * *
+## Query.prototype.mod()
 
-### [Query.prototype.mod()][156]
-
-##### Parameters
+**参数**
 
 * val «Array» must be of length 2, first element is `divisor`, 2nd element is `remainder`.
 
-##### Returns:
+**返回**
 
 Specifies a `$mod` condition, filters documents for documents whose `path` property is a number that is equal to `remainder` modulo `divisor`.
 
-#### Example
+**示例**
 
     Product.find().mod('inventory', [2, 1]);
     Product.find().where('inventory').mod([2, 1]);
 
     Product.find().where('inventory').mod(2, 1);
 
-* * *
+## Query.prototype.exists()
 
-### [Query.prototype.exists()][157]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Specifies an `$exists` condition
 
-#### Example
+**示例**
 
     Thing.where('name').exists()
     Thing.where('name').exists(true)
@@ -334,19 +294,17 @@ Specifies an `$exists` condition
     Thing.where('name').exists(false);
     Thing.find().exists('name', false);
 
-* * *
+## Query.prototype.elemMatch()
 
-### [Query.prototype.elemMatch()][158]
-
-##### Parameters
+**参数**
 
 * criteria «Object,Function»
 
-##### Returns:
+**返回**
 
 Specifies an `$elemMatch` condition
 
-#### Example
+**示例**
 
     query.elemMatch('comment', { author: 'autobot', votes: {$gte: 5}})
 
@@ -362,15 +320,13 @@ Specifies an `$elemMatch` condition
       elem.where('votes').gte(5);
     })
 
-* * *
+## Query.prototype.within()
 
-### [Query.prototype.within()][159]
-
-##### Returns:
+**返回**
 
 Defines a `$within` or `$geoWithin` argument for geo-spatial queries.
 
-#### Example
+**示例**
 
     query.where(path).within().box()
     query.where(path).within().circle()
@@ -386,27 +342,25 @@ Defines a `$within` or `$geoWithin` argument for geo-spatial queries.
 
 **MUST** be used after `where()`.
 
-#### NOTE:
+**注释**
 
-As of Mongoose 3.7, `$geoWithin` is always used for queries. To change this behavior, see [Query.use$geoWithin][160].
+As of Mongoose 3.7, `$geoWithin` is always used for queries. To change this behavior, see [Query.use$geoWithin.
 
-#### NOTE:
+**注释**
 
-In Mongoose 3.7, `within` changed from a getter to a function. If you need the old syntax, use [this][161].
+In Mongoose 3.7, `within` changed from a getter to a function. If you need the old syntax, use [this.
 
-* * *
+## Query.prototype.slice()
 
-### [Query.prototype.slice()][162]
-
-##### Parameters
+**参数**
 
 * val «Number» number/range of elements to slice
 
-##### Returns:
+**返回**
 
 Specifies a $slice projection for an array.
 
-#### Example
+**示例**
 
     query.slice('comments', 5)
     query.slice('comments', -5)
@@ -414,137 +368,121 @@ Specifies a $slice projection for an array.
     query.where('comments').slice(5)
     query.where('comments').slice([-10, 5])
 
-* * *
+## Query.prototype.limit()
 
-### [Query.prototype.limit()][163]
-
-##### Parameters
+**参数**
 
 Specifies the maximum number of documents the query will return.
 
-#### Example
+**示例**
 
     query.limit(20)
 
-#### Note
+**注释**
 
 Cannot be used with `distinct()`
 
-* * *
+## Query.prototype.skip()
 
-### [Query.prototype.skip()][164]
-
-##### Parameters
+**参数**
 
 Specifies the number of documents to skip.
 
-#### Example
+**示例**
 
     query.skip(100).limit(20)
 
-#### Note
+**注释**
 
 Cannot be used with `distinct()`
 
-* * *
+## Query.prototype.maxScan()
 
-### [Query.prototype.maxScan()][165]
-
-##### Parameters
+**参数**
 
 Specifies the maxScan option.
 
-#### Example
+**示例**
 
     query.maxScan(100)
 
-#### Note
+**注释**
 
 Cannot be used with `distinct()`
 
-* * *
+## Query.prototype.batchSize()
 
-### [Query.prototype.batchSize()][166]
-
-##### Parameters
+**参数**
 
 Specifies the batchSize option.
 
-#### Example
+**示例**
 
     query.batchSize(100)
 
-#### Note
+**注释**
 
 Cannot be used with `distinct()`
 
-* * *
-
-##### Parameters
+**参数**
 
 Specifies the `comment` option.
 
-#### Example
+**示例**
 
     query.comment('login query')
 
-#### Note
+**注释**
 
 Cannot be used with `distinct()`
 
-* * *
+## Query.prototype.snapshot()
 
-### [Query.prototype.snapshot()][167]
-
-##### Returns:
+**返回**
 
 Specifies this query as a `snapshot` query.
 
-#### Example
+**示例**
 
     query.snapshot()
     query.snapshot(true)
     query.snapshot(false)
 
-#### Note
+**注释**
 
 Cannot be used with `distinct()`
 
-* * *
+## Query.prototype.hint()
 
-### [Query.prototype.hint()][168]
-
-##### Parameters
+**参数**
 
 * val «Object» a hint object
 
-##### Returns:
+**返回**
 
 Sets query hints.
 
-#### Example
+**示例**
 
     query.hint({ indexA: 1, indexB: -1})
 
-#### Note
+**注释**
 
 Cannot be used with `distinct()`
 
-* * *
+## Query.prototype.select()
 
-### [Query.prototype.select()][169]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Specifies which document fields to include or exclude (also known as the query "projection")
 
-When using string syntax, prefixing a path with `-` will flag that path as excluded. When a path does not have the `-` prefix, it is included. Lastly, if a path is prefixed with `+`, it forces inclusion of the path, which is useful for paths excluded at the [schema level][170].
+When using string syntax, prefixing a path with `-` will flag that path as excluded. When a path does not have the `-` prefix, it is included. Lastly, if a path is prefixed with `+`, it forces inclusion of the path, which is useful for paths excluded at the [schema level.
 
-A projection _must_ be either inclusive or exclusive. In other words, you must either list the fields to include (which excludes all others), or list the fields to exclude (which implies all other fields are included). The [`_id` field is the only exception because MongoDB includes it by default][171].
+A projection _must_ be either inclusive or exclusive. In other words, you must either list the fields to include (which excludes all others), or list the fields to exclude (which implies all other fields are included). The [`_id` field is the only exception because MongoDB includes it by default.
 
-#### Example
+**示例**
 
     query.select('a b');
 
@@ -555,39 +493,35 @@ A projection _must_ be either inclusive or exclusive. In other words, you must e
 
     query.select('+path')
 
-* * *
+## Query.prototype.slaveOk()
 
-### [Query.prototype.slaveOk()][172]
-
-##### Parameters
+**参数**
 
 * v «Boolean» defaults to true
 
-##### Returns:
+**返回**
 
 _DEPRECATED_ Sets the slaveOk option.
 
-**Deprecated** in MongoDB 2.2 in favor of [read preferences][173].
+**Deprecated** in MongoDB 2.2 in favor of [read preferences.
 
-#### Example:
+**示例**
 
     query.slaveOk()
     query.slaveOk(true)
     query.slaveOk(false)
 
-* * *
+## Query.prototype.read()
 
-### [Query.prototype.read()][173]
-
-##### Parameters
+**参数**
 
 * [tags] «Array» optional tags for this query
 
-##### Returns:
+**返回**
 
 Determines the MongoDB nodes from which to read.
 
-#### Preferences:
+**喜好**
 
     primary - (default) Read from primary only. Operations will produce an error if primary is unavailable. Cannot be combined with tags.
     secondary            Read from secondary if available, otherwise error.
@@ -595,7 +529,7 @@ Determines the MongoDB nodes from which to read.
     secondaryPreferred   Read from a secondary if available, otherwise read from the primary.
     nearest              All operations read from among the nearest candidates, but unlike other modes, this option will include both the primary and all secondaries in the random selection.
 
-Aliases
+**别名**
 
     p   primary
     pp  primaryPreferred
@@ -603,7 +537,7 @@ Aliases
     sp  secondaryPreferred
     n   nearest
 
-#### Example:
+**示例**
 
     new Query().read('primary')
     new Query().read('p')
@@ -622,15 +556,13 @@ Aliases
 
     new Query().read('s', [{ dc:'sf', s: 1 },{ dc:'ma', s: 2 }])
 
-Read more about how to use read preferrences [here][174] and [here][175].
+Read more about how to use read preferrences [here and [here.
 
-* * *
+## Query.prototype.merge()
 
-### [Query.prototype.merge()][176]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Merges another Query or conditions object into this one.
 
@@ -638,71 +570,63 @@ When a Query is passed, conditions, field selection and options are merged.
 
 New in 3.7.0
 
-* * *
+## Query.prototype.setOptions()
 
-### [Query.prototype.setOptions()][177]
-
-##### Parameters
+**参数**
 
 Sets query options. Some options only make sense for certain operations.
 
-#### Options:
+**选项**
 
-The following options are only for `find()`: - [tailable][178] \- [sort][179] \- [limit][180] \- [skip][181] \- [maxscan][182] \- [batchSize][183] \- [comment][184] \- [snapshot][185] \- [readPreference][174] \- [hint][186]
+The following options are only for `find()`: - [tailable \- [sort \- [limit \- [skip \- [maxscan \- [batchSize \- [comment \- [snapshot \- [readPreference \- [hint
 
-The following options are only for `update()`, `updateOne()`, `updateMany()`, `replaceOne()`, `findOneAndUpdate()`, and `findByIdAndUpdate()`: - [upsert][187] \- [writeConcern][187]
+The following options are only for `update()`, `updateOne()`, `updateMany()`, `replaceOne()`, `findOneAndUpdate()`, and `findByIdAndUpdate()`: - [upsert \- [writeConcern
 
-The following options are only for `find()`, `findOne()`, `findById()`, `findOneAndUpdate()`, `findByIdAndUpdate()`, and `geoSearch()`: - [lean][188]
+The following options are only for `find()`, `findOne()`, `findById()`, `findOneAndUpdate()`, `findByIdAndUpdate()`, and `geoSearch()`: - [lean
 
-## The following options are for all operations
+The following options are for all operations
 
-* * *
+## Query.prototype.getQuery()
 
-### [Query.prototype.getQuery()][189]
-
-##### Returns:
+**返回**
 
 * «Object» current query conditions
 
 Returns the current query conditions as a JSON object.
 
-#### Example:
+**示例**
 
     var query = new Query();
     query.find({ a: 1 }).where('b').gt(2);
     query.getQuery();
 
-* * *
+## Query.prototype.getUpdate()
 
-### [Query.prototype.getUpdate()][190]
-
-##### Returns:
+**返回**
 
 * «Object» current update operations
 
 Returns the current update operations as a JSON object.
 
-#### Example:
+**示例**
 
     var query = new Query();
     query.update({}, { $set: { a: 5 } });
     query.getUpdate();
 
-* * *
+## Query.prototype.lean()
 
-### [Query.prototype.lean()][191]
-
-##### Parameters
+**参数**
 
 * bool «Boolean,Object» defaults to true
 
-##### Returns:
+**返回**
 
 Sets the lean option.
 
-Documents returned from queries with the `lean` option enabled are plain javascript objects, not [MongooseDocuments][192]. They have no `save` method, getters/setters or other Mongoose magic applied.
+Documents returned from queries with the `lean` option enabled are plain javascript objects, not [MongooseDocuments. They have no `save` method, getters/setters or other Mongoose magic applied.
 
-#### Example:
+**示例**
 
     new Query().lean()
     new Query().lean(true)
@@ -712,19 +636,17 @@ Documents returned from queries with the `lean` option enabled are plain javascr
       docs[0] instanceof mongoose.Document
     });
 
-This is a [great][193] option in high-performance read-only scenarios, especially when combined with [stream][194].
+This is a [great option in high-performance read-only scenarios, especially when combined with [stream.
 
-* * *
+## Query.prototype.error()
 
-### [Query.prototype.error()][195]
-
-##### Parameters
+**参数**
 
 * err «Error,null» if set, `exec()` will fail fast before sending the query to MongoDB
 
 Gets/sets the error flag on this query. If this flag is not null or undefined, the `exec()` promise will reject without executing.
 
-#### Example:
+**示例**
 
     Query().error();
     Query().error(null);
@@ -737,7 +659,7 @@ Gets/sets the error flag on this query. If this flag is not null or undefined, t
 
 Note that query casting runs **after** hooks, so cast errors will override custom errors.
 
-#### Example:
+**示例**
 
     var TestSchema = new Schema({ num: Number });
     var TestModel = db.model('Test', TestSchema);
@@ -745,63 +667,53 @@ Note that query casting runs **after** hooks, so cast errors will override custo
 
     });
 
-* * *
+## Query.prototype.mongooseOptions()
 
-### [Query.prototype.mongooseOptions()][196]
-
-##### Parameters
+**参数**
 
 * options «Object» if specified, overwrites the current options
 
 Getter/setter around the current mongoose-specific options for this query (populate, lean, etc.)
 
-* * *
+## Query.prototype.find()
 
-### [Query.prototype.find()][197]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Finds documents.
 
 When no `callback` is passed, the query is not executed. When the query is executed, the result will be an array of documents.
 
-#### Example
+**示例**
 
     query.find({ name: 'Los Pollos Hermanos' }).find(callback)
 
-* * *
+## Query.prototype.merge()
 
-### [Query.prototype.merge()][176]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Merges another Query or conditions object into this one.
 
 When a Query is passed, conditions, field selection and options are merged.
 
-* * *
+## Query.prototype.collation()
 
-### [Query.prototype.collation()][198]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Adds a collation to this op (MongoDB 3.4 and up)
 
-* * *
+## Query.prototype.findOne()
 
-### [Query.prototype.findOne()][199]
-
-##### Parameters
+**参数**
 
 * [callback] «Function» optional params are (error, document)
 
-##### Returns:
+**返回**
 
 Declares the query a findOne operation. When executed, the first found document is passed to the callback.
 
@@ -811,7 +723,7 @@ Passing a `callback` executes the query. The result of the query is a single doc
 
 This function triggers the following middleware.
 
-#### Example
+**示例**
 
     var query  = Kitten.where({ color: 'white' });
     query.findOne(function (err, kitten) {
@@ -821,15 +733,13 @@ This function triggers the following middleware.
       }
     });
 
-* * *
+## Query.prototype.count()
 
-### [Query.prototype.count()][200]
-
-##### Parameters
+**参数**
 
 * [callback] «Function» optional params are (error, count)
 
-##### Returns:
+**返回**
 
 Specifying this query as a `count` query.
 
@@ -837,7 +747,7 @@ Passing a `callback` executes the query.
 
 This function triggers the following middleware.
 
-#### Example:
+**示例**
 
     var countQuery = model.where({ 'color': 'black' }).count();
 
@@ -850,15 +760,13 @@ This function triggers the following middleware.
       console.log('there are %d kittens', count);
     })
 
-* * *
+## Query.prototype.distinct()
 
-### [Query.prototype.distinct()][201]
-
-##### Parameters
+**参数**
 
 * [callback] «Function» optional params are (error, arr)
 
-##### Returns:
+**返回**
 
 Declares or executes a distict() operation.
 
@@ -866,7 +774,7 @@ Passing a `callback` executes the query.
 
 This function does not trigger any middleware.
 
-#### Example
+**示例**
 
     distinct(field, conditions, callback)
     distinct(field, conditions)
@@ -875,13 +783,11 @@ This function does not trigger any middleware.
     distinct(callback)
     distinct()
 
-* * *
+## Query.prototype.sort()
 
-### [Query.prototype.sort()][202]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Sets the sort order
 
@@ -889,35 +795,33 @@ If an object is passed, values allowed are `asc`, `desc`, `ascending`, `descendi
 
 If a string is passed, it must be a space delimited list of path names. The sort order of each path is ascending unless the path name is prefixed with `-` which will be treated as descending.
 
-#### Example
+**示例**
 
     query.sort({ field: 'asc', test: -1 });
 
     query.sort('field -test');
 
-#### Note
+**注释**
 
 Cannot be used with `distinct()`
 
-* * *
+## Query.prototype.remove()
 
-### [Query.prototype.remove()][203]
-
-##### Parameters
+**参数**
 
 * [callback] «Function» optional params are (error, writeOpResult)
 
-##### Returns:
+**返回**
 
 Declare and/or execute this query as a remove() operation.
 
 This function does not trigger any middleware
 
-#### Example
+**示例**
 
     Model.remove({ artist: 'Anne Murray' }, callback)
 
-#### Note
+**注释**
 
 The operation is only executed when a callback is passed. To force execution without a callback, you must first call `remove()` and then execute it by using the `exec()` method.
 
@@ -933,79 +837,73 @@ The operation is only executed when a callback is passed. To force execution wit
     query.remove(fn)
     query.remove()
 
-* * *
+## Query.prototype.deleteOne()
 
-### [Query.prototype.deleteOne()][204]
-
-##### Parameters
+**参数**
 
 * [callback] «Function» optional params are (error, writeOpResult)
 
-##### Returns:
+**返回**
 
 Declare and/or execute this query as a `deleteOne()` operation. Works like remove, except it deletes at most one document regardless of the `single` option.
 
 This function does not trigger any middleware.
 
-#### Example
+**示例**
 
     Character.deleteOne({ name: 'Eddard Stark' }, callback)
     Character.deleteOne({ name: 'Eddard Stark' }).then(next)
 
-* * *
+## Query.prototype.deleteMany()
 
-### [Query.prototype.deleteMany()][205]
-
-##### Parameters
+**参数**
 
 * [callback] «Function» optional params are (error, writeOpResult)
 
-##### Returns:
+**返回**
 
 Declare and/or execute this query as a `deleteMany()` operation. Works like remove, except it deletes _every_ document that matches `criteria` in the collection, regardless of the value of `single`.
 
 This function does not trigger any middleware
 
-#### Example
+**示例**
 
     Character.deleteMany({ name: /Stark/, age: { $gte: 18 } }, callback)
     Character.deleteMany({ name: /Stark/, age: { $gte: 18 } }).then(next)
 
-* * *
+## Query.prototype.findOneAndUpdate()
 
-### [Query.prototype.findOneAndUpdate()][206]
-
-##### Parameters
+**参数**
 
 * [callback] «Function» optional params are (error, doc), _unless_ `rawResult` is used, in which case params are (error, writeOpResult)
 
-##### Returns:
+**返回**
 
-Issues a mongodb [findAndModify][207] update command.
+Issues a mongodb [findAndModify update command.
 
 Finds a matching document, updates it according to the `update` arg, passing any `options`, and returns the found document (if any) to the callback. The query executes immediately if `callback` is passed.
 
 This function triggers the following middleware.
 
-#### Available options
+**选项**
 
 * `new`: bool - if true, return the modified document rather than the original. defaults to false (changed in 4.0)
 * `upsert`: bool - creates the object if it doesn't exist. defaults to false.
 * `fields`: {Object|String} - Field selection. Equivalent to `.select(fields).findOneAndUpdate()`
 * `sort`: if multiple docs are found by the conditions, sets the sort order to choose which doc to update
 * `maxTimeMS`: puts a time limit on the query - requires mongodb >= 2.6.0
-* `runValidators`: if true, runs [update validators][107] on this command. Update validators validate the update operation against the model's schema.
-* `setDefaultsOnInsert`: if this and `upsert` are true, mongoose will apply the [defaults][108] specified in the model's schema if a new document is created. This option only works on MongoDB >= 2.4 because it relies on [MongoDB's `$setOnInsert` operator][109].
-* `rawResult`: if true, returns the [raw result from the MongoDB driver][110]
+* `runValidators`: if true, runs [update validators on this command. Update validators validate the update operation against the model's schema.
+* `setDefaultsOnInsert`: if this and `upsert` are true, mongoose will apply the [defaults specified in the model's schema if a new document is created. This option only works on MongoDB >= 2.4 because it relies on [MongoDB's `$setOnInsert` operator.
+* `rawResult`: if true, returns the [raw result from the MongoDB driver
 * `context` (string) if set to 'query' and `runValidators` is on, `this` will refer to the query in custom validator functions that update validation runs. Does nothing if `runValidators` is false.
 
-#### Callback Signature
+**回调签名**
 
     function(error, doc) {
 
     }
 
-#### Examples
+**示例**
 
     query.findOneAndUpdate(conditions, update, options, callback)
     query.findOneAndUpdate(conditions, update, options)
@@ -1016,35 +914,33 @@ This function triggers the following middleware.
     query.findOneAndUpdate(callback)
     query.findOneAndUpdate()
 
-* * *
+## Query.prototype.findOneAndRemove()
 
-### [Query.prototype.findOneAndRemove()][208]
-
-##### Parameters
+**参数**
 
 * [callback] «Function» optional params are (error, document)
 
-##### Returns:
+**返回**
 
-Issues a mongodb [findAndModify][207] remove command.
+Issues a mongodb [findAndModify remove command.
 
 Finds a matching document, removes it, passing the found document (if any) to the callback. Executes immediately if `callback` is passed.
 
 This function triggers the following middleware.
 
-#### Available options
+**选项**
 
 * `sort`: if multiple docs are found by the conditions, sets the sort order to choose which doc to update
 * `maxTimeMS`: puts a time limit on the query - requires mongodb >= 2.6.0
-* `rawResult`: if true, resolves to the [raw result from the MongoDB driver][110]
+* `rawResult`: if true, resolves to the [raw result from the MongoDB driver
 
-#### Callback Signature
+**回调签名**
 
     function(error, doc) {
 
     }
 
-#### Examples
+**示例**s
 
     A.where().findOneAndRemove(conditions, options, callback)
     A.where().findOneAndRemove(conditions, options)
@@ -1053,15 +949,13 @@ This function triggers the following middleware.
     A.where().findOneAndRemove(callback)
     A.where().findOneAndRemove()
 
-* * *
+## Query.prototype.update()
 
-### [Query.prototype.update()][209]
-
-##### Parameters
+**参数**
 
 * [callback] «Function» optional, params are (error, writeOpResult)
 
-##### Returns:
+**返回**
 
 Declare and/or execute this query as an update() operation.
 
@@ -1069,28 +963,28 @@ _All paths passed that are not $atomic operations will become $set ops._
 
 This function triggers the following middleware.
 
-#### Example
+**示例**
 
     Model.where({ _id: id }).update({ title: 'words' })
 
     Model.where({ _id: id }).update({ $set: { title: 'words' }})
 
-#### Valid options:
+**选项**
 
 * `safe` (boolean) safe mode (defaults to value set in schema (true))
 * `upsert` (boolean) whether to create the doc if it doesn't match (false)
 * `multi` (boolean) whether multiple documents should be updated (false)
-* `runValidators`: if true, runs [update validators][107] on this command. Update validators validate the update operation against the model's schema.
-* `setDefaultsOnInsert`: if this and `upsert` are true, mongoose will apply the [defaults][108] specified in the model's schema if a new document is created. This option only works on MongoDB >= 2.4 because it relies on [MongoDB's `$setOnInsert` operator][109].
+* `runValidators`: if true, runs [update validators on this command. Update validators validate the update operation against the model's schema.
+* `setDefaultsOnInsert`: if this and `upsert` are true, mongoose will apply the [defaults specified in the model's schema if a new document is created. This option only works on MongoDB >= 2.4 because it relies on [MongoDB's `$setOnInsert` operator.
 * `strict` (boolean) overrides the `strict` option for this update
 * `overwrite` (boolean) disables update-only mode, allowing you to overwrite the doc (false)
 * `context` (string) if set to 'query' and `runValidators` is on, `this` will refer to the query in custom validator functions that update validation runs. Does nothing if `runValidators` is false.
 
-#### Note
+**注释**
 
 Passing an empty object `{}` as the doc will result in a no-op unless the `overwrite` option is passed. Without the `overwrite` option set, the update operation will be ignored and the callback executed without sending the command to MongoDB so as to prevent accidently overwritting documents in the collection.
 
-#### Note
+**注释**
 
 The operation is only executed when a callback is passed. To force execution without a callback, we must first call update() and then execute it by using the `exec()` method.
 
@@ -1123,7 +1017,7 @@ The operation is only executed when a callback is passed. To force execution wit
          .update({ $set: { arr: [] }}, callback)
 
     // single update by default
-    Model.where({ email: '[address@example.com][210]' })
+    Model.where({ email: '[address@example.com' })
          .update({ $inc: { counter: 1 }}, callback)
 
 API summary
@@ -1138,15 +1032,13 @@ API summary
     update(true)
     update()
 
-* * *
+## Query.prototype.updateMany()
 
-### [Query.prototype.updateMany()][211]
-
-##### Parameters
+**参数**
 
 * [callback] «Function» optional params are (error, writeOpResult)
 
-##### Returns:
+**返回**
 
 Declare and/or execute this query as an updateMany() operation. Same as `update()`, except MongoDB will update _all_ documents that match `criteria` (as opposed to just the first one) regardless of the value of the `multi` option.
 
@@ -1154,15 +1046,13 @@ Declare and/or execute this query as an updateMany() operation. Same as `update(
 
 This function triggers the following middleware.
 
-* * *
+## Query.prototype.updateOne()
 
-### [Query.prototype.updateOne()][212]
-
-##### Parameters
+**参数**
 
 * [callback] «Function» params are (error, writeOpResult)
 
-##### Returns:
+**返回**
 
 Declare and/or execute this query as an updateOne() operation. Same as `update()`, except MongoDB will update _only_ the first document that matches `criteria` regardless of the value of the `multi` option.
 
@@ -1170,15 +1060,13 @@ Declare and/or execute this query as an updateOne() operation. Same as `update()
 
 This function triggers the following middleware.
 
-* * *
+## Query.prototype.replaceOne()
 
-### [Query.prototype.replaceOne()][213]
-
-##### Parameters
+**参数**
 
 * [callback] «Function» optional params are (error, writeOpResult)
 
-##### Returns:
+**返回**
 
 Declare and/or execute this query as a replaceOne() operation. Same as `update()`, except MongoDB will replace the existing document and will not accept any atomic operators (`$set`, etc.)
 
@@ -1186,19 +1074,17 @@ Declare and/or execute this query as a replaceOne() operation. Same as `update()
 
 This function triggers the following middleware.
 
-* * *
+## Query.prototype.exec()
 
-### [Query.prototype.exec()][214]
-
-##### Parameters
+**参数**
 
 * [callback] «Function» optional params depend on the function being called
 
-##### Returns:
+**返回**
 
 Executes the query
 
-#### Examples:
+**示例**
 
     var promise = query.exec();
     var promise = query.exec('update');
@@ -1206,39 +1092,33 @@ Executes the query
     query.exec(callback);
     query.exec('find', callback);
 
-* * *
+## Query.prototype.then()
 
-### [Query.prototype.then()][215]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Executes the query returning a `Promise` which will be resolved with either the doc(s) or rejected with the error.
 
-* * *
+## Query.prototype.catch()
 
-### [Query.prototype.catch()][216]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Executes the query returning a `Promise` which will be resolved with either the doc(s) or rejected with the error. Like `.then()`, but only takes a rejection handler.
 
-* * *
+## Query.prototype.populate()
 
-### [Query.prototype.populate()][217]
-
-##### Parameters
+**参数**
 
 * [options] «Object» Options for the population query (sort, etc)
 
-##### Returns:
+**返回**
 
 Specifies paths which should be populated with other documents.
 
-#### Example:
+**示例**
 
     Kitten.findOne().populate('owner').exec(function (err, kitten) {
       console.log(kitten.owner.name)
@@ -1259,33 +1139,29 @@ Specifies paths which should be populated with other documents.
 
 Paths are populated after the query executes and a response is received. A separate query is then executed for each path specified for population. After a response for each query has also been returned, the results are passed to the callback.
 
-* * *
+## Query.prototype.cast()
 
-### [Query.prototype.cast()][218]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Casts this query to the schema of `model`
 
-#### Note
+**注释**
 
 If `obj` is present, it is cast instead of this query.
 
-* * *
+## Query.prototype.cursor()
 
-### [Query.prototype.cursor()][219]
+**参数**
 
-##### Parameters
+**返回**
 
-##### Returns:
-
-Returns a wrapper around a [mongodb driver cursor][220]. A QueryCursor exposes a [Streams3][221]-compatible interface, as well as a `.next()` function.
+Returns a wrapper around a [mongodb driver cursor. A QueryCursor exposes a [Streams3-compatible interface, as well as a `.next()` function.
 
 The `.cursor()` function triggers pre find hooks, but **not** post find hooks.
 
-#### Example
+**示例**
 
     Thing.
       find({ name: /^hello/ }).
@@ -1305,46 +1181,42 @@ The `.cursor()` function triggers pre find hooks, but **not** post find hooks.
       }
     });
 
-#### Valid options
+**选项**
 
 * `transform`: optional function which accepts a mongoose document. The return value of the function will be emitted on `data` and returned by `.next()`.
 * * *
 
-### [Query.prototype.maxscan()][222]
+## Query.prototype.maxscan()
 
 _DEPRECATED_ Alias of `maxScan`
 
-* * *
+## Query.prototype.tailable()
 
-### [Query.prototype.tailable()][223]
-
-##### Parameters
+**参数**
 
 * [opts.tailableRetryInterval] «Number» if cursor is exhausted, wait this many milliseconds before retrying
 
 Sets the tailable option (for use with capped collections).
 
-#### Example
+**示例**
 
     query.tailable()
     query.tailable(true)
     query.tailable(false)
 
-#### Note
+**注释**
 
 Cannot be used with `distinct()`
 
-* * *
+## Query.prototype.intersects()
 
-### [Query.prototype.intersects()][224]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Declares an intersects query for `geometry()`.
 
-#### Example
+**示例**
 
     query.where('path').intersects().geometry({
         type: 'LineString'
@@ -1356,27 +1228,25 @@ Declares an intersects query for `geometry()`.
       , coordinates: [[180.0, 11.0], [180, 9.0]]
     })
 
-#### NOTE:
+**注释**
 
 **MUST** be used after `where()`.
 
-#### NOTE:
+**注释**
 
-In Mongoose 3.7, `intersects` changed from a getter to a function. If you need the old syntax, use [this][161].
+In Mongoose 3.7, `intersects` changed from a getter to a function. If you need the old syntax, use [this.
 
-* * *
+## Query.prototype.geometry()
 
-### [Query.prototype.geometry()][225]
-
-##### Parameters
+**参数**
 
 * object «Object» Must contain a `type` property which is a String and a `coordinates` property which is an Array. See the examples.
 
-##### Returns:
+**返回**
 
 Specifies a `$geometry` condition
 
-#### Example
+**示例**
 
     var polyA = [[[ 10, 20 ], [ 10, 40 ], [ 30, 40 ], [ 30, 20 ]]]
     query.where('loc').within().geometry({ type: 'Polygon', coordinates: polyA })
@@ -1391,76 +1261,70 @@ Specifies a `$geometry` condition
 
 The argument is assigned to the most recent path passed to `where()`.
 
-#### NOTE:
+**注释**
 
 `geometry()` **must** come after either `intersects()` or `within()`.
 
 The `object` argument must contain `type` and `coordinates` properties. - type {String} - coordinates {Array}
 * * *
 
-### [Query.prototype.near()][226]
+## Query.prototype.near()
 
-##### Parameters
+**参数**
 
-##### Returns:
+**返回**
 
 Specifies a `$near` or `$nearSphere` condition
 
 These operators return documents sorted by distance.
 
-#### Example
+**示例**
 
     query.where('loc').near({ center: [10, 10] });
     query.where('loc').near({ center: [10, 10], maxDistance: 5 });
     query.where('loc').near({ center: [10, 10], maxDistance: 5, spherical: true });
     query.near('loc', { center: [10, 10], maxDistance: 5 });
 
-* * *
-
-### [Query.prototype.nearSphere()][227]
+## Query.prototype.nearSphere()
 
 _DEPRECATED_ Specifies a `$nearSphere` condition
 
-#### Example
+**示例**
 
     query.where('loc').nearSphere({ center: [10, 10], maxDistance: 5 });
 
 **Deprecated.** Use `query.near()` instead with the `spherical` option set to `true`.
 
-#### Example
+**示例**
 
     query.where('loc').near({ center: [10, 10], spherical: true });
 
-* * *
+## Query.prototype.polygon()
 
-### [Query.prototype.polygon()][228]
-
-##### Parameters
+**参数**
 
 * [coordinatePairs...] «Array,Object»
 
-##### Returns:
+**返回**
 
 Specifies a $polygon condition
 
-#### Example
+**示例**
 
     query.where('loc').within().polygon([10,20], [13, 25], [7,15])
     query.polygon('loc', [10,20], [13, 25], [7,15])
 
-* * *
+## Query.prototype.box()
 
-### [Query.prototype.box()][229]
-
-##### Parameters
+**参数**
 
 * Upper «[Array]» Right Coords
 
-##### Returns:
+**返回**
 
 Specifies a $box condition
 
-#### Example
+**示例**
 
     var lowerLeft = [40.73083, -73.99756]
     var upperRight= [40.741404,  -73.988135]
@@ -1468,17 +1332,15 @@ Specifies a $box condition
     query.where('loc').within().box(lowerLeft, upperRight)
     query.box({ ll : lowerLeft, ur : upperRight })
 
-* * *
+## Query.prototype.circle()
 
-### [Query.prototype.circle()][230]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Specifies a $center or $centerSphere condition.
 
-#### Example
+**示例**
 
     var area = { center: [50, 50], radius: 10, unique: true }
     query.where('loc').within().circle(area)
@@ -1492,40 +1354,32 @@ Specifies a $center or $centerSphere condition.
 
 New in 3.7.0
 
-* * *
+## Query.prototype.center()
 
-### [Query.prototype.center()][231]
+## Query.prototype.centerSphere()
 
-* * *
+**参数**
 
-### [Query.prototype.centerSphere()][232]
-
-##### Parameters
-
-##### Returns:
+**返回**
 
 _DEPRECATED_ Specifies a $centerSphere condition
 
-**Deprecated.** Use [circle][230] instead.
+**Deprecated.** Use [circle instead.
 
-#### Example
+**示例**
 
     var area = { center: [50, 50], radius: 10 };
     query.where('loc').within().centerSphere(area);
 
-* * *
+## Query.prototype.selected()
 
-### [Query.prototype.selected()][233]
-
-##### Returns:
+**返回**
 
 Determines if field selection has been made.
 
-* * *
+## Query.prototype.selectedInclusively()
 
-### [Query.prototype.selectedInclusively()][234]
-
-##### Returns:
+**返回**
 
 Determines if inclusive field selection has been made.
 
@@ -1533,11 +1387,9 @@ Determines if inclusive field selection has been made.
     query.select('name')
     query.selectedInclusively()
 
-* * *
+## Query.prototype.selectedExclusively()
 
-### [Query.prototype.selectedExclusively()][235]
-
-##### Returns:
+**返回**
 
 Determines if exclusive field selection has been made.
 

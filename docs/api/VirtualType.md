@@ -1,43 +1,41 @@
 
-### [VirtualType()][278]
+# 虚拟类型
+
+## VirtualType()
 
 VirtualType constructor
 
 This is what mongoose uses to define virtual attributes via `Schema.prototype.virtual`.
 
-#### Example:
+**示例**
 
     var fullname = schema.virtual('fullname');
     fullname instanceof mongoose.VirtualType
 
-* * *
+## VirtualType.prototype.get()
 
-### [VirtualType.prototype.get()][279]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Defines a getter.
 
-#### Example:
+**示例**
 
     var virtual = schema.virtual('fullname');
     virtual.get(function () {
       return this.name.first + ' ' + this.name.last;
     });
 
-* * *
+## VirtualType.prototype.set()
 
-### [VirtualType.prototype.set()][280]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Defines a setter.
 
-#### Example:
+**示例**
 
     var virtual = schema.virtual('fullname');
     virtual.set(function (v) {
@@ -46,25 +44,21 @@ Defines a setter.
       this.name.last = parts[1];
     });
 
-* * *
+## VirtualType.prototype.applyGetters()
 
-### [VirtualType.prototype.applyGetters()][281]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 * «any» the value after applying all getters
 
 Applies getters to `value` using optional `scope`.
 
-* * *
+## VirtualType.prototype.applySetters()
 
-### [VirtualType.prototype.applySetters()][282]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 * «any» the value after applying all setters
 

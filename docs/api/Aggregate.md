@@ -1,13 +1,15 @@
 
-### [Aggregate()][130]
+# 聚合
 
-##### Parameters
+## Aggregate()
+
+**参数**
 
 * [pipeline] «Array» aggregation pipeline as an array of objects
 
-Aggregate constructor used for building aggregation pipelines. Do not instantiate this class directly, use [Model.aggregate()][236] instead.
+Aggregate constructor used for building aggregation pipelines. Do not instantiate this class directly, use [Model.aggregate() instead.
 
-#### Example:
+**示例**
 
     const aggregate = Model.aggregate([
       { $project: { a: 1, b: 1 } },
@@ -19,7 +21,7 @@ Aggregate constructor used for building aggregation pipelines. Do not instantiat
       unwind('tags').
       exec(callback);
 
-#### Note:
+**注释**
 
 * The documents returned are plain javascript objects, not mongoose documents (since any shape of document can be returned).
 * Mongoose does **not** cast pipeline stages. The below will **not** work unless `_id` is a string in the database
@@ -28,50 +30,44 @@ Aggregate constructor used for building aggregation pipelines. Do not instantiat
       // Do this instead to cast to an ObjectId
       new Aggregate([{ $match: { _id: mongoose.Types.ObjectId('00000000000000000000000a') } }]);
 
-* * *
+## Aggregate.prototype.model()
 
-### [Aggregate.prototype.model()][237]
-
-##### Parameters
+**参数**
 
 * model «Model» the model to which the aggregate is to be bound
 
-##### Returns:
+**返回**
 
 Binds this aggregate to a model.
 
-* * *
+## Aggregate.prototype.append()
 
-### [Aggregate.prototype.append()][238]
-
-##### Parameters
+**参数**
 
 * ops «Object» operator(s) to append
 
-##### Returns:
+**返回**
 
 Appends new operators to this aggregate pipeline
 
-#### Examples:
+**示例**
 
     aggregate.append({ $project: { field: 1 }}, { $limit: 2 });
 
     var pipeline = [{ $match: { daw: 'Logic Audio X' }} ];
     aggregate.append(pipeline);
 
-* * *
+## Aggregate.prototype.addFields()
 
-### [Aggregate.prototype.addFields()][239]
-
-##### Parameters
+**参数**
 
 * arg «Object» field specification
 
-##### Returns:
+**返回**
 
 Appends a new $addFields operator to this aggregate pipeline. Requires MongoDB v3.4+ to work
 
-#### Examples:
+**示例**
 
     aggregate.addFields({
         newField: '$b.nested'
@@ -83,21 +79,19 @@ Appends a new $addFields operator to this aggregate pipeline. Requires MongoDB v
 
     aggregate.addFields({ salary_k: { $divide: [ "$salary", 1000 ] } });
 
-* * *
+## Aggregate.prototype.project()
 
-### [Aggregate.prototype.project()][240]
-
-##### Parameters
+**参数**
 
 * arg «Object,String» field specification
 
-##### Returns:
+**返回**
 
 Appends a new $project operator to this aggregate pipeline.
 
-Mongoose query [selection syntax][169] is also supported.
+Mongoose query [selection syntax is also supported.
 
-#### Examples:
+**示例**
 
     aggregate.project("a b -_id");
 
@@ -113,85 +107,75 @@ Mongoose query [selection syntax][169] is also supported.
 
     aggregate.project({ salary_k: { $divide: [ "$salary", 1000 ] } });
 
-* * *
+## Aggregate.prototype.group()
 
-### [Aggregate.prototype.group()][241]
-
-##### Parameters
+**参数**
 
 * arg «Object» $group operator contents
 
-##### Returns:
+**返回**
 
 Appends a new custom $group operator to this aggregate pipeline.
 
-#### Examples:
+**示例**
 
     aggregate.group({ _id: "$department" });
 
-* * *
+## Aggregate.prototype.match()
 
-### [Aggregate.prototype.match()][242]
-
-##### Parameters
+**参数**
 
 * arg «Object» $match operator contents
 
-##### Returns:
+**返回**
 
 Appends a new custom $match operator to this aggregate pipeline.
 
-#### Examples:
+**示例**
 
     aggregate.match({ department: { $in: [ "sales", "engineering" ] } });
 
-* * *
+## Aggregate.prototype.skip()
 
-### [Aggregate.prototype.skip()][243]
-
-##### Parameters
+**参数**
 
 * num «Number» number of records to skip before next stage
 
-##### Returns:
+**返回**
 
 Appends a new $skip operator to this aggregate pipeline.
 
-#### Examples:
+**示例**
 
     aggregate.skip(10);
 
-* * *
+## Aggregate.prototype.limit()
 
-### [Aggregate.prototype.limit()][244]
-
-##### Parameters
+**参数**
 
 * num «Number» maximum number of records to pass to the next stage
 
-##### Returns:
+**返回**
 
 Appends a new $limit operator to this aggregate pipeline.
 
-#### Examples:
+**示例**
 
     aggregate.limit(10);
 
-* * *
+## Aggregate.prototype.near()
 
-### [Aggregate.prototype.near()][245]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Appends a new $geoNear operator to this aggregate pipeline.
 
-#### NOTE:
+**注释**
 
 **MUST** be used as the first operator in the pipeline.
 
-#### Examples:
+**示例**
 
     aggregate.near({
       near: [40.724, -73.997],
@@ -203,82 +187,72 @@ Appends a new $geoNear operator to this aggregate pipeline.
       num: 5
     });
 
-* * *
+## Aggregate.prototype.unwind()
 
-### [Aggregate.prototype.unwind()][246]
-
-##### Parameters
+**参数**
 
 * fields «String» the field(s) to unwind
 
-##### Returns:
+**返回**
 
 Appends new custom $unwind operator(s) to this aggregate pipeline.
 
 Note that the `$unwind` operator requires the path name to start with '$'. Mongoose will prepend '$' if the specified field doesn't start '$'.
 
-#### Examples:
+**示例**
 
     aggregate.unwind("tags");
     aggregate.unwind("a", "b", "c");
 
-* * *
+## Aggregate.prototype.lookup()
 
-### [Aggregate.prototype.lookup()][247]
-
-##### Parameters
+**参数**
 
 * options «Object» to $lookup as described in the above link
 
-##### Returns:
+**返回**
 
 Appends new custom $lookup operator(s) to this aggregate pipeline.
 
-#### Examples:
+**示例**
 
     aggregate.lookup({ from: 'users', localField: 'userId', foreignField: '_id', as: 'users' });
 
-* * *
+## Aggregate.prototype.graphLookup()
 
-### [Aggregate.prototype.graphLookup()][248]
-
-##### Parameters
+**参数**
 
 * options «Object» to $graphLookup as described in the above link
 
-##### Returns:
+**返回**
 
 Appends new custom $graphLookup operator(s) to this aggregate pipeline, performing a recursive search on a collection.
 
 Note that graphLookup can only consume at most 100MB of memory, and does not allow disk use even if `{ allowDiskUse: true }` is specified.
 
-#### Examples:
+**示例**
 
      aggregate.graphLookup({ from: 'courses', startWith: '$prerequisite', connectFromField: 'prerequisite', connectToField: 'name', as: 'prerequisites', maxDepth: 3 })
 
-* * *
+## Aggregate.prototype.sample()
 
-### [Aggregate.prototype.sample()][249]
-
-##### Parameters
+**参数**
 
 * size «Number» number of random documents to pick
 
-##### Returns:
+**返回**
 
 Appepnds new custom $sample operator(s) to this aggregate pipeline.
 
-#### Examples:
+**示例**
 
     aggregate.sample(3);
 
-* * *
+## Aggregate.prototype.sort()
 
-### [Aggregate.prototype.sort()][250]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Appends a new $sort operator to this aggregate pipeline.
 
@@ -286,122 +260,106 @@ If an object is passed, values allowed are `asc`, `desc`, `ascending`, `descendi
 
 If a string is passed, it must be a space delimited list of path names. The sort order of each path is ascending unless the path name is prefixed with `-` which will be treated as descending.
 
-#### Examples:
+**示例**
 
     aggregate.sort({ field: 'asc', test: -1 });
     aggregate.sort('field -test');
 
-* * *
+## Aggregate.prototype.read()
 
-### [Aggregate.prototype.read()][251]
-
-##### Parameters
+**参数**
 
 * [tags] «Array» optional tags for this query
 
 Sets the readPreference option for the aggregation query.
 
-#### Example:
+**示例**
 
     Model.aggregate(..).read('primaryPreferred').exec(callback)
 
-* * *
+## Aggregate.prototype.explain()
 
-### [Aggregate.prototype.explain()][252]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Execute the aggregation with explain
 
-#### Example:
+**示例**
 
     Model.aggregate(..).explain(callback)
 
-* * *
+## Aggregate.prototype.allowDiskUse()
 
-### [Aggregate.prototype.allowDiskUse()][253]
-
-##### Parameters
+**参数**
 
 * [tags] «Array» optional tags for this query
 
 Sets the allowDiskUse option for the aggregation query (ignored for < 2.6.0)
 
-#### Example:
+**示例**
 
     Model.aggregate(..).allowDiskUse(true).exec(callback)
 
-* * *
+## Aggregate.prototype.option()
 
-### [Aggregate.prototype.option()][254]
-
-##### Parameters
+**参数**
 
 * value «Object» keys to merge into current options
 
-##### Returns:
+**返回**
 
 Lets you set arbitrary options, for middleware or plugins.
 
-#### Example:
+**示例**
 
     var agg = Model.aggregate(..).option({ allowDiskUse: true });
     agg.options;
 
-* * *
+## Aggregate.prototype.cursor()
 
-### [Aggregate.prototype.cursor()][255]
-
-##### Parameters
+**参数**
 
 * [options.useMongooseAggCursor] «Boolean» use experimental mongoose-specific aggregation cursor (for `eachAsync()` and other query cursor semantics)
 
 Sets the cursor option option for the aggregation query (ignored for < 2.6.0). Note the different syntax below: .exec() returns a cursor object, and no callback is necessary.
 
-#### Example:
+**示例**
 
     var cursor = Model.aggregate(..).cursor({ batchSize: 1000 }).exec();
     cursor.each(function(error, doc) {
 
     });
 
-* * *
+## Aggregate.prototype.addCursorFlag()
 
-### [Aggregate.prototype.addCursorFlag()][256]
+**参数**
 
-##### Parameters
+Adds a [cursor flag
 
-Adds a [cursor flag][257]
-
-#### Example:
+**示例**
 
     Model.aggregate(..).addCursorFlag('noCursorTimeout', true).exec();
 
-* * *
+## Aggregate.prototype.collation()
 
-### [Aggregate.prototype.collation()][258]
-
-##### Parameters
+**参数**
 
 Adds a collation
 
-#### Example:
+**示例**
 
     Model.aggregate(..).collation({ locale: 'en_US', strength: 1 }).exec();
 
-* * *
+## Aggregate.prototype.facet()
 
-### [Aggregate.prototype.facet()][259]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Combines multiple aggregation pipelines.
 
-#### Example:
+**示例**
 
     Model.aggregate(...)
      .facet({
@@ -410,48 +368,42 @@ Combines multiple aggregation pipelines.
      })
      .exec();
 
-* * *
+## Aggregate.prototype.pipeline()
 
-### [Aggregate.prototype.pipeline()][260]
-
-##### Returns:
+**返回**
 
 Returns the current pipeline
 
-#### Example:
+**示例**
 
     MyModel.aggregate().match({ test: 1 }).pipeline();
 
-* * *
+## Aggregate.prototype.exec()
 
-### [Aggregate.prototype.exec()][261]
+**参数**
 
-##### Parameters
-
-##### Returns:
+**返回**
 
 Executes the aggregate pipeline on the currently bound Model.
 
-#### Example:
+**示例**
 
     aggregate.exec(callback);
 
     var promise = aggregate.exec();
     promise.then(..);
 
-* * *
+## Aggregate.prototype.then()
 
-### [Aggregate.prototype.then()][262]
-
-##### Parameters
+**参数**
 
 * [reject] «Function» errorCallback
 
-##### Returns:
+**返回**
 
 Provides promise for aggregate.
 
-#### Example:
+**示例**
 
     Model.aggregate(..).then(successCallback, errorCallback);
 
