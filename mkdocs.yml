@@ -51,25 +51,29 @@ markdown_extensions:
 pages:
   - 前言: index.md
   - 快速开始: QuickStart.md
-  - 指南:
-    - 模式: guide/Schemas.md
-    - 连接: guide/Connections.md
-    - 模式: guide/Models.md
-    - 文档: guide/Documents.md
-    - 查询: guide/Queries.md
+  - 连接:
+    - 指南: connection/guide.md
+    - API: connection/api.md
+  - 模式:
+    - 指南: schema/guide.md
+    - API: schema/api.md
+    - 类型API: schema/type.md
+  - 模型:
+    - 指南: model/guide.md
+    - API: model/api.md
+  - 文档:
+    - 指南: document/guide.md
+    - API: document/api.md
+  - 查询:
+    - 指南: query/guide.md
+    - 查询: query/api.md
+  - 其它指南:
     - 验证: guide/Validation.md
     - 中间件: guide/Middleware.md
     - 填充: guide/Populate.md
     - 鉴别器: guide/Discriminators.md
     - 插件: guide/Plugins.md
-  - API:
-    - 接口: api/index.md
-    - 链接: api/Connection.md
-    - 模式: api/Schema.md
-    - 模式类型: api/SchemaType.md
-    - 模型: api/Model.md
-    - 文档: api/Document.md
-    - 查询: api/Query.md
+  - 其它API:
     - 聚合: api/Aggregate.md
     - 虚拟类型: api/VirtualType.md
     - 错误: api/Error.md

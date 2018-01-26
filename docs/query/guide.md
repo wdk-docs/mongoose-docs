@@ -1,6 +1,4 @@
-# Mongoose v5.0.1: Queries
-
-## Queries
+# 查询
 
 [Source](http://mongoosejs.com/docs/queries.html "Permalink to Mongoose v5.0.1: Queries")
 
@@ -79,11 +77,11 @@ In the above code, the `query` variable is of type [Query][7]. A `Query` enables
 
 A full list of [Query helper functions can be found in the API docs][11].
 
-### [References to other documents][12]
+## [参考其他文件][12]
 
 There are no joins in MongoDB but sometimes we still want references to documents in other collections. This is where [population][13] comes in. Read more about how to include documents from other collections in your query results [here][14].
 
-### [Streaming][15]
+## [流][15]
 
 You can [stream][16] query results from MongoDB. You need to call the [Query#cursor()][17] function to return an instance of [QueryCursor][18].
 

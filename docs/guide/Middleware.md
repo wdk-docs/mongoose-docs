@@ -1,6 +1,4 @@
-# Mongoose v5.0.1: Middleware
-
-## Middleware
+# 中间件
 
 [Source](http://mongoosejs.com/docs/middleware.html "Permalink to Mongoose v5.0.1: Middleware")
 
@@ -16,14 +14,13 @@ All middleware types support pre and post hooks. How pre and post hooks work is 
 
 **Note:** There is no query hook for `remove()`, only for documents. If you set a 'remove' hook, it will be fired when you call `myDoc.remove()`, not when you call `MyModel.remove()`. **Note:** The `create()` function fires `save()` hooks.
 
-### Pre
+## Pre
 
 There are two types of `pre` hooks, serial and parallel.
 
-#### Serial
+### 串行
 
 Serial middleware functions are executed one after another, when each middleware calls `next`.
-
 
     var schema = new Schema(..);
     schema.pre('save', function(next) {
@@ -31,9 +28,7 @@ Serial middleware functions are executed one after another, when each middleware
       next();
     });
 
-
 The `next()` call does **not** stop the rest of the code in your middleware function from executing. Use [the early `return` pattern][3] to prevent the rest of your middleware function from running when you call `next()`.
-
 
     var schema = new Schema(..);
     schema.pre('save', function(next) {
@@ -46,15 +41,11 @@ The `next()` call does **not** stop the rest of the code in your middleware func
       console.log('after next');
     });
 
-
-#### Parallel
+### 平行
 
 Parallel middleware offer more fine-grained flow control.
 
-
     var schema = new Schema(..);
-
-
 
     schema.pre('save', true, function(next, done) {
 
@@ -62,10 +53,9 @@ Parallel middleware offer more fine-grained flow control.
       setTimeout(done, 100);
     });
 
-
 The hooked method, in this case `save`, will not be executed until `done` is called by each middleware.
 
-#### Use Cases
+### 用例
 
 Middleware are useful for atomizing model logic. Here are some other ideas:
 
@@ -74,27 +64,22 @@ Middleware are useful for atomizing model logic. Here are some other ideas:
 * asynchronous defaults
 * asynchronous tasks that a certain action triggers
 
-#### Error handling
+### 错误处理
 
 If any middleware calls `next` or `done` with a parameter of type `Error`, the flow is interrupted, and the error is passed to the callback.
-
 
     schema.pre('save', function(next) {
       var err = new Error('something went wrong');
       next(err);
     });
 
-
-
     myDoc.save(function(err) {
       console.log(err.message)
     });
 
-
-### Post middleware
+## 发布中间件
 
 [post][4] middleware are executed _after_ the hooked method and all of its `pre` middleware have completed.
-
 
     schema.post('init', function(doc) {
       console.log('%s has been initialized from the db', doc._id);
@@ -109,11 +94,9 @@ If any middleware calls `next` or `done` with a parameter of type `Error`, the f
       console.log('%s has been removed', doc._id);
     });
 
-
-### Asynchronous Post Hooks
+## 异步发布钩
 
 If your post hook function takes at least 2 parameters, mongoose will assume the second parameter is a `next()` function that you will call to trigger the next middleware in the sequence.
-
 
     schema.post('save', function(doc, next) {
       setTimeout(function() {
@@ -123,17 +106,14 @@ If your post hook function takes at least 2 parameters, mongoose will assume the
       }, 10);
     });
 
-
     schema.post('save', function(doc, next) {
       console.log('post2');
       next();
     });
 
-
-### Save/Validate Hooks
+## 保存/验证钩子
 
 The `save()` function triggers `validate()` hooks, because mongoose has a built-in `pre('save')` hook that calls `validate()`. This means that all `pre('validate')` and `post('validate')` hooks get called **before** any `pre('save')` hooks.
-
 
     schema.pre('validate', function() {
       console.log('this gets printed first');
@@ -148,11 +128,9 @@ The `save()` function triggers `validate()` hooks, because mongoose has a built-
       console.log('this gets printed fourth');
     });
 
-
-### Notes on findAndUpdate() and Query Middleware
+## findAndUpdate（）和查询中间件的注释
 
 Pre and post `save()` hooks are **not** executed on `update()`, `findOneAndUpdate()`, etc. You can see a more detailed discussion why in [this GitHub issue][5]. Mongoose 4.0 introduced distinct hooks for these functions.
-
 
     schema.pre('find', function() {
       console.log(this instanceof mongoose.Query);
@@ -167,18 +145,15 @@ Pre and post `save()` hooks are **not** executed on `update()`, `findOneAndUpdat
       console.log('find() took ' + (Date.now() - this.start) + ' millis');
     });
 
-
 Query middleware differs from document middleware in a subtle but important way: in document middleware, `this` refers to the document being updated. In query middleware, mongoose doesn't necessarily have a reference to the document being updated, so `this` refers to the **query** object rather than the document being updated.
 
 For instance, if you wanted to add an `updatedAt` timestamp to every `update()` call, you would use the following pre hook.
-
 
     schema.pre('update', function() {
       this.update({},{ $set: { updatedAt: new Date() } });
     });
 
-
-### Error Handling Middleware
+## 错误处理中间件
 
 _New in 4.5.0_
 
@@ -186,17 +161,13 @@ Middleware execution normally stops the first time a piece of middleware calls `
 
 Error handling middleware is defined as middleware that takes one extra parameter: the 'error' that occurred as the first parameter to the function. Error handling middleware can then transform the error however you want.
 
-
     var schema = new Schema({
       name: {
         type: String,
 
-
         unique: true
       }
     });
-
-
 
     schema.post('save', function(error, doc, next) {
       if (error.name === 'MongoError' && error.code === 11000) {
@@ -206,15 +177,9 @@ Error handling middleware is defined as middleware that takes one extra paramete
       }
     });
 
-
     Person.create([{ name: 'Axl Rose' }, { name: 'Axl Rose' }]);
 
-
 Error handling middleware also works with query middleware. You can also define a post `update()` hook that will catch MongoDB duplicate key errors.
-
-
-
-
 
     schema.post('update', function(error, res, next) {
       if (error.name === 'MongoError' && error.code === 11000) {
@@ -231,8 +196,7 @@ Error handling middleware also works with query middleware. You can also define 
       });
     });
 
-
-### Next Up
+## 接下来
 
 Now that we've covered middleware, let's take a look at Mongoose's approach to faking JOINs with its query [population][6] helper.
 
@@ -242,5 +206,3 @@ Now that we've covered middleware, let's take a look at Mongoose's approach to f
 [4]: http://mongoosejs.com/docs/api.html#schema_Schema-post
 [5]: http://github.com/Automattic/mongoose/issues/964
 [6]: http://mongoosejs.com/docs/populate.html
-
-

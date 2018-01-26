@@ -1,8 +1,6 @@
-# Mongoose v5.0.1: Plugins
+# 插件
 
-## Plugins
-
-[Source](http://mongoosejs.com/docs/plugins.html "Permalink to Mongoose v5.0.1: Plugins")
+[资源](http://mongoosejs.com/docs/plugins.html "Mongoose v5.0.1的永久链接：插件")
 
 Schemas are pluggable, that is, they allow for applying pre-packaged capabilities to extend their functionality. This is a very powerful feature.
 
@@ -35,7 +33,7 @@ Suppose that we have several collections in our database and want to add last-mo
 
 We just added last-modified behavior to both our `Game` and `Player` schemas and declared an index on the `lastMod` path of our Games to boot. Not bad for a few lines of code.
 
-### [Global Plugins][1]
+## [全球插件][1]
 
 Want to register a plugin for all schemas? The mongoose singleton has a `.plugin()` function that registers a plugin for every schema. For example:
 
