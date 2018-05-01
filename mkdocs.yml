@@ -77,5 +77,6 @@ pages:
     - 聚合: api/Aggregate.md
     - 虚拟类型: api/VirtualType.md
     - 错误: api/Error.md
+  - 升级到5: migrating_to_5.md
   - 版本兼容性: VersionCompatibility.md
   - 常问问题: FAQ.md
