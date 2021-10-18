@@ -1,0 +1,3132 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Mongodb NodeJs 组件中文文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
+    
+    
+      
+        <title>查询API - Mongoose文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.24c991ad.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Mongoose文档" class="md-header__button md-logo" aria-label="Mongoose文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mongoose文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              查询API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/wohugb/mongoose-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    wohugb/mongoose-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mongoose文档" class="md-nav__button md-logo" aria-label="Mongoose文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Mongoose文档
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/wohugb/mongoose-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    wohugb/mongoose-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        前言
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../QuickStart/" class="md-nav__link">
+        快速开始
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          连接
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="连接" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          连接
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connection/guide/" class="md-nav__link">
+        连接手册
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connection/api/" class="md-nav__link">
+        连接API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          模式
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="模式" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          模式
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schema/guide/" class="md-nav__link">
+        模式手册
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schema/api/" class="md-nav__link">
+        模式API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schema/type/" class="md-nav__link">
+        模式类型API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          模型
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="模型" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          模型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model/guide/" class="md-nav__link">
+        模型手册
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model/api/" class="md-nav__link">
+        模型API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          文档
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="文档" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          文档
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../document/guide/" class="md-nav__link">
+        文档手册
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../document/api/" class="md-nav__link">
+        文档API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          查询
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="查询" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          查询
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guide/" class="md-nav__link">
+        查询手册
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          查询API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        查询API
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#query" class="md-nav__link">
+    Query()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeusegeowithin" class="md-nav__link">
+    Query.prototype.use$geoWithin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypetoconstructor" class="md-nav__link">
+    Query.prototype.toConstructor()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypewhere" class="md-nav__link">
+    Query.prototype.$where()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypewhere_1" class="md-nav__link">
+    Query.prototype.where()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeequals" class="md-nav__link">
+    Query.prototype.equals()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeor" class="md-nav__link">
+    Query.prototype.or()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypenor" class="md-nav__link">
+    Query.prototype.nor()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeand" class="md-nav__link">
+    Query.prototype.and()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypegt" class="md-nav__link">
+    Query.prototype.gt()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypegte" class="md-nav__link">
+    Query.prototype.gte()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypelt" class="md-nav__link">
+    Query.prototype.lt()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypelte" class="md-nav__link">
+    Query.prototype.lte()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypene" class="md-nav__link">
+    Query.prototype.ne()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypein" class="md-nav__link">
+    Query.prototype.in()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypenin" class="md-nav__link">
+    Query.prototype.nin()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeall" class="md-nav__link">
+    Query.prototype.all()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypesize" class="md-nav__link">
+    Query.prototype.size()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototyperegex" class="md-nav__link">
+    Query.prototype.regex()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypemaxdistance" class="md-nav__link">
+    Query.prototype.maxDistance()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypemod" class="md-nav__link">
+    Query.prototype.mod()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeexists" class="md-nav__link">
+    Query.prototype.exists()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeelemmatch" class="md-nav__link">
+    Query.prototype.elemMatch()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypewithin" class="md-nav__link">
+    Query.prototype.within()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeslice" class="md-nav__link">
+    Query.prototype.slice()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypelimit" class="md-nav__link">
+    Query.prototype.limit()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeskip" class="md-nav__link">
+    Query.prototype.skip()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypemaxscan" class="md-nav__link">
+    Query.prototype.maxScan()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypebatchsize" class="md-nav__link">
+    Query.prototype.batchSize()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypesnapshot" class="md-nav__link">
+    Query.prototype.snapshot()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypehint" class="md-nav__link">
+    Query.prototype.hint()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeselect" class="md-nav__link">
+    Query.prototype.select()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeslaveok" class="md-nav__link">
+    Query.prototype.slaveOk()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototyperead" class="md-nav__link">
+    Query.prototype.read()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypemerge" class="md-nav__link">
+    Query.prototype.merge()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypesetoptions" class="md-nav__link">
+    Query.prototype.setOptions()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypegetquery" class="md-nav__link">
+    Query.prototype.getQuery()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypegetupdate" class="md-nav__link">
+    Query.prototype.getUpdate()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypelean" class="md-nav__link">
+    Query.prototype.lean()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeerror" class="md-nav__link">
+    Query.prototype.error()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypemongooseoptions" class="md-nav__link">
+    Query.prototype.mongooseOptions()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypefind" class="md-nav__link">
+    Query.prototype.find()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypemerge_1" class="md-nav__link">
+    Query.prototype.merge()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypecollation" class="md-nav__link">
+    Query.prototype.collation()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypefindone" class="md-nav__link">
+    Query.prototype.findOne()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypecount" class="md-nav__link">
+    Query.prototype.count()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypedistinct" class="md-nav__link">
+    Query.prototype.distinct()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypesort" class="md-nav__link">
+    Query.prototype.sort()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototyperemove" class="md-nav__link">
+    Query.prototype.remove()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypedeleteone" class="md-nav__link">
+    Query.prototype.deleteOne()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypedeletemany" class="md-nav__link">
+    Query.prototype.deleteMany()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypefindoneandupdate" class="md-nav__link">
+    Query.prototype.findOneAndUpdate()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypefindoneandremove" class="md-nav__link">
+    Query.prototype.findOneAndRemove()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeupdate" class="md-nav__link">
+    Query.prototype.update()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeupdatemany" class="md-nav__link">
+    Query.prototype.updateMany()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeupdateone" class="md-nav__link">
+    Query.prototype.updateOne()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypereplaceone" class="md-nav__link">
+    Query.prototype.replaceOne()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeexec" class="md-nav__link">
+    Query.prototype.exec()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypethen" class="md-nav__link">
+    Query.prototype.then()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypecatch" class="md-nav__link">
+    Query.prototype.catch()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypepopulate" class="md-nav__link">
+    Query.prototype.populate()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypecast" class="md-nav__link">
+    Query.prototype.cast()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypecursor" class="md-nav__link">
+    Query.prototype.cursor()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypemaxscan_1" class="md-nav__link">
+    Query.prototype.maxscan()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypetailable" class="md-nav__link">
+    Query.prototype.tailable()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeintersects" class="md-nav__link">
+    Query.prototype.intersects()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypegeometry" class="md-nav__link">
+    Query.prototype.geometry()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypenear" class="md-nav__link">
+    Query.prototype.near()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypenearsphere" class="md-nav__link">
+    Query.prototype.nearSphere()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypepolygon" class="md-nav__link">
+    Query.prototype.polygon()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypebox" class="md-nav__link">
+    Query.prototype.box()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypecircle" class="md-nav__link">
+    Query.prototype.circle()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypecenter" class="md-nav__link">
+    Query.prototype.center()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypecentersphere" class="md-nav__link">
+    Query.prototype.centerSphere()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeselected" class="md-nav__link">
+    Query.prototype.selected()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeselectedinclusively" class="md-nav__link">
+    Query.prototype.selectedInclusively()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeselectedexclusively" class="md-nav__link">
+    Query.prototype.selectedExclusively()
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          其它手册
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="其它手册" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          其它手册
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/Validation/" class="md-nav__link">
+        验证
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/Middleware/" class="md-nav__link">
+        中间件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/Populate/" class="md-nav__link">
+        填充
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/Discriminators/" class="md-nav__link">
+        鉴别器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/Plugins/" class="md-nav__link">
+        插件
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          其它API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="其它API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          其它API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/Aggregate/" class="md-nav__link">
+        聚合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/VirtualType/" class="md-nav__link">
+        虚拟类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/Error/" class="md-nav__link">
+        错误
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migrating_to_5/" class="md-nav__link">
+        升级到5
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VersionCompatibility/" class="md-nav__link">
+        版本兼容性
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/" class="md-nav__link">
+        常问问题
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#query" class="md-nav__link">
+    Query()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeusegeowithin" class="md-nav__link">
+    Query.prototype.use$geoWithin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypetoconstructor" class="md-nav__link">
+    Query.prototype.toConstructor()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypewhere" class="md-nav__link">
+    Query.prototype.$where()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypewhere_1" class="md-nav__link">
+    Query.prototype.where()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeequals" class="md-nav__link">
+    Query.prototype.equals()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeor" class="md-nav__link">
+    Query.prototype.or()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypenor" class="md-nav__link">
+    Query.prototype.nor()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeand" class="md-nav__link">
+    Query.prototype.and()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypegt" class="md-nav__link">
+    Query.prototype.gt()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypegte" class="md-nav__link">
+    Query.prototype.gte()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypelt" class="md-nav__link">
+    Query.prototype.lt()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypelte" class="md-nav__link">
+    Query.prototype.lte()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypene" class="md-nav__link">
+    Query.prototype.ne()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypein" class="md-nav__link">
+    Query.prototype.in()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypenin" class="md-nav__link">
+    Query.prototype.nin()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeall" class="md-nav__link">
+    Query.prototype.all()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypesize" class="md-nav__link">
+    Query.prototype.size()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototyperegex" class="md-nav__link">
+    Query.prototype.regex()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypemaxdistance" class="md-nav__link">
+    Query.prototype.maxDistance()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypemod" class="md-nav__link">
+    Query.prototype.mod()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeexists" class="md-nav__link">
+    Query.prototype.exists()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeelemmatch" class="md-nav__link">
+    Query.prototype.elemMatch()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypewithin" class="md-nav__link">
+    Query.prototype.within()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeslice" class="md-nav__link">
+    Query.prototype.slice()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypelimit" class="md-nav__link">
+    Query.prototype.limit()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeskip" class="md-nav__link">
+    Query.prototype.skip()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypemaxscan" class="md-nav__link">
+    Query.prototype.maxScan()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypebatchsize" class="md-nav__link">
+    Query.prototype.batchSize()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypesnapshot" class="md-nav__link">
+    Query.prototype.snapshot()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypehint" class="md-nav__link">
+    Query.prototype.hint()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeselect" class="md-nav__link">
+    Query.prototype.select()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeslaveok" class="md-nav__link">
+    Query.prototype.slaveOk()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototyperead" class="md-nav__link">
+    Query.prototype.read()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypemerge" class="md-nav__link">
+    Query.prototype.merge()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypesetoptions" class="md-nav__link">
+    Query.prototype.setOptions()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypegetquery" class="md-nav__link">
+    Query.prototype.getQuery()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypegetupdate" class="md-nav__link">
+    Query.prototype.getUpdate()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypelean" class="md-nav__link">
+    Query.prototype.lean()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeerror" class="md-nav__link">
+    Query.prototype.error()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypemongooseoptions" class="md-nav__link">
+    Query.prototype.mongooseOptions()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypefind" class="md-nav__link">
+    Query.prototype.find()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypemerge_1" class="md-nav__link">
+    Query.prototype.merge()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypecollation" class="md-nav__link">
+    Query.prototype.collation()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypefindone" class="md-nav__link">
+    Query.prototype.findOne()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypecount" class="md-nav__link">
+    Query.prototype.count()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypedistinct" class="md-nav__link">
+    Query.prototype.distinct()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypesort" class="md-nav__link">
+    Query.prototype.sort()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototyperemove" class="md-nav__link">
+    Query.prototype.remove()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypedeleteone" class="md-nav__link">
+    Query.prototype.deleteOne()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypedeletemany" class="md-nav__link">
+    Query.prototype.deleteMany()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypefindoneandupdate" class="md-nav__link">
+    Query.prototype.findOneAndUpdate()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypefindoneandremove" class="md-nav__link">
+    Query.prototype.findOneAndRemove()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeupdate" class="md-nav__link">
+    Query.prototype.update()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeupdatemany" class="md-nav__link">
+    Query.prototype.updateMany()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeupdateone" class="md-nav__link">
+    Query.prototype.updateOne()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypereplaceone" class="md-nav__link">
+    Query.prototype.replaceOne()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeexec" class="md-nav__link">
+    Query.prototype.exec()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypethen" class="md-nav__link">
+    Query.prototype.then()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypecatch" class="md-nav__link">
+    Query.prototype.catch()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypepopulate" class="md-nav__link">
+    Query.prototype.populate()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypecast" class="md-nav__link">
+    Query.prototype.cast()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypecursor" class="md-nav__link">
+    Query.prototype.cursor()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypemaxscan_1" class="md-nav__link">
+    Query.prototype.maxscan()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypetailable" class="md-nav__link">
+    Query.prototype.tailable()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeintersects" class="md-nav__link">
+    Query.prototype.intersects()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypegeometry" class="md-nav__link">
+    Query.prototype.geometry()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypenear" class="md-nav__link">
+    Query.prototype.near()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypenearsphere" class="md-nav__link">
+    Query.prototype.nearSphere()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypepolygon" class="md-nav__link">
+    Query.prototype.polygon()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypebox" class="md-nav__link">
+    Query.prototype.box()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypecircle" class="md-nav__link">
+    Query.prototype.circle()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypecenter" class="md-nav__link">
+    Query.prototype.center()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypecentersphere" class="md-nav__link">
+    Query.prototype.centerSphere()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeselected" class="md-nav__link">
+    Query.prototype.selected()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeselectedinclusively" class="md-nav__link">
+    Query.prototype.selectedInclusively()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryprototypeselectedexclusively" class="md-nav__link">
+    Query.prototype.selectedExclusively()
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">查询<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="query">Query()<a class="headerlink" href="#query" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>[collection] «Object» Mongoose collection</li>
+</ul>
+<p>Query constructor used for building queries. You do not need to instantiate a <code>Query</code> directly. Instead use Model functions like [<code>Model.find()</code>.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="k">const</span> <span class="n">query</span> <span class="o">=</span> <span class="n">MyModel</span><span class="o">.</span><span class="n">find</span><span class="p">();</span>
+<span class="n">query</span><span class="o">.</span><span class="n">setOptions</span><span class="p">({</span> <span class="n">lean</span> <span class="p">:</span> <span class="bp">true</span> <span class="p">});</span>
+<span class="n">query</span><span class="o">.</span><span class="n">collection</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">collection</span><span class="p">);</span>
+<span class="n">query</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">gte</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="n">callback</span><span class="p">);</span>
+
+<span class="k">const</span> <span class="n">query</span> <span class="o">=</span> <span class="n">new</span> <span class="n">mongoose</span><span class="o">.</span><span class="n">Query</span><span class="p">();</span>
+</code></pre></div>
+
+<h2 id="queryprototypeusegeowithin">Query.prototype.use$geoWithin<a class="headerlink" href="#queryprototypeusegeowithin" title="Permanent link">&para;</a></h2>
+<p>Flag to opt out of using <code>$geoWithin</code>.</p>
+<div class="codehilite"><pre><span></span><code>mongoose.Query.use$geoWithin = false;
+</code></pre></div>
+
+<p>MongoDB 2.4 deprecated the use of <code>$within</code>, replacing it with <code>$geoWithin</code>. Mongoose uses <code>$geoWithin</code> by default (which is 100% backward compatible with $within). If you are running an older version of MongoDB, set this flag to <code>false</code> so your <code>within()</code> queries continue to work.</p>
+<h2 id="queryprototypetoconstructor">Query.prototype.toConstructor()<a class="headerlink" href="#queryprototypetoconstructor" title="Permanent link">&para;</a></h2>
+<p><strong>返回</strong></p>
+<ul>
+<li>«Query» subclass-of-Query</li>
+</ul>
+<p>Converts this query to a customized, reusable query constructor with all arguments and options retained.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="k">var</span> <span class="n">query</span> <span class="o">=</span> <span class="n">Movie</span><span class="o">.</span><span class="n">find</span><span class="p">({</span> <span class="n">tags</span><span class="p">:</span> <span class="s1">&#39;adventure&#39;</span> <span class="p">})</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;primaryPreferred&#39;</span><span class="p">);</span>
+
+<span class="k">var</span> <span class="n">Adventure</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">toConstructor</span><span class="p">();</span>
+
+<span class="n">Adventure</span><span class="p">()</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
+
+<span class="n">Adventure</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">({</span> <span class="n">name</span><span class="p">:</span> <span class="o">/^</span><span class="n">Life</span><span class="o">/</span> <span class="p">})</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="n">callback</span><span class="p">);</span>
+
+<span class="n">Adventure</span><span class="o">.</span><span class="n">prototype</span><span class="o">.</span><span class="n">startsWith</span> <span class="o">=</span> <span class="n">function</span> <span class="p">(</span><span class="n">prefix</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">this</span><span class="o">.</span><span class="n">where</span><span class="p">({</span> <span class="n">name</span><span class="p">:</span> <span class="n">new</span> <span class="n">RegExp</span><span class="p">(</span><span class="s1">&#39;^&#39;</span> <span class="o">+</span> <span class="n">prefix</span><span class="p">)</span> <span class="p">})</span>
+  <span class="k">return</span> <span class="n">this</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nb nb-Type">Object</span><span class="o">.</span><span class="n">defineProperty</span><span class="p">(</span><span class="n">Adventure</span><span class="o">.</span><span class="n">prototype</span><span class="p">,</span> <span class="s1">&#39;highlyRated&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="n">get</span><span class="p">:</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">where</span><span class="p">({</span> <span class="n">rating</span><span class="p">:</span> <span class="p">{</span> <span class="o">$</span><span class="n">gt</span><span class="p">:</span> <span class="mf">4.5</span> <span class="p">}});</span>
+    <span class="k">return</span> <span class="n">this</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+<span class="n">Adventure</span><span class="p">()</span><span class="o">.</span><span class="n">highlyRated</span><span class="o">.</span><span class="n">startsWith</span><span class="p">(</span><span class="s1">&#39;Life&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
+</code></pre></div>
+
+<p>New in 3.7.3</p>
+<h2 id="queryprototypewhere">Query.prototype.$where()<a class="headerlink" href="#queryprototypewhere" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>js «String,Function» javascript string or function</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Specifies a javascript function or expression to pass to MongoDBs query system.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nv">query</span>.$<span class="nv">where</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">this.comments.length === 10 || this.name.length === 5</span><span class="s1">&#39;</span><span class="ss">)</span>
+
+<span class="nv">query</span>.$<span class="nv">where</span><span class="ss">(</span><span class="nv">function</span> <span class="ss">()</span> {
+  <span class="k">return</span> <span class="nv">this</span>.<span class="nv">comments</span>.<span class="nv">length</span> <span class="o">===</span> <span class="mi">10</span> <span class="o">||</span> <span class="nv">this</span>.<span class="nv">name</span>.<span class="nv">length</span> <span class="o">===</span> <span class="mi">5</span><span class="c1">;</span>
+}<span class="ss">)</span>
+</code></pre></div>
+
+<p><strong>注释</strong></p>
+<p>Only use <code>$where</code> when you have a condition that cannot be met using other MongoDB operators like <code>$lt</code>. <strong>Be sure to read about all of [its caveats before using.</strong></p>
+<h2 id="queryprototypewhere_1">Query.prototype.where()<a class="headerlink" href="#queryprototypewhere_1" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p><strong>返回</strong></p>
+<p>Specifies a <code>path</code> for use with chaining.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nf">User.find</span><span class="p">(</span><span class="err">{</span><span class="no">age</span><span class="p">:</span> <span class="err">{</span><span class="no">$gte</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span> <span class="no">$lte</span><span class="p">:</span> <span class="mi">65</span><span class="err">}}</span><span class="p">,</span> <span class="no">callback</span><span class="p">)</span><span class="c1">;</span>
+
+<span class="nf">User.where</span><span class="p">(</span><span class="err">&#39;</span><span class="no">age</span><span class="err">&#39;</span><span class="p">).</span><span class="no">gte</span><span class="p">(</span><span class="mi">21</span><span class="p">).</span><span class="no">lte</span><span class="p">(</span><span class="mi">65</span><span class="p">)</span><span class="c1">;</span>
+
+<span class="nf">User.find</span><span class="p">().</span><span class="no">where</span><span class="p">(</span><span class="err">{</span> <span class="no">name</span><span class="p">:</span> <span class="err">&#39;</span><span class="no">vonderful</span><span class="err">&#39;</span> <span class="err">}</span><span class="p">)</span>
+
+<span class="nf">User</span>
+<span class="na">.where</span><span class="p">(</span><span class="err">&#39;</span><span class="no">age</span><span class="err">&#39;</span><span class="p">).</span><span class="no">gte</span><span class="p">(</span><span class="mi">21</span><span class="p">).</span><span class="no">lte</span><span class="p">(</span><span class="mi">65</span><span class="p">)</span>
+<span class="na">.where</span><span class="p">(</span><span class="err">&#39;</span><span class="no">name</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">/^</span><span class="no">vonderful</span><span class="err">/</span><span class="no">i</span><span class="p">)</span>
+<span class="na">.where</span><span class="p">(</span><span class="err">&#39;</span><span class="no">friends</span><span class="err">&#39;</span><span class="p">).</span><span class="no">slice</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="na">.exec</span><span class="p">(</span><span class="no">callback</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="queryprototypeequals">Query.prototype.equals()<a class="headerlink" href="#queryprototypeequals" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p><strong>返回</strong></p>
+<p>Specifies the complementary comparison value for paths specified with <code>where()</code></p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>User.where(&#39;age&#39;).equals(49);
+
+User.where(&#39;age&#39;, 49);
+</code></pre></div>
+
+<h2 id="queryprototypeor">Query.prototype.or()<a class="headerlink" href="#queryprototypeor" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>array «Array» array of conditions</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Specifies arguments for an <code>$or</code> condition.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>query.or([{ color: &#39;red&#39; }, { status: &#39;emergency&#39; }])
+</code></pre></div>
+
+<h2 id="queryprototypenor">Query.prototype.nor()<a class="headerlink" href="#queryprototypenor" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>array «Array» array of conditions</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Specifies arguments for a <code>$nor</code> condition.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>query.nor([{ color: &#39;green&#39; }, { status: &#39;ok&#39; }])
+</code></pre></div>
+
+<h2 id="queryprototypeand">Query.prototype.and()<a class="headerlink" href="#queryprototypeand" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>array «Array» array of conditions</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Specifies arguments for a <code>$and</code> condition.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>query.and([{ color: &#39;green&#39; }, { status: &#39;ok&#39; }])
+</code></pre></div>
+
+<h2 id="queryprototypegt">Query.prototype.gt()<a class="headerlink" href="#queryprototypegt" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p>Specifies a $gt query condition.</p>
+<p>When called with one argument, the most recent path passed to <code>where()</code> is used.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>Thing.find().where(&#39;age&#39;).gt(21)
+
+Thing.find().gt(&#39;age&#39;, 21)
+</code></pre></div>
+
+<h2 id="queryprototypegte">Query.prototype.gte()<a class="headerlink" href="#queryprototypegte" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p>Specifies a $gte query condition.</p>
+<p>When called with one argument, the most recent path passed to <code>where()</code> is used.</p>
+<h2 id="queryprototypelt">Query.prototype.lt()<a class="headerlink" href="#queryprototypelt" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p>Specifies a $lt query condition.</p>
+<p>When called with one argument, the most recent path passed to <code>where()</code> is used.</p>
+<h2 id="queryprototypelte">Query.prototype.lte()<a class="headerlink" href="#queryprototypelte" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p>Specifies a $lte query condition.</p>
+<p>When called with one argument, the most recent path passed to <code>where()</code> is used.</p>
+<h2 id="queryprototypene">Query.prototype.ne()<a class="headerlink" href="#queryprototypene" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p>Specifies a $ne query condition.</p>
+<p>When called with one argument, the most recent path passed to <code>where()</code> is used.</p>
+<h2 id="queryprototypein">Query.prototype.in()<a class="headerlink" href="#queryprototypein" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p>Specifies an $in query condition.</p>
+<p>When called with one argument, the most recent path passed to <code>where()</code> is used.</p>
+<h2 id="queryprototypenin">Query.prototype.nin()<a class="headerlink" href="#queryprototypenin" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p>Specifies an $nin query condition.</p>
+<p>When called with one argument, the most recent path passed to <code>where()</code> is used.</p>
+<h2 id="queryprototypeall">Query.prototype.all()<a class="headerlink" href="#queryprototypeall" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p>Specifies an $all query condition.</p>
+<p>When called with one argument, the most recent path passed to <code>where()</code> is used.</p>
+<h2 id="queryprototypesize">Query.prototype.size()<a class="headerlink" href="#queryprototypesize" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p>Specifies a $size query condition.</p>
+<p>When called with one argument, the most recent path passed to <code>where()</code> is used.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nv">MyModel</span>.<span class="nv">where</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">tags</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="nv">size</span><span class="ss">(</span><span class="mi">0</span><span class="ss">)</span>.<span class="k">exec</span><span class="ss">(</span><span class="nv">function</span> <span class="ss">(</span><span class="nv">err</span>, <span class="nv">docs</span><span class="ss">)</span> {
+  <span class="k">if</span> <span class="ss">(</span><span class="nv">err</span><span class="ss">)</span> <span class="k">return</span> <span class="nv">handleError</span><span class="ss">(</span><span class="nv">err</span><span class="ss">)</span><span class="c1">;</span>
+
+  <span class="nv">assert</span><span class="ss">(</span><span class="nv">Array</span>.<span class="nv">isArray</span><span class="ss">(</span><span class="nv">docs</span><span class="ss">))</span><span class="c1">;</span>
+  <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">documents with 0 tags</span><span class="s1">&#39;</span>, <span class="nv">docs</span><span class="ss">)</span><span class="c1">;</span>
+}<span class="ss">)</span>
+</code></pre></div>
+
+<h2 id="queryprototyperegex">Query.prototype.regex()<a class="headerlink" href="#queryprototyperegex" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p>Specifies a $regex query condition.</p>
+<p>When called with one argument, the most recent path passed to <code>where()</code> is used.</p>
+<h2 id="queryprototypemaxdistance">Query.prototype.maxDistance()<a class="headerlink" href="#queryprototypemaxdistance" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p>Specifies a $maxDistance query condition.</p>
+<p>When called with one argument, the most recent path passed to <code>where()</code> is used.</p>
+<h2 id="queryprototypemod">Query.prototype.mod()<a class="headerlink" href="#queryprototypemod" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>val «Array» must be of length 2, first element is <code>divisor</code>, 2nd element is <code>remainder</code>.</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Specifies a <code>$mod</code> condition, filters documents for documents whose <code>path</code> property is a number that is equal to <code>remainder</code> modulo <code>divisor</code>.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>Product.find().mod(&#39;inventory&#39;, [2, 1]);
+Product.find().where(&#39;inventory&#39;).mod([2, 1]);
+
+Product.find().where(&#39;inventory&#39;).mod(2, 1);
+</code></pre></div>
+
+<h2 id="queryprototypeexists">Query.prototype.exists()<a class="headerlink" href="#queryprototypeexists" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p><strong>返回</strong></p>
+<p>Specifies an <code>$exists</code> condition</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>Thing.where(&#39;name&#39;).exists()
+Thing.where(&#39;name&#39;).exists(true)
+Thing.find().exists(&#39;name&#39;)
+
+Thing.where(&#39;name&#39;).exists(false);
+Thing.find().exists(&#39;name&#39;, false);
+</code></pre></div>
+
+<h2 id="queryprototypeelemmatch">Query.prototype.elemMatch()<a class="headerlink" href="#queryprototypeelemmatch" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>criteria «Object,Function»</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Specifies an <code>$elemMatch</code> condition</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nt">query</span><span class="p">.</span><span class="nc">elemMatch</span><span class="o">(</span><span class="s1">&#39;comment&#39;</span><span class="o">,</span> <span class="p">{</span> <span class="n">author</span><span class="p">:</span> <span class="s1">&#39;autobot&#39;</span><span class="p">,</span> <span class="n">votes</span><span class="o">:</span> <span class="err">{$</span><span class="n">gte</span><span class="o">:</span> <span class="mi">5</span><span class="p">}</span><span class="err">}</span><span class="o">)</span>
+
+<span class="nt">query</span><span class="p">.</span><span class="nc">where</span><span class="o">(</span><span class="s1">&#39;comment&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">elemMatch</span><span class="o">(</span><span class="p">{</span> <span class="n">author</span><span class="p">:</span> <span class="s1">&#39;autobot&#39;</span><span class="p">,</span> <span class="n">votes</span><span class="o">:</span> <span class="err">{$</span><span class="n">gte</span><span class="o">:</span> <span class="mi">5</span><span class="p">}</span><span class="err">}</span><span class="o">)</span>
+
+<span class="nt">query</span><span class="p">.</span><span class="nc">elemMatch</span><span class="o">(</span><span class="s1">&#39;comment&#39;</span><span class="o">,</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">elem</span><span class="o">)</span> <span class="p">{</span>
+  <span class="err">elem.where(&#39;author&#39;).equals(&#39;autobot&#39;)</span><span class="p">;</span>
+  <span class="err">elem.where(&#39;votes&#39;).gte(5)</span><span class="p">;</span>
+<span class="p">}</span><span class="o">)</span>
+
+<span class="nt">query</span><span class="p">.</span><span class="nc">where</span><span class="o">(</span><span class="s1">&#39;comment&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">elemMatch</span><span class="o">(</span><span class="nt">function</span> <span class="o">(</span><span class="nt">elem</span><span class="o">)</span> <span class="p">{</span>
+  <span class="err">elem.where({</span> <span class="n">author</span><span class="p">:</span> <span class="s1">&#39;autobot&#39;</span> <span class="p">}</span><span class="o">);</span>
+  <span class="nt">elem</span><span class="p">.</span><span class="nc">where</span><span class="o">(</span><span class="s1">&#39;votes&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">gte</span><span class="o">(</span><span class="nt">5</span><span class="o">);</span>
+<span class="err">}</span><span class="o">)</span>
+</code></pre></div>
+
+<h2 id="queryprototypewithin">Query.prototype.within()<a class="headerlink" href="#queryprototypewithin" title="Permanent link">&para;</a></h2>
+<p><strong>返回</strong></p>
+<p>Defines a <code>$within</code> or <code>$geoWithin</code> argument for geo-spatial queries.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nt">query</span><span class="p">.</span><span class="nc">where</span><span class="o">(</span><span class="nt">path</span><span class="o">)</span><span class="p">.</span><span class="nc">within</span><span class="o">()</span><span class="p">.</span><span class="nc">box</span><span class="o">()</span>
+<span class="nt">query</span><span class="p">.</span><span class="nc">where</span><span class="o">(</span><span class="nt">path</span><span class="o">)</span><span class="p">.</span><span class="nc">within</span><span class="o">()</span><span class="p">.</span><span class="nc">circle</span><span class="o">()</span>
+<span class="nt">query</span><span class="p">.</span><span class="nc">where</span><span class="o">(</span><span class="nt">path</span><span class="o">)</span><span class="p">.</span><span class="nc">within</span><span class="o">()</span><span class="p">.</span><span class="nc">geometry</span><span class="o">()</span>
+
+<span class="nt">query</span><span class="p">.</span><span class="nc">where</span><span class="o">(</span><span class="s1">&#39;loc&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">within</span><span class="o">(</span><span class="p">{</span> <span class="n">center</span><span class="p">:</span> <span class="cp">[</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="cp">]</span><span class="p">,</span> <span class="n">radius</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span> <span class="n">unique</span><span class="o">:</span> <span class="n">true</span><span class="p">,</span> <span class="n">spherical</span><span class="o">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">query</span><span class="p">.</span><span class="nc">where</span><span class="o">(</span><span class="s1">&#39;loc&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">within</span><span class="o">(</span><span class="p">{</span> <span class="n">box</span><span class="p">:</span> <span class="cp">[</span><span class="err">[</span><span class="mf">40.73</span><span class="p">,</span> <span class="o">-</span><span class="mf">73.9</span><span class="cp">]</span><span class="p">,</span> <span class="cp">[</span><span class="mf">40.7</span><span class="p">,</span> <span class="o">-</span><span class="mf">73.988</span><span class="cp">]</span><span class="p">]</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">query</span><span class="p">.</span><span class="nc">where</span><span class="o">(</span><span class="s1">&#39;loc&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">within</span><span class="o">(</span><span class="p">{</span> <span class="n">polygon</span><span class="p">:</span> <span class="cp">[</span><span class="err">[</span><span class="cp">]</span><span class="p">,</span><span class="cp">[]</span><span class="p">,</span><span class="cp">[]</span><span class="p">,</span><span class="cp">[]</span><span class="p">]</span> <span class="p">}</span><span class="o">);</span>
+
+<span class="nt">query</span><span class="p">.</span><span class="nc">where</span><span class="o">(</span><span class="s1">&#39;loc&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">within</span><span class="o">(</span><span class="cp">[]</span><span class="o">,</span> <span class="cp">[]</span><span class="o">,</span> <span class="cp">[]</span><span class="o">)</span>
+<span class="nt">query</span><span class="p">.</span><span class="nc">where</span><span class="o">(</span><span class="s1">&#39;loc&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">within</span><span class="o">(</span><span class="cp">[]</span><span class="o">,</span> <span class="cp">[]</span><span class="o">)</span>
+<span class="nt">query</span><span class="p">.</span><span class="nc">where</span><span class="o">(</span><span class="s1">&#39;loc&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">within</span><span class="o">(</span><span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="s1">&#39;LineString&#39;</span><span class="p">,</span> <span class="n">coordinates</span><span class="o">:</span> <span class="cp">[</span><span class="nx">...</span><span class="cp">]</span> <span class="p">}</span><span class="o">);</span>
+</code></pre></div>
+
+<p><strong>MUST</strong> be used after <code>where()</code>.</p>
+<p><strong>注释</strong></p>
+<p>As of Mongoose 3.7, <code>$geoWithin</code> is always used for queries. To change this behavior, see [Query.use$geoWithin.</p>
+<p><strong>注释</strong></p>
+<p>In Mongoose 3.7, <code>within</code> changed from a getter to a function. If you need the old syntax, use [this.</p>
+<h2 id="queryprototypeslice">Query.prototype.slice()<a class="headerlink" href="#queryprototypeslice" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>val «Number» number/range of elements to slice</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Specifies a $slice projection for an array.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>query.slice(&#39;comments&#39;, 5)
+query.slice(&#39;comments&#39;, -5)
+query.slice(&#39;comments&#39;, [10, 5])
+query.where(&#39;comments&#39;).slice(5)
+query.where(&#39;comments&#39;).slice([-10, 5])
+</code></pre></div>
+
+<h2 id="queryprototypelimit">Query.prototype.limit()<a class="headerlink" href="#queryprototypelimit" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p>Specifies the maximum number of documents the query will return.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>query.limit(20)
+</code></pre></div>
+
+<p><strong>注释</strong></p>
+<p>Cannot be used with <code>distinct()</code></p>
+<h2 id="queryprototypeskip">Query.prototype.skip()<a class="headerlink" href="#queryprototypeskip" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p>Specifies the number of documents to skip.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>query.skip(100).limit(20)
+</code></pre></div>
+
+<p><strong>注释</strong></p>
+<p>Cannot be used with <code>distinct()</code></p>
+<h2 id="queryprototypemaxscan">Query.prototype.maxScan()<a class="headerlink" href="#queryprototypemaxscan" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p>Specifies the maxScan option.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>query.maxScan(100)
+</code></pre></div>
+
+<p><strong>注释</strong></p>
+<p>Cannot be used with <code>distinct()</code></p>
+<h2 id="queryprototypebatchsize">Query.prototype.batchSize()<a class="headerlink" href="#queryprototypebatchsize" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p>Specifies the batchSize option.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>query.batchSize(100)
+</code></pre></div>
+
+<p><strong>注释</strong></p>
+<p>Cannot be used with <code>distinct()</code></p>
+<p><strong>参数</strong></p>
+<p>Specifies the <code>comment</code> option.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>query.comment(&#39;login query&#39;)
+</code></pre></div>
+
+<p><strong>注释</strong></p>
+<p>Cannot be used with <code>distinct()</code></p>
+<h2 id="queryprototypesnapshot">Query.prototype.snapshot()<a class="headerlink" href="#queryprototypesnapshot" title="Permanent link">&para;</a></h2>
+<p><strong>返回</strong></p>
+<p>Specifies this query as a <code>snapshot</code> query.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>query.snapshot()
+query.snapshot(true)
+query.snapshot(false)
+</code></pre></div>
+
+<p><strong>注释</strong></p>
+<p>Cannot be used with <code>distinct()</code></p>
+<h2 id="queryprototypehint">Query.prototype.hint()<a class="headerlink" href="#queryprototypehint" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>val «Object» a hint object</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Sets query hints.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>query.hint({ indexA: 1, indexB: -1})
+</code></pre></div>
+
+<p><strong>注释</strong></p>
+<p>Cannot be used with <code>distinct()</code></p>
+<h2 id="queryprototypeselect">Query.prototype.select()<a class="headerlink" href="#queryprototypeselect" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p><strong>返回</strong></p>
+<p>Specifies which document fields to include or exclude (also known as the query "projection")</p>
+<p>When using string syntax, prefixing a path with <code>-</code> will flag that path as excluded. When a path does not have the <code>-</code> prefix, it is included. Lastly, if a path is prefixed with <code>+</code>, it forces inclusion of the path, which is useful for paths excluded at the [schema level.</p>
+<p>A projection <em>must</em> be either inclusive or exclusive. In other words, you must either list the fields to include (which excludes all others), or list the fields to exclude (which implies all other fields are included). The [<code>_id</code> field is the only exception because MongoDB includes it by default.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nt">query</span><span class="p">.</span><span class="nc">select</span><span class="o">(</span><span class="s1">&#39;a b&#39;</span><span class="o">);</span>
+
+<span class="nt">query</span><span class="p">.</span><span class="nc">select</span><span class="o">(</span><span class="s1">&#39;-c -d&#39;</span><span class="o">);</span>
+
+<span class="nt">query</span><span class="p">.</span><span class="nc">select</span><span class="o">(</span><span class="p">{</span> <span class="n">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">:</span> <span class="mi">1</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">query</span><span class="p">.</span><span class="nc">select</span><span class="o">(</span><span class="p">{</span> <span class="n">c</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">d</span><span class="o">:</span> <span class="mi">0</span> <span class="p">}</span><span class="o">);</span>
+
+<span class="nt">query</span><span class="p">.</span><span class="nc">select</span><span class="o">(</span><span class="s1">&#39;+path&#39;</span><span class="o">)</span>
+</code></pre></div>
+
+<h2 id="queryprototypeslaveok">Query.prototype.slaveOk()<a class="headerlink" href="#queryprototypeslaveok" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>v «Boolean» defaults to true</li>
+</ul>
+<p><strong>返回</strong></p>
+<p><em>DEPRECATED</em> Sets the slaveOk option.</p>
+<p><strong>Deprecated</strong> in MongoDB 2.2 in favor of [read preferences.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>query.slaveOk()
+query.slaveOk(true)
+query.slaveOk(false)
+</code></pre></div>
+
+<h2 id="queryprototyperead">Query.prototype.read()<a class="headerlink" href="#queryprototyperead" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>[tags] «Array» optional tags for this query</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Determines the MongoDB nodes from which to read.</p>
+<p><strong>喜好</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nv">primary</span> <span class="o">-</span> <span class="ss">(</span><span class="nv">default</span><span class="ss">)</span> <span class="nv">Read</span> <span class="nv">from</span> <span class="nv">primary</span> <span class="nv">only</span>. <span class="nv">Operations</span> <span class="nv">will</span> <span class="nv">produce</span> <span class="nv">an</span> <span class="nv">error</span> <span class="k">if</span> <span class="nv">primary</span> <span class="nv">is</span> <span class="nv">unavailable</span>. <span class="nv">Cannot</span> <span class="nv">be</span> <span class="nv">combined</span> <span class="nv">with</span> <span class="nv">tags</span>.
+<span class="nv">secondary</span>            <span class="nv">Read</span> <span class="nv">from</span> <span class="nv">secondary</span> <span class="k">if</span> <span class="nv">available</span>, <span class="nv">otherwise</span> <span class="nv">error</span>.
+<span class="nv">primaryPreferred</span>     <span class="nv">Read</span> <span class="nv">from</span> <span class="nv">primary</span> <span class="k">if</span> <span class="nv">available</span>, <span class="nv">otherwise</span> <span class="nv">a</span> <span class="nv">secondary</span>.
+<span class="nv">secondaryPreferred</span>   <span class="nv">Read</span> <span class="nv">from</span> <span class="nv">a</span> <span class="nv">secondary</span> <span class="k">if</span> <span class="nv">available</span>, <span class="nv">otherwise</span> <span class="nv">read</span> <span class="nv">from</span> <span class="nv">the</span> <span class="nv">primary</span>.
+<span class="nv">nearest</span>              <span class="nv">All</span> <span class="nv">operations</span> <span class="nv">read</span> <span class="nv">from</span> <span class="nv">among</span> <span class="nv">the</span> <span class="nv">nearest</span> <span class="nv">candidates</span>, <span class="nv">but</span> <span class="nv">unlike</span> <span class="nv">other</span> <span class="nv">modes</span>, <span class="nv">this</span> <span class="nv">option</span> <span class="nv">will</span> <span class="k">include</span> <span class="nv">both</span> <span class="nv">the</span> <span class="nv">primary</span> <span class="nv">and</span> <span class="nv">all</span> <span class="nv">secondaries</span> <span class="nv">in</span> <span class="nv">the</span> <span class="k">random</span> <span class="nv">selection</span>.
+</code></pre></div>
+
+<p><strong>别名</strong></p>
+<div class="codehilite"><pre><span></span><code>p   primary
+pp  primaryPreferred
+s   secondary
+sp  secondaryPreferred
+n   nearest
+</code></pre></div>
+
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>new Query().read(&#39;primary&#39;)
+new Query().read(&#39;p&#39;)
+
+new Query().read(&#39;primaryPreferred&#39;)
+new Query().read(&#39;pp&#39;)
+
+new Query().read(&#39;secondary&#39;)
+new Query().read(&#39;s&#39;)
+
+new Query().read(&#39;secondaryPreferred&#39;)
+new Query().read(&#39;sp&#39;)
+
+new Query().read(&#39;nearest&#39;)
+new Query().read(&#39;n&#39;)
+
+new Query().read(&#39;s&#39;, [{ dc:&#39;sf&#39;, s: 1 },{ dc:&#39;ma&#39;, s: 2 }])
+</code></pre></div>
+
+<p>Read more about how to use read preferrences [here and [here.</p>
+<h2 id="queryprototypemerge">Query.prototype.merge()<a class="headerlink" href="#queryprototypemerge" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p><strong>返回</strong></p>
+<p>Merges another Query or conditions object into this one.</p>
+<p>When a Query is passed, conditions, field selection and options are merged.</p>
+<p>New in 3.7.0</p>
+<h2 id="queryprototypesetoptions">Query.prototype.setOptions()<a class="headerlink" href="#queryprototypesetoptions" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p>Sets query options. Some options only make sense for certain operations.</p>
+<p><strong>选项</strong></p>
+<p>The following options are only for <code>find()</code>: - [tailable - [sort - [limit - [skip - [maxscan - [batchSize - [comment - [snapshot - [readPreference - [hint</p>
+<p>The following options are only for <code>update()</code>, <code>updateOne()</code>, <code>updateMany()</code>, <code>replaceOne()</code>, <code>findOneAndUpdate()</code>, and <code>findByIdAndUpdate()</code>: - [upsert - [writeConcern</p>
+<p>The following options are only for <code>find()</code>, <code>findOne()</code>, <code>findById()</code>, <code>findOneAndUpdate()</code>, <code>findByIdAndUpdate()</code>, and <code>geoSearch()</code>: - [lean</p>
+<p>The following options are for all operations</p>
+<h2 id="queryprototypegetquery">Query.prototype.getQuery()<a class="headerlink" href="#queryprototypegetquery" title="Permanent link">&para;</a></h2>
+<p><strong>返回</strong></p>
+<ul>
+<li>«Object» current query conditions</li>
+</ul>
+<p>Returns the current query conditions as a JSON object.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="k">var</span> <span class="n">query</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Query</span><span class="p">();</span>
+<span class="n">query</span><span class="o">.</span><span class="n">find</span><span class="p">({</span> <span class="n">a</span><span class="p">:</span> <span class="mi">1</span> <span class="p">})</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">query</span><span class="o">.</span><span class="n">getQuery</span><span class="p">();</span>
+</code></pre></div>
+
+<h2 id="queryprototypegetupdate">Query.prototype.getUpdate()<a class="headerlink" href="#queryprototypegetupdate" title="Permanent link">&para;</a></h2>
+<p><strong>返回</strong></p>
+<ul>
+<li>«Object» current update operations</li>
+</ul>
+<p>Returns the current update operations as a JSON object.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="k">var</span> <span class="n">query</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Query</span><span class="p">();</span>
+<span class="n">query</span><span class="o">.</span><span class="n">update</span><span class="p">({},</span> <span class="p">{</span> <span class="o">$</span><span class="n">set</span><span class="p">:</span> <span class="p">{</span> <span class="n">a</span><span class="p">:</span> <span class="mi">5</span> <span class="p">}</span> <span class="p">});</span>
+<span class="n">query</span><span class="o">.</span><span class="n">getUpdate</span><span class="p">();</span>
+</code></pre></div>
+
+<h2 id="queryprototypelean">Query.prototype.lean()<a class="headerlink" href="#queryprototypelean" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>bool «Boolean,Object» defaults to true</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Sets the lean option.</p>
+<p>Documents returned from queries with the <code>lean</code> option enabled are plain javascript objects, not [MongooseDocuments. They have no <code>save</code> method, getters/setters or other Mongoose magic applied.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nv">new</span> <span class="nv">Query</span><span class="ss">()</span>.<span class="nv">lean</span><span class="ss">()</span>
+<span class="nv">new</span> <span class="nv">Query</span><span class="ss">()</span>.<span class="nv">lean</span><span class="ss">(</span><span class="nv">true</span><span class="ss">)</span>
+<span class="nv">new</span> <span class="nv">Query</span><span class="ss">()</span>.<span class="nv">lean</span><span class="ss">(</span><span class="nv">false</span><span class="ss">)</span>
+
+<span class="nv">Model</span>.<span class="nv">find</span><span class="ss">()</span>.<span class="nv">lean</span><span class="ss">()</span>.<span class="k">exec</span><span class="ss">(</span><span class="nv">function</span> <span class="ss">(</span><span class="nv">err</span>, <span class="nv">docs</span><span class="ss">)</span> {
+  <span class="nv">docs</span>[<span class="mi">0</span>] <span class="nv">instanceof</span> <span class="nv">mongoose</span>.<span class="nv">Document</span>
+}<span class="ss">)</span><span class="c1">;</span>
+</code></pre></div>
+
+<p>This is a [great option in high-performance read-only scenarios, especially when combined with [stream.</p>
+<h2 id="queryprototypeerror">Query.prototype.error()<a class="headerlink" href="#queryprototypeerror" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>err «Error,null» if set, <code>exec()</code> will fail fast before sending the query to MongoDB</li>
+</ul>
+<p>Gets/sets the error flag on this query. If this flag is not null or undefined, the <code>exec()</code> promise will reject without executing.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nv">Query</span><span class="ss">()</span>.<span class="nv">error</span><span class="ss">()</span><span class="c1">;</span>
+<span class="nv">Query</span><span class="ss">()</span>.<span class="nv">error</span><span class="ss">(</span><span class="nv">null</span><span class="ss">)</span><span class="c1">;</span>
+<span class="nv">Query</span><span class="ss">()</span>.<span class="nv">error</span><span class="ss">(</span><span class="nv">new</span> <span class="nv">Error</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">test</span><span class="s1">&#39;</span><span class="ss">))</span><span class="c1">;</span>
+<span class="nv">Schema</span>.<span class="nv">pre</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">find</span><span class="s1">&#39;</span>, <span class="nv">function</span><span class="ss">()</span> {
+  <span class="k">if</span> <span class="ss">(</span><span class="o">!</span><span class="nv">this</span>.<span class="nv">getQuery</span><span class="ss">()</span>.<span class="nv">userId</span><span class="ss">)</span> {
+    <span class="nv">this</span>.<span class="nv">error</span><span class="ss">(</span><span class="nv">new</span> <span class="nv">Error</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Not allowed to query without setting userId</span><span class="s1">&#39;</span><span class="ss">))</span><span class="c1">;</span>
+  }
+}<span class="ss">)</span><span class="c1">;</span>
+</code></pre></div>
+
+<p>Note that query casting runs <strong>after</strong> hooks, so cast errors will override custom errors.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="k">var</span> <span class="n">TestSchema</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Schema</span><span class="p">({</span> <span class="n">num</span><span class="p">:</span> <span class="n">Number</span> <span class="p">});</span>
+<span class="k">var</span> <span class="n">TestModel</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">,</span> <span class="n">TestSchema</span><span class="p">);</span>
+<span class="n">TestModel</span><span class="o">.</span><span class="n">find</span><span class="p">({</span> <span class="n">num</span><span class="p">:</span> <span class="s1">&#39;not a number&#39;</span> <span class="p">})</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="s1">&#39;woops&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+
+<span class="p">});</span>
+</code></pre></div>
+
+<h2 id="queryprototypemongooseoptions">Query.prototype.mongooseOptions()<a class="headerlink" href="#queryprototypemongooseoptions" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>options «Object» if specified, overwrites the current options</li>
+</ul>
+<p>Getter/setter around the current mongoose-specific options for this query (populate, lean, etc.)</p>
+<h2 id="queryprototypefind">Query.prototype.find()<a class="headerlink" href="#queryprototypefind" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p><strong>返回</strong></p>
+<p>Finds documents.</p>
+<p>When no <code>callback</code> is passed, the query is not executed. When the query is executed, the result will be an array of documents.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>query.find({ name: &#39;Los Pollos Hermanos&#39; }).find(callback)
+</code></pre></div>
+
+<h2 id="queryprototypemerge_1">Query.prototype.merge()<a class="headerlink" href="#queryprototypemerge_1" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p><strong>返回</strong></p>
+<p>Merges another Query or conditions object into this one.</p>
+<p>When a Query is passed, conditions, field selection and options are merged.</p>
+<h2 id="queryprototypecollation">Query.prototype.collation()<a class="headerlink" href="#queryprototypecollation" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p><strong>返回</strong></p>
+<p>Adds a collation to this op (MongoDB 3.4 and up)</p>
+<h2 id="queryprototypefindone">Query.prototype.findOne()<a class="headerlink" href="#queryprototypefindone" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>[callback] «Function» optional params are (error, document)</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Declares the query a findOne operation. When executed, the first found document is passed to the callback.</p>
+<p>Passing a <code>callback</code> executes the query. The result of the query is a single document.</p>
+<ul>
+<li><em>Note:</em> <code>conditions</code> is optional, and if <code>conditions</code> is null or undefined, mongoose will send an empty <code>findOne</code> command to MongoDB, which will return an arbitrary document. If you're querying by <code>_id</code>, use <code>Model.findById()</code> instead.</li>
+</ul>
+<p>This function triggers the following middleware.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="k">var</span> <span class="n">query</span>  <span class="o">=</span> <span class="n">Kitten</span><span class="o">.</span><span class="n">where</span><span class="p">({</span> <span class="n">color</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span> <span class="p">});</span>
+<span class="n">query</span><span class="o">.</span><span class="n">findOne</span><span class="p">(</span><span class="n">function</span> <span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">kitten</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="k">return</span> <span class="n">handleError</span><span class="p">(</span><span class="n">err</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">kitten</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<h2 id="queryprototypecount">Query.prototype.count()<a class="headerlink" href="#queryprototypecount" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>[callback] «Function» optional params are (error, count)</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Specifying this query as a <code>count</code> query.</p>
+<p>Passing a <code>callback</code> executes the query.</p>
+<p>This function triggers the following middleware.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="k">var</span> <span class="n">countQuery</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">where</span><span class="p">({</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;black&#39;</span> <span class="p">})</span><span class="o">.</span><span class="n">count</span><span class="p">();</span>
+
+<span class="n">query</span><span class="o">.</span><span class="n">count</span><span class="p">({</span> <span class="n">color</span><span class="p">:</span> <span class="s1">&#39;black&#39;</span> <span class="p">})</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
+
+<span class="n">query</span><span class="o">.</span><span class="n">count</span><span class="p">({</span> <span class="n">color</span><span class="p">:</span> <span class="s1">&#39;black&#39;</span> <span class="p">},</span> <span class="n">callback</span><span class="p">)</span>
+
+<span class="n">query</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">function</span> <span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="k">return</span> <span class="n">handleError</span><span class="p">(</span><span class="n">err</span><span class="p">);</span>
+  <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;there are </span><span class="si">%d</span><span class="s1"> kittens&#39;</span><span class="p">,</span> <span class="n">count</span><span class="p">);</span>
+<span class="p">})</span>
+</code></pre></div>
+
+<h2 id="queryprototypedistinct">Query.prototype.distinct()<a class="headerlink" href="#queryprototypedistinct" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>[callback] «Function» optional params are (error, arr)</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Declares or executes a distict() operation.</p>
+<p>Passing a <code>callback</code> executes the query.</p>
+<p>This function does not trigger any middleware.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>distinct(field, conditions, callback)
+distinct(field, conditions)
+distinct(field, callback)
+distinct(field)
+distinct(callback)
+distinct()
+</code></pre></div>
+
+<h2 id="queryprototypesort">Query.prototype.sort()<a class="headerlink" href="#queryprototypesort" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p><strong>返回</strong></p>
+<p>Sets the sort order</p>
+<p>If an object is passed, values allowed are <code>asc</code>, <code>desc</code>, <code>ascending</code>, <code>descending</code>, <code>1</code>, and <code>-1</code>.</p>
+<p>If a string is passed, it must be a space delimited list of path names. The sort order of each path is ascending unless the path name is prefixed with <code>-</code> which will be treated as descending.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nt">query</span><span class="p">.</span><span class="nc">sort</span><span class="o">(</span><span class="p">{</span> <span class="n">field</span><span class="p">:</span> <span class="s1">&#39;asc&#39;</span><span class="p">,</span> <span class="n">test</span><span class="o">:</span> <span class="mi">-1</span> <span class="p">}</span><span class="o">);</span>
+
+<span class="nt">query</span><span class="p">.</span><span class="nc">sort</span><span class="o">(</span><span class="s1">&#39;field -test&#39;</span><span class="o">);</span>
+</code></pre></div>
+
+<p><strong>注释</strong></p>
+<p>Cannot be used with <code>distinct()</code></p>
+<h2 id="queryprototyperemove">Query.prototype.remove()<a class="headerlink" href="#queryprototyperemove" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>[callback] «Function» optional params are (error, writeOpResult)</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Declare and/or execute this query as a remove() operation.</p>
+<p>This function does not trigger any middleware</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>Model.remove({ artist: &#39;Anne Murray&#39; }, callback)
+</code></pre></div>
+
+<p><strong>注释</strong></p>
+<p>The operation is only executed when a callback is passed. To force execution without a callback, you must first call <code>remove()</code> and then execute it by using the <code>exec()</code> method.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">var</span> <span class="n">query</span> <span class="o">=</span> <span class="n">Model</span><span class="o">.</span><span class="n">find</span><span class="p">()</span><span class="o">.</span><span class="n">remove</span><span class="p">({</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Anne Murray&#39;</span> <span class="p">})</span>
+
+<span class="n">query</span><span class="o">.</span><span class="n">remove</span><span class="p">({</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Anne Murray&#39;</span> <span class="p">},</span> <span class="n">callback</span><span class="p">)</span>
+<span class="n">query</span><span class="o">.</span><span class="n">remove</span><span class="p">({</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Anne Murray&#39;</span> <span class="p">})</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
+
+<span class="n">query</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
+
+<span class="n">query</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">conds</span><span class="p">,</span> <span class="n">fn</span><span class="p">);</span>
+<span class="n">query</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">conds</span><span class="p">)</span>
+<span class="n">query</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+<span class="n">query</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+</code></pre></div>
+
+<h2 id="queryprototypedeleteone">Query.prototype.deleteOne()<a class="headerlink" href="#queryprototypedeleteone" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>[callback] «Function» optional params are (error, writeOpResult)</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Declare and/or execute this query as a <code>deleteOne()</code> operation. Works like remove, except it deletes at most one document regardless of the <code>single</code> option.</p>
+<p>This function does not trigger any middleware.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nv">Character</span>.<span class="nv">deleteOne</span><span class="ss">(</span>{ <span class="nv">name</span>: <span class="s1">&#39;</span><span class="s">Eddard Stark</span><span class="s1">&#39;</span> }, <span class="nv">callback</span><span class="ss">)</span>
+<span class="nv">Character</span>.<span class="nv">deleteOne</span><span class="ss">(</span>{ <span class="nv">name</span>: <span class="s1">&#39;</span><span class="s">Eddard Stark</span><span class="s1">&#39;</span> }<span class="ss">)</span>.<span class="k">then</span><span class="ss">(</span><span class="k">next</span><span class="ss">)</span>
+</code></pre></div>
+
+<h2 id="queryprototypedeletemany">Query.prototype.deleteMany()<a class="headerlink" href="#queryprototypedeletemany" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>[callback] «Function» optional params are (error, writeOpResult)</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Declare and/or execute this query as a <code>deleteMany()</code> operation. Works like remove, except it deletes <em>every</em> document that matches <code>criteria</code> in the collection, regardless of the value of <code>single</code>.</p>
+<p>This function does not trigger any middleware</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nv">Character</span>.<span class="nv">deleteMany</span><span class="ss">(</span>{ <span class="nv">name</span>: <span class="o">/</span><span class="nv">Stark</span><span class="o">/</span>, <span class="nv">age</span>: { $<span class="nv">gte</span>: <span class="mi">18</span> } }, <span class="nv">callback</span><span class="ss">)</span>
+<span class="nv">Character</span>.<span class="nv">deleteMany</span><span class="ss">(</span>{ <span class="nv">name</span>: <span class="o">/</span><span class="nv">Stark</span><span class="o">/</span>, <span class="nv">age</span>: { $<span class="nv">gte</span>: <span class="mi">18</span> } }<span class="ss">)</span>.<span class="k">then</span><span class="ss">(</span><span class="k">next</span><span class="ss">)</span>
+</code></pre></div>
+
+<h2 id="queryprototypefindoneandupdate">Query.prototype.findOneAndUpdate()<a class="headerlink" href="#queryprototypefindoneandupdate" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>[callback] «Function» optional params are (error, doc), <em>unless</em> <code>rawResult</code> is used, in which case params are (error, writeOpResult)</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Issues a mongodb [findAndModify update command.</p>
+<p>Finds a matching document, updates it according to the <code>update</code> arg, passing any <code>options</code>, and returns the found document (if any) to the callback. The query executes immediately if <code>callback</code> is passed.</p>
+<p>This function triggers the following middleware.</p>
+<p><strong>选项</strong></p>
+<ul>
+<li><code>new</code>: bool - if true, return the modified document rather than the original. defaults to false (changed in 4.0)</li>
+<li><code>upsert</code>: bool - creates the object if it doesn't exist. defaults to false.</li>
+<li><code>fields</code>: {Object|String} - Field selection. Equivalent to <code>.select(fields).findOneAndUpdate()</code></li>
+<li><code>sort</code>: if multiple docs are found by the conditions, sets the sort order to choose which doc to update</li>
+<li><code>maxTimeMS</code>: puts a time limit on the query - requires mongodb &gt;= 2.6.0</li>
+<li><code>runValidators</code>: if true, runs [update validators on this command. Update validators validate the update operation against the model's schema.</li>
+<li><code>setDefaultsOnInsert</code>: if this and <code>upsert</code> are true, mongoose will apply the [defaults specified in the model's schema if a new document is created. This option only works on MongoDB &gt;= 2.4 because it relies on [MongoDB's <code>$setOnInsert</code> operator.</li>
+<li><code>rawResult</code>: if true, returns the [raw result from the MongoDB driver</li>
+<li><code>context</code> (string) if set to 'query' and <code>runValidators</code> is on, <code>this</code> will refer to the query in custom validator functions that update validation runs. Does nothing if <code>runValidators</code> is false.</li>
+</ul>
+<p><strong>回调签名</strong></p>
+<div class="codehilite"><pre><span></span><code>function(error, doc) {
+
+}
+</code></pre></div>
+
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>query.findOneAndUpdate(conditions, update, options, callback)
+query.findOneAndUpdate(conditions, update, options)
+query.findOneAndUpdate(conditions, update, callback)
+query.findOneAndUpdate(conditions, update)
+query.findOneAndUpdate(update, callback)
+query.findOneAndUpdate(update)
+query.findOneAndUpdate(callback)
+query.findOneAndUpdate()
+</code></pre></div>
+
+<h2 id="queryprototypefindoneandremove">Query.prototype.findOneAndRemove()<a class="headerlink" href="#queryprototypefindoneandremove" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>[callback] «Function» optional params are (error, document)</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Issues a mongodb [findAndModify remove command.</p>
+<p>Finds a matching document, removes it, passing the found document (if any) to the callback. Executes immediately if <code>callback</code> is passed.</p>
+<p>This function triggers the following middleware.</p>
+<p><strong>选项</strong></p>
+<ul>
+<li><code>sort</code>: if multiple docs are found by the conditions, sets the sort order to choose which doc to update</li>
+<li><code>maxTimeMS</code>: puts a time limit on the query - requires mongodb &gt;= 2.6.0</li>
+<li><code>rawResult</code>: if true, resolves to the [raw result from the MongoDB driver</li>
+</ul>
+<p><strong>回调签名</strong></p>
+<div class="codehilite"><pre><span></span><code>function(error, doc) {
+
+}
+</code></pre></div>
+
+<p><strong>示例</strong>s</p>
+<div class="codehilite"><pre><span></span><code>A.where().findOneAndRemove(conditions, options, callback)
+A.where().findOneAndRemove(conditions, options)
+A.where().findOneAndRemove(conditions, callback)
+A.where().findOneAndRemove(conditions)
+A.where().findOneAndRemove(callback)
+A.where().findOneAndRemove()
+</code></pre></div>
+
+<h2 id="queryprototypeupdate">Query.prototype.update()<a class="headerlink" href="#queryprototypeupdate" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>[callback] «Function» optional, params are (error, writeOpResult)</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Declare and/or execute this query as an update() operation.</p>
+<p><em>All paths passed that are not $atomic operations will become $set ops.</em></p>
+<p>This function triggers the following middleware.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>Model.where({ _id: id }).update({ title: &#39;words&#39; })
+
+Model.where({ _id: id }).update({ $set: { title: &#39;words&#39; }})
+</code></pre></div>
+
+<p><strong>选项</strong></p>
+<ul>
+<li><code>safe</code> (boolean) safe mode (defaults to value set in schema (true))</li>
+<li><code>upsert</code> (boolean) whether to create the doc if it doesn't match (false)</li>
+<li><code>multi</code> (boolean) whether multiple documents should be updated (false)</li>
+<li><code>runValidators</code>: if true, runs [update validators on this command. Update validators validate the update operation against the model's schema.</li>
+<li><code>setDefaultsOnInsert</code>: if this and <code>upsert</code> are true, mongoose will apply the [defaults specified in the model's schema if a new document is created. This option only works on MongoDB &gt;= 2.4 because it relies on [MongoDB's <code>$setOnInsert</code> operator.</li>
+<li><code>strict</code> (boolean) overrides the <code>strict</code> option for this update</li>
+<li><code>overwrite</code> (boolean) disables update-only mode, allowing you to overwrite the doc (false)</li>
+<li><code>context</code> (string) if set to 'query' and <code>runValidators</code> is on, <code>this</code> will refer to the query in custom validator functions that update validation runs. Does nothing if <code>runValidators</code> is false.</li>
+</ul>
+<p><strong>注释</strong></p>
+<p>Passing an empty object <code>{}</code> as the doc will result in a no-op unless the <code>overwrite</code> option is passed. Without the <code>overwrite</code> option set, the update operation will be ignored and the callback executed without sending the command to MongoDB so as to prevent accidently overwritting documents in the collection.</p>
+<p><strong>注释</strong></p>
+<p>The operation is only executed when a callback is passed. To force execution without a callback, we must first call update() and then execute it by using the <code>exec()</code> method.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">var</span> <span class="n">q</span> <span class="o">=</span> <span class="n">Model</span><span class="o">.</span><span class="n">where</span><span class="p">({</span> <span class="n">_id</span><span class="p">:</span> <span class="n">id</span> <span class="p">});</span>
+<span class="n">q</span><span class="o">.</span><span class="n">update</span><span class="p">({</span> <span class="o">$</span><span class="n">set</span><span class="p">:</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;bob&#39;</span> <span class="p">}})</span><span class="o">.</span><span class="n">update</span><span class="p">();</span> <span class="o">//</span> <span class="ow">not</span> <span class="n">executed</span>
+
+<span class="n">q</span><span class="o">.</span><span class="n">update</span><span class="p">({</span> <span class="o">$</span><span class="n">set</span><span class="p">:</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;bob&#39;</span> <span class="p">}})</span><span class="o">.</span><span class="n">exec</span><span class="p">();</span> <span class="o">//</span> <span class="n">executed</span>
+
+<span class="o">//</span> <span class="n">keys</span> <span class="n">that</span> <span class="n">are</span> <span class="ow">not</span> <span class="o">$</span><span class="n">atomic</span> <span class="n">ops</span> <span class="n">become</span> <span class="o">$</span><span class="n">set</span><span class="o">.</span>
+<span class="o">//</span> <span class="n">this</span> <span class="n">executes</span> <span class="n">the</span> <span class="n">same</span> <span class="n">command</span> <span class="k">as</span> <span class="n">the</span> <span class="n">previous</span> <span class="n">example</span><span class="o">.</span>
+<span class="n">q</span><span class="o">.</span><span class="n">update</span><span class="p">({</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;bob&#39;</span> <span class="p">})</span><span class="o">.</span><span class="n">exec</span><span class="p">();</span>
+
+<span class="o">//</span> <span class="n">overwriting</span> <span class="n">with</span> <span class="n">empty</span> <span class="n">docs</span>
+<span class="k">var</span> <span class="n">q</span> <span class="o">=</span> <span class="n">Model</span><span class="o">.</span><span class="n">where</span><span class="p">({</span> <span class="n">_id</span><span class="p">:</span> <span class="n">id</span> <span class="p">})</span><span class="o">.</span><span class="n">setOptions</span><span class="p">({</span> <span class="n">overwrite</span><span class="p">:</span> <span class="bp">true</span> <span class="p">})</span>
+<span class="n">q</span><span class="o">.</span><span class="n">update</span><span class="p">({</span> <span class="p">},</span> <span class="n">callback</span><span class="p">);</span> <span class="o">//</span> <span class="n">executes</span>
+
+<span class="o">//</span> <span class="n">multi</span> <span class="n">update</span> <span class="n">with</span> <span class="n">overwrite</span> <span class="n">to</span> <span class="n">empty</span> <span class="n">doc</span>
+<span class="k">var</span> <span class="n">q</span> <span class="o">=</span> <span class="n">Model</span><span class="o">.</span><span class="n">where</span><span class="p">({</span> <span class="n">_id</span><span class="p">:</span> <span class="n">id</span> <span class="p">});</span>
+<span class="n">q</span><span class="o">.</span><span class="n">setOptions</span><span class="p">({</span> <span class="n">multi</span><span class="p">:</span> <span class="bp">true</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">:</span> <span class="bp">true</span> <span class="p">})</span>
+<span class="n">q</span><span class="o">.</span><span class="n">update</span><span class="p">({</span> <span class="p">});</span>
+<span class="n">q</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">callback</span><span class="p">);</span> <span class="o">//</span> <span class="n">executed</span>
+
+<span class="o">//</span> <span class="n">multi</span> <span class="n">updates</span>
+<span class="n">Model</span><span class="o">.</span><span class="n">where</span><span class="p">()</span>
+     <span class="o">.</span><span class="n">update</span><span class="p">({</span> <span class="n">name</span><span class="p">:</span> <span class="o">/^</span><span class="k">match</span><span class="o">/</span> <span class="p">},</span> <span class="p">{</span> <span class="o">$</span><span class="n">set</span><span class="p">:</span> <span class="p">{</span> <span class="n">arr</span><span class="p">:</span> <span class="p">[]</span> <span class="p">}},</span> <span class="p">{</span> <span class="n">multi</span><span class="p">:</span> <span class="bp">true</span> <span class="p">},</span> <span class="n">callback</span><span class="p">)</span>
+
+<span class="o">//</span> <span class="n">more</span> <span class="n">multi</span> <span class="n">updates</span>
+<span class="n">Model</span><span class="o">.</span><span class="n">where</span><span class="p">()</span>
+     <span class="o">.</span><span class="n">setOptions</span><span class="p">({</span> <span class="n">multi</span><span class="p">:</span> <span class="bp">true</span> <span class="p">})</span>
+     <span class="o">.</span><span class="n">update</span><span class="p">({</span> <span class="o">$</span><span class="n">set</span><span class="p">:</span> <span class="p">{</span> <span class="n">arr</span><span class="p">:</span> <span class="p">[]</span> <span class="p">}},</span> <span class="n">callback</span><span class="p">)</span>
+
+<span class="o">//</span> <span class="n">single</span> <span class="n">update</span> <span class="n">by</span> <span class="n">default</span>
+<span class="n">Model</span><span class="o">.</span><span class="n">where</span><span class="p">({</span> <span class="n">email</span><span class="p">:</span> <span class="s1">&#39;[address@example.com&#39;</span> <span class="p">})</span>
+     <span class="o">.</span><span class="n">update</span><span class="p">({</span> <span class="o">$</span><span class="n">inc</span><span class="p">:</span> <span class="p">{</span> <span class="n">counter</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}},</span> <span class="n">callback</span><span class="p">)</span>
+</code></pre></div>
+
+<p>API summary</p>
+<div class="codehilite"><pre><span></span><code>update(criteria, doc, options, cb)
+update(criteria, doc, options)
+update(criteria, doc, cb)
+update(criteria, doc)
+update(doc, cb)
+update(doc)
+update(cb)
+update(true)
+update()
+</code></pre></div>
+
+<h2 id="queryprototypeupdatemany">Query.prototype.updateMany()<a class="headerlink" href="#queryprototypeupdatemany" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>[callback] «Function» optional params are (error, writeOpResult)</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Declare and/or execute this query as an updateMany() operation. Same as <code>update()</code>, except MongoDB will update <em>all</em> documents that match <code>criteria</code> (as opposed to just the first one) regardless of the value of the <code>multi</code> option.</p>
+<p><strong>Note</strong> updateMany will <em>not</em> fire update middleware. Use <code>pre('updateMany')</code> and <code>post('updateMany')</code> instead.</p>
+<p>This function triggers the following middleware.</p>
+<h2 id="queryprototypeupdateone">Query.prototype.updateOne()<a class="headerlink" href="#queryprototypeupdateone" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>[callback] «Function» params are (error, writeOpResult)</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Declare and/or execute this query as an updateOne() operation. Same as <code>update()</code>, except MongoDB will update <em>only</em> the first document that matches <code>criteria</code> regardless of the value of the <code>multi</code> option.</p>
+<p><strong>Note</strong> updateOne will <em>not</em> fire update middleware. Use <code>pre('updateOne')</code> and <code>post('updateOne')</code> instead.</p>
+<p>This function triggers the following middleware.</p>
+<h2 id="queryprototypereplaceone">Query.prototype.replaceOne()<a class="headerlink" href="#queryprototypereplaceone" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>[callback] «Function» optional params are (error, writeOpResult)</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Declare and/or execute this query as a replaceOne() operation. Same as <code>update()</code>, except MongoDB will replace the existing document and will not accept any atomic operators (<code>$set</code>, etc.)</p>
+<p><strong>Note</strong> replaceOne will <em>not</em> fire update middleware. Use <code>pre('replaceOne')</code> and <code>post('replaceOne')</code> instead.</p>
+<p>This function triggers the following middleware.</p>
+<h2 id="queryprototypeexec">Query.prototype.exec()<a class="headerlink" href="#queryprototypeexec" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>[callback] «Function» optional params depend on the function being called</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Executes the query</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="k">var</span> <span class="n">promise</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">exec</span><span class="p">();</span>
+<span class="k">var</span> <span class="n">promise</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="s1">&#39;update&#39;</span><span class="p">);</span>
+
+<span class="n">query</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="n">callback</span><span class="p">);</span>
+<span class="n">query</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="s1">&#39;find&#39;</span><span class="p">,</span> <span class="n">callback</span><span class="p">);</span>
+</code></pre></div>
+
+<h2 id="queryprototypethen">Query.prototype.then()<a class="headerlink" href="#queryprototypethen" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p><strong>返回</strong></p>
+<p>Executes the query returning a <code>Promise</code> which will be resolved with either the doc(s) or rejected with the error.</p>
+<h2 id="queryprototypecatch">Query.prototype.catch()<a class="headerlink" href="#queryprototypecatch" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p><strong>返回</strong></p>
+<p>Executes the query returning a <code>Promise</code> which will be resolved with either the doc(s) or rejected with the error. Like <code>.then()</code>, but only takes a rejection handler.</p>
+<h2 id="queryprototypepopulate">Query.prototype.populate()<a class="headerlink" href="#queryprototypepopulate" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>[options] «Object» Options for the population query (sort, etc)</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Specifies paths which should be populated with other documents.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nv">Kitten</span>.<span class="nv">findOne</span><span class="ss">()</span>.<span class="nv">populate</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">owner</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="k">exec</span><span class="ss">(</span><span class="nv">function</span> <span class="ss">(</span><span class="nv">err</span>, <span class="nv">kitten</span><span class="ss">)</span> {
+  <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">kitten</span>.<span class="nv">owner</span>.<span class="nv">name</span><span class="ss">)</span>
+}<span class="ss">)</span>
+
+<span class="nv">Kitten</span>.<span class="nv">find</span><span class="ss">()</span>.<span class="nv">populate</span><span class="ss">(</span>{
+    <span class="nv">path</span>: <span class="s1">&#39;</span><span class="s">owner</span><span class="s1">&#39;</span>
+  , <span class="nv">select</span>: <span class="s1">&#39;</span><span class="s">name</span><span class="s1">&#39;</span>
+  , <span class="nv">match</span>: { <span class="nv">color</span>: <span class="s1">&#39;</span><span class="s">black</span><span class="s1">&#39;</span> }
+  , <span class="nv">options</span>: { <span class="nv">sort</span>: { <span class="nv">name</span>: <span class="o">-</span><span class="mi">1</span> }}
+}<span class="ss">)</span>.<span class="k">exec</span><span class="ss">(</span><span class="nv">function</span> <span class="ss">(</span><span class="nv">err</span>, <span class="nv">kittens</span><span class="ss">)</span> {
+  <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">kittens</span>[<span class="mi">0</span>].<span class="nv">owner</span>.<span class="nv">name</span><span class="ss">)</span>
+}<span class="ss">)</span>
+
+<span class="nv">Kitten</span>.<span class="nv">find</span><span class="ss">()</span>.<span class="nv">populate</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">owner</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">name</span><span class="s1">&#39;</span>, <span class="nv">null</span>, {<span class="nv">sort</span>: { <span class="nv">name</span>: <span class="o">-</span><span class="mi">1</span> }}<span class="ss">)</span>.<span class="k">exec</span><span class="ss">(</span><span class="nv">function</span> <span class="ss">(</span><span class="nv">err</span>, <span class="nv">kittens</span><span class="ss">)</span> {
+  <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">kittens</span>[<span class="mi">0</span>].<span class="nv">owner</span>.<span class="nv">name</span><span class="ss">)</span>
+}<span class="ss">)</span>
+</code></pre></div>
+
+<p>Paths are populated after the query executes and a response is received. A separate query is then executed for each path specified for population. After a response for each query has also been returned, the results are passed to the callback.</p>
+<h2 id="queryprototypecast">Query.prototype.cast()<a class="headerlink" href="#queryprototypecast" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p><strong>返回</strong></p>
+<p>Casts this query to the schema of <code>model</code></p>
+<p><strong>注释</strong></p>
+<p>If <code>obj</code> is present, it is cast instead of this query.</p>
+<h2 id="queryprototypecursor">Query.prototype.cursor()<a class="headerlink" href="#queryprototypecursor" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p><strong>返回</strong></p>
+<p>Returns a wrapper around a [mongodb driver cursor. A QueryCursor exposes a [Streams3-compatible interface, as well as a <code>.next()</code> function.</p>
+<p>The <code>.cursor()</code> function triggers pre find hooks, but <strong>not</strong> post find hooks.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">Thing</span><span class="o">.</span>
+  <span class="n">find</span><span class="p">({</span> <span class="n">name</span><span class="p">:</span> <span class="o">/^</span><span class="n">hello</span><span class="o">/</span> <span class="p">})</span><span class="o">.</span>
+  <span class="n">cursor</span><span class="p">()</span><span class="o">.</span>
+  <span class="n">on</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">function</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span> <span class="p">{</span> <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">doc</span><span class="p">);</span> <span class="p">})</span><span class="o">.</span>
+  <span class="n">on</span><span class="p">(</span><span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span> <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;Done!&#39;</span><span class="p">);</span> <span class="p">});</span>
+
+<span class="k">var</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">Thing</span><span class="o">.</span><span class="n">find</span><span class="p">({</span> <span class="n">name</span><span class="p">:</span> <span class="o">/^</span><span class="n">hello</span><span class="o">/</span> <span class="p">})</span><span class="o">.</span><span class="n">cursor</span><span class="p">();</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">next</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">doc</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">doc</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="n">co</span><span class="p">(</span><span class="n">function</span><span class="o">*</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">const</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">Thing</span><span class="o">.</span><span class="n">find</span><span class="p">({</span> <span class="n">name</span><span class="p">:</span> <span class="o">/^</span><span class="n">hello</span><span class="o">/</span> <span class="p">})</span><span class="o">.</span><span class="n">cursor</span><span class="p">();</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">let</span> <span class="n">doc</span> <span class="o">=</span> <span class="nb">yield</span> <span class="n">cursor</span><span class="o">.</span><span class="n">next</span><span class="p">();</span> <span class="n">doc</span> <span class="o">!=</span> <span class="nb nb-Type">null</span><span class="p">;</span> <span class="n">doc</span> <span class="o">=</span> <span class="nb">yield</span> <span class="n">cursor</span><span class="o">.</span><span class="n">next</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">doc</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<p><strong>选项</strong></p>
+<ul>
+<li><code>transform</code>: optional function which accepts a mongoose document. The return value of the function will be emitted on <code>data</code> and returned by <code>.next()</code>.</li>
+</ul>
+<hr />
+<h2 id="queryprototypemaxscan_1">Query.prototype.maxscan()<a class="headerlink" href="#queryprototypemaxscan_1" title="Permanent link">&para;</a></h2>
+<p><em>DEPRECATED</em> Alias of <code>maxScan</code></p>
+<h2 id="queryprototypetailable">Query.prototype.tailable()<a class="headerlink" href="#queryprototypetailable" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>[opts.tailableRetryInterval] «Number» if cursor is exhausted, wait this many milliseconds before retrying</li>
+</ul>
+<p>Sets the tailable option (for use with capped collections).</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>query.tailable()
+query.tailable(true)
+query.tailable(false)
+</code></pre></div>
+
+<p><strong>注释</strong></p>
+<p>Cannot be used with <code>distinct()</code></p>
+<h2 id="queryprototypeintersects">Query.prototype.intersects()<a class="headerlink" href="#queryprototypeintersects" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p><strong>返回</strong></p>
+<p>Declares an intersects query for <code>geometry()</code>.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>query.where(&#39;path&#39;).intersects().geometry({
+    type: &#39;LineString&#39;
+  , coordinates: [[180.0, 11.0], [180, 9.0]]
+})
+
+query.where(&#39;path&#39;).intersects({
+    type: &#39;LineString&#39;
+  , coordinates: [[180.0, 11.0], [180, 9.0]]
+})
+</code></pre></div>
+
+<p><strong>注释</strong></p>
+<p><strong>MUST</strong> be used after <code>where()</code>.</p>
+<p><strong>注释</strong></p>
+<p>In Mongoose 3.7, <code>intersects</code> changed from a getter to a function. If you need the old syntax, use [this.</p>
+<h2 id="queryprototypegeometry">Query.prototype.geometry()<a class="headerlink" href="#queryprototypegeometry" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>object «Object» Must contain a <code>type</code> property which is a String and a <code>coordinates</code> property which is an Array. See the examples.</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Specifies a <code>$geometry</code> condition</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="k">var</span> <span class="n">polyA</span> <span class="o">=</span> <span class="p">[[[</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span> <span class="p">],</span> <span class="p">[</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span> <span class="p">],</span> <span class="p">[</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span> <span class="p">],</span> <span class="p">[</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span> <span class="p">]]]</span>
+<span class="n">query</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;loc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">within</span><span class="p">()</span><span class="o">.</span><span class="n">geometry</span><span class="p">({</span> <span class="n">type</span><span class="p">:</span> <span class="s1">&#39;Polygon&#39;</span><span class="p">,</span> <span class="n">coordinates</span><span class="p">:</span> <span class="n">polyA</span> <span class="p">})</span>
+
+<span class="k">var</span> <span class="n">polyB</span> <span class="o">=</span> <span class="p">[[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">],</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="p">]]</span>
+<span class="n">query</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;loc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">within</span><span class="p">()</span><span class="o">.</span><span class="n">geometry</span><span class="p">({</span> <span class="n">type</span><span class="p">:</span> <span class="s1">&#39;LineString&#39;</span><span class="p">,</span> <span class="n">coordinates</span><span class="p">:</span> <span class="n">polyB</span> <span class="p">})</span>
+
+<span class="k">var</span> <span class="n">polyC</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">]</span>
+<span class="n">query</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;loc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">within</span><span class="p">()</span><span class="o">.</span><span class="n">geometry</span><span class="p">({</span> <span class="n">type</span><span class="p">:</span> <span class="s1">&#39;Point&#39;</span><span class="p">,</span> <span class="n">coordinates</span><span class="p">:</span> <span class="n">polyC</span> <span class="p">})</span>
+
+<span class="n">query</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;loc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">intersects</span><span class="p">()</span><span class="o">.</span><span class="n">geometry</span><span class="p">({</span> <span class="n">type</span><span class="p">:</span> <span class="s1">&#39;Point&#39;</span><span class="p">,</span> <span class="n">coordinates</span><span class="p">:</span> <span class="n">polyC</span> <span class="p">})</span>
+</code></pre></div>
+
+<p>The argument is assigned to the most recent path passed to <code>where()</code>.</p>
+<p><strong>注释</strong></p>
+<p><code>geometry()</code> <strong>must</strong> come after either <code>intersects()</code> or <code>within()</code>.</p>
+<p>The <code>object</code> argument must contain <code>type</code> and <code>coordinates</code> properties. - type {String} - coordinates {Array}</p>
+<hr />
+<h2 id="queryprototypenear">Query.prototype.near()<a class="headerlink" href="#queryprototypenear" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p><strong>返回</strong></p>
+<p>Specifies a <code>$near</code> or <code>$nearSphere</code> condition</p>
+<p>These operators return documents sorted by distance.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nt">query</span><span class="p">.</span><span class="nc">where</span><span class="o">(</span><span class="s1">&#39;loc&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">near</span><span class="o">(</span><span class="p">{</span> <span class="n">center</span><span class="p">:</span> <span class="cp">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="cp">]</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">query</span><span class="p">.</span><span class="nc">where</span><span class="o">(</span><span class="s1">&#39;loc&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">near</span><span class="o">(</span><span class="p">{</span> <span class="n">center</span><span class="p">:</span> <span class="cp">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="cp">]</span><span class="p">,</span> <span class="n">maxDistance</span><span class="o">:</span> <span class="mi">5</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">query</span><span class="p">.</span><span class="nc">where</span><span class="o">(</span><span class="s1">&#39;loc&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">near</span><span class="o">(</span><span class="p">{</span> <span class="n">center</span><span class="p">:</span> <span class="cp">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="cp">]</span><span class="p">,</span> <span class="n">maxDistance</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span> <span class="n">spherical</span><span class="o">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">);</span>
+<span class="nt">query</span><span class="p">.</span><span class="nc">near</span><span class="o">(</span><span class="s1">&#39;loc&#39;</span><span class="o">,</span> <span class="p">{</span> <span class="n">center</span><span class="p">:</span> <span class="cp">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="cp">]</span><span class="p">,</span> <span class="n">maxDistance</span><span class="o">:</span> <span class="mi">5</span> <span class="p">}</span><span class="o">);</span>
+</code></pre></div>
+
+<h2 id="queryprototypenearsphere">Query.prototype.nearSphere()<a class="headerlink" href="#queryprototypenearsphere" title="Permanent link">&para;</a></h2>
+<p><em>DEPRECATED</em> Specifies a <code>$nearSphere</code> condition</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nt">query</span><span class="p">.</span><span class="nc">where</span><span class="o">(</span><span class="s1">&#39;loc&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">nearSphere</span><span class="o">(</span><span class="p">{</span> <span class="n">center</span><span class="p">:</span> <span class="cp">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="cp">]</span><span class="p">,</span> <span class="n">maxDistance</span><span class="o">:</span> <span class="mi">5</span> <span class="p">}</span><span class="o">);</span>
+</code></pre></div>
+
+<p><strong>Deprecated.</strong> Use <code>query.near()</code> instead with the <code>spherical</code> option set to <code>true</code>.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nt">query</span><span class="p">.</span><span class="nc">where</span><span class="o">(</span><span class="s1">&#39;loc&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">near</span><span class="o">(</span><span class="p">{</span> <span class="n">center</span><span class="p">:</span> <span class="cp">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="cp">]</span><span class="p">,</span> <span class="n">spherical</span><span class="o">:</span> <span class="n">true</span> <span class="p">}</span><span class="o">);</span>
+</code></pre></div>
+
+<h2 id="queryprototypepolygon">Query.prototype.polygon()<a class="headerlink" href="#queryprototypepolygon" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>[coordinatePairs...] «Array,Object»</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Specifies a $polygon condition</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code>query.where(&#39;loc&#39;).within().polygon([10,20], [13, 25], [7,15])
+query.polygon(&#39;loc&#39;, [10,20], [13, 25], [7,15])
+</code></pre></div>
+
+<h2 id="queryprototypebox">Query.prototype.box()<a class="headerlink" href="#queryprototypebox" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<ul>
+<li>Upper «[Array]» Right Coords</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>Specifies a $box condition</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="k">var</span> <span class="n">lowerLeft</span> <span class="o">=</span> <span class="p">[</span><span class="mf">40.73083</span><span class="p">,</span> <span class="o">-</span><span class="mf">73.99756</span><span class="p">]</span>
+<span class="k">var</span> <span class="n">upperRight</span><span class="o">=</span> <span class="p">[</span><span class="mf">40.741404</span><span class="p">,</span>  <span class="o">-</span><span class="mf">73.988135</span><span class="p">]</span>
+
+<span class="n">query</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;loc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">within</span><span class="p">()</span><span class="o">.</span><span class="n">box</span><span class="p">(</span><span class="n">lowerLeft</span><span class="p">,</span> <span class="n">upperRight</span><span class="p">)</span>
+<span class="n">query</span><span class="o">.</span><span class="n">box</span><span class="p">({</span> <span class="n">ll</span> <span class="p">:</span> <span class="n">lowerLeft</span><span class="p">,</span> <span class="n">ur</span> <span class="p">:</span> <span class="n">upperRight</span> <span class="p">})</span>
+</code></pre></div>
+
+<h2 id="queryprototypecircle">Query.prototype.circle()<a class="headerlink" href="#queryprototypecircle" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p><strong>返回</strong></p>
+<p>Specifies a $center or $centerSphere condition.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="k">var</span> <span class="n">area</span> <span class="o">=</span> <span class="p">{</span> <span class="n">center</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="n">radius</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="n">unique</span><span class="p">:</span> <span class="bp">true</span> <span class="p">}</span>
+<span class="n">query</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;loc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">within</span><span class="p">()</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
+
+<span class="n">query</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="s1">&#39;loc&#39;</span><span class="p">,</span> <span class="n">area</span><span class="p">);</span>
+
+<span class="k">var</span> <span class="n">area</span> <span class="o">=</span> <span class="p">{</span> <span class="n">center</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="n">radius</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="n">unique</span><span class="p">:</span> <span class="bp">true</span><span class="p">,</span> <span class="n">spherical</span><span class="p">:</span> <span class="bp">true</span> <span class="p">}</span>
+<span class="n">query</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;loc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">within</span><span class="p">()</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
+
+<span class="n">query</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="s1">&#39;loc&#39;</span><span class="p">,</span> <span class="n">area</span><span class="p">);</span>
+</code></pre></div>
+
+<p>New in 3.7.0</p>
+<h2 id="queryprototypecenter">Query.prototype.center()<a class="headerlink" href="#queryprototypecenter" title="Permanent link">&para;</a></h2>
+<h2 id="queryprototypecentersphere">Query.prototype.centerSphere()<a class="headerlink" href="#queryprototypecentersphere" title="Permanent link">&para;</a></h2>
+<p><strong>参数</strong></p>
+<p><strong>返回</strong></p>
+<p><em>DEPRECATED</em> Specifies a $centerSphere condition</p>
+<p><strong>Deprecated.</strong> Use [circle instead.</p>
+<p><strong>示例</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="k">var</span> <span class="n">area</span> <span class="o">=</span> <span class="p">{</span> <span class="n">center</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="n">radius</span><span class="p">:</span> <span class="mi">10</span> <span class="p">};</span>
+<span class="n">query</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;loc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">within</span><span class="p">()</span><span class="o">.</span><span class="n">centerSphere</span><span class="p">(</span><span class="n">area</span><span class="p">);</span>
+</code></pre></div>
+
+<h2 id="queryprototypeselected">Query.prototype.selected()<a class="headerlink" href="#queryprototypeselected" title="Permanent link">&para;</a></h2>
+<p><strong>返回</strong></p>
+<p>Determines if field selection has been made.</p>
+<h2 id="queryprototypeselectedinclusively">Query.prototype.selectedInclusively()<a class="headerlink" href="#queryprototypeselectedinclusively" title="Permanent link">&para;</a></h2>
+<p><strong>返回</strong></p>
+<p>Determines if inclusive field selection has been made.</p>
+<div class="codehilite"><pre><span></span><code>query.selectedInclusively()
+query.select(&#39;name&#39;)
+query.selectedInclusively()
+</code></pre></div>
+
+<h2 id="queryprototypeselectedexclusively">Query.prototype.selectedExclusively()<a class="headerlink" href="#queryprototypeselectedexclusively" title="Permanent link">&para;</a></h2>
+<p><strong>返回</strong></p>
+<p>Determines if exclusive field selection has been made.</p>
+<div class="codehilite"><pre><span></span><code>query.selectedExclusively()
+query.select(&#39;-name&#39;)
+query.selectedExclusively()
+query.selectedInclusively()
+</code></pre></div>
+
+<hr />
+<hr />
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../guide/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 查询手册" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              查询手册
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../guide/Validation/" class="md-footer__link md-footer__link--next" aria-label="下一页: 验证" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              验证
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            版权 &copy; 2018 -  wohugb.github.io
+          </div>
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="http://wohugb.github.io" target="_blank" rel="noopener" title="wohugb.github.io" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/wohugb" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/wohugb" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://linkedin.com/in/wohugb" target="_blank" rel="noopener" title="linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.e99e714c.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.bc35569b.min.js"></script>
+      
+    
+  </body>
+</html>

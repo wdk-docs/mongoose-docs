@@ -1,0 +1,1121 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Mongodb NodeJs 组件中文文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
+    
+    
+      
+        <title>常问问题 - Mongoose文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.24c991ad.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Mongoose文档" class="md-header__button md-logo" aria-label="Mongoose文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mongoose文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              常问问题
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/wohugb/mongoose-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    wohugb/mongoose-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Mongoose文档" class="md-nav__button md-logo" aria-label="Mongoose文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Mongoose文档
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/wohugb/mongoose-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    wohugb/mongoose-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        前言
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QuickStart/" class="md-nav__link">
+        快速开始
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          连接
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="连接" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          连接
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connection/guide/" class="md-nav__link">
+        连接手册
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connection/api/" class="md-nav__link">
+        连接API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          模式
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="模式" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          模式
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/guide/" class="md-nav__link">
+        模式手册
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/api/" class="md-nav__link">
+        模式API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/type/" class="md-nav__link">
+        模式类型API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          模型
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="模型" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          模型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../model/guide/" class="md-nav__link">
+        模型手册
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../model/api/" class="md-nav__link">
+        模型API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          文档
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="文档" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          文档
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../document/guide/" class="md-nav__link">
+        文档手册
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../document/api/" class="md-nav__link">
+        文档API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          查询
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="查询" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          查询
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../query/guide/" class="md-nav__link">
+        查询手册
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../query/api/" class="md-nav__link">
+        查询API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          其它手册
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="其它手册" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          其它手册
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guide/Validation/" class="md-nav__link">
+        验证
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guide/Middleware/" class="md-nav__link">
+        中间件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guide/Populate/" class="md-nav__link">
+        填充
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guide/Discriminators/" class="md-nav__link">
+        鉴别器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guide/Plugins/" class="md-nav__link">
+        插件
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          其它API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="其它API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          其它API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/Aggregate/" class="md-nav__link">
+        聚合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/VirtualType/" class="md-nav__link">
+        虚拟类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/Error/" class="md-nav__link">
+        错误
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migrating_to_5/" class="md-nav__link">
+        升级到5
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VersionCompatibility/" class="md-nav__link">
+        版本兼容性
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        常问问题
+      </a>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">常见问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p><a href="http://mongoosejs.com/docs/faq.html" title="Mongoose v5.0.1的永久链接：FAQ">源</a></p>
+<details class="faq"><summary>当我直接更新数组元素时​​，为什么不更改？</summary><div class="highlight"><pre><span></span><code><span class="nx">doc</span><span class="p">.</span><span class="nx">array</span><span class="p">[</span><span class="mf">3</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;changed&#39;</span><span class="p">;</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">答案</p>
+<p>Mongoose不会为数组索引创建getter/setter; 没有他们猫鼬从来没有得到通知的变化，所以不知道坚持新的价值。 解决方法是使用<strong> Mongoose&gt; = 3.2.0 </strong>中的<a href="http://mongoosejs.com/api.html#types_array_MongooseArray.set">MongooseArray＃set</a>。</p>
+<div class="highlight"><pre><span></span><code><span class="nx">doc</span><span class="p">.</span><span class="nx">array</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span> <span class="s1">&#39;changed&#39;</span><span class="p">);</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">array</span><span class="p">[</span><span class="mf">3</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;changed&#39;</span><span class="p">;</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">markModified</span><span class="p">(</span><span class="s1">&#39;array&#39;</span><span class="p">);</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+</code></pre></div>
+</div>
+</details>
+<details class="faq"><summary>我定义模式属性为“unique”，但我仍然可以保存了重复数据,是什么导致的？</summary><div class="admonition info">
+<p class="admonition-title">答案</p>
+<p>Mongoose本身并不处理<code>unique</code>：<code>{name：{type：String，unique：true}}</code>只是在<code>name</code>上创建一个[MongoDB唯一索引]的简写<a href="https://docs.mongodb.com/manual/core/index-unique/">2</a> 例如，如果MongoDB在<code>name</code>上没有唯一的索引， 尽管“unique”是真实的，但下面的代码不会出错。</p>
+<div class="highlight"><pre><span></span><code>    <span class="kd">var</span> <span class="nx">schema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">unique</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="kd">var</span> <span class="nx">Model</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">,</span> <span class="nx">schema</span><span class="p">);</span>
+
+    <span class="nx">Model</span><span class="p">.</span><span class="nx">create</span><span class="p">([{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Val&#39;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Val&#39;</span> <span class="p">}],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+    <span class="p">});</span>
+</code></pre></div>
+<p>然而， 如果您使用<code>Model.on（'index'）</code>事件等待索引建立，尝试保存重复将会抛错</p>
+<div class="highlight"><pre><span></span><code>    <span class="kd">var</span> <span class="nx">schema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">unique</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="kd">var</span> <span class="nx">Model</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">,</span> <span class="nx">schema</span><span class="p">);</span>
+
+    <span class="nx">Model</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">ifError</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+      <span class="nx">Model</span><span class="p">.</span><span class="nx">create</span><span class="p">([{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Val&#39;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Val&#39;</span> <span class="p">}],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+      <span class="p">});</span>
+    <span class="p">});</span>
+
+    <span class="nx">Model</span><span class="p">.</span><span class="nx">init</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">ifError</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+      <span class="nx">Model</span><span class="p">.</span><span class="nx">create</span><span class="p">([{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Val&#39;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Val&#39;</span> <span class="p">}],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+      <span class="p">});</span>
+    <span class="p">});</span>
+</code></pre></div>
+<p>MongoDB坚持索引， 所以你只需要重新建立索引，如果你开始一个新的数据库，或者你运行<code>db.dropDatabase（）</code>。在生产环境中， 你应该[使用MongoDB shell]）（）创建索引，而不是依靠猫鼬为你做。 模式的<code>unique</code>选项方便开发和文档化，但猫鼬不是索引管理解决方案</p>
+</div>
+</details>
+<details class="faq"><summary>当我在模式中有一个嵌套属性时，mongoose默认添加空对象,为什么？</summary><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">schema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span>
+  <span class="nx">nested</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">prop</span><span class="o">:</span> <span class="nb">String</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+<span class="kd">var</span> <span class="nx">Model</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">,</span> <span class="nx">schema</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="ow">new</span> <span class="nx">Model</span><span class="p">());</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">答案</p>
+<p>这是一个性能优化 这些空的对象不会保存到数据库中， 也不是在结果<code>toObject（）</code>中， 除非关闭<a href="http://mongoosejs.com/docs/guide.html#minimize"><code>minimize</code>选项</a>，否则它们不会出现在<code>JSON.stringify（）</code>输出中。</p>
+<p>这种行为的原因是Mongoose的变化检测和getter / setter是基于<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty"><code>Object.defineProperty（）</code></a>。为了支持对嵌套属性的更改检测，而不会在每次创建文档时招致运行Object.defineProperty（）的开销， mongoose在模型编译时定义<code>Model</code>原型的属性。,由于猫鼬需要为<code>nested.prop</code>定义getter和setter， 必须始终将“嵌套”定义为猫鼬文档上的对象， 即使<code>nested</code>在底层的<a href="http://mongoosejs.com/docs/guide.html#minimize">POJO</a>上是未定义的。</p>
+</div>
+</details>
+<details class="faq"><summary>我在<a href="http://mongoosejs.com/docs/guide.html#virtuals">virtual</a>，getter/setter或<a href="http://mongoosejs.com/docs/guide.html#methods">method</a>使用箭头函数，this的值是为什么是错误的？</summary><div class="admonition info">
+<p class="admonition-title">答案</p>
+<p>箭头函数<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_binding_of_this">处理<code>this</code>关键字与传统函数大不相同</a>. Mongoose getter/setter依赖<code>this</code>来让你访问你正在写的文档，但是这个功能不能使用箭头函数。 除非不打算访问getter/setter中的文档，否则不要使用箭头函数来取得 Mongoose getter/setter。</p>
+<div class="highlight"><pre><span></span><code>    <span class="kd">var</span> <span class="nx">schema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span>
+      <span class="nx">propWithGetter</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+        <span class="nx">get</span><span class="o">:</span> <span class="nx">v</span> <span class="p">=&gt;</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+          <span class="k">return</span> <span class="nx">v</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+
+    <span class="nx">schema</span><span class="p">.</span><span class="nx">method</span><span class="p">.</span><span class="nx">arrowMethod</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">;</span>
+    <span class="nx">schema</span><span class="p">.</span><span class="nx">virtual</span><span class="p">(</span><span class="s1">&#39;virtualWithArrow&#39;</span><span class="p">).</span><span class="nx">get</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="p">});</span>
+</code></pre></div>
+</div>
+</details>
+<details class="faq"><summary>我有一个名为<code>type</code>的嵌入式属性是这样的：</summary><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">holdingSchema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span>
+  <span class="nx">asset</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+    <span class="nx">ticker</span><span class="o">:</span> <span class="nb">String</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>但mongoose给了我一个CastError提示，当我试图用一个<code>asset</code>对象来保存<code>Holding</code>时，它不能把一个对象转换成一个字符串。</p>
+<div class="highlight"><pre><span></span><code>  <span class="nx">Holding</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span> <span class="nx">asset</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;stock&#39;</span><span class="p">,</span> <span class="nx">ticker</span><span class="o">:</span> <span class="s1">&#39;MDB&#39;</span> <span class="p">}</span> <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="p">});</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">答案</p>
+<p>“类型”属性在猫鼬是特别的，所以当你说<code>type：String</code>时，猫鼬把它解释为一个类型声明. 在上面的模式中，猫鼬认为“asset”是一个字符串，而不是一个对象。,做这个，而不是：</p>
+<div class="highlight"><pre><span></span><code>  <span class="kd">const</span> <span class="nx">holdingSchema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span>
+    <span class="nx">asset</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">type</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span> <span class="p">},</span>
+      <span class="nx">ticker</span><span class="o">:</span> <span class="nb">String</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+</code></pre></div>
+</div>
+</details>
+<details class="faq"><summary>为什么不能对日期对象（例如<code>date.setMonth（1）;</code>）进行就地修改？</summary><div class="highlight"><pre><span></span><code><span class="nx">doc</span><span class="p">.</span><span class="nx">createdAt</span><span class="p">.</span><span class="nx">setDate</span><span class="p">(</span><span class="mf">2011</span><span class="p">,</span> <span class="mf">5</span><span class="p">,</span> <span class="mf">1</span><span class="p">);</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">答案</p>
+<p>Mongoose目前不会监视日期对象的就地更新,如果您需要这个功能，请随时在<a href="https://github.com/Automattic/mongoose/issues/3738">此GitHub问题</a>上讨论。,有几个解决方法：</p>
+<div class="highlight"><pre><span></span><code>    <span class="nx">doc</span><span class="p">.</span><span class="nx">createdAt</span><span class="p">.</span><span class="nx">setDate</span><span class="p">(</span><span class="mf">2011</span><span class="p">,</span> <span class="mf">5</span><span class="p">,</span> <span class="mf">1</span><span class="p">);</span>
+    <span class="nx">doc</span><span class="p">.</span><span class="nx">markModified</span><span class="p">(</span><span class="s1">&#39;createdAt&#39;</span><span class="p">);</span>
+    <span class="nx">doc</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+
+    <span class="nx">doc</span><span class="p">.</span><span class="nx">createdAt</span> <span class="o">=</span> <span class="ow">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mf">2011</span><span class="p">,</span> <span class="mf">5</span><span class="p">,</span> <span class="mf">1</span><span class="p">).</span><span class="nx">setHours</span><span class="p">(</span><span class="mf">4</span><span class="p">);</span>
+    <span class="nx">doc</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+</code></pre></div>
+</div>
+</details>
+<details class="faq"><summary>我在下面的代码中填充数组下的嵌套属性：</summary><div class="highlight"><pre><span></span><code>  <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span>
+    <span class="nx">arr</span><span class="o">:</span> <span class="p">[{</span>
+      <span class="nx">child</span><span class="o">:</span> <span class="p">{</span> <span class="nx">ref</span><span class="o">:</span> <span class="s1">&#39;OtherModel&#39;</span><span class="p">,</span> <span class="nx">type</span><span class="o">:</span> <span class="nx">Schema</span><span class="p">.</span><span class="nx">Types</span><span class="p">.</span><span class="nx">ObjectId</span> <span class="p">}</span>
+    <span class="p">}]</span>
+  <span class="p">});</span>
+</code></pre></div>
+<p><code>.populate（{path：'arr.child'，options：{sort：'name'}}）</code>不会被<code>arr.child.name</code>排序</p>
+<div class="admonition info">
+<p class="admonition-title">答案</p>
+<p>见<a href="https://github.com/Automattic/mongoose/issues/2202">这个GitHub问题</a>。,这是一个已知的问题，但是这是一个非常难以解决的问题</p>
+</div>
+</details>
+<details class="faq"><summary>我的模型上的所有函数调用挂起，我做错了什么？</summary><div class="admonition info">
+<p class="admonition-title">答案</p>
+<p>默认情况下，mongoose会缓冲你的函数调用，直到它可以连接到MongoDB。,阅读<a href="http://mongoosejs.com/docs/connections.html#buffering">连接文档的缓冲部分</a>了解更多信息。</p>
+</div>
+</details>
+<details class="faq"><summary>我怎样才能启用调试？</summary><div class="admonition info">
+<p class="admonition-title">答案</p>
+<p>将<code>debug</code>选项设置为<code>true</code></p>
+<div class="highlight"><pre><span></span><code>  <span class="nx">mongoose</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;debug&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+</code></pre></div>
+<p>所有执行的收集方法都会将其参数的输出记录到控制台。</p>
+</div>
+</details>
+<details class="faq"><summary>我的<code>save（）</code>回调从不执行。 我究竟做错了什么？</summary><div class="admonition info">
+<p class="admonition-title">答案</p>
+<p>所有的“集合”操作（插入，删除，查询等）都被排队，直到“连接”打开. 尝试连接时可能发生错误。尝试添加一个错误处理程序到您的连接。</p>
+<div class="highlight"><pre><span></span><code>    <span class="nx">mongoose</span><span class="p">.</span><span class="nx">connect</span><span class="p">(..);</span>
+    <span class="nx">mongoose</span><span class="p">.</span><span class="nx">connection</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="nx">handleError</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">conn</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">createConnection</span><span class="p">(..);</span>
+    <span class="nx">conn</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="nx">handleError</span><span class="p">);</span>
+</code></pre></div>
+<p>如果您想要在整个应用程序中选择不使用猫鼬的缓冲机制，请将全局<code>bufferCommands</code>选项设置为false</p>
+<div class="highlight"><pre><span></span><code>    <span class="nx">mongoose</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;bufferCommands&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+</code></pre></div>
+</div>
+</details>
+<details class="faq"><summary>我应该为每个数据库操作创建/销毁一个新的连接吗？</summary><div class="admonition info">
+<p class="admonition-title">答案</p>
+<p>不用。在应用程序启动时打开连接，并保持打开状态，直到应用程序关闭。</p>
+</div>
+</details>
+<details class="faq"><summary>为什么我得到"OverwriteModelError: Cannot overwrite .. model once compiled" 当我使用nodemon(一个测试框架)？</summary><div class="admonition info">
+<p class="admonition-title">答案</p>
+<p><code>mongoose.model('ModelName',schema)'要求</code>ModelName<code>是唯一的，
+所以你可以通过使用</code>mongoose.model('ModelName')<code>来访问模型。
+如果你把mongoose.model('ModelName',schema);</code>放在<a href="https://mochajs.org/#hooks">mocha<code>beforeEach()</code>hook</a>中，
+此代码将尝试在<strong>每</strong>测试之前创建一个名为“ModelName”的新模型， 所以你会得到一个错误。
+确保你只用一个给定的名字<em>once</em>创建一个新的模型。
+如果您需要创建具有相同名称的多个模型，请创建一个新的连接并将模型绑定到连接。</p>
+<div class="highlight"><pre><span></span><code>    <span class="kd">var</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongoose&#39;</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">connection</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">createConnection</span><span class="p">(..);</span>
+    <span class="kd">var</span> <span class="nx">kittySchema</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="nb">String</span> <span class="p">});</span>
+    <span class="kd">var</span> <span class="nx">Kitten</span> <span class="o">=</span> <span class="nx">connection</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Kitten&#39;</span><span class="p">,</span> <span class="nx">kittySchema</span><span class="p">);</span>
+</code></pre></div>
+</div>
+</details>
+<p><strong>要添加的东西?</strong></p>
+<p>如果您想贡献此页面，请在github上<a href="https://github.com/Automattic/mongoose/tree/master/docs/faq.jade">访问它</a>，并使用<a href="https://github.com/blog/844-forking-with-the-edit-button">编辑</a>按钮发送拉取请求。</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../VersionCompatibility/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 版本兼容性" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              版本兼容性
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            版权 &copy; 2018 -  wohugb.github.io
+          </div>
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="http://wohugb.github.io" target="_blank" rel="noopener" title="wohugb.github.io" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/wohugb" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/wohugb" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://linkedin.com/in/wohugb" target="_blank" rel="noopener" title="linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.e99e714c.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.bc35569b.min.js"></script>
+      
+    
+  </body>
+</html>
