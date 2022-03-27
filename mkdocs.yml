@@ -1,10 +1,10 @@
 site_name: Mongoose文档
 site_description: Mongodb NodeJs 组件中文文档
 site_author: Nosy
-copyright: "版权 &copy; 2018 -  wohugb.github.io"
+copyright: "版权 &copy; 2022 -  wdk-docs.github.io"
 
-repo_name: wohugb/mongoose-docs
-repo_url: https://github.com/wohugb/mongoose-docs
+repo_name: wdk-docs/mongoose-docs
+repo_url: https://github.com/wdk-docs/mongoose-docs
 edit_uri: ""
 
 docs_dir: source
@@ -34,13 +34,13 @@ theme:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: http://wohugb.github.io
+      link: http://wdk-docs.github.io
     - icon: fontawesome/brands/github-alt
-      link: https://github.com/wohugb
+      link: https://github.com/wdk-docs
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/wohugb
+      link: https://twitter.com/wdk-docs
     - icon: fontawesome/brands/linkedin
-      link: https://linkedin.com/in/wohugb
+      link: https://linkedin.com/in/wdk-docs
 
 markdown_extensions:
   - admonition
