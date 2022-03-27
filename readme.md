@@ -45,13 +45,13 @@ jinja2.exceptions.TemplateNotFound: .icons/.svg
 extra:
   social:
     - type: globe
-      link: http://wohugb.github.io
+      link: http://wdk-docs.github.io
     - type: github-alt
-      link: https://github.com/wohugb
+      link: https://github.com/wdk-docs
     - type: twitter
-      link: https://twitter.com/wohugb
+      link: https://twitter.com/wdk-docs
     - type: linkedin
-      link: https://linkedin.com/in/wohugb
+      link: https://linkedin.com/in/wdk-docs
       ```
 ````
 
@@ -61,11 +61,11 @@ extra:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: http://wohugb.github.io
+      link: http://wdk-docs.github.io
     - icon: fontawesome/brands/github-alt
-      link: https://github.com/wohugb
+      link: https://github.com/wdk-docs
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/wohugb
+      link: https://twitter.com/wdk-docs
     - icon: fontawesome/brands/linkedin
-      link: https://linkedin.com/in/wohugb
+      link: https://linkedin.com/in/wdk-docs
 ```
