@@ -70,14 +70,14 @@ nav:
   - 连接:
       - 连接手册: connection/guide.md
       - 连接API: connection/api.md
-  - 模式:
+  - 模式(schema):
       - 模式手册: schema/guide.md
       - 模式API: schema/api.md
       - 模式类型API: schema/type.md
-  - 模型:
+  - 模型(model):
       - 模型手册: model/guide.md
       - 模型API: model/api.md
-  - 文档:
+  - 文档(document):
       - 文档手册: document/guide.md
       - 文档API: document/api.md
       - 子文档: document/subdocs.md
