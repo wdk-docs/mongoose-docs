@@ -1,7 +1,6 @@
-Subdocuments are documents embedded in other documents. In Mongoose, this
-means you can nest schemas in other schemas. Mongoose has two
-distinct notions of subdocuments: [arrays of subdocuments](https://masteringjs.io/tutorials/mongoose/array#document-arrays) and single nested
-subdocuments.
+子文档是嵌入在其他文档中的文档。
+在 Mongoose 中，这意味着您可以在其他模式中嵌套模式。
+Mongoose 有两个不同的子文档概念:[子文档数组](https://masteringjs.io/tutorials/mongoose/array#document-arrays)和单个嵌套子文档。
 
 ```javascript
 const childSchema = new Schema({ name: "string" });
@@ -9,36 +8,20 @@ const childSchema = new Schema({ name: "string" });
 const parentSchema = new Schema({
   // Array of subdocuments
   children: [childSchema],
-  // Single nested subdocuments. Caveat: single nested subdocs only work
+  // Single nested subdocuments.
+Caveat: single nested subdocs only work
   // in mongoose >= 4.2.0
   child: childSchema,
 });
 ```
 
-Aside from code reuse, one important reason to use subdocuments is to create
-a path where there would otherwise not be one to allow for validation over
-a group of fields (e.g. dateRange.fromDate <= dateRange.toDate).
-
-<ul class="toc">
-  <li><a href="#what-is-a-subdocument-">What is a Subdocument?</a></li>
-  <li><a href="#subdocuments-versus-nested-paths">Subdocuments versus Nested Paths</a></li>
-  <li><a href="#subdocument-defaults">Subdocument Defaults</a></li>
-  <li><a href="#finding-a-subdocument">Finding a Subdocument</a></li>
-  <li><a href="#adding-subdocs-to-arrays">Adding Subdocs to Arrays</a></li>
-  <li><a href="#removing-subdocs">Removing Subdocs</a></li>
-  <li><a href="#subdoc-parents">Parents of Subdocs</a></li>
-  <li><a href="#altsyntaxarrays">Alternate declaration syntax for arrays</a></li>
-  <li><a href="#altsyntaxsingle">Alternate declaration syntax for single subdocuments</a></li>
-</ul>
+除了代码重用之外，使用子文档的一个重要原因是创建一个路径，否则就无法对一组字段进行验证(例如 `dateRange.fromDate <= dateRange.toDate`)。
 
 ## 什么是子文档?
 
-Subdocuments are similar to normal documents. Nested schemas can have
-[middleware](./middleware.html), [custom validation logic](./validation.html),
-virtuals, and any other feature top-level schemas can use. The major
-difference is that subdocuments are
-not saved individually, they are saved whenever their top-level parent
-document is saved.
+子文档类似于普通文档。
+嵌套模式可以有[middleware](./middleware.html)、[自定义验证逻辑](./validation.html)、virtual，以及顶级模式可以使用的任何其他特性。
+主要的区别是子文档不是单独保存的，它们是在它们的顶级父文档保存时保存的。
 
 ```javascript
 const Parent = mongoose.model("Parent", parentSchema);
@@ -46,15 +29,14 @@ const parent = new Parent({ children: [{ name: "Matt" }, { name: "Sarah" }] });
 parent.children[0].name = "Matthew";
 
 // `parent.children[0].save()` is a no-op, it triggers middleware but
-// does **not** actually save the subdocument. You need to save the parent
+// does **not** actually save the subdocument.
+You need to save the parent
 // doc.
 parent.save(callback);
 ```
 
-Subdocuments have `save` and `validate` [middleware](./middleware.html)
-just like top-level documents. Calling `save()` on the parent document triggers
-the `save()` middleware for all its subdocuments, and the same for `validate()`
-middleware.
+和顶级文档一样，子文档也有 `save` 和 `validate` [middleware](./middleware.html)。
+在父文档上调用 `save()` 会为它的所有子文档触发 `save()` 中间件，在 `validate()` 中间件上也是如此。
 
 ```javascript
 childSchema.pre("save", function (next) {
@@ -70,10 +52,8 @@ parent.save(function (err) {
 });
 ```
 
-Subdocuments' `pre('save')` and `pre('validate')` middleware execute
-**before** the top-level document's `pre('save')` but **after** the
-top-level document's `pre('validate')` middleware. This is because validating
-before `save()` is actually a piece of built-in middleware.
+子文档 `pre('save')` 和 `pre('validate')` 中间件在顶级文档的 `pre('save')` **之前**执行，在顶级文档的 `pre('validate')` **之后**执行。
+这是因为在 `save()` 之前进行验证实际上是内置中间件的一部分。
 
 ```javascript
 // Below code will print out 1-4 in order
