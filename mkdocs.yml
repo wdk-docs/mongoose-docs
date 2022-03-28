@@ -5,7 +5,7 @@ copyright: "版权 &copy; 2022 -  wdk-docs.github.io"
 
 repo_name: wdk-docs/mongoose-docs
 repo_url: https://github.com/wdk-docs/mongoose-docs
-edit_uri: ""
+edit_uri: https://github.com/wdk-docs/mongoose-docs
 
 docs_dir: source
 site_dir: docs
@@ -31,6 +31,9 @@ theme:
   icon:
     logo: material/library
   # extra_css: [assets/stylesheets/extra.css]
+  features:
+    - content.code.annotate 
+
 extra:
   social:
     - icon: fontawesome/brands/github
@@ -52,6 +55,14 @@ markdown_extensions:
       permalink: true
   - pymdownx.superfences
   - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      auto_title: true
+      linenums: true
+      linenums_style: pymdownx-inline
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
 
 nav:
   - 前言: index.md
@@ -69,6 +80,7 @@ nav:
   - 文档:
       - 文档手册: document/guide.md
       - 文档API: document/api.md
+      - 子文档: document/subdocs.md
   - 查询:
       - 查询手册: query/guide.md
       - 查询API: query/api.md

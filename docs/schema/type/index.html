@@ -9,12 +9,11 @@
         <meta name="description" content="Mongodb NodeJs 组件中文文档">
       
       
-      
         <meta name="author" content="Nosy">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.2">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.7">
     
     
       
@@ -22,10 +21,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.24c991ad.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9d5733d3.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
         
           
           
@@ -37,16 +36,16 @@
     
       
         
+        
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-
 
     
     
@@ -61,7 +60,6 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
-    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -78,10 +76,11 @@
       
     </div>
     
+    
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../.." title="Mongoose文档" class="md-header__button md-logo" aria-label="Mongoose文档" data-md-component="logo">
       
   
@@ -113,8 +112,7 @@
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -123,9 +121,9 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="查找">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
         </button>
       </nav>
@@ -146,11 +144,10 @@
     
     
       <div class="md-header__source">
-        
-<a href="https://github.com/wdk-docs/mongoose-docs" title="前往仓库" class="md-source" data-md-component="source">
+        <a href="https://github.com/wdk-docs/mongoose-docs" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     wdk-docs/mongoose-docs
@@ -180,7 +177,7 @@
                     
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Mongoose文档" class="md-nav__button md-logo" aria-label="Mongoose文档" data-md-component="logo">
       
@@ -192,11 +189,10 @@
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/wdk-docs/mongoose-docs" title="前往仓库" class="md-source" data-md-component="source">
+      <a href="https://github.com/wdk-docs/mongoose-docs" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     wdk-docs/mongoose-docs
@@ -381,6 +377,7 @@
       </a>
       
         
+
 <nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
@@ -396,77 +393,199 @@
       
         <li class="md-nav__item">
   <a href="#schematype" class="md-nav__link">
-    SchemaType()
+    什么是 SchemaType?
+  </a>
+  
+    <nav class="md-nav" aria-label="什么是 SchemaType?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    示例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type" class="md-nav__link">
+    type 键
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#schematypeprototypedefault" class="md-nav__link">
-    SchemaType.prototype.default()
+  <a href="#schematype_1" class="md-nav__link">
+    SchemaType 选项
+  </a>
+  
+    <nav class="md-nav" aria-label="SchemaType 选项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    模式选项
+  </a>
+  
+    <nav class="md-nav" aria-label="模式选项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#indexes" class="md-nav__link">
+    索引 Indexes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    字符 String
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#number" class="md-nav__link">
+    数字 Number
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#date" class="md-nav__link">
+    日期 Date
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id-objectid" class="md-nav__link">
+    对象 Id ObjectId
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    使用笔记
+  </a>
+  
+    <nav class="md-nav" aria-label="使用笔记">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#string_1" class="md-nav__link">
+    String
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#number_1" class="md-nav__link">
+    Number
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dates" class="md-nav__link">
+    Dates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buffer" class="md-nav__link">
+    Buffer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mixed" class="md-nav__link">
+    Mixed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectids" class="md-nav__link">
+    ObjectIds
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boolean" class="md-nav__link">
+    Boolean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrays" class="md-nav__link">
+    Arrays
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maps" class="md-nav__link">
+    Maps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getters" class="md-nav__link">
+    Getters
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#schematypeprototypeindex" class="md-nav__link">
-    SchemaType.prototype.index()
+  <a href="#schemas" class="md-nav__link">
+    Schemas
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#schematypeprototypeunique" class="md-nav__link">
-    SchemaType.prototype.unique()
+  <a href="#_5" class="md-nav__link">
+    创建自定义类型
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#schematypeprototypetext" class="md-nav__link">
-    SchemaType.prototype.text()
+  <a href="#schemapath" class="md-nav__link">
+    schema.path() 函数
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#schematypeprototypesparse" class="md-nav__link">
-    SchemaType.prototype.sparse()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#schematypeprototypeset" class="md-nav__link">
-    SchemaType.prototype.set()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#schematypeprototypeget" class="md-nav__link">
-    SchemaType.prototype.get()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#schematypeprototypevalidate" class="md-nav__link">
-    SchemaType.prototype.validate()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#schematypeprototyperequired" class="md-nav__link">
-    SchemaType.prototype.required()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#schematypeprototypeselect" class="md-nav__link">
-    SchemaType.prototype.select()
+  <a href="#_6" class="md-nav__link">
+    阅读更多
   </a>
   
 </li>
@@ -598,6 +717,20 @@
     <li class="md-nav__item">
       <a href="../../document/api/" class="md-nav__link">
         文档API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../document/subdocs/" class="md-nav__link">
+        子文档
       </a>
     </li>
   
@@ -957,6 +1090,7 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
@@ -972,77 +1106,199 @@
       
         <li class="md-nav__item">
   <a href="#schematype" class="md-nav__link">
-    SchemaType()
+    什么是 SchemaType?
+  </a>
+  
+    <nav class="md-nav" aria-label="什么是 SchemaType?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    示例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type" class="md-nav__link">
+    type 键
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#schematypeprototypedefault" class="md-nav__link">
-    SchemaType.prototype.default()
+  <a href="#schematype_1" class="md-nav__link">
+    SchemaType 选项
+  </a>
+  
+    <nav class="md-nav" aria-label="SchemaType 选项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    模式选项
+  </a>
+  
+    <nav class="md-nav" aria-label="模式选项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#indexes" class="md-nav__link">
+    索引 Indexes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    字符 String
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#number" class="md-nav__link">
+    数字 Number
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#date" class="md-nav__link">
+    日期 Date
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id-objectid" class="md-nav__link">
+    对象 Id ObjectId
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    使用笔记
+  </a>
+  
+    <nav class="md-nav" aria-label="使用笔记">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#string_1" class="md-nav__link">
+    String
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#number_1" class="md-nav__link">
+    Number
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dates" class="md-nav__link">
+    Dates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buffer" class="md-nav__link">
+    Buffer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mixed" class="md-nav__link">
+    Mixed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectids" class="md-nav__link">
+    ObjectIds
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boolean" class="md-nav__link">
+    Boolean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrays" class="md-nav__link">
+    Arrays
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maps" class="md-nav__link">
+    Maps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getters" class="md-nav__link">
+    Getters
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#schematypeprototypeindex" class="md-nav__link">
-    SchemaType.prototype.index()
+  <a href="#schemas" class="md-nav__link">
+    Schemas
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#schematypeprototypeunique" class="md-nav__link">
-    SchemaType.prototype.unique()
+  <a href="#_5" class="md-nav__link">
+    创建自定义类型
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#schematypeprototypetext" class="md-nav__link">
-    SchemaType.prototype.text()
+  <a href="#schemapath" class="md-nav__link">
+    schema.path() 函数
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#schematypeprototypesparse" class="md-nav__link">
-    SchemaType.prototype.sparse()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#schematypeprototypeset" class="md-nav__link">
-    SchemaType.prototype.set()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#schematypeprototypeget" class="md-nav__link">
-    SchemaType.prototype.get()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#schematypeprototypevalidate" class="md-nav__link">
-    SchemaType.prototype.validate()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#schematypeprototyperequired" class="md-nav__link">
-    SchemaType.prototype.required()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#schematypeprototypeselect" class="md-nav__link">
-    SchemaType.prototype.select()
+  <a href="#_6" class="md-nav__link">
+    阅读更多
   </a>
   
 </li>
@@ -1059,347 +1315,582 @@
             <article class="md-content__inner md-typeset">
               
                 
-                
-                <h1 id="_1">模式类型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="schematype">SchemaType()<a class="headerlink" href="#schematype" title="Permanent link">&para;</a></h2>
-<p><strong>参数</strong></p>
-<p>SchemaType constructor. Do <strong>not</strong> instantiate <code>SchemaType</code> directly. Mongoose converts your schema paths into SchemaTypes automatically.</p>
-<p><strong>示例</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">const</span> <span class="n">schema</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Schema</span><span class="p">({</span> <span class="n">name</span><span class="p">:</span> <span class="nb nb-Type">String</span> <span class="p">});</span>
-<span class="n">schema</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span> <span class="n">instanceof</span> <span class="n">SchemaType</span><span class="p">;</span>
-</code></pre></div>
+<a href="https://github.com/wdk-docs/mongoose-docs/schema/type.md" title="编辑此页" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
 
-<h2 id="schematypeprototypedefault">SchemaType.prototype.default()<a class="headerlink" href="#schematypeprototypedefault" title="Permanent link">&para;</a></h2>
-<p><strong>参数</strong></p>
+
+
+<h1 id="_1">模式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>SchemaTypes handle definition of path
+<a href="./api.html#schematype_SchemaType-default">defaults</a>,
+<a href="./api.html#schematype_SchemaType-validate">validation</a>,
+<a href="#getters">getters</a>,
+<a href="./api.html#schematype_SchemaType-set">setters</a>,
+<a href="./api.html#schematype_SchemaType-select">field selection defaults</a> for
+<a href="./api.html#query-js">queries</a>,and other general characteristics for Mongoose document properties.</p>
+<h2 id="schematype">什么是 SchemaType?<a class="headerlink" href="#schematype" title="Permanent link">&para;</a></h2>
+<p>You can think of a Mongoose schema as the configuration object for a
+Mongoose model. A SchemaType is then a configuration object for an individual
+property. A SchemaType says what type a given
+path should have, whether it has any getters/setters, and what values are
+valid for that path.</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><a href="#__codelineno-0-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">const</span> <span class="nx">schema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="nb">String</span> <span class="p">});</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><a href="#__codelineno-0-2"><span class="linenos" data-linenos="2 "></span></a><span class="nx">schema</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span> <span class="ow">instanceof</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">SchemaType</span><span class="p">;</span> <span class="c1">// true</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><a href="#__codelineno-0-3"><span class="linenos" data-linenos="3 "></span></a><span class="nx">schema</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span> <span class="ow">instanceof</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">.</span><span class="nx">Types</span><span class="p">.</span><span class="nb">String</span><span class="p">;</span> <span class="c1">// true</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><a href="#__codelineno-0-4"><span class="linenos" data-linenos="4 "></span></a><span class="nx">schema</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">).</span><span class="nx">instance</span><span class="p">;</span> <span class="c1">// &#39;String&#39;</span>
+</code></pre></div>
+<p>A SchemaType is different from a type. In other words, <code>mongoose.ObjectId !== mongoose.Types.ObjectId</code>.
+A SchemaType is just a configuration object for Mongoose. An instance of
+the <code>mongoose.ObjectId</code> SchemaType doesn't actually create MongoDB ObjectIds,
+it is just a configuration for a path in a schema.</p>
+<p>The following are all the valid SchemaTypes in Mongoose. Mongoose plugins
+can also add custom SchemaTypes like <a href="http://plugins.mongoosejs.io/plugins/int32">int32</a>.
+Check out <a href="http://plugins.mongoosejs.io">Mongoose's plugins search</a> to find plugins.</p>
 <ul>
-<li>val «Function,any» the default value</li>
+<li><a href="#strings">String</a></li>
+<li><a href="#numbers">Number</a></li>
+<li><a href="#dates">Date</a></li>
+<li><a href="#buffers">Buffer</a></li>
+<li><a href="#booleans">Boolean</a></li>
+<li><a href="#mixed">Mixed</a></li>
+<li><a href="#objectids">ObjectId</a></li>
+<li><a href="#arrays">Array</a></li>
+<li><a href="./api.html#mongoose_Mongoose-Decimal128">Decimal128</a></li>
+<li><a href="#maps">Map</a></li>
+<li><a href="#schemas">Schema</a></li>
 </ul>
-<p><strong>返回</strong></p>
-<p>Sets a default value for this SchemaType.</p>
-<p><strong>示例</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">var</span> <span class="n">schema</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Schema</span><span class="p">({</span> <span class="n">n</span><span class="p">:</span> <span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="n">Number</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="mi">10</span> <span class="p">})</span>
-<span class="k">var</span> <span class="n">M</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
-<span class="k">var</span> <span class="n">m</span> <span class="o">=</span> <span class="n">new</span> <span class="n">M</span><span class="p">;</span>
-<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>
+<h3 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><a href="#__codelineno-1-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kd">const</span> <span class="nx">schema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><a href="#__codelineno-1-2"><span class="linenos" data-linenos=" 2 "></span></a>  <span class="nx">name</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><a href="#__codelineno-1-3"><span class="linenos" data-linenos=" 3 "></span></a>  <span class="nx">binary</span><span class="o">:</span> <span class="nx">Buffer</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><a href="#__codelineno-1-4"><span class="linenos" data-linenos=" 4 "></span></a>  <span class="nx">living</span><span class="o">:</span> <span class="nb">Boolean</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><a href="#__codelineno-1-5"><span class="linenos" data-linenos=" 5 "></span></a>  <span class="nx">updated</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nb">Date</span><span class="p">,</span> <span class="k">default</span><span class="o">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span> <span class="p">},</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><a href="#__codelineno-1-6"><span class="linenos" data-linenos=" 6 "></span></a>  <span class="nx">age</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nb">Number</span><span class="p">,</span> <span class="nx">min</span><span class="o">:</span> <span class="mf">18</span><span class="p">,</span> <span class="nx">max</span><span class="o">:</span> <span class="mf">65</span> <span class="p">},</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><a href="#__codelineno-1-7"><span class="linenos" data-linenos=" 7 "></span></a>  <span class="nx">mixed</span><span class="o">:</span> <span class="nx">Schema</span><span class="p">.</span><span class="nx">Types</span><span class="p">.</span><span class="nx">Mixed</span><span class="p">,</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><a href="#__codelineno-1-8"><span class="linenos" data-linenos=" 8 "></span></a>  <span class="nx">_someId</span><span class="o">:</span> <span class="nx">Schema</span><span class="p">.</span><span class="nx">Types</span><span class="p">.</span><span class="nx">ObjectId</span><span class="p">,</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><a href="#__codelineno-1-9"><span class="linenos" data-linenos=" 9 "></span></a>  <span class="nx">decimal</span><span class="o">:</span> <span class="nx">Schema</span><span class="p">.</span><span class="nx">Types</span><span class="p">.</span><span class="nx">Decimal128</span><span class="p">,</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><a href="#__codelineno-1-10"><span class="linenos" data-linenos="10 "></span></a>  <span class="nx">array</span><span class="o">:</span> <span class="p">[],</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><a href="#__codelineno-1-11"><span class="linenos" data-linenos="11 "></span></a>  <span class="nx">ofString</span><span class="o">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">],</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><a href="#__codelineno-1-12"><span class="linenos" data-linenos="12 "></span></a>  <span class="nx">ofNumber</span><span class="o">:</span> <span class="p">[</span><span class="nb">Number</span><span class="p">],</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><a href="#__codelineno-1-13"><span class="linenos" data-linenos="13 "></span></a>  <span class="nx">ofDates</span><span class="o">:</span> <span class="p">[</span><span class="nb">Date</span><span class="p">],</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><a href="#__codelineno-1-14"><span class="linenos" data-linenos="14 "></span></a>  <span class="nx">ofBuffer</span><span class="o">:</span> <span class="p">[</span><span class="nx">Buffer</span><span class="p">],</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><a href="#__codelineno-1-15"><span class="linenos" data-linenos="15 "></span></a>  <span class="nx">ofBoolean</span><span class="o">:</span> <span class="p">[</span><span class="nb">Boolean</span><span class="p">],</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a><a href="#__codelineno-1-16"><span class="linenos" data-linenos="16 "></span></a>  <span class="nx">ofMixed</span><span class="o">:</span> <span class="p">[</span><span class="nx">Schema</span><span class="p">.</span><span class="nx">Types</span><span class="p">.</span><span class="nx">Mixed</span><span class="p">],</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><a href="#__codelineno-1-17"><span class="linenos" data-linenos="17 "></span></a>  <span class="nx">ofObjectId</span><span class="o">:</span> <span class="p">[</span><span class="nx">Schema</span><span class="p">.</span><span class="nx">Types</span><span class="p">.</span><span class="nx">ObjectId</span><span class="p">],</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a><a href="#__codelineno-1-18"><span class="linenos" data-linenos="18 "></span></a>  <span class="nx">ofArrays</span><span class="o">:</span> <span class="p">[[]],</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a><a href="#__codelineno-1-19"><span class="linenos" data-linenos="19 "></span></a>  <span class="nx">ofArrayOfNumbers</span><span class="o">:</span> <span class="p">[[</span><span class="nb">Number</span><span class="p">]],</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a><a href="#__codelineno-1-20"><span class="linenos" data-linenos="20 "></span></a>  <span class="nx">nested</span><span class="o">:</span> <span class="p">{</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a><a href="#__codelineno-1-21"><span class="linenos" data-linenos="21 "></span></a>    <span class="nx">stuff</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">lowercase</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">trim</span><span class="o">:</span> <span class="kc">true</span> <span class="p">},</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a><a href="#__codelineno-1-22"><span class="linenos" data-linenos="22 "></span></a>  <span class="p">},</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a><a href="#__codelineno-1-23"><span class="linenos" data-linenos="23 "></span></a>  <span class="nx">map</span><span class="o">:</span> <span class="nb">Map</span><span class="p">,</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a><a href="#__codelineno-1-24"><span class="linenos" data-linenos="24 "></span></a>  <span class="nx">mapOfString</span><span class="o">:</span> <span class="p">{</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a><a href="#__codelineno-1-25"><span class="linenos" data-linenos="25 "></span></a>    <span class="nx">type</span><span class="o">:</span> <span class="nb">Map</span><span class="p">,</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a><a href="#__codelineno-1-26"><span class="linenos" data-linenos="26 "></span></a>    <span class="k">of</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a><a href="#__codelineno-1-27"><span class="linenos" data-linenos="27 "></span></a>  <span class="p">},</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a><a href="#__codelineno-1-28"><span class="linenos" data-linenos="28 "></span></a><span class="p">});</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29"></a><a href="#__codelineno-1-29"><span class="linenos" data-linenos="29 "></span></a>
+<a id="__codelineno-1-30" name="__codelineno-1-30"></a><a href="#__codelineno-1-30"><span class="linenos" data-linenos="30 "></span></a><span class="c1">// example use</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31"></a><a href="#__codelineno-1-31"><span class="linenos" data-linenos="31 "></span></a>
+<a id="__codelineno-1-32" name="__codelineno-1-32"></a><a href="#__codelineno-1-32"><span class="linenos" data-linenos="32 "></span></a><span class="kd">const</span> <span class="nx">Thing</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s2">&quot;Thing&quot;</span><span class="p">,</span> <span class="nx">schema</span><span class="p">);</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33"></a><a href="#__codelineno-1-33"><span class="linenos" data-linenos="33 "></span></a>
+<a id="__codelineno-1-34" name="__codelineno-1-34"></a><a href="#__codelineno-1-34"><span class="linenos" data-linenos="34 "></span></a><span class="kd">const</span> <span class="nx">m</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Thing</span><span class="p">();</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35"></a><a href="#__codelineno-1-35"><span class="linenos" data-linenos="35 "></span></a><span class="nx">m</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Statue of Liberty&quot;</span><span class="p">;</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36"></a><a href="#__codelineno-1-36"><span class="linenos" data-linenos="36 "></span></a><span class="nx">m</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="mf">125</span><span class="p">;</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37"></a><a href="#__codelineno-1-37"><span class="linenos" data-linenos="37 "></span></a><span class="nx">m</span><span class="p">.</span><span class="nx">updated</span> <span class="o">=</span> <span class="ow">new</span> <span class="nb">Date</span><span class="p">();</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38"></a><a href="#__codelineno-1-38"><span class="linenos" data-linenos="38 "></span></a><span class="nx">m</span><span class="p">.</span><span class="nx">binary</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">alloc</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39"></a><a href="#__codelineno-1-39"><span class="linenos" data-linenos="39 "></span></a><span class="nx">m</span><span class="p">.</span><span class="nx">living</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40"></a><a href="#__codelineno-1-40"><span class="linenos" data-linenos="40 "></span></a><span class="nx">m</span><span class="p">.</span><span class="nx">mixed</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">any</span><span class="o">:</span> <span class="p">{</span> <span class="nx">thing</span><span class="o">:</span> <span class="s2">&quot;i want&quot;</span> <span class="p">}</span> <span class="p">};</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41"></a><a href="#__codelineno-1-41"><span class="linenos" data-linenos="41 "></span></a><span class="nx">m</span><span class="p">.</span><span class="nx">markModified</span><span class="p">(</span><span class="s2">&quot;mixed&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-42" name="__codelineno-1-42"></a><a href="#__codelineno-1-42"><span class="linenos" data-linenos="42 "></span></a><span class="nx">m</span><span class="p">.</span><span class="nx">_someId</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Types</span><span class="p">.</span><span class="nx">ObjectId</span><span class="p">();</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43"></a><a href="#__codelineno-1-43"><span class="linenos" data-linenos="43 "></span></a><span class="nx">m</span><span class="p">.</span><span class="nx">array</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
+<a id="__codelineno-1-44" name="__codelineno-1-44"></a><a href="#__codelineno-1-44"><span class="linenos" data-linenos="44 "></span></a><span class="nx">m</span><span class="p">.</span><span class="nx">ofString</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&quot;strings!&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45"></a><a href="#__codelineno-1-45"><span class="linenos" data-linenos="45 "></span></a><span class="nx">m</span><span class="p">.</span><span class="nx">ofNumber</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">,</span> <span class="mf">4</span><span class="p">);</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46"></a><a href="#__codelineno-1-46"><span class="linenos" data-linenos="46 "></span></a><span class="nx">m</span><span class="p">.</span><span class="nx">ofDates</span><span class="p">.</span><span class="nx">addToSet</span><span class="p">(</span><span class="ow">new</span> <span class="nb">Date</span><span class="p">());</span>
+<a id="__codelineno-1-47" name="__codelineno-1-47"></a><a href="#__codelineno-1-47"><span class="linenos" data-linenos="47 "></span></a><span class="nx">m</span><span class="p">.</span><span class="nx">ofBuffer</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+<a id="__codelineno-1-48" name="__codelineno-1-48"></a><a href="#__codelineno-1-48"><span class="linenos" data-linenos="48 "></span></a><span class="nx">m</span><span class="p">.</span><span class="nx">ofMixed</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1</span><span class="p">,</span> <span class="p">[],</span> <span class="s2">&quot;three&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">four</span><span class="o">:</span> <span class="mf">5</span> <span class="p">}];</span>
+<a id="__codelineno-1-49" name="__codelineno-1-49"></a><a href="#__codelineno-1-49"><span class="linenos" data-linenos="49 "></span></a><span class="nx">m</span><span class="p">.</span><span class="nx">nested</span><span class="p">.</span><span class="nx">stuff</span> <span class="o">=</span> <span class="s2">&quot;good&quot;</span><span class="p">;</span>
+<a id="__codelineno-1-50" name="__codelineno-1-50"></a><a href="#__codelineno-1-50"><span class="linenos" data-linenos="50 "></span></a><span class="nx">m</span><span class="p">.</span><span class="nx">map</span> <span class="o">=</span> <span class="ow">new</span> <span class="nb">Map</span><span class="p">([[</span><span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">]]);</span>
+<a id="__codelineno-1-51" name="__codelineno-1-51"></a><a href="#__codelineno-1-51"><span class="linenos" data-linenos="51 "></span></a><span class="nx">m</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="nx">callback</span><span class="p">);</span>
 </code></pre></div>
-
-<p>Defaults can be either <code>functions</code> which return the value to use as the default or the literal value itself. Either way, the value will be cast based on its schema type before being set during document creation.</p>
-<p><strong>示例</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">var</span> <span class="n">schema</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Schema</span><span class="p">({</span> <span class="n">aNumber</span><span class="p">:</span> <span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="n">Number</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="mf">4.815162342</span> <span class="p">}})</span>
-<span class="k">var</span> <span class="n">M</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
-<span class="k">var</span> <span class="n">m</span> <span class="o">=</span> <span class="n">new</span> <span class="n">M</span><span class="p">;</span>
-<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">aNumber</span><span class="p">)</span>
-
-<span class="k">var</span> <span class="n">schema</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Schema</span><span class="p">({</span> <span class="n">mixed</span><span class="p">:</span> <span class="n">Schema</span><span class="o">.</span><span class="n">Types</span><span class="o">.</span><span class="n">Mixed</span> <span class="p">});</span>
-<span class="n">schema</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="s1">&#39;mixed&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">{};</span>
-<span class="p">});</span>
-
-<span class="k">var</span> <span class="n">schema</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Schema</span><span class="p">({</span> <span class="n">mixed</span><span class="p">:</span> <span class="n">Schema</span><span class="o">.</span><span class="n">Types</span><span class="o">.</span><span class="n">Mixed</span> <span class="p">});</span>
-<span class="n">schema</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="s1">&#39;mixed&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">default</span><span class="p">({});</span>
-<span class="k">var</span> <span class="n">M</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="n">schema</span><span class="p">);</span>
-<span class="k">var</span> <span class="n">m1</span> <span class="o">=</span> <span class="n">new</span> <span class="n">M</span><span class="p">;</span>
-<span class="n">m1</span><span class="o">.</span><span class="n">mixed</span><span class="o">.</span><span class="n">added</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">m1</span><span class="o">.</span><span class="n">mixed</span><span class="p">);</span>
-<span class="k">var</span> <span class="n">m2</span> <span class="o">=</span> <span class="n">new</span> <span class="n">M</span><span class="p">;</span>
-<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">m2</span><span class="o">.</span><span class="n">mixed</span><span class="p">);</span>
+<h2 id="type"><code>type</code> 键<a class="headerlink" href="#type" title="Permanent link">&para;</a></h2>
+<p><code>type</code> is a special property in Mongoose schemas. When Mongoose finds
+a nested property named <code>type</code> in your schema, Mongoose assumes that
+it needs to define a SchemaType with the given type.</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><a href="#__codelineno-2-1"><span class="linenos" data-linenos="1 "></span></a><span class="c1">// 3 string SchemaTypes: &#39;name&#39;, &#39;nested.firstName&#39;, &#39;nested.lastName&#39;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><a href="#__codelineno-2-2"><span class="linenos" data-linenos="2 "></span></a><span class="kd">const</span> <span class="nx">schema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><a href="#__codelineno-2-3"><span class="linenos" data-linenos="3 "></span></a>  <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span> <span class="p">},</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><a href="#__codelineno-2-4"><span class="linenos" data-linenos="4 "></span></a>  <span class="nx">nested</span><span class="o">:</span> <span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><a href="#__codelineno-2-5"><span class="linenos" data-linenos="5 "></span></a>    <span class="nx">firstName</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span> <span class="p">},</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><a href="#__codelineno-2-6"><span class="linenos" data-linenos="6 "></span></a>    <span class="nx">lastName</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span> <span class="p">},</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><a href="#__codelineno-2-7"><span class="linenos" data-linenos="7 "></span></a>  <span class="p">},</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><a href="#__codelineno-2-8"><span class="linenos" data-linenos="8 "></span></a><span class="p">});</span>
 </code></pre></div>
-
-<h2 id="schematypeprototypeindex">SchemaType.prototype.index()<a class="headerlink" href="#schematypeprototypeindex" title="Permanent link">&para;</a></h2>
-<p><strong>参数</strong></p>
+<p>As a consequence, <a href="/docs/faq.html#type-key">you need a little extra work to define a property named <code>type</code> in your schema</a>.
+For example, suppose you're building a stock portfolio app, and you
+want to store the asset's <code>type</code> (stock, bond, ETF, etc.). Naively,
+you might define your schema as shown below:</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><a href="#__codelineno-3-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">const</span> <span class="nx">holdingSchema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><a href="#__codelineno-3-2"><span class="linenos" data-linenos="2 "></span></a>  <span class="c1">// You might expect `asset` to be an object that has 2 properties,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><a href="#__codelineno-3-3"><span class="linenos" data-linenos="3 "></span></a>  <span class="c1">// but unfortunately `type` is special in Mongoose so mongoose</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><a href="#__codelineno-3-4"><span class="linenos" data-linenos="4 "></span></a>  <span class="c1">// interprets this schema to mean that `asset` is a string</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><a href="#__codelineno-3-5"><span class="linenos" data-linenos="5 "></span></a>  <span class="nx">asset</span><span class="o">:</span> <span class="p">{</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><a href="#__codelineno-3-6"><span class="linenos" data-linenos="6 "></span></a>    <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><a href="#__codelineno-3-7"><span class="linenos" data-linenos="7 "></span></a>    <span class="nx">ticker</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><a href="#__codelineno-3-8"><span class="linenos" data-linenos="8 "></span></a>  <span class="p">},</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><a href="#__codelineno-3-9"><span class="linenos" data-linenos="9 "></span></a><span class="p">});</span>
+</code></pre></div>
+<p>However, when Mongoose sees <code>type: String</code>, it assumes that you mean
+<code>asset</code> should be a string, not an object with a property <code>type</code>.
+The correct way to define an object with a property <code>type</code> is shown
+below.</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><a href="#__codelineno-4-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">const</span> <span class="nx">holdingSchema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><a href="#__codelineno-4-2"><span class="linenos" data-linenos="2 "></span></a>  <span class="nx">asset</span><span class="o">:</span> <span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><a href="#__codelineno-4-3"><span class="linenos" data-linenos="3 "></span></a>    <span class="c1">// Workaround to make sure Mongoose knows `asset` is an object</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><a href="#__codelineno-4-4"><span class="linenos" data-linenos="4 "></span></a>    <span class="c1">// and `asset.type` is a string, rather than thinking `asset`</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><a href="#__codelineno-4-5"><span class="linenos" data-linenos="5 "></span></a>    <span class="c1">// is a string.</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><a href="#__codelineno-4-6"><span class="linenos" data-linenos="6 "></span></a>    <span class="nx">type</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span> <span class="p">},</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><a href="#__codelineno-4-7"><span class="linenos" data-linenos="7 "></span></a>    <span class="nx">ticker</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><a href="#__codelineno-4-8"><span class="linenos" data-linenos="8 "></span></a>  <span class="p">},</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a><a href="#__codelineno-4-9"><span class="linenos" data-linenos="9 "></span></a><span class="p">});</span>
+</code></pre></div>
+<h2 id="schematype_1">SchemaType 选项<a class="headerlink" href="#schematype_1" title="Permanent link">&para;</a></h2>
+<p>You can declare a schema type using the type directly, or an object with
+a <code>type</code> property.</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><a href="#__codelineno-5-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">const</span> <span class="nx">schema1</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><a href="#__codelineno-5-2"><span class="linenos" data-linenos="2 "></span></a>  <span class="nx">test</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span> <span class="c1">// `test` is a path of type String</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><a href="#__codelineno-5-3"><span class="linenos" data-linenos="3 "></span></a><span class="p">});</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><a href="#__codelineno-5-4"><span class="linenos" data-linenos="4 "></span></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><a href="#__codelineno-5-5"><span class="linenos" data-linenos="5 "></span></a><span class="kd">const</span> <span class="nx">schema2</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><a href="#__codelineno-5-6"><span class="linenos" data-linenos="6 "></span></a>  <span class="c1">// The `test` object contains the &quot;SchemaType options&quot;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><a href="#__codelineno-5-7"><span class="linenos" data-linenos="7 "></span></a>  <span class="nx">test</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span> <span class="p">},</span> <span class="c1">// `test` is a path of type string</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a><a href="#__codelineno-5-8"><span class="linenos" data-linenos="8 "></span></a><span class="p">});</span>
+</code></pre></div>
+<p>In addition to the type property, you can specify additional properties
+for a path. For example, if you want to lowercase a string before saving:</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><a href="#__codelineno-6-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">const</span> <span class="nx">schema2</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><a href="#__codelineno-6-2"><span class="linenos" data-linenos="2 "></span></a>  <span class="nx">test</span><span class="o">:</span> <span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><a href="#__codelineno-6-3"><span class="linenos" data-linenos="3 "></span></a>    <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><a href="#__codelineno-6-4"><span class="linenos" data-linenos="4 "></span></a>    <span class="nx">lowercase</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// Always convert `test` to lowercase</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><a href="#__codelineno-6-5"><span class="linenos" data-linenos="5 "></span></a>  <span class="p">},</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><a href="#__codelineno-6-6"><span class="linenos" data-linenos="6 "></span></a><span class="p">});</span>
+</code></pre></div>
+<p>You can add any property you want to your SchemaType options. Many plugins
+rely on custom SchemaType options. For example, the <a href="http://plugins.mongoosejs.io/plugins/autopopulate">mongoose-autopopulate</a>
+plugin automatically populates paths if you set <code>autopopulate: true</code> in your
+SchemaType options. Mongoose comes with support for several built-in
+SchemaType options, like <code>lowercase</code> in the above example.</p>
+<p>The <code>lowercase</code> option only works for strings. There are certain options
+which apply for all schema types, and some that apply for specific schema
+types.</p>
+<h3 id="_3">模式选项<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <ul>
-<li>options «Object,Boolean,String»</li>
+<li><code>required</code>: boolean 或函数，如果为 true，则为该属性添加<a href="./validation.html#built-in-validators">需要验证器</a></li>
+<li><code>default</code>: 任意或函数，为路径设置默认值。如果该值是一个函数，则默认使用该函数的返回值。</li>
+<li><code>select</code>: boolean, 为查询指定默认的<a href="https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/">投影</a></li>
+<li><code>validate</code>: 函数，为这个属性添加一个<a href="./validation.html#built-in-validators">验证器函数</a></li>
+<li><code>get</code>: 函数，使用 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty"><code>Object.defineProperty()</code></a> 为该属性定义一个自定义 getter.</li>
+<li><code>set</code>: 函数，使用 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty"><code>Object.defineProperty()</code></a> 为该属性定义自定义 setter.</li>
+<li><code>alias</code>: 字符串，仅<code>mongoose &gt;= 4.10.0</code>。用给定的名称定义一个<a href="./guide.html#virtuals">virtual</a>来获取/设置这个路径。</li>
+<li><code>immutable</code>: 布尔值，定义路径为不可变的。Mongoose 阻止你改变不可变的路径，除非父文档有<code>isNew: true</code>。</li>
+<li><code>transform</code>: 当你调用<a href="/docs/api/document.html#document_Document-toJSON"><code>Document#toJSON()</code></a>函数时，包括当你<a href="https://thecodebarbarian.com/the-80-20-guide-to-json-stringify-in-javascript"><code>JSON.stringify()</code></a>一个文档时，Mongoose 调用这个函数。</li>
 </ul>
-<p><strong>返回</strong></p>
-<p>Declares the index options for this schematype.</p>
-<p><strong>示例</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="nf">var</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="k">Schema</span><span class="p">(</span><span class="err">{</span><span class="w"> </span><span class="nl">name</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="nl">type</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="k">index</span><span class="err">:</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="err">}</span><span class="p">)</span><span class="w"></span>
-<span class="nf">var</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="k">Schema</span><span class="p">(</span><span class="err">{</span><span class="w"> </span><span class="nl">loc</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="nl">type</span><span class="p">:</span><span class="w"> </span><span class="o">[</span><span class="n">Number</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="k">index</span><span class="err">:</span><span class="w"> </span><span class="s1">&#39;hashed&#39;</span><span class="w"> </span><span class="err">}</span><span class="p">)</span><span class="w"></span>
-<span class="nf">var</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="k">Schema</span><span class="p">(</span><span class="err">{</span><span class="w"> </span><span class="nl">loc</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="nl">type</span><span class="p">:</span><span class="w"> </span><span class="o">[</span><span class="n">Number</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="k">index</span><span class="err">:</span><span class="w"> </span><span class="s1">&#39;2d&#39;</span><span class="p">,</span><span class="w"> </span><span class="nl">sparse</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="err">}</span><span class="p">)</span><span class="w"></span>
-<span class="nf">var</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="k">Schema</span><span class="p">(</span><span class="err">{</span><span class="w"> </span><span class="nl">loc</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="nl">type</span><span class="p">:</span><span class="w"> </span><span class="o">[</span><span class="n">Number</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="k">index</span><span class="err">:</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="nl">type</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2dsphere&#39;</span><span class="p">,</span><span class="w"> </span><span class="nl">sparse</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="err">}}</span><span class="p">)</span><span class="w"></span>
-<span class="nf">var</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="k">Schema</span><span class="p">(</span><span class="err">{</span><span class="w"> </span><span class="nc">date</span><span class="err">:</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="nl">type</span><span class="p">:</span><span class="w"> </span><span class="nc">Date</span><span class="p">,</span><span class="w"> </span><span class="k">index</span><span class="err">:</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="k">unique</span><span class="err">:</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="nl">expires</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;1d&#39;</span><span class="w"> </span><span class="err">}}</span><span class="p">)</span><span class="w"></span>
-<span class="k">Schema</span><span class="p">.</span><span class="k">path</span><span class="p">(</span><span class="s1">&#39;my.path&#39;</span><span class="p">).</span><span class="k">index</span><span class="p">(</span><span class="k">true</span><span class="p">);</span><span class="w"></span>
-<span class="k">Schema</span><span class="p">.</span><span class="k">path</span><span class="p">(</span><span class="s1">&#39;my.date&#39;</span><span class="p">).</span><span class="k">index</span><span class="p">(</span><span class="err">{</span><span class="w"> </span><span class="nl">expires</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="err">}</span><span class="p">);</span><span class="w"></span>
-<span class="k">Schema</span><span class="p">.</span><span class="k">path</span><span class="p">(</span><span class="s1">&#39;my.path&#39;</span><span class="p">).</span><span class="k">index</span><span class="p">(</span><span class="err">{</span><span class="w"> </span><span class="k">unique</span><span class="err">:</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="nl">sparse</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="err">}</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><a href="#__codelineno-7-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kd">const</span> <span class="nx">numberSchema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><a href="#__codelineno-7-2"><span class="linenos" data-linenos=" 2 "></span></a>  <span class="nx">integerOnly</span><span class="o">:</span> <span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><a href="#__codelineno-7-3"><span class="linenos" data-linenos=" 3 "></span></a>    <span class="nx">type</span><span class="o">:</span> <span class="nb">Number</span><span class="p">,</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><a href="#__codelineno-7-4"><span class="linenos" data-linenos=" 4 "></span></a>    <span class="nx">get</span><span class="o">:</span> <span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">v</span><span class="p">),</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><a href="#__codelineno-7-5"><span class="linenos" data-linenos=" 5 "></span></a>    <span class="nx">set</span><span class="o">:</span> <span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">v</span><span class="p">),</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><a href="#__codelineno-7-6"><span class="linenos" data-linenos=" 6 "></span></a>    <span class="nx">alias</span><span class="o">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><a href="#__codelineno-7-7"><span class="linenos" data-linenos=" 7 "></span></a>  <span class="p">},</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a><a href="#__codelineno-7-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="p">});</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a><a href="#__codelineno-7-9"><span class="linenos" data-linenos=" 9 "></span></a>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a><a href="#__codelineno-7-10"><span class="linenos" data-linenos="10 "></span></a><span class="kd">const</span> <span class="nb">Number</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s2">&quot;Number&quot;</span><span class="p">,</span> <span class="nx">numberSchema</span><span class="p">);</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a><a href="#__codelineno-7-11"><span class="linenos" data-linenos="11 "></span></a>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a><a href="#__codelineno-7-12"><span class="linenos" data-linenos="12 "></span></a><span class="kd">const</span> <span class="nx">doc</span> <span class="o">=</span> <span class="ow">new</span> <span class="nb">Number</span><span class="p">();</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a><a href="#__codelineno-7-13"><span class="linenos" data-linenos="13 "></span></a><span class="nx">doc</span><span class="p">.</span><span class="nx">integerOnly</span> <span class="o">=</span> <span class="mf">2.001</span><span class="p">;</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a><a href="#__codelineno-7-14"><span class="linenos" data-linenos="14 "></span></a><span class="nx">doc</span><span class="p">.</span><span class="nx">integerOnly</span><span class="p">;</span> <span class="c1">// 2</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a><a href="#__codelineno-7-15"><span class="linenos" data-linenos="15 "></span></a><span class="nx">doc</span><span class="p">.</span><span class="nx">i</span><span class="p">;</span> <span class="c1">// 2</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a><a href="#__codelineno-7-16"><span class="linenos" data-linenos="16 "></span></a><span class="nx">doc</span><span class="p">.</span><span class="nx">i</span> <span class="o">=</span> <span class="mf">3.001</span><span class="p">;</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a><a href="#__codelineno-7-17"><span class="linenos" data-linenos="17 "></span></a><span class="nx">doc</span><span class="p">.</span><span class="nx">integerOnly</span><span class="p">;</span> <span class="c1">// 3</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a><a href="#__codelineno-7-18"><span class="linenos" data-linenos="18 "></span></a><span class="nx">doc</span><span class="p">.</span><span class="nx">i</span><span class="p">;</span> <span class="c1">// 3</span>
 </code></pre></div>
-
-<p><strong>注释</strong></p>
-<p><em>Indexes are created in the background by default. Specify <code>background: false</code> to override.</em></p>
-<p>[Direction doesn't matter for single key indexes</p>
-<h2 id="schematypeprototypeunique">SchemaType.prototype.unique()<a class="headerlink" href="#schematypeprototypeunique" title="Permanent link">&para;</a></h2>
-<p><strong>参数</strong></p>
-<p><strong>返回</strong></p>
-<p>Declares an unique index.</p>
-<p><strong>示例</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">var</span> <span class="n">s</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Schema</span><span class="p">({</span> <span class="n">name</span><span class="p">:</span> <span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="nb nb-Type">String</span><span class="p">,</span> <span class="n">unique</span><span class="p">:</span> <span class="bp">true</span> <span class="p">}});</span>
-<span class="n">Schema</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">({</span> <span class="n">unique</span><span class="p">:</span> <span class="bp">true</span> <span class="p">});</span>
-</code></pre></div>
-
-<p><em>NOTE: violating the constraint returns an <code>E11000</code> error from MongoDB when saving, not a Mongoose validation error.</em></p>
-<h2 id="schematypeprototypetext">SchemaType.prototype.text()<a class="headerlink" href="#schematypeprototypetext" title="Permanent link">&para;</a></h2>
-<p><strong>参数</strong></p>
-<p><strong>返回</strong></p>
-<p>Declares a full text index.</p>
-<p><strong>示例</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">var</span> <span class="n">s</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Schema</span><span class="p">({</span><span class="n">name</span> <span class="p">:</span> <span class="p">{</span><span class="n">type</span><span class="p">:</span> <span class="nb nb-Type">String</span><span class="p">,</span> <span class="n">text</span> <span class="p">:</span> <span class="bp">true</span> <span class="p">})</span>
- <span class="n">Schema</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">({</span><span class="n">text</span> <span class="p">:</span> <span class="bp">true</span><span class="p">});</span>
-</code></pre></div>
-
-<h2 id="schematypeprototypesparse">SchemaType.prototype.sparse()<a class="headerlink" href="#schematypeprototypesparse" title="Permanent link">&para;</a></h2>
-<p><strong>参数</strong></p>
-<p><strong>返回</strong></p>
-<p>Declares a sparse index.</p>
-<p><strong>示例</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">var</span> <span class="n">s</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Schema</span><span class="p">({</span> <span class="n">name</span><span class="p">:</span> <span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="nb nb-Type">String</span><span class="p">,</span> <span class="n">sparse</span><span class="p">:</span> <span class="bp">true</span> <span class="p">})</span>
-<span class="n">Schema</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">({</span> <span class="n">sparse</span><span class="p">:</span> <span class="bp">true</span> <span class="p">});</span>
-</code></pre></div>
-
-<h2 id="schematypeprototypeset">SchemaType.prototype.set()<a class="headerlink" href="#schematypeprototypeset" title="Permanent link">&para;</a></h2>
-<p><strong>参数</strong></p>
-<p><strong>返回</strong></p>
-<p>Adds a setter to this schematype.</p>
-<p><strong>示例</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="n">function</span> <span class="n">capitalize</span> <span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nb">typeof</span> <span class="n">val</span> <span class="o">!==</span> <span class="s1">&#39;string&#39;</span><span class="p">)</span> <span class="n">val</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
-  <span class="k">return</span> <span class="n">val</span><span class="o">.</span><span class="n">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="n">val</span><span class="o">.</span><span class="n">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="k">var</span> <span class="n">s</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Schema</span><span class="p">({</span> <span class="n">name</span><span class="p">:</span> <span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="nb nb-Type">String</span><span class="p">,</span> <span class="n">set</span><span class="p">:</span> <span class="n">capitalize</span> <span class="p">}})</span>
-
-<span class="k">var</span> <span class="n">s</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Schema</span><span class="p">({</span> <span class="n">name</span><span class="p">:</span> <span class="nb nb-Type">String</span> <span class="p">})</span>
-<span class="n">s</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">capitalize</span><span class="p">)</span>
-</code></pre></div>
-
-<p>Setters allow you to transform the data before it gets to the raw mongodb document and is set as a value on an actual key.</p>
-<p>Suppose you are implementing user registration for a website. Users provide an email and password, which gets saved to mongodb. The email is a string that you will want to normalize to lower case, in order to avoid one email having more than one account -- e.g., otherwise, [avenue@q.com can be registered for 2 accounts via [avenue@q.com and [AvEnUe@Q.CoM.</p>
-<p>You can set up email lower case normalization easily via a Mongoose setter.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">function</span> <span class="n">toLower</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n">v</span><span class="o">.</span><span class="n">toLowerCase</span><span class="p">();</span>
-<span class="p">}</span>
-
-<span class="k">var</span> <span class="n">UserSchema</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Schema</span><span class="p">({</span>
-  <span class="n">email</span><span class="p">:</span> <span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="nb nb-Type">String</span><span class="p">,</span> <span class="n">set</span><span class="p">:</span> <span class="n">toLower</span> <span class="p">}</span>
-<span class="p">});</span>
-
-<span class="k">var</span> <span class="n">User</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">,</span> <span class="n">UserSchema</span><span class="p">);</span>
-
-<span class="k">var</span> <span class="n">user</span> <span class="o">=</span> <span class="n">new</span> <span class="n">User</span><span class="p">({</span><span class="n">email</span><span class="p">:</span> <span class="s1">&#39;[AVENUE@Q.COM&#39;</span><span class="p">});</span>
-<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">);</span> <span class="o">//</span> <span class="s1">&#39;[avenue@q.com&#39;</span>
-
-<span class="o">//</span> <span class="ow">or</span>
-<span class="k">var</span> <span class="n">user</span> <span class="o">=</span> <span class="n">new</span> <span class="n">User</span><span class="p">();</span>
-<span class="n">user</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s1">&#39;[Avenue@Q.com&#39;</span><span class="p">;</span>
-<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">);</span> <span class="o">//</span> <span class="s1">&#39;[avenue@q.com&#39;</span>
-<span class="n">User</span><span class="o">.</span><span class="n">updateOne</span><span class="p">({</span> <span class="n">_id</span><span class="p">:</span> <span class="n">_id</span> <span class="p">},</span> <span class="p">{</span> <span class="o">$</span><span class="n">set</span><span class="p">:</span> <span class="p">{</span> <span class="n">email</span><span class="p">:</span> <span class="s1">&#39;[AVENUE@Q.COM&#39;</span> <span class="p">}</span> <span class="p">});</span> <span class="o">//</span> <span class="n">update</span> <span class="n">to</span> <span class="s1">&#39;[avenue@q.com&#39;</span>
-</code></pre></div>
-
-<p>As you can see above, setters allow you to transform the data before it stored in MongoDB.</p>
-<p><em>NOTE: we could have also just used the built-in <code>lowercase: true</code> SchemaType option instead of defining our own function.</em></p>
-<div class="codehilite"><pre><span></span><code>new Schema({ email: { type: String, lowercase: true }})
-</code></pre></div>
-
-<p>Setters are also passed a second argument, the schematype on which the setter was defined. This allows for tailored behavior based on options passed in the schema.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">function</span> <span class="n">inspector</span> <span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">schematype</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">schematype</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">required</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">schematype</span><span class="o">.</span><span class="n">path</span> <span class="o">+</span> <span class="s1">&#39; is required&#39;</span><span class="p">;</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">val</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="k">var</span> <span class="n">VirusSchema</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Schema</span><span class="p">({</span>
-  <span class="n">name</span><span class="p">:</span> <span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="nb nb-Type">String</span><span class="p">,</span> <span class="n">required</span><span class="p">:</span> <span class="bp">true</span><span class="p">,</span> <span class="n">set</span><span class="p">:</span> <span class="n">inspector</span> <span class="p">},</span>
-  <span class="n">taxonomy</span><span class="p">:</span> <span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="nb nb-Type">String</span><span class="p">,</span> <span class="n">set</span><span class="p">:</span> <span class="n">inspector</span> <span class="p">}</span>
-<span class="p">})</span>
-
-<span class="k">var</span> <span class="n">Virus</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s1">&#39;Virus&#39;</span><span class="p">,</span> <span class="n">VirusSchema</span><span class="p">);</span>
-<span class="k">var</span> <span class="n">v</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Virus</span><span class="p">({</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Parvoviridae&#39;</span><span class="p">,</span> <span class="n">taxonomy</span><span class="p">:</span> <span class="s1">&#39;Parvovirinae&#39;</span> <span class="p">});</span>
-
-<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">name</span><span class="p">);</span>
-<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">taxonomy</span><span class="p">);</span>
-</code></pre></div>
-
-<h2 id="schematypeprototypeget">SchemaType.prototype.get()<a class="headerlink" href="#schematypeprototypeget" title="Permanent link">&para;</a></h2>
-<p><strong>参数</strong></p>
-<p><strong>返回</strong></p>
-<p>Adds a getter to this schematype.</p>
-<p><strong>示例</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="n">function</span> <span class="n">dob</span> <span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">val</span><span class="p">)</span> <span class="k">return</span> <span class="n">val</span><span class="p">;</span>
-  <span class="k">return</span> <span class="p">(</span><span class="n">val</span><span class="o">.</span><span class="n">getMonth</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">val</span><span class="o">.</span><span class="n">getDate</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">val</span><span class="o">.</span><span class="n">getFullYear</span><span class="p">();</span>
-<span class="p">}</span>
-
-<span class="k">var</span> <span class="n">s</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Schema</span><span class="p">({</span> <span class="n">born</span><span class="p">:</span> <span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="n">Date</span><span class="p">,</span> <span class="n">get</span><span class="p">:</span> <span class="n">dob</span> <span class="p">})</span>
-
-<span class="k">var</span> <span class="n">s</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Schema</span><span class="p">({</span> <span class="n">born</span><span class="p">:</span> <span class="n">Date</span> <span class="p">})</span>
-<span class="n">s</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="s1">&#39;born&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">dob</span><span class="p">)</span>
-</code></pre></div>
-
-<p>Getters allow you to transform the representation of the data as it travels from the raw mongodb document to the value that you see.</p>
-<p>Suppose you are storing credit card numbers and you want to hide everything except the last 4 digits to the mongoose user. You can do so by defining a getter in the following way:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">function</span> <span class="n">obfuscate</span> <span class="p">(</span><span class="n">cc</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="s1">&#39;****-****-****-&#39;</span> <span class="o">+</span> <span class="n">cc</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">cc</span><span class="o">.</span><span class="n">length</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">cc</span><span class="o">.</span><span class="n">length</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="k">var</span> <span class="n">AccountSchema</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Schema</span><span class="p">({</span>
-  <span class="n">creditCardNumber</span><span class="p">:</span> <span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="nb nb-Type">String</span><span class="p">,</span> <span class="n">get</span><span class="p">:</span> <span class="n">obfuscate</span> <span class="p">}</span>
-<span class="p">});</span>
-
-<span class="k">var</span> <span class="n">Account</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s1">&#39;Account&#39;</span><span class="p">,</span> <span class="n">AccountSchema</span><span class="p">);</span>
-
-<span class="n">Account</span><span class="o">.</span><span class="n">findById</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">found</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">found</span><span class="o">.</span><span class="n">creditCardNumber</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></div>
-
-<p>Getters are also passed a second argument, the schematype on which the getter was defined. This allows for tailored behavior based on options passed in the schema.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">function</span> <span class="n">inspector</span> <span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">schematype</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">schematype</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">required</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">schematype</span><span class="o">.</span><span class="n">path</span> <span class="o">+</span> <span class="s1">&#39; is required&#39;</span><span class="p">;</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">schematype</span><span class="o">.</span><span class="n">path</span> <span class="o">+</span> <span class="s1">&#39; is not&#39;</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="k">var</span> <span class="n">VirusSchema</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Schema</span><span class="p">({</span>
-  <span class="n">name</span><span class="p">:</span> <span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="nb nb-Type">String</span><span class="p">,</span> <span class="n">required</span><span class="p">:</span> <span class="bp">true</span><span class="p">,</span> <span class="n">get</span><span class="p">:</span> <span class="n">inspector</span> <span class="p">},</span>
-  <span class="n">taxonomy</span><span class="p">:</span> <span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="nb nb-Type">String</span><span class="p">,</span> <span class="n">get</span><span class="p">:</span> <span class="n">inspector</span> <span class="p">}</span>
-<span class="p">})</span>
-
-<span class="k">var</span> <span class="n">Virus</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s1">&#39;Virus&#39;</span><span class="p">,</span> <span class="n">VirusSchema</span><span class="p">);</span>
-
-<span class="n">Virus</span><span class="o">.</span><span class="n">findById</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">virus</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">virus</span><span class="o">.</span><span class="n">name</span><span class="p">);</span>
-  <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">virus</span><span class="o">.</span><span class="n">taxonomy</span><span class="p">);</span>
-<span class="p">})</span>
-</code></pre></div>
-
-<h2 id="schematypeprototypevalidate">SchemaType.prototype.validate()<a class="headerlink" href="#schematypeprototypevalidate" title="Permanent link">&para;</a></h2>
-<p><strong>参数</strong></p>
+<h4 id="indexes">索引 Indexes<a class="headerlink" href="#indexes" title="Permanent link">&para;</a></h4>
+<p>You can also define <a href="https://docs.mongodb.com/manual/indexes/">MongoDB indexes</a>
+using schema type options.</p>
 <ul>
-<li>[type] «String» optional validator type</li>
+<li><code>index</code>: boolean, whether to define an <a href="https://docs.mongodb.com/manual/indexes/">index</a> on this property.</li>
+<li><code>unique</code>: boolean, whether to define a <a href="https://docs.mongodb.com/manual/core/index-unique/">unique index</a> on this property.</li>
+<li><code>sparse</code>: boolean, whether to define a <a href="https://docs.mongodb.com/manual/core/index-sparse/">sparse index</a> on this property.</li>
 </ul>
-<p><strong>返回</strong></p>
-<p>Adds validator(s) for this document path.</p>
-<p>Validators always receive the value to validate as their first argument and must return <code>Boolean</code>. Returning <code>false</code> means validation failed.</p>
-<p>The error message argument is optional. If not passed, the [default generic error message template will be used.</p>
-<p><strong>示例</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="n">function</span> <span class="n">validator</span> <span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n">val</span> <span class="o">==</span> <span class="s1">&#39;something&#39;</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="n">new</span> <span class="n">Schema</span><span class="p">({</span> <span class="n">name</span><span class="p">:</span> <span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="nb nb-Type">String</span><span class="p">,</span> <span class="n">validate</span><span class="p">:</span> <span class="n">validator</span> <span class="p">}});</span>
-
-<span class="k">var</span> <span class="n">custom</span> <span class="o">=</span> <span class="p">[</span><span class="n">validator</span><span class="p">,</span> <span class="s1">&#39;Uh oh, {PATH} does not equal &quot;something&quot;.&#39;</span><span class="p">]</span>
-<span class="n">new</span> <span class="n">Schema</span><span class="p">({</span> <span class="n">name</span><span class="p">:</span> <span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="nb nb-Type">String</span><span class="p">,</span> <span class="n">validate</span><span class="p">:</span> <span class="n">custom</span> <span class="p">}});</span>
-
-<span class="k">var</span> <span class="n">many</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span> <span class="n">validator</span><span class="p">:</span> <span class="n">validator</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="s1">&#39;uh oh&#39;</span> <span class="p">}</span>
-  <span class="p">,</span> <span class="p">{</span> <span class="n">validator</span><span class="p">:</span> <span class="n">anotherValidator</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="s1">&#39;failed&#39;</span> <span class="p">}</span>
-<span class="p">]</span>
-<span class="n">new</span> <span class="n">Schema</span><span class="p">({</span> <span class="n">name</span><span class="p">:</span> <span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="nb nb-Type">String</span><span class="p">,</span> <span class="n">validate</span><span class="p">:</span> <span class="n">many</span> <span class="p">}});</span>
-
-<span class="k">var</span> <span class="n">schema</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Schema</span><span class="p">({</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span> <span class="p">});</span>
-<span class="n">schema</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">validator</span><span class="p">,</span> <span class="s1">&#39;validation of `{PATH}` failed with value `{VALUE}`&#39;</span><span class="p">);</span>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><a href="#__codelineno-8-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">const</span> <span class="nx">schema2</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><a href="#__codelineno-8-2"><span class="linenos" data-linenos="2 "></span></a>  <span class="nx">test</span><span class="o">:</span> <span class="p">{</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><a href="#__codelineno-8-3"><span class="linenos" data-linenos="3 "></span></a>    <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><a href="#__codelineno-8-4"><span class="linenos" data-linenos="4 "></span></a>    <span class="nx">index</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><a href="#__codelineno-8-5"><span class="linenos" data-linenos="5 "></span></a>    <span class="nx">unique</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// Unique index. If you specify `unique: true`</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><a href="#__codelineno-8-6"><span class="linenos" data-linenos="6 "></span></a>    <span class="c1">// specifying `index: true` is optional if you do `unique: true`</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><a href="#__codelineno-8-7"><span class="linenos" data-linenos="7 "></span></a>  <span class="p">},</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a><a href="#__codelineno-8-8"><span class="linenos" data-linenos="8 "></span></a><span class="p">});</span>
 </code></pre></div>
-
-<p><strong>错误消息模板</strong></p>
-<p>From the examples above, you may have noticed that error messages support basic templating. There are a few other template keywords besides <code>{PATH}</code> and <code>{VALUE}</code> too. To find out more, details are available [here</p>
-<p><strong>异步验证</strong></p>
-<p>Passing a validator function that receives two arguments tells mongoose that the validator is an asynchronous validator. The first argument passed to the validator function is the value being validated. The second argument is a callback function that must called when you finish validating the value and passed either <code>true</code> or <code>false</code> to communicate either success or failure respectively.</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">schema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">validate</span><span class="o">(</span><span class="p">{</span>
-  <span class="n">isAsync</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-  <span class="n">validator</span><span class="o">:</span> <span class="n">function</span> <span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">respond</span><span class="p">)</span> <span class="err">{</span>
-    <span class="nf">doStuff</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">function</span> <span class="err">(</span><span class="p">)</span> <span class="err">{</span>
-      <span class="o">...</span>
-      <span class="nf">respond</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
-    <span class="p">}</span><span class="o">);</span>
-  <span class="err">}</span><span class="o">,</span>
-  <span class="nt">message</span><span class="o">:</span> <span class="s1">&#39;Custom error message!&#39;</span>
-<span class="err">}</span><span class="o">);</span>
-
-<span class="nt">schema</span><span class="p">.</span><span class="nc">path</span><span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">validate</span><span class="o">(</span><span class="p">{</span>
-  <span class="n">validator</span><span class="p">:</span> <span class="n">function</span> <span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="err">{</span>
-    <span class="n">return</span> <span class="n">new</span> <span class="nf">Promise</span><span class="p">(</span><span class="n">function</span> <span class="err">(</span><span class="n">resolve</span><span class="p">,</span> <span class="n">reject</span><span class="p">)</span> <span class="err">{</span>
-      <span class="nf">resolve</span><span class="p">(</span><span class="n">false</span><span class="p">);</span>
-    <span class="p">}</span><span class="o">);</span>
-  <span class="err">}</span>
-<span class="err">}</span><span class="o">);</span>
-</code></pre></div>
-
-<p>You might use asynchronous validators to retreive other documents from the database to validate against or to meet other I/O bound validation needs.</p>
-<p>Validation occurs <code>pre('save')</code> or whenever you manually execute [document#validate.</p>
-<p>If validation fails during <code>pre('save')</code> and no callback was passed to receive the error, an <code>error</code> event will be emitted on your Models associated db [connection, passing the validation error object along.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">var</span> <span class="n">conn</span> <span class="o">=</span> <span class="n">mongoose</span><span class="o">.</span><span class="n">createConnection</span><span class="p">(</span><span class="o">..</span><span class="p">);</span>
-<span class="n">conn</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="n">handleError</span><span class="p">);</span>
-
-<span class="k">var</span> <span class="n">Product</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s1">&#39;Product&#39;</span><span class="p">,</span> <span class="n">yourSchema</span><span class="p">);</span>
-<span class="k">var</span> <span class="n">dvd</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Product</span><span class="p">(</span><span class="o">..</span><span class="p">);</span>
-<span class="n">dvd</span><span class="o">.</span><span class="n">save</span><span class="p">();</span>
-</code></pre></div>
-
-<p>If you desire handling these errors at the Model level, attach an <code>error</code> listener to your Model and the event will instead be emitted there.</p>
-<div class="codehilite"><pre><span></span><code>Product.on(&#39;error&#39;, handleError);
-</code></pre></div>
-
-<h2 id="schematypeprototyperequired">SchemaType.prototype.required()<a class="headerlink" href="#schematypeprototyperequired" title="Permanent link">&para;</a></h2>
-<p><strong>参数</strong></p>
+<h4 id="string">字符 String<a class="headerlink" href="#string" title="Permanent link">&para;</a></h4>
 <ul>
-<li>[message] «String» optional custom error message</li>
+<li><code>lowercase</code>: boolean, whether to always call <code>.toLowerCase()</code> on the value</li>
+<li><code>uppercase</code>: boolean, whether to always call <code>.toUpperCase()</code> on the value</li>
+<li><code>trim</code>: boolean, whether to always call <a href="https://masteringjs.io/tutorials/fundamentals/trim-string"><code>.trim()</code></a> on the value</li>
+<li><code>match</code>: RegExp, creates a <a href="./validation.html">validator</a> that checks if the value matches the given regular expression</li>
+<li><code>enum</code>: Array, creates a <a href="./validation.html">validator</a> that checks if the value is in the given array.</li>
+<li><code>minLength</code>: Number, creates a <a href="./validation.html">validator</a> that checks if the value length is not less than the given number</li>
+<li><code>maxLength</code>: Number, creates a <a href="./validation.html">validator</a> that checks if the value length is not greater than the given number</li>
+<li><code>populate</code>: Object, sets default <a href="/docs/populate.html#query-conditions">populate options</a></li>
 </ul>
-<p><strong>返回</strong></p>
-<p>Adds a required validator to this SchemaType. The validator gets added to the front of this SchemaType's validators array using <code>unshift()</code>.</p>
-<p><strong>示例</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">var</span> <span class="n">s</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Schema</span><span class="p">({</span> <span class="n">born</span><span class="p">:</span> <span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="n">Date</span><span class="p">,</span> <span class="n">required</span><span class="p">:</span> <span class="bp">true</span> <span class="p">})</span>
-
-<span class="k">var</span> <span class="n">s</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Schema</span><span class="p">({</span> <span class="n">born</span><span class="p">:</span> <span class="p">{</span> <span class="n">type</span><span class="p">:</span> <span class="n">Date</span><span class="p">,</span> <span class="n">required</span><span class="p">:</span> <span class="s1">&#39;{PATH} is required!&#39;</span> <span class="p">})</span>
-
-<span class="k">var</span> <span class="n">s</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Schema</span><span class="p">({</span>
-  <span class="n">userId</span><span class="p">:</span> <span class="n">ObjectId</span><span class="p">,</span>
-  <span class="n">username</span><span class="p">:</span> <span class="p">{</span>
-    <span class="n">type</span><span class="p">:</span> <span class="nb nb-Type">String</span><span class="p">,</span>
-    <span class="n">required</span><span class="p">:</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">this</span><span class="o">.</span><span class="n">userId</span> <span class="o">!=</span> <span class="nb nb-Type">null</span><span class="p">;</span> <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">})</span>
-
-<span class="k">var</span> <span class="n">s</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Schema</span><span class="p">({</span>
-  <span class="n">userId</span><span class="p">:</span> <span class="n">ObjectId</span><span class="p">,</span>
-  <span class="n">username</span><span class="p">:</span> <span class="p">{</span>
-    <span class="n">type</span><span class="p">:</span> <span class="nb nb-Type">String</span><span class="p">,</span>
-    <span class="n">required</span><span class="p">:</span> <span class="p">[</span>
-      <span class="n">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">this</span><span class="o">.</span><span class="n">userId</span> <span class="o">!=</span> <span class="nb nb-Type">null</span><span class="p">;</span> <span class="p">},</span>
-      <span class="s1">&#39;username is required if id is specified&#39;</span>
-    <span class="p">]</span>
-  <span class="p">}</span>
-<span class="p">})</span>
-
-<span class="n">Schema</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">required</span><span class="p">(</span><span class="bp">true</span><span class="p">);</span>
-
-<span class="n">Schema</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">required</span><span class="p">(</span><span class="bp">true</span><span class="p">,</span> <span class="s1">&#39;grrr :( &#39;</span><span class="p">);</span>
-
-<span class="k">var</span> <span class="n">isOver18</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">this</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">;</span> <span class="p">};</span>
-<span class="n">Schema</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="s1">&#39;voterRegistrationId&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">required</span><span class="p">(</span><span class="n">isOver18</span><span class="p">);</span>
+<h4 id="number">数字 Number<a class="headerlink" href="#number" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>min</code>: Number, creates a <a href="./validation.html">validator</a> that checks if the value is greater than or equal to the given minimum.</li>
+<li><code>max</code>: Number, creates a <a href="./validation.html">validator</a> that checks if the value is less than or equal to the given maximum.</li>
+<li><code>enum</code>: Array, creates a <a href="./validation.html">validator</a> that checks if the value is strictly equal to one of the values in the given array.</li>
+<li><code>populate</code>: Object, sets default <a href="/docs/populate.html#query-conditions">populate options</a></li>
+</ul>
+<h4 id="date">日期 Date<a class="headerlink" href="#date" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>min</code>: Date</li>
+<li><code>max</code>: Date</li>
+</ul>
+<h4 id="id-objectid">对象 Id ObjectId<a class="headerlink" href="#id-objectid" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>populate</code>: Object, sets default <a href="/docs/populate.html#query-conditions">populate options</a></li>
+</ul>
+<h2 id="_4">使用笔记<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="string_1">String<a class="headerlink" href="#string_1" title="Permanent link">&para;</a></h3>
+<p>To declare a path as a string, you may use either the <code>String</code> global
+constructor or the string <code>'String'</code>.</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><a href="#__codelineno-9-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">const</span> <span class="nx">schema1</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="nb">String</span> <span class="p">});</span> <span class="c1">// name will be cast to string</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><a href="#__codelineno-9-2"><span class="linenos" data-linenos="2 "></span></a><span class="kd">const</span> <span class="nx">schema2</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;String&quot;</span> <span class="p">});</span> <span class="c1">// Equivalent</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><a href="#__codelineno-9-3"><span class="linenos" data-linenos="3 "></span></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><a href="#__codelineno-9-4"><span class="linenos" data-linenos="4 "></span></a><span class="kd">const</span> <span class="nx">Person</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s2">&quot;Person&quot;</span><span class="p">,</span> <span class="nx">schema2</span><span class="p">);</span>
 </code></pre></div>
-
-<p>The required validator uses the SchemaType's <code>checkRequired</code> function to determine whether a given value satisfies the required validator. By default, a value satisfies the required validator if <code>val != null</code> (that is, if the value is not null nor undefined). However, most built-in mongoose schema types override the default <code>checkRequired</code> function:</p>
-<h2 id="schematypeprototypeselect">SchemaType.prototype.select()<a class="headerlink" href="#schematypeprototypeselect" title="Permanent link">&para;</a></h2>
-<p><strong>参数</strong></p>
-<p><strong>返回</strong></p>
-<p>Sets default <code>select()</code> behavior for this path.</p>
-<p>Set to <code>true</code> if this path should always be included in the results, <code>false</code> if it should be excluded by default. This setting can be overridden at the query level.</p>
-<p><strong>示例</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="nt">T</span> <span class="o">=</span> <span class="nt">db</span><span class="p">.</span><span class="nc">model</span><span class="o">(</span><span class="s1">&#39;T&#39;</span><span class="o">,</span> <span class="nt">new</span> <span class="nt">Schema</span><span class="o">(</span><span class="p">{</span> <span class="n">x</span><span class="p">:</span> <span class="err">{</span> <span class="n">type</span><span class="o">:</span> <span class="n">String</span><span class="p">,</span> <span class="n">select</span><span class="o">:</span> <span class="n">true</span> <span class="p">}</span><span class="err">}</span><span class="o">));</span>
-<span class="nt">T</span><span class="p">.</span><span class="nc">find</span><span class="o">(..);</span>
-
-<span class="nt">T</span><span class="p">.</span><span class="nc">find</span><span class="o">()</span><span class="p">.</span><span class="nc">select</span><span class="o">(</span><span class="s1">&#39;-x&#39;</span><span class="o">)</span><span class="p">.</span><span class="nc">exec</span><span class="o">(</span><span class="nt">callback</span><span class="o">);</span>
+<p>If you pass an element that has a <code>toString()</code> function, Mongoose will call it,
+unless the element is an array or the <code>toString()</code> function is strictly equal to
+<code>Object.prototype.toString()</code>.</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><a href="#__codelineno-10-1"><span class="linenos" data-linenos="1 "></span></a><span class="ow">new</span> <span class="nx">Person</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="mf">42</span> <span class="p">}).</span><span class="nx">name</span><span class="p">;</span> <span class="c1">// &quot;42&quot; as a string</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><a href="#__codelineno-10-2"><span class="linenos" data-linenos="2 "></span></a><span class="ow">new</span> <span class="nx">Person</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">toString</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="mf">42</span> <span class="p">}</span> <span class="p">}).</span><span class="nx">name</span><span class="p">;</span> <span class="c1">// &quot;42&quot; as a string</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><a href="#__codelineno-10-3"><span class="linenos" data-linenos="3 "></span></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><a href="#__codelineno-10-4"><span class="linenos" data-linenos="4 "></span></a><span class="c1">// &quot;undefined&quot;, will get a cast error if you `save()` this document</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a><a href="#__codelineno-10-5"><span class="linenos" data-linenos="5 "></span></a><span class="ow">new</span> <span class="nx">Person</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">foo</span><span class="o">:</span> <span class="mf">42</span> <span class="p">}</span> <span class="p">}).</span><span class="nx">name</span><span class="p">;</span>
 </code></pre></div>
-
-<hr />
-<hr />
-                
-              
-              
-                
-
+<h3 id="number_1">Number<a class="headerlink" href="#number_1" title="Permanent link">&para;</a></h3>
+<p>To declare a path as a number, you may use either the <code>Number</code> global
+constructor or the string <code>'Number'</code>.</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><a href="#__codelineno-11-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">const</span> <span class="nx">schema1</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">age</span><span class="o">:</span> <span class="nb">Number</span> <span class="p">});</span> <span class="c1">// age will be cast to a Number</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><a href="#__codelineno-11-2"><span class="linenos" data-linenos="2 "></span></a><span class="kd">const</span> <span class="nx">schema2</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">age</span><span class="o">:</span> <span class="s2">&quot;Number&quot;</span> <span class="p">});</span> <span class="c1">// Equivalent</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><a href="#__codelineno-11-3"><span class="linenos" data-linenos="3 "></span></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><a href="#__codelineno-11-4"><span class="linenos" data-linenos="4 "></span></a><span class="kd">const</span> <span class="nx">Car</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s2">&quot;Car&quot;</span><span class="p">,</span> <span class="nx">schema2</span><span class="p">);</span>
+</code></pre></div>
+<p>There are several types of values that will be successfully cast to a Number.</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><a href="#__codelineno-12-1"><span class="linenos" data-linenos="1 "></span></a><span class="ow">new</span> <span class="nx">Car</span><span class="p">({</span> <span class="nx">age</span><span class="o">:</span> <span class="s2">&quot;15&quot;</span> <span class="p">}).</span><span class="nx">age</span><span class="p">;</span> <span class="c1">// 15 as a Number</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><a href="#__codelineno-12-2"><span class="linenos" data-linenos="2 "></span></a><span class="ow">new</span> <span class="nx">Car</span><span class="p">({</span> <span class="nx">age</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}).</span><span class="nx">age</span><span class="p">;</span> <span class="c1">// 1 as a Number</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><a href="#__codelineno-12-3"><span class="linenos" data-linenos="3 "></span></a><span class="ow">new</span> <span class="nx">Car</span><span class="p">({</span> <span class="nx">age</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}).</span><span class="nx">age</span><span class="p">;</span> <span class="c1">// 0 as a Number</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a><a href="#__codelineno-12-4"><span class="linenos" data-linenos="4 "></span></a><span class="ow">new</span> <span class="nx">Car</span><span class="p">({</span> <span class="nx">age</span><span class="o">:</span> <span class="p">{</span> <span class="nx">valueOf</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="mf">83</span> <span class="p">}</span> <span class="p">}).</span><span class="nx">age</span><span class="p">;</span> <span class="c1">// 83 as a Number</span>
+</code></pre></div>
+<p>If you pass an object with a <code>valueOf()</code> function that returns a Number, Mongoose will
+call it and assign the returned value to the path.</p>
+<p>The values <code>null</code> and <code>undefined</code> are not cast.</p>
+<p>NaN, strings that cast to NaN, arrays, and objects that don't have a <code>valueOf()</code> function
+will all result in a <a href="/docs/validation.html#cast-errors">CastError</a> once validated, meaning that it will not throw on initialization, only when validated.</p>
+<h3 id="dates">Dates<a class="headerlink" href="#dates" title="Permanent link">&para;</a></h3>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Built-in <code>Date</code> methods</a> are <a href="https://github.com/Automattic/mongoose/issues/1598"><strong>not</strong> hooked into</a> the mongoose change tracking logic which in English means that if you use a <code>Date</code> in your document and modify it with a method like <code>setMonth()</code>, mongoose will be unaware of this change and <code>doc.save()</code> will not persist this modification. If you must modify <code>Date</code> types using built-in methods, tell mongoose about the change with <code>doc.markModified('pathToYourDate')</code> before saving.</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><a href="#__codelineno-13-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">const</span> <span class="nx">Assignment</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s2">&quot;Assignment&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">dueDate</span><span class="o">:</span> <span class="nb">Date</span> <span class="p">});</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><a href="#__codelineno-13-2"><span class="linenos" data-linenos="2 "></span></a><span class="nx">Assignment</span><span class="p">.</span><span class="nx">findOne</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">doc</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><a href="#__codelineno-13-3"><span class="linenos" data-linenos="3 "></span></a>  <span class="nx">doc</span><span class="p">.</span><span class="nx">dueDate</span><span class="p">.</span><span class="nx">setMonth</span><span class="p">(</span><span class="mf">3</span><span class="p">);</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><a href="#__codelineno-13-4"><span class="linenos" data-linenos="4 "></span></a>  <span class="nx">doc</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="nx">callback</span><span class="p">);</span> <span class="c1">// THIS DOES NOT SAVE YOUR CHANGE</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a><a href="#__codelineno-13-5"><span class="linenos" data-linenos="5 "></span></a>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a><a href="#__codelineno-13-6"><span class="linenos" data-linenos="6 "></span></a>  <span class="nx">doc</span><span class="p">.</span><span class="nx">markModified</span><span class="p">(</span><span class="s2">&quot;dueDate&quot;</span><span class="p">);</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a><a href="#__codelineno-13-7"><span class="linenos" data-linenos="7 "></span></a>  <span class="nx">doc</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="nx">callback</span><span class="p">);</span> <span class="c1">// works</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a><a href="#__codelineno-13-8"><span class="linenos" data-linenos="8 "></span></a><span class="p">});</span>
+</code></pre></div>
+<h3 id="buffer">Buffer<a class="headerlink" href="#buffer" title="Permanent link">&para;</a></h3>
+<p>To declare a path as a Buffer, you may use either the <code>Buffer</code> global
+constructor or the string <code>'Buffer'</code>.</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><a href="#__codelineno-14-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">const</span> <span class="nx">schema1</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">binData</span><span class="o">:</span> <span class="nx">Buffer</span> <span class="p">});</span> <span class="c1">// binData will be cast to a Buffer</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><a href="#__codelineno-14-2"><span class="linenos" data-linenos="2 "></span></a><span class="kd">const</span> <span class="nx">schema2</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">binData</span><span class="o">:</span> <span class="s2">&quot;Buffer&quot;</span> <span class="p">});</span> <span class="c1">// Equivalent</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a><a href="#__codelineno-14-3"><span class="linenos" data-linenos="3 "></span></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><a href="#__codelineno-14-4"><span class="linenos" data-linenos="4 "></span></a><span class="kd">const</span> <span class="nx">Data</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="nx">schema2</span><span class="p">);</span>
+</code></pre></div>
+<p>Mongoose will successfully cast the below values to buffers.</p>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><a href="#__codelineno-15-1"><span class="linenos" data-linenos="1 "></span></a>const file1 = new Data({ binData: &#39;test&#39;}); // {&quot;type&quot;:&quot;Buffer&quot;,&quot;data&quot;:[116,101,115,116]}
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><a href="#__codelineno-15-2"><span class="linenos" data-linenos="2 "></span></a>const file2 = new Data({ binData: 72987 }); // {&quot;type&quot;:&quot;Buffer&quot;,&quot;data&quot;:[27]}
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><a href="#__codelineno-15-3"><span class="linenos" data-linenos="3 "></span></a>const file4 = new Data({ binData: { type: &#39;Buffer&#39;, data: [1, 2, 3]}}); // {&quot;type&quot;:&quot;Buffer&quot;,&quot;data&quot;:[1,2,3]}
+</code></pre></div>
+<h3 id="mixed">Mixed<a class="headerlink" href="#mixed" title="Permanent link">&para;</a></h3>
+<p>An "anything goes" SchemaType. Mongoose will not do any casting on mixed paths.
+You can define a mixed path using <code>Schema.Types.Mixed</code> or by passing an empty
+object literal. The following are equivalent.</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><a href="#__codelineno-16-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">const</span> <span class="nx">Any</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">any</span><span class="o">:</span> <span class="p">{}</span> <span class="p">});</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><a href="#__codelineno-16-2"><span class="linenos" data-linenos="2 "></span></a><span class="kd">const</span> <span class="nx">Any</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">any</span><span class="o">:</span> <span class="nb">Object</span> <span class="p">});</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><a href="#__codelineno-16-3"><span class="linenos" data-linenos="3 "></span></a><span class="kd">const</span> <span class="nx">Any</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">any</span><span class="o">:</span> <span class="nx">Schema</span><span class="p">.</span><span class="nx">Types</span><span class="p">.</span><span class="nx">Mixed</span> <span class="p">});</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><a href="#__codelineno-16-4"><span class="linenos" data-linenos="4 "></span></a><span class="kd">const</span> <span class="nx">Any</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">any</span><span class="o">:</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Mixed</span> <span class="p">});</span>
+</code></pre></div>
+<p>Since Mixed is a schema-less type, you can change the value to anything else you
+like, but Mongoose loses the ability to auto detect and save those changes.
+To tell Mongoose that the value of a Mixed type has changed, you need to
+call <code>doc.markModified(path)</code>, passing the path to the Mixed type you just changed.</p>
+<p>To avoid these side-effects, a <a href="./subdocs.html">Subdocument</a> path may be used
+instead.</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><a href="#__codelineno-17-1"><span class="linenos" data-linenos="1 "></span></a><span class="nx">person</span><span class="p">.</span><span class="nx">anything</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">x</span><span class="o">:</span> <span class="p">[</span><span class="mf">3</span><span class="p">,</span> <span class="mf">4</span><span class="p">,</span> <span class="p">{</span> <span class="nx">y</span><span class="o">:</span> <span class="s2">&quot;changed&quot;</span> <span class="p">}]</span> <span class="p">};</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><a href="#__codelineno-17-2"><span class="linenos" data-linenos="2 "></span></a><span class="nx">person</span><span class="p">.</span><span class="nx">markModified</span><span class="p">(</span><span class="s2">&quot;anything&quot;</span><span class="p">);</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a><a href="#__codelineno-17-3"><span class="linenos" data-linenos="3 "></span></a><span class="nx">person</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span> <span class="c1">// Mongoose will save changes to `anything`.</span>
+</code></pre></div>
+<h3 id="objectids">ObjectIds<a class="headerlink" href="#objectids" title="Permanent link">&para;</a></h3>
+<p>An <a href="https://docs.mongodb.com/manual/reference/method/ObjectId/">ObjectId</a>
+is a special type typically used for unique identifiers. Here's how
+you declare a schema with a path <code>driver</code> that is an ObjectId:</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><a href="#__codelineno-18-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">const</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;mongoose&quot;</span><span class="p">);</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a><a href="#__codelineno-18-2"><span class="linenos" data-linenos="2 "></span></a><span class="kd">const</span> <span class="nx">carSchema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span> <span class="nx">driver</span><span class="o">:</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">ObjectId</span> <span class="p">});</span>
+</code></pre></div>
+<p><code>ObjectId</code> is a class, and ObjectIds are objects. However, they are
+often represented as strings. When you convert an ObjectId to a string
+using <code>toString()</code>, you get a 24-character hexadecimal string:</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><a href="#__codelineno-19-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">const</span> <span class="nx">Car</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s2">&quot;Car&quot;</span><span class="p">,</span> <span class="nx">carSchema</span><span class="p">);</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><a href="#__codelineno-19-2"><span class="linenos" data-linenos="2 "></span></a>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a><a href="#__codelineno-19-3"><span class="linenos" data-linenos="3 "></span></a><span class="kd">const</span> <span class="nx">car</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Car</span><span class="p">();</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a><a href="#__codelineno-19-4"><span class="linenos" data-linenos="4 "></span></a><span class="nx">car</span><span class="p">.</span><span class="nx">driver</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Types</span><span class="p">.</span><span class="nx">ObjectId</span><span class="p">();</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a><a href="#__codelineno-19-5"><span class="linenos" data-linenos="5 "></span></a>
+<a id="__codelineno-19-6" name="__codelineno-19-6"></a><a href="#__codelineno-19-6"><span class="linenos" data-linenos="6 "></span></a><span class="ow">typeof</span> <span class="nx">car</span><span class="p">.</span><span class="nx">driver</span><span class="p">;</span> <span class="c1">// &#39;object&#39;</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7"></a><a href="#__codelineno-19-7"><span class="linenos" data-linenos="7 "></span></a><span class="nx">car</span><span class="p">.</span><span class="nx">driver</span> <span class="ow">instanceof</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Types</span><span class="p">.</span><span class="nx">ObjectId</span><span class="p">;</span> <span class="c1">// true</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8"></a><a href="#__codelineno-19-8"><span class="linenos" data-linenos="8 "></span></a>
+<a id="__codelineno-19-9" name="__codelineno-19-9"></a><a href="#__codelineno-19-9"><span class="linenos" data-linenos="9 "></span></a><span class="nx">car</span><span class="p">.</span><span class="nx">driver</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span> <span class="c1">// Something like &quot;5e1a0651741b255ddda996c4&quot;</span>
+</code></pre></div>
+<h3 id="boolean">Boolean<a class="headerlink" href="#boolean" title="Permanent link">&para;</a></h3>
+<p>Booleans in Mongoose are <a href="https://www.w3schools.com/js/js_booleans.asp">plain JavaScript booleans</a>.
+By default, Mongoose casts the below values to <code>true</code>:</p>
+<ul>
+<li><code>true</code></li>
+<li><code>'true'</code></li>
+<li><code>1</code></li>
+<li><code>'1'</code></li>
+<li><code>'yes'</code></li>
+</ul>
+<p>Mongoose casts the below values to <code>false</code>:</p>
+<ul>
+<li><code>false</code></li>
+<li><code>'false'</code></li>
+<li><code>0</code></li>
+<li><code>'0'</code></li>
+<li><code>'no'</code></li>
+</ul>
+<p>Any other value causes a <a href="/docs/validation.html#cast-errors">CastError</a>.
+You can modify what values Mongoose converts to true or false using the
+<code>convertToTrue</code> and <code>convertToFalse</code> properties, which are <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set">JavaScript sets</a>.</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><a href="#__codelineno-20-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">const</span> <span class="nx">M</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s2">&quot;Test&quot;</span><span class="p">,</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">b</span><span class="o">:</span> <span class="nb">Boolean</span> <span class="p">}));</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><a href="#__codelineno-20-2"><span class="linenos" data-linenos="2 "></span></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="ow">new</span> <span class="nx">M</span><span class="p">({</span> <span class="nx">b</span><span class="o">:</span> <span class="s2">&quot;nay&quot;</span> <span class="p">}).</span><span class="nx">b</span><span class="p">);</span> <span class="c1">// undefined</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a><a href="#__codelineno-20-3"><span class="linenos" data-linenos="3 "></span></a>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a><a href="#__codelineno-20-4"><span class="linenos" data-linenos="4 "></span></a><span class="c1">// Set { false, &#39;false&#39;, 0, &#39;0&#39;, &#39;no&#39; }</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a><a href="#__codelineno-20-5"><span class="linenos" data-linenos="5 "></span></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">.</span><span class="nx">Types</span><span class="p">.</span><span class="nb">Boolean</span><span class="p">.</span><span class="nx">convertToFalse</span><span class="p">);</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6"></a><a href="#__codelineno-20-6"><span class="linenos" data-linenos="6 "></span></a>
+<a id="__codelineno-20-7" name="__codelineno-20-7"></a><a href="#__codelineno-20-7"><span class="linenos" data-linenos="7 "></span></a><span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">.</span><span class="nx">Types</span><span class="p">.</span><span class="nb">Boolean</span><span class="p">.</span><span class="nx">convertToFalse</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;nay&quot;</span><span class="p">);</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8"></a><a href="#__codelineno-20-8"><span class="linenos" data-linenos="8 "></span></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="ow">new</span> <span class="nx">M</span><span class="p">({</span> <span class="nx">b</span><span class="o">:</span> <span class="s2">&quot;nay&quot;</span> <span class="p">}).</span><span class="nx">b</span><span class="p">);</span> <span class="c1">// false</span>
+</code></pre></div>
+<h3 id="arrays">Arrays<a class="headerlink" href="#arrays" title="Permanent link">&para;</a></h3>
+<p>Mongoose supports arrays of <a href="./api.html#schema_Schema.Types">SchemaTypes</a>
+and arrays of <a href="./subdocs.html">subdocuments</a>. Arrays of SchemaTypes are
+also called <em>primitive arrays</em>, and arrays of subdocuments are also called
+<em>document arrays</em>.</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><a href="#__codelineno-21-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">const</span> <span class="nx">ToySchema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="nb">String</span> <span class="p">});</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a><a href="#__codelineno-21-2"><span class="linenos" data-linenos="2 "></span></a><span class="kd">const</span> <span class="nx">ToyBoxSchema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a><a href="#__codelineno-21-3"><span class="linenos" data-linenos="3 "></span></a>  <span class="nx">toys</span><span class="o">:</span> <span class="p">[</span><span class="nx">ToySchema</span><span class="p">],</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a><a href="#__codelineno-21-4"><span class="linenos" data-linenos="4 "></span></a>  <span class="nx">buffers</span><span class="o">:</span> <span class="p">[</span><span class="nx">Buffer</span><span class="p">],</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a><a href="#__codelineno-21-5"><span class="linenos" data-linenos="5 "></span></a>  <span class="nx">strings</span><span class="o">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">],</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6"></a><a href="#__codelineno-21-6"><span class="linenos" data-linenos="6 "></span></a>  <span class="nx">numbers</span><span class="o">:</span> <span class="p">[</span><span class="nb">Number</span><span class="p">],</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7"></a><a href="#__codelineno-21-7"><span class="linenos" data-linenos="7 "></span></a>  <span class="c1">// ... etc</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8"></a><a href="#__codelineno-21-8"><span class="linenos" data-linenos="8 "></span></a><span class="p">});</span>
+</code></pre></div>
+<p>Arrays are special because they implicitly have a default value of <code>[]</code> (empty array).</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><a href="#__codelineno-22-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">const</span> <span class="nx">ToyBox</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s2">&quot;ToyBox&quot;</span><span class="p">,</span> <span class="nx">ToyBoxSchema</span><span class="p">);</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a><a href="#__codelineno-22-2"><span class="linenos" data-linenos="2 "></span></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="ow">new</span> <span class="nx">ToyBox</span><span class="p">().</span><span class="nx">toys</span><span class="p">);</span> <span class="c1">// []</span>
+</code></pre></div>
+<p>To overwrite this default, you need to set the default value to <code>undefined</code></p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><a href="#__codelineno-23-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">const</span> <span class="nx">ToyBoxSchema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a><a href="#__codelineno-23-2"><span class="linenos" data-linenos="2 "></span></a>  <span class="nx">toys</span><span class="o">:</span> <span class="p">{</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a><a href="#__codelineno-23-3"><span class="linenos" data-linenos="3 "></span></a>    <span class="nx">type</span><span class="o">:</span> <span class="p">[</span><span class="nx">ToySchema</span><span class="p">],</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4"></a><a href="#__codelineno-23-4"><span class="linenos" data-linenos="4 "></span></a>    <span class="k">default</span><span class="o">:</span> <span class="kc">undefined</span><span class="p">,</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5"></a><a href="#__codelineno-23-5"><span class="linenos" data-linenos="5 "></span></a>  <span class="p">},</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6"></a><a href="#__codelineno-23-6"><span class="linenos" data-linenos="6 "></span></a><span class="p">});</span>
+</code></pre></div>
+<p>Note: specifying an empty array is equivalent to <code>Mixed</code>. The following all create arrays of
+<code>Mixed</code>:</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><a href="#__codelineno-24-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">const</span> <span class="nx">Empty1</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">any</span><span class="o">:</span> <span class="p">[]</span> <span class="p">});</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a><a href="#__codelineno-24-2"><span class="linenos" data-linenos="2 "></span></a><span class="kd">const</span> <span class="nx">Empty2</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">any</span><span class="o">:</span> <span class="nb">Array</span> <span class="p">});</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a><a href="#__codelineno-24-3"><span class="linenos" data-linenos="3 "></span></a><span class="kd">const</span> <span class="nx">Empty3</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">any</span><span class="o">:</span> <span class="p">[</span><span class="nx">Schema</span><span class="p">.</span><span class="nx">Types</span><span class="p">.</span><span class="nx">Mixed</span><span class="p">]</span> <span class="p">});</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a><a href="#__codelineno-24-4"><span class="linenos" data-linenos="4 "></span></a><span class="kd">const</span> <span class="nx">Empty4</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">any</span><span class="o">:</span> <span class="p">[{}]</span> <span class="p">});</span>
+</code></pre></div>
+<h3 id="maps">Maps<a class="headerlink" href="#maps" title="Permanent link">&para;</a></h3>
+<p><em>在 Mongoose 5.1.0 中新增</em></p>
+<p>MongooseMap 是<a href="http://thecodebarbarian.com/the-80-20-guide-to-maps-in-javascript.html">JavaScript <code>Map</code> 类</a>的子类.
+在这些文档中，我们将交替使用术语<code>map</code>和<code>MongooseMap</code>。
+在 Mongoose 中，映射是使用任意键创建嵌套文档的方式。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>在 Mongoose Maps 中，键必须是字符串，以便在 MongoDB 中存储文档。</p>
+</div>
+<div class="highlight"><span class="filename">user.schema.js</span><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><a href="#__codelineno-25-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kd">const</span> <span class="nx">userSchema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a><a href="#__codelineno-25-2"><span class="linenos" data-linenos=" 2 "></span></a>  <span class="c1">// `socialMediaHandles` is a map whose values are strings. A map&#39;s</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a><a href="#__codelineno-25-3"><span class="linenos" data-linenos=" 3 "></span></a>  <span class="c1">// keys are always strings. You specify the type of values using `of`.</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4"></a><a href="#__codelineno-25-4"><span class="linenos" data-linenos=" 4 "></span></a>  <span class="nx">socialMediaHandles</span><span class="o">:</span> <span class="p">{</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5"></a><a href="#__codelineno-25-5"><span class="linenos" data-linenos=" 5 "></span></a>    <span class="nx">type</span><span class="o">:</span> <span class="nb">Map</span><span class="p">,</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6"></a><a href="#__codelineno-25-6"><span class="linenos" data-linenos=" 6 "></span></a>    <span class="k">of</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+<a id="__codelineno-25-7" name="__codelineno-25-7"></a><a href="#__codelineno-25-7"><span class="linenos" data-linenos=" 7 "></span></a>  <span class="p">},</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8"></a><a href="#__codelineno-25-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="p">});</span>
+<a id="__codelineno-25-9" name="__codelineno-25-9"></a><a href="#__codelineno-25-9"><span class="linenos" data-linenos=" 9 "></span></a>
+<a id="__codelineno-25-10" name="__codelineno-25-10"></a><a href="#__codelineno-25-10"><span class="linenos" data-linenos="10 "></span></a><span class="kd">const</span> <span class="nx">User</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s2">&quot;User&quot;</span><span class="p">,</span> <span class="nx">userSchema</span><span class="p">);</span>
+<a id="__codelineno-25-11" name="__codelineno-25-11"></a><a href="#__codelineno-25-11"><span class="linenos" data-linenos="11 "></span></a><span class="c1">// Map { &#39;github&#39; =&gt; &#39;vkarpov15&#39;, &#39;twitter&#39; =&gt; &#39;@code_barbarian&#39; }</span>
+<a id="__codelineno-25-12" name="__codelineno-25-12"></a><a href="#__codelineno-25-12"><span class="linenos" data-linenos="12 "></span></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+<a id="__codelineno-25-13" name="__codelineno-25-13"></a><a href="#__codelineno-25-13"><span class="linenos" data-linenos="13 "></span></a>  <span class="ow">new</span> <span class="nx">User</span><span class="p">({</span>
+<a id="__codelineno-25-14" name="__codelineno-25-14"></a><a href="#__codelineno-25-14"><span class="linenos" data-linenos="14 "></span></a>    <span class="nx">socialMediaHandles</span><span class="o">:</span> <span class="p">{</span>
+<a id="__codelineno-25-15" name="__codelineno-25-15"></a><a href="#__codelineno-25-15"><span class="linenos" data-linenos="15 "></span></a>      <span class="nx">github</span><span class="o">:</span> <span class="s2">&quot;vkarpov15&quot;</span><span class="p">,</span>
+<a id="__codelineno-25-16" name="__codelineno-25-16"></a><a href="#__codelineno-25-16"><span class="linenos" data-linenos="16 "></span></a>      <span class="nx">twitter</span><span class="o">:</span> <span class="s2">&quot;@code_barbarian&quot;</span><span class="p">,</span>
+<a id="__codelineno-25-17" name="__codelineno-25-17"></a><a href="#__codelineno-25-17"><span class="linenos" data-linenos="17 "></span></a>    <span class="p">},</span>
+<a id="__codelineno-25-18" name="__codelineno-25-18"></a><a href="#__codelineno-25-18"><span class="linenos" data-linenos="18 "></span></a>  <span class="p">}).</span><span class="nx">socialMediaHandles</span>
+<a id="__codelineno-25-19" name="__codelineno-25-19"></a><a href="#__codelineno-25-19"><span class="linenos" data-linenos="19 "></span></a><span class="p">);</span>
+</code></pre></div>
+<p>上面的例子并没有明确地将<code>github</code> or <code>twitter</code>声明为路径，
+但是，由于<code>socialMediaHandles</code>是一个映射，你可以存储任意键/值对。
+然而，由于<code>socialMediaHandles</code>是一个映射，你<strong>必须</strong>使用<code>.get()</code> 来获取键的值，而<code>.set()</code>来设置键的值。</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><a href="#__codelineno-26-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">User</span><span class="p">({</span> <span class="nx">socialMediaHandles</span><span class="o">:</span> <span class="p">{}</span> <span class="p">});</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a><a href="#__codelineno-26-2"><span class="linenos" data-linenos=" 2 "></span></a>
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a><a href="#__codelineno-26-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="c1">// Good</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4"></a><a href="#__codelineno-26-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="nx">user</span><span class="p">.</span><span class="nx">socialMediaHandles</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;github&quot;</span><span class="p">,</span> <span class="s2">&quot;vkarpov15&quot;</span><span class="p">);</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5"></a><a href="#__codelineno-26-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="c1">// Works too</span>
+<a id="__codelineno-26-6" name="__codelineno-26-6"></a><a href="#__codelineno-26-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="nx">user</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;socialMediaHandles.twitter&quot;</span><span class="p">,</span> <span class="s2">&quot;@code_barbarian&quot;</span><span class="p">);</span>
+<a id="__codelineno-26-7" name="__codelineno-26-7"></a><a href="#__codelineno-26-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="c1">// Bad, the `myspace` property will **not** get saved</span>
+<a id="__codelineno-26-8" name="__codelineno-26-8"></a><a href="#__codelineno-26-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="nx">user</span><span class="p">.</span><span class="nx">socialMediaHandles</span><span class="p">.</span><span class="nx">myspace</span> <span class="o">=</span> <span class="s2">&quot;fail&quot;</span><span class="p">;</span>
+<a id="__codelineno-26-9" name="__codelineno-26-9"></a><a href="#__codelineno-26-9"><span class="linenos" data-linenos=" 9 "></span></a>
+<a id="__codelineno-26-10" name="__codelineno-26-10"></a><a href="#__codelineno-26-10"><span class="linenos" data-linenos="10 "></span></a><span class="c1">// &#39;vkarpov15&#39;</span>
+<a id="__codelineno-26-11" name="__codelineno-26-11"></a><a href="#__codelineno-26-11"><span class="linenos" data-linenos="11 "></span></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">socialMediaHandles</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;github&quot;</span><span class="p">));</span>
+<a id="__codelineno-26-12" name="__codelineno-26-12"></a><a href="#__codelineno-26-12"><span class="linenos" data-linenos="12 "></span></a><span class="c1">// &#39;@code_barbarian&#39;</span>
+<a id="__codelineno-26-13" name="__codelineno-26-13"></a><a href="#__codelineno-26-13"><span class="linenos" data-linenos="13 "></span></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;socialMediaHandles.twitter&quot;</span><span class="p">));</span>
+<a id="__codelineno-26-14" name="__codelineno-26-14"></a><a href="#__codelineno-26-14"><span class="linenos" data-linenos="14 "></span></a><span class="c1">// undefined</span>
+<a id="__codelineno-26-15" name="__codelineno-26-15"></a><a href="#__codelineno-26-15"><span class="linenos" data-linenos="15 "></span></a><span class="nx">user</span><span class="p">.</span><span class="nx">socialMediaHandles</span><span class="p">.</span><span class="nx">github</span><span class="p">;</span>
+<a id="__codelineno-26-16" name="__codelineno-26-16"></a><a href="#__codelineno-26-16"><span class="linenos" data-linenos="16 "></span></a>
+<a id="__codelineno-26-17" name="__codelineno-26-17"></a><a href="#__codelineno-26-17"><span class="linenos" data-linenos="17 "></span></a><span class="c1">// Will only save the &#39;github&#39; and &#39;twitter&#39; properties</span>
+<a id="__codelineno-26-18" name="__codelineno-26-18"></a><a href="#__codelineno-26-18"><span class="linenos" data-linenos="18 "></span></a><span class="nx">user</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+</code></pre></div>
+<p>映射类型存储为<a href="https://en.wikipedia.org/wiki/BSON#Data_types_and_syntax">BSON 对象在 MongoDB</a>.
+BSON 对象中的键是有序的，所以这意味着映射的<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map#Description">插入顺序</a>属性得到了维护。</p>
+<p>Mongoose 支持一个特殊的<code>$*</code>语法来<a href="/docs/populate.html">填充</a> 映射中的所有元素。
+例如，假设你的<code>socialMediaHandles</code>地图包含一个<code>ref</code>:</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><a href="#__codelineno-27-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kd">const</span> <span class="nx">userSchema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a><a href="#__codelineno-27-2"><span class="linenos" data-linenos=" 2 "></span></a>  <span class="nx">socialMediaHandles</span><span class="o">:</span> <span class="p">{</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a><a href="#__codelineno-27-3"><span class="linenos" data-linenos=" 3 "></span></a>    <span class="nx">type</span><span class="o">:</span> <span class="nb">Map</span><span class="p">,</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4"></a><a href="#__codelineno-27-4"><span class="linenos" data-linenos=" 4 "></span></a>    <span class="k">of</span><span class="o">:</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5"></a><a href="#__codelineno-27-5"><span class="linenos" data-linenos=" 5 "></span></a>      <span class="nx">handle</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6"></a><a href="#__codelineno-27-6"><span class="linenos" data-linenos=" 6 "></span></a>      <span class="nx">oauth</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nx">ObjectId</span><span class="p">,</span> <span class="nx">ref</span><span class="o">:</span> <span class="s2">&quot;OAuth&quot;</span> <span class="p">},</span>
+<a id="__codelineno-27-7" name="__codelineno-27-7"></a><a href="#__codelineno-27-7"><span class="linenos" data-linenos=" 7 "></span></a>    <span class="p">}),</span>
+<a id="__codelineno-27-8" name="__codelineno-27-8"></a><a href="#__codelineno-27-8"><span class="linenos" data-linenos=" 8 "></span></a>  <span class="p">},</span>
+<a id="__codelineno-27-9" name="__codelineno-27-9"></a><a href="#__codelineno-27-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="p">});</span>
+<a id="__codelineno-27-10" name="__codelineno-27-10"></a><a href="#__codelineno-27-10"><span class="linenos" data-linenos="10 "></span></a><span class="kd">const</span> <span class="nx">User</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s2">&quot;User&quot;</span><span class="p">,</span> <span class="nx">userSchema</span><span class="p">);</span>
+</code></pre></div>
+<p>为了填充每个<code>socialMediaHandles</code>条目的<code>oauth</code>属性，你应该在<code>socialMediaHandles.$*.oauth</code>上填充:</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><a href="#__codelineno-28-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">User</span><span class="p">.</span><span class="nx">findOne</span><span class="p">().</span><span class="nx">populate</span><span class="p">(</span><span class="s2">&quot;socialMediaHandles.$*.oauth&quot;</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="getters">Getters<a class="headerlink" href="#getters" title="Permanent link">&para;</a></h2>
+<p>Getters are like virtuals for paths defined in your schema. For example,
+let's say you wanted to store user profile pictures as relative paths and
+then add the hostname in your application. Below is how you would structure
+your <code>userSchema</code>:</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><a href="#__codelineno-29-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kd">const</span> <span class="nx">root</span> <span class="o">=</span> <span class="s2">&quot;https://s3.amazonaws.com/mybucket&quot;</span><span class="p">;</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a><a href="#__codelineno-29-2"><span class="linenos" data-linenos=" 2 "></span></a>
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a><a href="#__codelineno-29-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="kd">const</span> <span class="nx">userSchema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4"></a><a href="#__codelineno-29-4"><span class="linenos" data-linenos=" 4 "></span></a>  <span class="nx">name</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+<a id="__codelineno-29-5" name="__codelineno-29-5"></a><a href="#__codelineno-29-5"><span class="linenos" data-linenos=" 5 "></span></a>  <span class="nx">picture</span><span class="o">:</span> <span class="p">{</span>
+<a id="__codelineno-29-6" name="__codelineno-29-6"></a><a href="#__codelineno-29-6"><span class="linenos" data-linenos=" 6 "></span></a>    <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+<a id="__codelineno-29-7" name="__codelineno-29-7"></a><a href="#__codelineno-29-7"><span class="linenos" data-linenos=" 7 "></span></a>    <span class="nx">get</span><span class="o">:</span> <span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="sb">`</span><span class="si">${</span><span class="nx">root</span><span class="si">}${</span><span class="nx">v</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+<a id="__codelineno-29-8" name="__codelineno-29-8"></a><a href="#__codelineno-29-8"><span class="linenos" data-linenos=" 8 "></span></a>  <span class="p">},</span>
+<a id="__codelineno-29-9" name="__codelineno-29-9"></a><a href="#__codelineno-29-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="p">});</span>
+<a id="__codelineno-29-10" name="__codelineno-29-10"></a><a href="#__codelineno-29-10"><span class="linenos" data-linenos="10 "></span></a>
+<a id="__codelineno-29-11" name="__codelineno-29-11"></a><a href="#__codelineno-29-11"><span class="linenos" data-linenos="11 "></span></a><span class="kd">const</span> <span class="nx">User</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s2">&quot;User&quot;</span><span class="p">,</span> <span class="nx">userSchema</span><span class="p">);</span>
+<a id="__codelineno-29-12" name="__codelineno-29-12"></a><a href="#__codelineno-29-12"><span class="linenos" data-linenos="12 "></span></a>
+<a id="__codelineno-29-13" name="__codelineno-29-13"></a><a href="#__codelineno-29-13"><span class="linenos" data-linenos="13 "></span></a><span class="kd">const</span> <span class="nx">doc</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">User</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Val&quot;</span><span class="p">,</span> <span class="nx">picture</span><span class="o">:</span> <span class="s2">&quot;/123.png&quot;</span> <span class="p">});</span>
+<a id="__codelineno-29-14" name="__codelineno-29-14"></a><a href="#__codelineno-29-14"><span class="linenos" data-linenos="14 "></span></a><span class="nx">doc</span><span class="p">.</span><span class="nx">picture</span><span class="p">;</span> <span class="c1">// &#39;https://s3.amazonaws.com/mybucket/123.png&#39;</span>
+<a id="__codelineno-29-15" name="__codelineno-29-15"></a><a href="#__codelineno-29-15"><span class="linenos" data-linenos="15 "></span></a><span class="nx">doc</span><span class="p">.</span><span class="nx">toObject</span><span class="p">({</span> <span class="nx">getters</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}).</span><span class="nx">picture</span><span class="p">;</span> <span class="c1">// &#39;/123.png&#39;</span>
+</code></pre></div>
+<p>Generally, you only use getters on primitive paths as opposed to arrays
+or subdocuments. Because getters override what accessing a Mongoose path returns,
+declaring a getter on an object may remove Mongoose change tracking for
+that path.</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><a href="#__codelineno-30-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kd">const</span> <span class="nx">schema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2"></a><a href="#__codelineno-30-2"><span class="linenos" data-linenos=" 2 "></span></a>  <span class="nx">arr</span><span class="o">:</span> <span class="p">[{</span> <span class="nx">url</span><span class="o">:</span> <span class="nb">String</span> <span class="p">}],</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3"></a><a href="#__codelineno-30-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="p">});</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4"></a><a href="#__codelineno-30-4"><span class="linenos" data-linenos=" 4 "></span></a>
+<a id="__codelineno-30-5" name="__codelineno-30-5"></a><a href="#__codelineno-30-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="kd">const</span> <span class="nx">root</span> <span class="o">=</span> <span class="s2">&quot;https://s3.amazonaws.com/mybucket&quot;</span><span class="p">;</span>
+<a id="__codelineno-30-6" name="__codelineno-30-6"></a><a href="#__codelineno-30-6"><span class="linenos" data-linenos=" 6 "></span></a>
+<a id="__codelineno-30-7" name="__codelineno-30-7"></a><a href="#__codelineno-30-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="c1">// Bad, don&#39;t do this!</span>
+<a id="__codelineno-30-8" name="__codelineno-30-8"></a><a href="#__codelineno-30-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="nx">schema</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s2">&quot;arr&quot;</span><span class="p">).</span><span class="nx">get</span><span class="p">((</span><span class="nx">v</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<a id="__codelineno-30-9" name="__codelineno-30-9"></a><a href="#__codelineno-30-9"><span class="linenos" data-linenos=" 9 "></span></a>  <span class="k">return</span> <span class="nx">v</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">el</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="p">{</span> <span class="nx">url</span><span class="o">:</span> <span class="nx">root</span> <span class="o">+</span> <span class="nx">el</span><span class="p">.</span><span class="nx">url</span> <span class="p">}));</span>
+<a id="__codelineno-30-10" name="__codelineno-30-10"></a><a href="#__codelineno-30-10"><span class="linenos" data-linenos="10 "></span></a><span class="p">});</span>
+<a id="__codelineno-30-11" name="__codelineno-30-11"></a><a href="#__codelineno-30-11"><span class="linenos" data-linenos="11 "></span></a>
+<a id="__codelineno-30-12" name="__codelineno-30-12"></a><a href="#__codelineno-30-12"><span class="linenos" data-linenos="12 "></span></a><span class="c1">// Later</span>
+<a id="__codelineno-30-13" name="__codelineno-30-13"></a><a href="#__codelineno-30-13"><span class="linenos" data-linenos="13 "></span></a><span class="nx">doc</span><span class="p">.</span><span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span> <span class="nx">key</span><span class="o">:</span> <span class="nb">String</span> <span class="p">});</span>
+<a id="__codelineno-30-14" name="__codelineno-30-14"></a><a href="#__codelineno-30-14"><span class="linenos" data-linenos="14 "></span></a><span class="nx">doc</span><span class="p">.</span><span class="nx">arr</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span> <span class="c1">// &#39;undefined&#39; because every `doc.arr` creates a new array!</span>
+</code></pre></div>
+<p>Instead of declaring a getter on the array as shown above, you should
+declare a getter on the <code>url</code> string as shown below. If you need to declare
+a getter on a nested document or array, be very careful!</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a><a href="#__codelineno-31-1"><span class="linenos" data-linenos="1 "></span></a><span class="kd">const</span> <span class="nx">schema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2"></a><a href="#__codelineno-31-2"><span class="linenos" data-linenos="2 "></span></a>  <span class="nx">arr</span><span class="o">:</span> <span class="p">[{</span> <span class="nx">url</span><span class="o">:</span> <span class="nb">String</span> <span class="p">}],</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3"></a><a href="#__codelineno-31-3"><span class="linenos" data-linenos="3 "></span></a><span class="p">});</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4"></a><a href="#__codelineno-31-4"><span class="linenos" data-linenos="4 "></span></a>
+<a id="__codelineno-31-5" name="__codelineno-31-5"></a><a href="#__codelineno-31-5"><span class="linenos" data-linenos="5 "></span></a><span class="kd">const</span> <span class="nx">root</span> <span class="o">=</span> <span class="s2">&quot;https://s3.amazonaws.com/mybucket&quot;</span><span class="p">;</span>
+<a id="__codelineno-31-6" name="__codelineno-31-6"></a><a href="#__codelineno-31-6"><span class="linenos" data-linenos="6 "></span></a>
+<a id="__codelineno-31-7" name="__codelineno-31-7"></a><a href="#__codelineno-31-7"><span class="linenos" data-linenos="7 "></span></a><span class="c1">// Good, do this instead of declaring a getter on `arr`</span>
+<a id="__codelineno-31-8" name="__codelineno-31-8"></a><a href="#__codelineno-31-8"><span class="linenos" data-linenos="8 "></span></a><span class="nx">schema</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s2">&quot;arr.0.url&quot;</span><span class="p">).</span><span class="nx">get</span><span class="p">((</span><span class="nx">v</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="sb">`</span><span class="si">${</span><span class="nx">root</span><span class="si">}${</span><span class="nx">v</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="schemas">Schemas<a class="headerlink" href="#schemas" title="Permanent link">&para;</a></h2>
+<p>To declare a path as another <a href="./guide.html#definition">schema</a>,
+set <code>type</code> to the sub-schema's instance.</p>
+<p>To set a default value based on the sub-schema's shape, simply set a default value,
+and the value will be cast based on the sub-schema's definition before being set
+during document creation.</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a><a href="#__codelineno-32-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kd">const</span> <span class="nx">subSchema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2"></a><a href="#__codelineno-32-2"><span class="linenos" data-linenos=" 2 "></span></a>  <span class="c1">// some schema definition here</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3"></a><a href="#__codelineno-32-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="p">});</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4"></a><a href="#__codelineno-32-4"><span class="linenos" data-linenos=" 4 "></span></a>
+<a id="__codelineno-32-5" name="__codelineno-32-5"></a><a href="#__codelineno-32-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="kd">const</span> <span class="nx">schema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span>
+<a id="__codelineno-32-6" name="__codelineno-32-6"></a><a href="#__codelineno-32-6"><span class="linenos" data-linenos=" 6 "></span></a>  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+<a id="__codelineno-32-7" name="__codelineno-32-7"></a><a href="#__codelineno-32-7"><span class="linenos" data-linenos=" 7 "></span></a>    <span class="nx">type</span><span class="o">:</span> <span class="nx">subSchema</span>
+<a id="__codelineno-32-8" name="__codelineno-32-8"></a><a href="#__codelineno-32-8"><span class="linenos" data-linenos=" 8 "></span></a>    <span class="k">default</span><span class="o">:</span> <span class="p">{}</span>
+<a id="__codelineno-32-9" name="__codelineno-32-9"></a><a href="#__codelineno-32-9"><span class="linenos" data-linenos=" 9 "></span></a>  <span class="p">}</span>
+<a id="__codelineno-32-10" name="__codelineno-32-10"></a><a href="#__codelineno-32-10"><span class="linenos" data-linenos="10 "></span></a><span class="p">});</span>
+</code></pre></div>
+<h2 id="_5">创建自定义类型<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Mongoose can also be extended with <a href="customschematypes.html">custom SchemaTypes</a>. Search the
+<a href="http://plugins.mongoosejs.io">plugins</a>
+site for compatible types like
+<a href="https://github.com/aheckmann/mongoose-long">mongoose-long</a>,
+<a href="https://github.com/vkarpov15/mongoose-int32">mongoose-int32</a>,
+and
+<a href="https://github.com/aheckmann/mongoose-function">other</a>
+<a href="https://github.com/OpenifyIt/mongoose-types">types</a>.</p>
+<p>Read more about creating <a href="customschematypes.html">custom SchemaTypes here</a>.</p>
+<h2 id="schemapath"><code>schema.path()</code> 函数<a class="headerlink" href="#schemapath" title="Permanent link">&para;</a></h2>
+<p>The <code>schema.path()</code> function returns the instantiated schema type for a
+given path.</p>
+<div class="highlight"><span class="filename">JavaScript</span><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a><a href="#__codelineno-33-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kd">const</span> <span class="nx">sampleSchema</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Schema</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">required</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">});</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2"></a><a href="#__codelineno-33-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sampleSchema</span><span class="p">.</span><span class="nx">path</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">));</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3"></a><a href="#__codelineno-33-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="c1">// Output looks like:</span>
+<a id="__codelineno-33-4" name="__codelineno-33-4"></a><a href="#__codelineno-33-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="cm">/**</span>
+<a id="__codelineno-33-5" name="__codelineno-33-5"></a><a href="#__codelineno-33-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="cm"> * SchemaString {</span>
+<a id="__codelineno-33-6" name="__codelineno-33-6"></a><a href="#__codelineno-33-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="cm"> *   enumValues: [],</span>
+<a id="__codelineno-33-7" name="__codelineno-33-7"></a><a href="#__codelineno-33-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="cm"> *   regExp: null,</span>
+<a id="__codelineno-33-8" name="__codelineno-33-8"></a><a href="#__codelineno-33-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="cm"> *   path: &#39;name&#39;,</span>
+<a id="__codelineno-33-9" name="__codelineno-33-9"></a><a href="#__codelineno-33-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="cm"> *   instance: &#39;String&#39;,</span>
+<a id="__codelineno-33-10" name="__codelineno-33-10"></a><a href="#__codelineno-33-10"><span class="linenos" data-linenos="10 "></span></a><span class="cm"> *   validators: ...</span>
+<a id="__codelineno-33-11" name="__codelineno-33-11"></a><a href="#__codelineno-33-11"><span class="linenos" data-linenos="11 "></span></a><span class="cm"> */</span>
+</code></pre></div>
+<p>You can use this function to inspect the schema type for a given path,
+including what validators it has and what the type is.</p>
+<h2 id="_6">阅读更多<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ul>
+  <li><a href="https://masteringjs.io/tutorials/mongoose/schematype">An Introduction to Mongoose SchemaTypes</a></li>
+  <li><a href="https://kb.objectrocket.com/mongo-db/mongoose-schema-types-1418">Mongoose Schema Types</a></li>
+</ul>
 
               
             </article>
@@ -1408,10 +1899,9 @@
         
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
       
         
         <a href="../api/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 模式API" rel="prev">
@@ -1448,61 +1938,60 @@
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            版权 &copy; 2022 -  wdk-docs.github.io
-          </div>
-        
-        
-          Made with
-          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-            Material for MkDocs
-          </a>
-        
-        
-      </div>
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      版权 &copy; 2022 -  wdk-docs.github.io
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
-  <div class="md-footer-social">
+        <div class="md-social">
+  
+    
     
       
       
-        
-        
-      
-      <a href="http://wdk-docs.github.io" target="_blank" rel="noopener" title="wdk-docs.github.io" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-      </a>
+    
+    <a href="http://wdk-docs.github.io" target="_blank" rel="noopener" title="wdk-docs.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
     
       
       
-        
-        
-      
-      <a href="https://github.com/wdk-docs" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
-      </a>
+    
+    <a href="https://github.com/wdk-docs" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
     
       
       
-        
-        
-      
-      <a href="https://twitter.com/wdk-docs" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
-      </a>
+    
+    <a href="https://twitter.com/wdk-docs" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
     
       
       
-        
-        
-      
-      <a href="https://linkedin.com/in/wdk-docs" target="_blank" rel="noopener" title="linkedin.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
-      </a>
     
-  </div>
-
+    <a href="https://linkedin.com/in/wdk-docs" target="_blank" rel="noopener" title="linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
     </div>
   </div>
 </footer>
@@ -1511,10 +2000,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.e99e714c.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate"], "search": "../../assets/javascripts/workers/search.5e67fbfe.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.bc35569b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e87a5f81.min.js"></script>
       
     
   </body>
