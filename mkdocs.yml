@@ -32,7 +32,7 @@ theme:
     logo: material/library
   # extra_css: [assets/stylesheets/extra.css]
   features:
-    - content.code.annotate 
+    - content.code.annotate
 
 extra:
   social:
@@ -65,8 +65,11 @@ markdown_extensions:
   - pymdownx.superfences
 
 nav:
-  - 前言: index.md
-  - 快速开始: QuickStart.md
+  - index.md
+  - 指南:
+      - guides.md
+      - connections.md
+      - tutorials/ssl.md
   - 连接:
       - 连接手册: connection/guide.md
       - 连接API: connection/api.md
